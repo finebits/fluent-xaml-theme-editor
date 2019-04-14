@@ -109,6 +109,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlPalette\CustomPaletteViewModel.cs" />
+    <Compile Include="ControlPalette\CustomPaletteView.xaml.cs">
+      <DependentUpon>CustomPaletteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OuterNav\INavItem.cs" />
     <Compile Include="ControlPalette\ColorMapping.cs" />
     <Compile Include="ControlPalette\Model\ControlPaletteExportProvider.cs" />
@@ -371,7 +375,7 @@
     <PRIResource Include="Resources\fr-fr\Resources.resw" />
     <PRIResource Include="Resources\it-it\Resources.resw" />
     <PRIResource Include="Resources\en-us\Resources.resw" />
-	<PRIResource Include="Resources\pl-pl\Resources.resw" />
+    <PRIResource Include="Resources\pl-pl\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
@@ -394,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ControlPalette\ExportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlPalette\CustomPaletteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

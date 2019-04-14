@@ -5,6 +5,12 @@
       "Id": "ControlPalette",
       "Title": "Demo tavolozza di controllo",
       "Glyph": ""
+    },
+    {
+      "Type": "CustomPalette",
+      "Id": "CustomPalette",
+      "Title": "Custom Palette",
+      "Glyph": ""
     }
   ],
   "DefaultDemoId": "ControlPalette"

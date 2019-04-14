@@ -39,6 +39,9 @@ namespace FluentEditor.OuterNav
                 case FluentEditor.ControlPalette.ControlPaletteViewModel controlPalette:
                     pageType = typeof(FluentEditor.ControlPalette.ControlPaletteView);
                     break;
+                case FluentEditor.ControlPalette.CustomPaletteViewModel homePage:
+                    pageType = typeof(FluentEditor.ControlPalette.CustomPaletteView);
+                    break;
             }
 
             if(pageType == null)
@@ -47,6 +50,11 @@ namespace FluentEditor.OuterNav
             }
 
             NavigationFrame.Navigate(pageType, viewModel);
+        }
+
+        private void OnItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            NavigateToViewModel(args.InvokedItem);
         }
     }
 }
