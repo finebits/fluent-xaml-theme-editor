@@ -42,9 +42,31 @@
             Style="{StaticResource AccentButtonStyle}" />
         <Button
             x:Uid="TestContentDisabledAccentButton"
-            Margin="0,0,0,28"
+            Margin="0,0,0,12"
             IsEnabled="False"
             Style="{StaticResource AccentButtonStyle}" />
+        <Button x:Uid="TestContentEnabledTextBlockButton"
+                Style="{StaticResource TextBlockButtonStyle}"
+                Margin="0,0,0,12" />
+        <Button x:Uid="TestContentDisabledTextBlockButton"
+                IsEnabled="False"
+                Style="{StaticResource TextBlockButtonStyle}"
+                Margin="0,0,0,12" />
+        <Button x:Uid="TestContentEnabledRevealButton"
+                Style="{StaticResource ButtonRevealStyle}"
+                Margin="0,0,0,12" />
+        <Button x:Uid="TestContentDisabledRevealButton"
+                IsEnabled="False"
+                Style="{StaticResource ButtonRevealStyle}"
+                Margin="0,0,0,28" />
+        <TextBlock x:Uid="TestContentHyperlinksBlock"
+                   Margin="0,0,0,16"
+                   Style="{StaticResource BaseTextBlockStyle}" />
+        <HyperlinkButton x:Uid="TestHyperlinkButton"
+                         Margin="0,0,0,12"/>
+        <HyperlinkButton x:Uid="TestDisabledHyperlinkButton"
+                         IsEnabled="False"
+                         Margin="0,0,0,28"/>
         <TextBlock
             x:Uid="TestContentCheckboxBlock"
             Margin="0,0,0,16"
@@ -150,9 +172,66 @@
             x:Uid="TestContentCommandBarBlock"
             Margin="0,0,0,16"
             Style="{StaticResource BaseTextBlockStyle}" />
-        <CommandBar Margin="0,0,0,28" HorizontalAlignment="Stretch">
-            <AppBarButton x:Uid="TestContentAppBarButton" />
+        <CommandBar Margin="0,0,0,28" HorizontalAlignment="Stretch"
+                    DefaultLabelPosition="Right">
+            <AppBarButton x:Uid="TestContentAppBarButton"
+                          Icon="Add"/>
+            <AppBarButton x:Uid="TestContentDisableAppBarButton"
+                          Icon="OpenFile"
+                          IsEnabled="False"/>
+            <AppBarSeparator />
+            <AppBarToggleButton x:Uid="TestContentAppBarToggleButton"
+                                Icon="Favorite"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="TestContentAppBarButton"
+                              Icon="Add" />
+                <AppBarButton x:Uid="TestContentDisableAppBarButton"
+                              Icon="OpenFile"
+                              IsEnabled="False" />
+                <AppBarSeparator />
+                <AppBarToggleButton x:Uid="TestContentAppBarToggleButton"
+                                    Icon="Favorite"/>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
+        <TextBlock x:Uid="TestContentFlyoutBlock"
+                   Margin="0,0,0,16"
+                   Style="{StaticResource BaseTextBlockStyle}" />
+
+        <Button Content="Edit Options"
+                Margin="0,0,0,28">
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Share">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE72D;" />
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="S"
+                                                 Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Copy">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="C"
+                                                 Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Delete">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="Delete" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Rename" IsEnabled="False"/>
+                    <MenuFlyoutItem Text="Select" />
+                    <MenuFlyoutSubItem Text="SubItems">
+                        <MenuFlyoutItem Text="Rename"/>
+                        <MenuFlyoutItem Text="Select" />
+                    </MenuFlyoutSubItem>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+
         <TextBlock
             x:Uid="TestContentCalendarViewBlock"
             Margin="0,0,0,16"

@@ -7,6 +7,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:outernav="using:FluentEditor.OuterNav"
       Background="{ThemeResource AppBackgroundBrush}"
       mc:Ignorable="d">
 
@@ -17,12 +18,12 @@
                         IsBackButtonVisible="Collapsed"
                         IsSettingsVisible="False">
             <NavigationView.MenuItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="outernav:INavItem">
                     <StackPanel Orientation="Horizontal">
-                        <FontIcon Glyph="{Binding Glyph}"
+                        <FontIcon Glyph="{x:Bind Glyph}"
                                   HorizontalAlignment="Center"
                                   Margin="4" />
-                        <TextBlock Text="{Binding Title}"
+                        <TextBlock Text="{x:Bind Title}"
                                    HorizontalAlignment="Center"
                                    Margin="4"/>
                     </StackPanel>

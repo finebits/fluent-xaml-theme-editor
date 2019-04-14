@@ -23,5 +23,24 @@ namespace FluentEditor.ControlPalette
         {
             this.InitializeComponent();
         }
+
+        #region ViewModelProperty
+
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(ControlPaletteViewModel), typeof(ControlPaletteView), new PropertyMetadata(null));
+
+        public ControlPaletteViewModel ViewModel
+        {
+            get { return GetValue(ViewModelProperty) as ControlPaletteViewModel; }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        #endregion
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            ViewModel = e.Parameter as ControlPaletteViewModel;
+        }
     }
 }

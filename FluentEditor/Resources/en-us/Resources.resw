@@ -207,6 +207,12 @@
   <data name="TestContentAppBarButton.Content" xml:space="preserve">
     <value>Yolo</value>
   </data>
+  <data name="TestContentAppBarButton.Label" xml:space="preserve">
+    <value>Yolo</value>
+  </data>
+  <data name="TestContentAppBarToggleButton.Label" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
   <data name="TestContentButtonsBlock.Text" xml:space="preserve">
     <value>Buttons</value>
   </data>
@@ -240,6 +246,9 @@
   <data name="TestContentDatePickerBlock.Text" xml:space="preserve">
     <value>Date picker</value>
   </data>
+  <data name="TestContentDisableAppBarButton.Label" xml:space="preserve">
+    <value>Disable</value>
+  </data>
   <data name="TestContentDisabledAccentButton.Content" xml:space="preserve">
     <value>Disabled accent button</value>
   </data>
@@ -251,6 +260,12 @@
   </data>
   <data name="TestContentDisabledRadio.Content" xml:space="preserve">
     <value>Disabled</value>
+  </data>
+  <data name="TestContentDisabledRevealButton.Content" xml:space="preserve">
+    <value>Disabled reveal button</value>
+  </data>
+  <data name="TestContentDisabledTextBlockButton.Content" xml:space="preserve">
+    <value>Disabled text button</value>
   </data>
   <data name="TestContentEditableComboItem1.Content" xml:space="preserve">
     <value>Editable item 1</value>
@@ -266,6 +281,18 @@
   </data>
   <data name="TestContentEnabledButton.Content" xml:space="preserve">
     <value>Enabled button</value>
+  </data>
+  <data name="TestContentEnabledRevealButton.Content" xml:space="preserve">
+    <value>Enabled reveal button</value>
+  </data>
+  <data name="TestContentEnabledTextBlockButton.Content" xml:space="preserve">
+    <value>Enabled text button</value>
+  </data>
+  <data name="TestContentFlyoutBlock.Text" xml:space="preserve">
+    <value>Flyout menu</value>
+  </data>
+  <data name="TestContentHyperlinksBlock.Text" xml:space="preserve">
+    <value>Hyperlinks</value>
   </data>
   <data name="TestContentListviewBlock.Text" xml:space="preserve">
     <value>List view</value>
@@ -314,5 +341,11 @@
   </data>
   <data name="TestContentUncheckedRadio.Content" xml:space="preserve">
     <value>Unchecked</value>
+  </data>
+  <data name="TestDisabledHyperlinkButton.Content" xml:space="preserve">
+    <value>Disabled Hyperlink control</value>
+  </data>
+  <data name="TestHyperlinkButton.Content" xml:space="preserve">
+    <value>Hyperlink control</value>
   </data>
 </root>
