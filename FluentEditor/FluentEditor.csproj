@@ -109,10 +109,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ControlPalette\CustomPaletteViewModel.cs" />
-    <Compile Include="ControlPalette\CustomPaletteView.xaml.cs">
+    <Compile Include="ControlPalette\CustomView\ColorTestContent.xaml.cs">
+      <DependentUpon>ColorTestContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPalette\CustomView\Common\BindableBase.cs" />
+    <Compile Include="ControlPalette\CustomView\Common\Theme.cs" />
+    <Compile Include="ControlPalette\CustomView\Common\ThemePaletteEntry.cs" />
+    <Compile Include="ControlPalette\CustomView\CustomPaletteViewModel.cs" />
+    <Compile Include="ControlPalette\CustomView\CustomPaletteView.xaml.cs">
       <DependentUpon>CustomPaletteView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlPalette\CustomView\Common\ThemeManager.cs" />
     <Compile Include="OuterNav\INavItem.cs" />
     <Compile Include="ControlPalette\ColorMapping.cs" />
     <Compile Include="ControlPalette\Model\ControlPaletteExportProvider.cs" />
@@ -347,6 +354,8 @@
     <Content Include="Assets\contrast-white\ColorAlgorithmToolWide310x150Logo.scale-150_contrast-white.png" />
     <Content Include="Assets\contrast-white\ColorAlgorithmToolWide310x150Logo.scale-200_contrast-white.png" />
     <Content Include="Assets\contrast-white\ColorAlgorithmToolWide310x150Logo.scale-400_contrast-white.png" />
+    <Content Include="Assets\imgs\img1.jpg" />
+    <Content Include="Assets\imgs\img0.jpg" />
     <Content Include="Assets\Square150x150Logo.scale-100.png" />
     <Content Include="Assets\Square150x150Logo.scale-125.png" />
     <Content Include="Assets\Square150x150Logo.scale-150.png" />
@@ -385,6 +394,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ControlPalette\CustomView\ColorTestContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ControlPalette\ControlPaletteResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -401,7 +414,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ControlPalette\CustomPaletteView.xaml">
+    <Page Include="ControlPalette\CustomView\CustomPaletteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlPalette\CustomView\ThemeManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

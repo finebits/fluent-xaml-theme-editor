@@ -1,0 +1,439 @@
+﻿<Page x:Class="FluentEditor.ControlPalette.CustomView.CustomPaletteView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:FluentEditor.ControlPalette.CustomView"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:color="using:FluentEditorShared.ColorPalette"
+      xmlns:common="using:FluentEditor.ControlPalette.CustomView.Common"
+      xmlns:utils="using:FluentEditorShared.Utils"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="0"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      HorizontalScrollBarVisibility="Disabled"
+                      HorizontalScrollMode="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      VerticalScrollMode="Auto">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        RequestedTheme="Light">
+                    <local:ColorTestContent Title="Light Theme" />
+                </Border>
+
+                <Border Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        RequestedTheme="Dark">
+                    <local:ColorTestContent Title="Dark Theme" />
+                </Border>
+
+            </Grid>
+
+        </ScrollViewer>
+
+        <Grid x:Name="PropertyInspectorArea"
+              Grid.Column="1"
+              MinWidth="300"
+              Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0"
+                    Height="40"
+                    Margin="12,20,0,20"
+                    HorizontalAlignment="Stretch">
+                <TextBlock x:Uid="ControlPaletteInspectorHeader"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           LineHeight="20"
+                           Style="{StaticResource SubtitleTextBlockStyle}" />
+            </Border>
+            <ScrollViewer Grid.Row="1"
+                          Margin="10,0,0,0"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          HorizontalScrollBarVisibility="Disabled"
+                          HorizontalScrollMode="Disabled"
+                          VerticalScrollBarVisibility="Auto"
+                          VerticalScrollMode="Auto">
+                <StackPanel Margin="2,0,12,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Orientation="Vertical">
+                    <ComboBox x:Uid="ControlPalettePresetCombo"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Top"
+                              DisplayMemberPath="Name" />
+                    <Grid Margin="0,28,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button x:Uid="ControlPaletteLoadButton"
+                                Grid.Column="0"
+                                Margin="0,0,6,0"
+                                HorizontalAlignment="Stretch"
+                                Click="{x:Bind Path=ViewModel.OnLoadDataRequested, Mode=OneWay}" />
+                        <Button x:Uid="ControlPaletteSaveButton"
+                                Grid.Column="1"
+                                Margin="6,0,0,0"
+                                HorizontalAlignment="Stretch"
+                                Click="{x:Bind Path=ViewModel.OnSaveDataRequested, Mode=OneWay}" />
+                    </Grid>
+
+                    <Grid Margin="0,32,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Backgrounds"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   FontWeight="SemiBold"
+                                   LineHeight="20"
+                                   Style="{StaticResource BodyTextBlockStyle}" />
+                        <ToggleButton x:Name="BackgroundsExpanderButton"
+                                      Grid.Column="1"
+                                      IsChecked="True"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Top"
+                                      Style="{StaticResource ExpanderButtonStyle}">
+                            <FontIcon FontSize="14"
+                                      Glyph="&#xE70D;" />
+                        </ToggleButton>
+                    </Grid>
+
+                    <Grid Margin="0,8,0,32"
+                          Visibility="{x:Bind BackgroundsExpanderButton.IsChecked.Value, Mode=OneWay}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="0,0,8,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Margin="8,0,0,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <color:ColorPaletteEntryEditor Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.AppBackground, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Light Background"
+                                                          Description="ThemeResource Key 'AppBackground'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Margin="6,0,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.AppBackground, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Dark Background"
+                                                          Description="ThemeResource Key 'AppBackground'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+
+                        <color:ColorPaletteEntryEditor Grid.Row="2"
+                                                       Grid.Column="0"
+                                                       Margin="0,6,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.ItemBackground0, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Light Background"
+                                                          Description="ThemeResource Key 'ItemBackground0'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="2"
+                                                       Grid.Column="1"
+                                                       Margin="6,6,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.ItemBackground0, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Dark Background"
+                                                          Description="ThemeResource Key 'ItemBackground0'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+
+                        <color:ColorPaletteEntryEditor Grid.Row="3"
+                                                       Grid.Column="0"
+                                                       Margin="0,6,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.ItemBackground1, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Light Background"
+                                                          Description="ThemeResource Key 'ItemBackground1'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="3"
+                                                       Grid.Column="1"
+                                                       Margin="6,6,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.ItemBackground1, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Dark Background"
+                                                          Description="ThemeResource Key 'ItemBackground1'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="4"
+                                                       Grid.Column="0"
+                                                       Margin="0,6,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.AcrylicBackgroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Light Background"
+                                                          Description="ThemeResource Key 'AppAcrylicBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="4"
+                                                       Grid.Column="1"
+                                                       Margin="6,6,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.AcrylicBackgroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          Title="Dark Background"
+                                                          Description="ThemeResource Key 'AppAcrylicBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+
+                        <Slider Grid.Row="5"
+                                Grid.Column="0"
+                                Margin="0,6,6,6"
+                                Value="{Binding LightTheme.AcrylicBackgroundOpacity, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                Orientation="Horizontal"
+                                StepFrequency="0.05"
+                                Minimum="0"
+                                Maximum="1"/>
+
+                        <Slider Grid.Row="5"
+                                Grid.Column="1"
+                                Margin="6,6,0,6"
+                                Value="{Binding DarkTheme.AcrylicBackgroundOpacity, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                Orientation="Horizontal"
+                                StepFrequency="0.05"
+                                Minimum="0"
+                                Maximum="1" />
+
+                        <!--<color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,6,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.ColorPalette, Mode=OneWay}"
+                                                  IsExpanded="True" />
+                        <color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="6,0,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.ColorPalette2, Mode=OneWay}"
+                                                  IsExpanded="True" />-->
+
+                    </Grid>
+
+                    <!--<Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPaletteBaseBlock"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   FontWeight="SemiBold"
+                                   LineHeight="20"
+                                   Style="{StaticResource BodyTextBlockStyle}" />
+                        <ToggleButton x:Name="BaseExpanderButton"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Top"
+                                      Style="{StaticResource ExpanderButtonStyle}">
+                            <FontIcon FontSize="14"
+                                      Glyph="&#xE70D;" />
+                        </ToggleButton>
+                    </Grid>
+                    <Grid Margin="0,8,0,32">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="0,0,8,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Margin="8,0,0,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,6,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.LightBase, Mode=OneWay}"
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                        <color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="6,0,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.DarkBase, Mode=OneWay}"
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                    </Grid>
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPalettePrimaryBlock"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   FontWeight="SemiBold"
+                                   LineHeight="20"
+                                   Style="{StaticResource BodyTextBlockStyle}" />
+                        <ToggleButton x:Name="PrimaryExpanderButton"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Top"
+                                      Style="{StaticResource ExpanderButtonStyle}">
+                            <FontIcon FontSize="14"
+                                      Glyph="&#xE70D;" />
+                        </ToggleButton>
+                    </Grid>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="0,0,8,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Margin="8,0,0,12"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   LineHeight="16"
+                                   Style="{StaticResource CaptionTextBlockStyle}" />
+                        <color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,6,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.LightPrimary, Mode=OneWay}"
+                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                        <color:ColorPaletteEditor Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="6,0,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  ColorPalette="{x:Bind Path=ViewModel.DarkPrimary, Mode=OneWay}"
+                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                    </Grid>-->
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Row="2"
+                  Margin="12,12,12,12"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Bottom">
+                <Button x:Uid="ControlPaletteExportButton"
+                        Grid.Column="0"
+                        Margin="0,0,6,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Bottom"
+                        Click="{x:Bind Path=ViewModel.OnExportRequested, Mode=OneWay}"
+                        Style="{StaticResource AccentButtonStyle}" />
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

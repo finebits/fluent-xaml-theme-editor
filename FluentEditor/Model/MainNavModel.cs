@@ -73,7 +73,7 @@ namespace FluentEditor.Model
                 case "ControlPalette":
                     return ControlPalette.ControlPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
                 case "CustomPalette":
-                    return ControlPalette.CustomPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
+                    return ControlPalette.CustomView.CustomPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
                 default:
                     throw new Exception(string.Format("Unknown nav item type {0}", type));
             }

@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:common="using:FluentEditor.ControlPalette.CustomView.Common">
+
+    <common:ThemeManager x:Key="ThemeManager">
+        <common:ThemeManager.DarkTheme>
+            <common:Theme AppBackground="Black"
+                          ItemBackground0="DarkGray"
+                          ItemBackground1="LightGray"
+                          AcrylicBackgroundOpacity="0.7"
+                          AcrylicBackgroundColor="Gray"/>
+        </common:ThemeManager.DarkTheme>
+        <common:ThemeManager.LightTheme>
+            <common:Theme AppBackground="White"
+                          ItemBackground0="NavajoWhite"
+                          ItemBackground1="FloralWhite"
+                          AcrylicBackgroundOpacity="0.7"
+                          AcrylicBackgroundColor="AntiqueWhite"/>
+        </common:ThemeManager.LightTheme>
+    </common:ThemeManager>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="AppBackground"
+                                     Color="{Binding DarkTheme.AppBackground, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{Binding DarkTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{Binding DarkTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
+                    <AcrylicBrush x:Key="AppAcrylicBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintOpacity="{Binding DarkTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
+                                  TintColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
+                                  FallbackColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="AppBackground"
+                                     Color="{Binding LightTheme.AppBackground, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{Binding LightTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{Binding LightTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
+                    <AcrylicBrush x:Key="AppAcrylicBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintOpacity="{Binding LightTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
+                                  TintColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
+                                  FallbackColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>
