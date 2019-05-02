@@ -120,6 +120,8 @@
       <DependentUpon>CustomPaletteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ControlPalette\CustomView\Common\ThemeManager.cs" />
+    <Compile Include="ControlPalette\Model\Custom\CustomPaletteModel.cs" />
+    <Compile Include="ControlPalette\Model\Custom\CustomPreset.cs" />
     <Compile Include="OuterNav\INavItem.cs" />
     <Compile Include="ControlPalette\ColorMapping.cs" />
     <Compile Include="ControlPalette\Model\ControlPaletteExportProvider.cs" />
@@ -369,6 +371,7 @@
     <Content Include="Resources\zh-cn\demodata.json" />
     <Content Include="Resources\pt-pt\controlPaletteData.json" />
     <Content Include="Resources\pt-pt\demodata.json" />
+    <Content Include="Resources\en-us\customPaletteData.json" />
     <PRIResource Include="Resources\zh-cn\Resources.resw" />
     <PRIResource Include="Resources\nl-nl\Resources.resw" />
     <PRIResource Include="Resources\es-es\Resources.resw" />
@@ -409,6 +412,14 @@
     <Page Include="ControlPalette\ControlPaletteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlPalette\CustomView\TextBlockButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlPalette\CustomView\ThemeDictionaries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ControlPalette\ExportView.xaml">
       <SubType>Designer</SubType>

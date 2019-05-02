@@ -186,6 +186,9 @@
   <data name="ControlPaletteSaveErrorTitle" xml:space="preserve">
     <value>Unable to save</value>
   </data>
+  <data name="CustomPaletteDataPath" xml:space="preserve">
+    <value>ms-appx:///Resources/en-us/customPaletteData.json</value>
+  </data>
   <data name="DarkThemeTextContrastTitle" xml:space="preserve">
     <value>White Text</value>
   </data>

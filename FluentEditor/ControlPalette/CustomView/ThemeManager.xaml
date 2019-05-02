@@ -5,55 +5,62 @@
     <common:ThemeManager x:Key="ThemeManager">
         <common:ThemeManager.DarkTheme>
             <common:Theme AppBackground="Black"
-                          ItemBackground0="DarkGray"
-                          ItemBackground1="LightGray"
+                          ItemBackground0="#FF424242"
+                          ItemBackground1="#FF666666"
                           AcrylicBackgroundOpacity="0.7"
-                          AcrylicBackgroundColor="Gray"/>
+                          AcrylicBackgroundColor="#FF707070"
+                          TextColor="#FFF8F8F8"
+                          ActiveTextColor="White"
+                          SubTextColor="#FFF0F0F0"
+                          SubSubTextColor="#FFE8E8E8"
+                          AccentColor="Goldenrod"
+                          ActiveAccentColor="#FFFAD280"
+
+                          HyperlinkButtonForegroundColor="Blue"
+                          HyperlinkButtonActiveForegroundColor="LightBlue"
+                          HyperlinkButtonDisableForegroundColor="Gray"
+
+                          TextButtonForegroundColor="#FFE8E8E8"
+                          TextButtonActiveForegroundColor="White"
+                          TextButtonDisableForegroundColor="#FF999999" 
+                          
+                          ControlBackgroundColor="Gray"
+                          ControlActiveBackgroundColor="LightGray"
+                          ControlDisableBackgroundColor="DarkGray"
+                          
+                          ControlForegroundColor="#FFF8F8F8"
+                          ControlActiveForegroundColor="White"
+                          ControlDisableForegroundColor="#FFE8E8E8"/>
+
         </common:ThemeManager.DarkTheme>
         <common:ThemeManager.LightTheme>
             <common:Theme AppBackground="White"
-                          ItemBackground0="NavajoWhite"
-                          ItemBackground1="FloralWhite"
+                          ItemBackground0="FloralWhite"
+                          ItemBackground1="AntiqueWhite"
                           AcrylicBackgroundOpacity="0.7"
-                          AcrylicBackgroundColor="AntiqueWhite"/>
+                          AcrylicBackgroundColor="AntiqueWhite"
+                          TextColor="#FF444444"
+                          ActiveTextColor="Black"
+                          SubTextColor="#FF666666"
+                          SubSubTextColor="#FF999999"
+                          AccentColor="Green"
+                          ActiveAccentColor="LightGreen"
+
+                          HyperlinkButtonForegroundColor="Blue"
+                          HyperlinkButtonActiveForegroundColor="LightBlue"
+                          HyperlinkButtonDisableForegroundColor="Gray"
+
+                          TextButtonForegroundColor="#FF666666"
+                          TextButtonActiveForegroundColor="Black"
+                          TextButtonDisableForegroundColor="#FF999999"
+                          
+                          ControlBackgroundColor="Gray"
+                          ControlActiveBackgroundColor="LightGray"
+                          ControlDisableBackgroundColor="DarkGray"
+                          
+                          ControlForegroundColor="#FF444444"
+                          ControlActiveForegroundColor="Black"
+                          ControlDisableForegroundColor="#FF999999" />
         </common:ThemeManager.LightTheme>
     </common:ThemeManager>
-
-    <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Default">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <SolidColorBrush x:Key="AppBackground"
-                                     Color="{Binding DarkTheme.AppBackground, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground0"
-                                     Color="{Binding DarkTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground1"
-                                     Color="{Binding DarkTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
-                    <AcrylicBrush x:Key="AppAcrylicBrush"
-                                  BackgroundSource="Backdrop"
-                                  TintOpacity="{Binding DarkTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
-                                  TintColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
-                                  FallbackColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="Light">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <SolidColorBrush x:Key="AppBackground"
-                                     Color="{Binding LightTheme.AppBackground, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground0"
-                                     Color="{Binding LightTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground1"
-                                     Color="{Binding LightTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
-                    <AcrylicBrush x:Key="AppAcrylicBrush"
-                                  BackgroundSource="Backdrop"
-                                  TintOpacity="{Binding LightTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
-                                  TintColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
-                                  FallbackColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
-
 </ResourceDictionary>

@@ -7,6 +7,57 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400">
+
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ControlPalette/CustomView/TextBlockButtonStyle.xaml" />
+                <ResourceDictionary Source="ms-appx:///ControlPalette/CustomView/ThemeDictionaries.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="TextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource TextColorBrush}" />
+            </Style>
+
+            <Style x:Key="SubTextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource SubTextColorBrush}" />
+            </Style>
+
+            <Style x:Key="SubSubTextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource SubSubTextColorBrush}" />
+            </Style>
+
+            <Style x:Key="ActiveTextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource ActiveTextColorBrush}" />
+            </Style>
+
+            <Style x:Key="AccentTextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource AccentColorBrush}" />
+            </Style>
+
+            <Style x:Key="ActiveAccentTextBlockStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource ActiveAccentColorBrush}" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
     <Grid Background="{ThemeResource AppBackground}">
         <StackPanel Margin="24,20,24,20"
                     Orientation="Vertical">
@@ -24,54 +75,314 @@
                        Style="{StaticResource BaseTextBlockStyle}" />
 
             <Grid Margin="0,0,0,28"
-                  Height="200">
+                  Height="400">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Border Background="{ThemeResource ItemBackground0}"
+                <Border Background="{ThemeResource AppBackground}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.Column="0"
                         Grid.RowSpan="2">
-                    <TextBlock Text="ItemBackground0"
-                               Margin="0,80,0,0"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                    <StackPanel Margin="0,100,0,0"
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical">
+                        <TextBlock Text="AppBackground"
+                                   Margin="12"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="Text"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="SubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubTextBlockStyle}" />
+                        <TextBlock Text="SubSubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubSubTextBlockStyle}" />
+                        <TextBlock Text="ActiveText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveTextBlockStyle}" />
+                        <TextBlock Text="Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource AccentTextBlockStyle}" />
+                        <TextBlock Text="Active Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
+
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="4">
+                            <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource AccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Accents"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource TextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                            <Border Background="{ThemeResource AccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Active"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+
+                <Border Background="{ThemeResource ItemBackground0}"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="1"
+                        Grid.RowSpan="2">
+                    <StackPanel Margin="0,100,0,0"
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical">
+                        <TextBlock Text="ItemBackground0"
+                                   Margin="12"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="Text"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="SubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubTextBlockStyle}" />
+                        <TextBlock Text="SubSubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubSubTextBlockStyle}" />
+                        <TextBlock Text="ActiveText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveTextBlockStyle}" />
+                        <TextBlock Text="Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource AccentTextBlockStyle}" />
+                        <TextBlock Text="Active Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
+
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="4">
+                            <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource AccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Accents"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource TextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                            <Border Background="{ThemeResource AccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Active"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                        </StackPanel>
+                    </StackPanel>
                 </Border>
 
                 <Border Background="{ThemeResource ItemBackground1}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Grid.RowSpan="2">
-                    <TextBlock Text="ItemBackground1"
-                               Margin="0,80,0,0"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                </Border>
+                    <StackPanel Margin="0,100,0,0"
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical">
+                        <TextBlock Text="ItemBackground1"
+                                   Margin="12"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="Text"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="SubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubTextBlockStyle}" />
+                        <TextBlock Text="SubSubText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource SubSubTextBlockStyle}" />
+                        <TextBlock Text="ActiveText"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveTextBlockStyle}" />
+                        <TextBlock Text="Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource AccentTextBlockStyle}" />
+                        <TextBlock Text="Active Accent"
+                                   Margin="4"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
 
-                <Image Source="ms-appx:///Assets/imgs/img1.jpg"
-                       Stretch="UniformToFill"
-                       VerticalAlignment="Stretch"
-                       HorizontalAlignment="Stretch"
-                       Grid.Column="2"
-                       Grid.RowSpan="2"/>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="4">
+                            <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource AccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Accents"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource TextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                            <Border Background="{ThemeResource AccentColorBrush}"
+                                    Height="60"
+                                    Width="100"
+                                    Margin="4">
+                                <Border Background="{ThemeResource ActiveAccentColorBrush}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="56"
+                                        Width="96">
+                                    <TextBlock Text="Active"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                </Border>
+                            </Border>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
 
                 <Border Background="{ThemeResource AppAcrylicBrush}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.ColumnSpan="3"
                         Grid.Row="0">
-                    <TextBlock Text="AcrylicBackground"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" />
+                    <StackPanel Margin="0,0,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Vertical">
+                        <TextBlock Text="AppAcrylicBrush"
+                                   Margin="12"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource TextBlockStyle}" />
+                        <StackPanel Margin="0,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                            <TextBlock Text="Text"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource TextBlockStyle}" />
+                            <TextBlock Text="SubText"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource SubTextBlockStyle}" />
+                            <TextBlock Text="SubSubText"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource SubSubTextBlockStyle}" />
+                            <TextBlock Text="ActiveText"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource ActiveTextBlockStyle}" />
+                            <TextBlock Text="Accent"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource AccentTextBlockStyle}" />
+                            <TextBlock Text="Active Accent"
+                                       Margin="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource ActiveAccentTextBlockStyle}" />
+                        </StackPanel>
+                    </StackPanel>
                 </Border>
 
             </Grid>
@@ -96,6 +407,7 @@
                     Margin="0,0,0,12"
                     IsEnabled="False"
                     Style="{StaticResource AccentButtonStyle}" />
+
             <Button x:Uid="TestContentEnabledTextBlockButton"
                     Style="{StaticResource TextBlockButtonStyle}"
                     Margin="0,0,0,12" />
@@ -103,6 +415,7 @@
                     IsEnabled="False"
                     Style="{StaticResource TextBlockButtonStyle}"
                     Margin="0,0,0,12" />
+
             <Button x:Uid="TestContentEnabledRevealButton"
                     Style="{StaticResource ButtonRevealStyle}"
                     Margin="0,0,0,12" />
@@ -110,14 +423,17 @@
                     IsEnabled="False"
                     Style="{StaticResource ButtonRevealStyle}"
                     Margin="0,0,0,28" />
+
             <TextBlock x:Uid="TestContentHyperlinksBlock"
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />
+
             <HyperlinkButton x:Uid="TestHyperlinkButton"
                              Margin="0,0,0,12" />
             <HyperlinkButton x:Uid="TestDisabledHyperlinkButton"
                              IsEnabled="False"
                              Margin="0,0,0,28" />
+
             <TextBlock x:Uid="TestContentCheckboxBlock"
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />
@@ -152,6 +468,16 @@
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />
             <ComboBox Width="200"
+                      Margin="0,0,0,12">
+                <ComboBox.Items>
+                    <ComboBoxItem x:Uid="TestContentComboItem1"
+                                  IsSelected="True" />
+                    <ComboBoxItem x:Uid="TestContentComboItem2" />
+                    <ComboBoxItem x:Uid="TestContentComboItem3" />
+                </ComboBox.Items>
+            </ComboBox>
+            <ComboBox Width="200"
+                      IsEnabled="False"
                       Margin="0,0,0,12">
                 <ComboBox.Items>
                     <ComboBoxItem x:Uid="TestContentComboItem1"

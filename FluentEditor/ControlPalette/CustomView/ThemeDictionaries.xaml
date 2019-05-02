@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="AppBackground"
+                                     Color="{Binding DarkTheme.AppBackground, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{Binding DarkTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{Binding DarkTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
+                    <AcrylicBrush x:Key="AppAcrylicBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintOpacity="{Binding DarkTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
+                                  TintColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
+                                  FallbackColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{Binding DarkTheme.TextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubTextColorBrush"
+                                     Color="{Binding DarkTheme.SubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubSubTextColorBrush"
+                                     Color="{Binding DarkTheme.SubSubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{Binding DarkTheme.ActiveTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
+                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
+                                     Color="{Binding DarkTheme.HyperlinkButtonForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
+                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
+                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
+                                     Color="{Binding DarkTheme.HyperlinkButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="TextBlockButtonForeground"
+                                     Color="{Binding DarkTheme.TextButtonForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundPressed"
+                                     Color="{Binding DarkTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundPointerOver"
+                                     Color="{Binding DarkTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundDisabled"
+                                     Color="{Binding DarkTheme.TextButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="ControlForeground"
+                                     Color="{Binding DarkTheme.ControlForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlDisableForeground"
+                                     Color="{Binding DarkTheme.ControlDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlActiveForeground"
+                                     Color="{Binding DarkTheme.ControlActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="ControlBackground"
+                                     Color="{Binding DarkTheme.ControlBackgroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlDisableBackground"
+                                     Color="{Binding DarkTheme.ControlDisableBackgroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlActiveBackground"
+                                     Color="{Binding DarkTheme.ControlActiveBackgroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <StaticResource x:Key="ToggleButtonBackground"
+                                    ResourceKey="ControlBackground" />
+                    <StaticResource x:Key="ToggleButtonForeground"
+                                    ResourceKey="ControlForeground" />
+                    
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundChecked"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="AccentButtonBackground"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentButtonBackgroundPressed"
+                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="ToggleSwitchFillOn"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="RadioButtonOuterEllipseCheckedStroke"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ToggleSwitchFillOnPressed"
+                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="AppBackground"
+                                     Color="{Binding LightTheme.AppBackground, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{Binding LightTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{Binding LightTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
+                    <AcrylicBrush x:Key="AppAcrylicBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintOpacity="{Binding LightTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
+                                  TintColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
+                                  FallbackColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{Binding LightTheme.TextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubTextColorBrush"
+                                     Color="{Binding LightTheme.SubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubSubTextColorBrush"
+                                     Color="{Binding LightTheme.SubSubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{Binding LightTheme.ActiveTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
+                                     Color="{Binding LightTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
+                                     Color="{Binding LightTheme.HyperlinkButtonForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
+                                     Color="{Binding LightTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
+                                     Color="{Binding LightTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
+                                     Color="{Binding LightTheme.HyperlinkButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="TextBlockButtonForeground"
+                                     Color="{Binding LightTheme.TextButtonForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundPressed"
+                                     Color="{Binding LightTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundPointerOver"
+                                     Color="{Binding LightTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="TextBlockButtonForegroundDisabled"
+                                     Color="{Binding LightTheme.TextButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="ControlForeground"
+                                     Color="{Binding LightTheme.ControlForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlDisableForeground"
+                                     Color="{Binding LightTheme.ControlDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlActiveForeground"
+                                     Color="{Binding LightTheme.ControlActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="ControlBackground"
+                                     Color="{Binding LightTheme.ControlBackgroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlDisableBackground"
+                                     Color="{Binding LightTheme.ControlDisableBackgroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ControlActiveBackground"
+                                     Color="{Binding LightTheme.ControlActiveBackgroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <StaticResource x:Key="ToggleButtonBackground"
+                                    ResourceKey="ControlBackground" />
+                    <StaticResource x:Key="ToggleButtonForeground"
+                                    ResourceKey="ControlForeground" />
+                    
+
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundChecked"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="AccentButtonBackground"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                    
+                    <SolidColorBrush x:Key="ToggleSwitchFillOn"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="RadioButtonOuterEllipseCheckedStroke"
+                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ToggleSwitchFillOnPressed"
+                                     Color="{Binding LightTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>

@@ -11,6 +11,7 @@ using Windows.Storage;
 using FluentEditorShared.Utils;
 using FluentEditor.ControlPalette.Model;
 using FluentEditorShared;
+using FluentEditor.ControlPalette.Model.Custom;
 
 namespace FluentEditor.Model
 {
@@ -45,7 +46,7 @@ namespace FluentEditor.Model
                 JsonArray demoDataList = rootObject["Demos"].GetArray();
                 foreach (var demoData in demoDataList)
                 {
-                    navItems.Add(ParseNavItem(demoData.GetObject(), paletteModel, controlPaletteExportProvider));
+                    navItems.Add(await ParseNavItem(demoData.GetObject(), paletteModel, controlPaletteExportProvider));
                 }
             }
 
@@ -64,7 +65,7 @@ namespace FluentEditor.Model
             return Task.CompletedTask;
         }
 
-        private INavItem ParseNavItem(JsonObject data, IControlPaletteModel paletteModel, ControlPaletteExportProvider controlPaletteExportProvider)
+        private async Task<INavItem> ParseNavItem(JsonObject data, IControlPaletteModel paletteModel, ControlPaletteExportProvider controlPaletteExportProvider)
         {
             string type = data.GetOptionalString("Type");
 
@@ -73,7 +74,11 @@ namespace FluentEditor.Model
                 case "ControlPalette":
                     return ControlPalette.ControlPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
                 case "CustomPalette":
-                    return ControlPalette.CustomView.CustomPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
+                    var stringProvider = new StringProvider(Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse());
+                    var customPaletteModel = new CustomPaletteModel();
+                    await customPaletteModel.InitializeData(stringProvider, stringProvider.GetString("CustomPaletteDataPath"));
+
+                    return ControlPalette.CustomView.CustomPaletteViewModel.Parse(_stringProvider, data, customPaletteModel);
                 default:
                     throw new Exception(string.Format("Unknown nav item type {0}", type));
             }

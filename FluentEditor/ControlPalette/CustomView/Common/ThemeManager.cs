@@ -9,7 +9,7 @@ using Windows.UI;
 
 namespace FluentEditor.ControlPalette.CustomView.Common
 {
-    class ThemeManager : BindableBase
+    public class ThemeManager : BindableBase
     {
         private Common.Theme _darkTheme;
 

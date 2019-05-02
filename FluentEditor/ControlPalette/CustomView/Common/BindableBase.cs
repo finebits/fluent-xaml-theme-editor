@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace FluentEditor.ControlPalette.CustomView.Common
 {
-    class BindableBase : INotifyPropertyChanged
+    public class BindableBase : INotifyPropertyChanged
     {
         #region INotifyPropertyChanged
 
