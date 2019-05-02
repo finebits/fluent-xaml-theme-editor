@@ -117,7 +117,7 @@
 
                 </ResourceDictionary>
 
-                <ResourceDictionary Source="ms-appx:///ControlPalette/CustomView/ThemeManager.xaml" />
+                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeManager.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

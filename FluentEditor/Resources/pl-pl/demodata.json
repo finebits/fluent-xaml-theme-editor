@@ -1,17 +1,17 @@
 ﻿{
-  "Demos": [
-    {
-      "Type": "ControlPalette",
-      "Id": "ControlPalette",
-      "Title": "Prezentacja palety kontrolek",
-      "Glyph": ""
-    },
-    {
-      "Type": "CustomPalette",
-      "Id": "CustomPalette",
-      "Title": "Theme Palette",
-      "Glyph": ""
-    }
-  ],
-  "DefaultDemoId": "ControlPalette"
+    "Demos": [
+        {
+            "Type": "ControlPalette",
+            "Id": "ControlPalette",
+            "Title": "Prezentacja palety kontrolek",
+            "Glyph": ""
+        },
+        {
+            "Type": "ThemePalette",
+            "Id": "ThemePalette",
+            "Title": "Theme Palette",
+            "Glyph": ""
+        }
+    ],
+    "DefaultDemoId": "ControlPalette"
 }

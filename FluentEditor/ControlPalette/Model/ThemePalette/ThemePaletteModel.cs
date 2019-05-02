@@ -10,28 +10,28 @@ using Windows.Data.Json;
 using Windows.Storage;
 using Windows.UI;
 using System.Linq;
-using FluentEditor.ControlPalette.CustomView.Common;
+using FluentEditor.ControlPalette.ThemePaletteView.Common;
 using System.ComponentModel;
 
-namespace FluentEditor.ControlPalette.Model.Custom
+namespace FluentEditor.ControlPalette.Model.ThemePalette
 {
-    public interface ICustomPaletteModel
+    public interface IThemePaletteModel
     {
         Task InitializeData(IStringProvider stringProvider, string dataPath);
         Task HandleAppSuspend();
 
-        void AddOrReplacePreset(CustomPreset preset);
-        void ApplyPreset(CustomPreset preset);
-        ObservableList<CustomPreset> Presets { get; }
-        CustomPreset ActivePreset { get; }
-        event Action<ICustomPaletteModel> ActivePresetChanged;
-        event Action<ICustomPaletteModel> ThemeChanged;
+        void AddOrReplacePreset(ThemePreset preset);
+        void ApplyPreset(ThemePreset preset);
+        ObservableList<ThemePreset> Presets { get; }
+        ThemePreset ActivePreset { get; }
+        event Action<IThemePaletteModel> ActivePresetChanged;
+        event Action<IThemePaletteModel> ThemeChanged;
 
         Theme DarkTheme { get; }
         Theme LightTheme { get; }
     }
 
-    public class CustomPaletteModel : ICustomPaletteModel
+    public class ThemePaletteModel : IThemePaletteModel
     {
         private Theme _darkTheme = null;
         public Theme DarkTheme
@@ -87,13 +87,13 @@ namespace FluentEditor.ControlPalette.Model.Custom
             string dataString = await FileIO.ReadTextAsync(file);
             JsonObject rootObject = JsonObject.Parse(dataString);
 
-            _presets = new ObservableList<CustomPreset>();
+            _presets = new ObservableList<ThemePreset>();
             if (rootObject.ContainsKey("Presets"))
             {
                 var presetsNode = rootObject["Presets"].GetArray();
                 foreach (var presetNode in presetsNode)
                 {
-                    _presets.Add(CustomPreset.Parse(presetNode.GetObject()));
+                    _presets.Add(ThemePreset.Parse(presetNode.GetObject()));
                 }
             }
             if (_presets.Count >= 1)
@@ -159,11 +159,11 @@ namespace FluentEditor.ControlPalette.Model.Custom
 
         private IStringProvider _stringProvider;
 
-        public void AddOrReplacePreset(CustomPreset preset)
+        public void AddOrReplacePreset(ThemePreset preset)
         {
             if (!string.IsNullOrEmpty(preset.Name))
             {
-                var oldPreset = _presets.FirstOrDefault<CustomPreset>((a) => a.Id == preset.Id);
+                var oldPreset = _presets.FirstOrDefault<ThemePreset>((a) => a.Id == preset.Id);
                 if (oldPreset != null)
                 {
                     _presets.Remove(oldPreset);
@@ -175,7 +175,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             UpdateActivePreset();
         }
 
-        public void ApplyPreset(CustomPreset preset)
+        public void ApplyPreset(ThemePreset preset)
         {
             if (preset == null)
             {
@@ -207,14 +207,14 @@ namespace FluentEditor.ControlPalette.Model.Custom
             }
         }
 
-        private ObservableList<CustomPreset> _presets;
-        public ObservableList<CustomPreset> Presets
+        private ObservableList<ThemePreset> _presets;
+        public ObservableList<ThemePreset> Presets
         {
             get { return _presets; }
         }
 
-        private CustomPreset _activePreset;
-        public CustomPreset ActivePreset
+        private ThemePreset _activePreset;
+        public ThemePreset ActivePreset
         {
             get { return _activePreset; }
             private set
@@ -227,7 +227,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             }
         }
 
-        public event Action<ICustomPaletteModel> ActivePresetChanged;
-        public event Action<ICustomPaletteModel> ThemeChanged;
+        public event Action<IThemePaletteModel> ActivePresetChanged;
+        public event Action<IThemePaletteModel> ThemeChanged;
     }
 }

@@ -2,7 +2,7 @@
 using Windows.Data.Json;
 using Windows.UI;
 
-namespace FluentEditor.ControlPalette.CustomView.Common
+namespace FluentEditor.ControlPalette.ThemePaletteView.Common
 {
     public class Theme : Common.BindableBase
     {

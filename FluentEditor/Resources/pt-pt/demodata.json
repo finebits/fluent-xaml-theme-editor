@@ -1,17 +1,17 @@
 ﻿{
-  "Demos": [
-    {
-      "Type": "ControlPalette",
-      "Id": "ControlPalette",
-      "Title": "Demostração da palete de controlos",
-      "Glyph": ""
-    },
-    {
-      "Type": "CustomPalette",
-      "Id": "CustomPalette",
-      "Title": "Theme Palette",
-      "Glyph": ""
-    }
-  ],
+    "Demos": [
+        {
+            "Type": "ControlPalette",
+            "Id": "ControlPalette",
+            "Title": "Demostração da palete de controlos",
+            "Glyph": ""
+        },
+        {
+            "Type": "ThemePalette",
+            "Id": "ThemePalette",
+            "Title": "Theme Palette",
+            "Glyph": ""
+        }
+    ],
     "DefaultDemoId": "ControlPalette"
 }

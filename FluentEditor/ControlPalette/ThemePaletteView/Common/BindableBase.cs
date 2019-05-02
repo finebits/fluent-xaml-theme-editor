@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace FluentEditor.ControlPalette.CustomView.Common
+namespace FluentEditor.ControlPalette.ThemePaletteView.Common
 {
     public class BindableBase : INotifyPropertyChanged
     {

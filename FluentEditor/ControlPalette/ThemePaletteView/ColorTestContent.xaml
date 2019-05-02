@@ -1,7 +1,7 @@
-﻿<UserControl x:Class="FluentEditor.ControlPalette.CustomView.ColorTestContent"
+﻿<UserControl x:Class="FluentEditor.ControlPalette.ThemePaletteView.ColorTestContent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:FluentEditor.ControlPalette.CustomView"
+             xmlns:local="using:FluentEditor.ControlPalette.ThemePaletteView"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
@@ -12,8 +12,8 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ms-appx:///ControlPalette/CustomView/TextBlockButtonStyle.xaml" />
-                <ResourceDictionary Source="ms-appx:///ControlPalette/CustomView/ThemeDictionaries.xaml" />
+                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/TextBlockButtonStyle.xaml" />
+                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="TextBlockStyle"

@@ -11,7 +11,7 @@ using Windows.Storage;
 using FluentEditorShared.Utils;
 using FluentEditor.ControlPalette.Model;
 using FluentEditorShared;
-using FluentEditor.ControlPalette.Model.Custom;
+using FluentEditor.ControlPalette.Model.ThemePalette;
 
 namespace FluentEditor.Model
 {
@@ -73,12 +73,12 @@ namespace FluentEditor.Model
             {
                 case "ControlPalette":
                     return ControlPalette.ControlPaletteViewModel.Parse(_stringProvider, data, paletteModel, controlPaletteExportProvider);
-                case "CustomPalette":
+                case "ThemePalette":
                     var stringProvider = new StringProvider(Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse());
-                    var customPaletteModel = new CustomPaletteModel();
-                    await customPaletteModel.InitializeData(stringProvider, stringProvider.GetString("CustomPaletteDataPath"));
+                    var themePaletteModel = new ThemePaletteModel();
+                    await themePaletteModel.InitializeData(stringProvider, stringProvider.GetString("ThemePaletteDataPath"));
 
-                    return ControlPalette.CustomView.CustomPaletteViewModel.Parse(_stringProvider, data, customPaletteModel);
+                    return ControlPalette.ThemePaletteView.ThemePaletteViewModel.Parse(_stringProvider, data, themePaletteModel);
                 default:
                     throw new Exception(string.Format("Unknown nav item type {0}", type));
             }

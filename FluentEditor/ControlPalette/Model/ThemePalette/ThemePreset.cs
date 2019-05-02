@@ -4,13 +4,12 @@
 using System.Collections.Generic;
 using Windows.Data.Json;
 using Windows.UI;
-using FluentEditorShared.Utils;
 using FluentEditorShared.ColorPalette;
-using FluentEditor.ControlPalette.CustomView.Common;
+using FluentEditor.ControlPalette.ThemePaletteView.Common;
 
-namespace FluentEditor.ControlPalette.Model.Custom
+namespace FluentEditor.ControlPalette.Model.ThemePalette
 {
-    public class CustomPreset
+    public class ThemePreset
     {
         private readonly string _id;
         public string Id { get { return _id; } }
@@ -22,7 +21,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
         private Theme DarkTheme { get; set; }
         private Theme LightTheme { get; set; }
 
-        public static CustomPreset Parse(JsonObject data, string id = null, string name = null)
+        public static ThemePreset Parse(JsonObject data, string id = null, string name = null)
         {
             if (id == null)
             {
@@ -39,10 +38,10 @@ namespace FluentEditor.ControlPalette.Model.Custom
             Theme lightTheme = new Theme();
             lightTheme.Load(data[nameof(LightTheme)].GetObject());
 
-            return new CustomPreset(id, name, darkTheme, lightTheme);
+            return new ThemePreset(id, name, darkTheme, lightTheme);
         }
 
-        public static JsonObject Serialize(CustomPreset preset)
+        public static JsonObject Serialize(ThemePreset preset)
         {
             JsonObject data = new JsonObject();
             if (!string.IsNullOrEmpty(preset.Id))
@@ -63,7 +62,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             return data;
         }
 
-        public CustomPreset(string id, string name, Theme darkTheme, Theme lightTheme)
+        public ThemePreset(string id, string name, Theme darkTheme, Theme lightTheme)
         {
             _id = id;
             _name = name;
@@ -72,7 +71,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             LightTheme = new Theme(lightTheme);
         }
 
-        public CustomPreset(string id, string name, ICustomPaletteModel model)
+        public ThemePreset(string id, string name, IThemePaletteModel model)
         {
             _id = id;
             _name = name;
@@ -81,7 +80,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             LightTheme = new Theme(model.LightTheme);
         }
 
-        public CustomPreset(CustomPreset preset)
+        public ThemePreset(ThemePreset preset)
         {
             _id = preset._id;
             _name = preset._name;
@@ -90,7 +89,7 @@ namespace FluentEditor.ControlPalette.Model.Custom
             LightTheme = new Theme(preset.LightTheme);
         }
 
-        public bool IsPresetActive(ICustomPaletteModel model)
+        public bool IsPresetActive(IThemePaletteModel model)
         {
             if (model == null || DarkTheme == null || LightTheme == null)
             {

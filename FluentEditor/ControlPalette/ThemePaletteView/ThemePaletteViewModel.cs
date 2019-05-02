@@ -16,15 +16,15 @@ using Windows.UI.Xaml;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage.Provider;
-using FluentEditor.ControlPalette.Model.Custom;
+using FluentEditor.ControlPalette.Model.ThemePalette;
 
-namespace FluentEditor.ControlPalette.CustomView
+namespace FluentEditor.ControlPalette.ThemePaletteView
 {
-    public class CustomPaletteViewModel : INavItem
+    public class ThemePaletteViewModel : INavItem
     {
-        public static CustomPaletteViewModel Parse(IStringProvider stringProvider, JsonObject data, ICustomPaletteModel paletteModel)
+        public static ThemePaletteViewModel Parse(IStringProvider stringProvider, JsonObject data, IThemePaletteModel paletteModel)
         {
-            return new CustomPaletteViewModel(stringProvider, paletteModel, data["Id"].GetOptionalString(), data["Title"].GetOptionalString(), data["Glyph"].GetOptionalString(), null);
+            return new ThemePaletteViewModel(stringProvider, paletteModel, data["Id"].GetOptionalString(), data["Title"].GetOptionalString(), data["Glyph"].GetOptionalString(), null);
         }
 
         private IStringProvider _stringProvider;
@@ -63,18 +63,18 @@ namespace FluentEditor.ControlPalette.CustomView
             }
         }
 
-        public ICustomPaletteModel CurrentModel
+        public IThemePaletteModel CurrentModel
         {
             get;
             private set;
         }
 
-        public IReadOnlyList<CustomPreset> Presets
+        public IReadOnlyList<ThemePreset> Presets
         {
             get { return CurrentModel.Presets; }
         }
 
-        public CustomPreset ActivePreset
+        public ThemePreset ActivePreset
         {
             get { return CurrentModel.ActivePreset; }
             set
@@ -143,7 +143,7 @@ namespace FluentEditor.ControlPalette.CustomView
             set;
         }
 
-        public CustomPaletteViewModel(IStringProvider stringProvider, ICustomPaletteModel paletteModel, string id, string title, string glyph, IControlPaletteExportProvider exportProvider)
+        public ThemePaletteViewModel(IStringProvider stringProvider, IThemePaletteModel paletteModel, string id, string title, string glyph, IControlPaletteExportProvider exportProvider)
         {
             _stringProvider = stringProvider;
             _id = id;
@@ -156,12 +156,12 @@ namespace FluentEditor.ControlPalette.CustomView
             CurrentModel.ThemeChanged += OnThemeChanged;
         }
 
-        private void OnThemeChanged(ICustomPaletteModel obj)
+        private void OnThemeChanged(IThemePaletteModel obj)
         {
             ThemeChanged?.Invoke(obj);
         }
 
-        private void OnActivePresetChanged(ICustomPaletteModel obj)
+        private void OnActivePresetChanged(IThemePaletteModel obj)
         {
             RaisePropertyChanged(nameof(ActivePreset));
         }
@@ -189,8 +189,8 @@ namespace FluentEditor.ControlPalette.CustomView
             }
             CachedFileManager.DeferUpdates(file);
 
-            CustomPreset savePreset = new CustomPreset(file.Path, file.DisplayName, CurrentModel);
-            var saveData = CustomPreset.Serialize(savePreset);
+            ThemePreset savePreset = new ThemePreset(file.Path, file.DisplayName, CurrentModel);
+            var saveData = ThemePreset.Serialize(savePreset);
             var saveString = saveData.Stringify();
 
             await FileIO.WriteTextAsync(file, saveString);
@@ -228,10 +228,10 @@ namespace FluentEditor.ControlPalette.CustomView
             }
             string dataString = await FileIO.ReadTextAsync(file);
             JsonObject rootObject = JsonObject.Parse(dataString);
-            CustomPreset loadedPreset = null;
+            ThemePreset loadedPreset = null;
             try
             {
-                loadedPreset = CustomPreset.Parse(rootObject, file.Path, file.DisplayName);
+                loadedPreset = ThemePreset.Parse(rootObject, file.Path, file.DisplayName);
             }
             catch
             {
@@ -275,6 +275,6 @@ namespace FluentEditor.ControlPalette.CustomView
 
         #endregion
 
-        public event Action<ICustomPaletteModel> ThemeChanged;
+        public event Action<IThemePaletteModel> ThemeChanged;
     }
 }

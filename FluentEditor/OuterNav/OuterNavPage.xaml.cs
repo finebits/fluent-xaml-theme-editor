@@ -39,8 +39,8 @@ namespace FluentEditor.OuterNav
                 case FluentEditor.ControlPalette.ControlPaletteViewModel controlPalette:
                     pageType = typeof(FluentEditor.ControlPalette.ControlPaletteView);
                     break;
-                case FluentEditor.ControlPalette.CustomView.CustomPaletteViewModel homePage:
-                    pageType = typeof(FluentEditor.ControlPalette.CustomView.CustomPaletteView);
+                case FluentEditor.ControlPalette.ThemePaletteView.ThemePaletteViewModel homePage:
+                    pageType = typeof(FluentEditor.ControlPalette.ThemePaletteView.ThemePaletteView);
                     break;
             }
 

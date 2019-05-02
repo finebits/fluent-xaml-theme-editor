@@ -1,5 +1,5 @@
-﻿using FluentEditor.ControlPalette.CustomView.Common;
-using FluentEditor.ControlPalette.Model.Custom;
+﻿using FluentEditor.ControlPalette.ThemePaletteView.Common;
+using FluentEditor.ControlPalette.Model.ThemePalette;
 using System;
 using System.ComponentModel;
 using Windows.UI;
@@ -7,23 +7,22 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-
-namespace FluentEditor.ControlPalette.CustomView
+namespace FluentEditor.ControlPalette.ThemePaletteView
 {
-    public sealed partial class CustomPaletteView : Page
+    public sealed partial class ThemePaletteView : Page
     {
-        public CustomPaletteView()
+        public ThemePaletteView()
         {
             this.InitializeComponent();
         }
 
         #region ViewModelProperty
 
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(nameof(ViewModel), typeof(CustomPaletteViewModel), typeof(ControlPaletteView), new PropertyMetadata(null));
+        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(nameof(ViewModel), typeof(ThemePaletteViewModel), typeof(ControlPaletteView), new PropertyMetadata(null));
 
-        public CustomPaletteViewModel ViewModel
+        public ThemePaletteViewModel ViewModel
         {
-            get { return GetValue(ViewModelProperty) as CustomPaletteViewModel; }
+            get { return GetValue(ViewModelProperty) as ThemePaletteViewModel; }
             set { SetValue(ViewModelProperty, value); }
         }
 
@@ -33,7 +32,7 @@ namespace FluentEditor.ControlPalette.CustomView
         {
             base.OnNavigatedTo(e);
 
-            ViewModel = e.Parameter as CustomPaletteViewModel;
+            ViewModel = e.Parameter as ThemePaletteViewModel;
 
             ViewModel.PropertyChanged += OnViewModelPropertyChanged;
             ViewModel.ThemeChanged += OnThemeChanged;
@@ -117,7 +116,7 @@ namespace FluentEditor.ControlPalette.CustomView
             }
         }
 
-        private void OnThemeChanged(ICustomPaletteModel obj)
+        private void OnThemeChanged(IThemePaletteModel obj)
         {
             App app = Application.Current as App;
             app.ThemeManager.DarkTheme = obj.DarkTheme;

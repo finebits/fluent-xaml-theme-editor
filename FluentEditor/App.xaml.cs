@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using FluentEditor.ControlPalette.CustomView.Common;
+using FluentEditor.ControlPalette.ThemePaletteView.Common;
 using FluentEditor.ControlPalette.Model;
 using FluentEditor.Model;
 using FluentEditor.OuterNav;

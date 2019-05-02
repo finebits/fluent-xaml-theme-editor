@@ -1,14 +1,10 @@
 ﻿using FluentEditorShared.ColorPalette;
-using FluentEditorShared.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml;
 
-namespace FluentEditor.ControlPalette.CustomView.Common
+namespace FluentEditor.ControlPalette.ThemePaletteView.Common
 {
     public class ThemePaletteEntry : DependencyObject, IColorPaletteEntry
     {
