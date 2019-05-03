@@ -6,6 +6,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using FluentEditorShared.ColorPalette;
 
 namespace FluentEditor.ControlPalette.ThemePaletteView
 {
@@ -110,7 +111,7 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == nameof(ViewModel.ActivePreset))
+            if (e.PropertyName == nameof(ViewModel.ActivePreset))
             {
 
             }
@@ -123,27 +124,193 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             app.ThemeManager.LightTheme = obj.LightTheme;
         }
 
-        #region ColorChanged
+        #region Theme parameters changed
 
-        private void OnLightApplicationBackgroundColorChanged(FluentEditorShared.ColorPalette.IColorPaletteEntry obj)
+        private void UpdateLightThemeColor(IColorPaletteEntry palette, Action<Theme, Color> action)
         {
-            if(obj is ThemePaletteEntry palette)
+            action(ViewModel.CurrentModel.LightTheme, palette.ActiveColor);
+        }
+
+        private void UpdateDarkThemeColor(IColorPaletteEntry palette, Action<Theme, Color> action)
+        {
+            action(ViewModel.CurrentModel.DarkTheme, palette.ActiveColor);
+        }
+
+        private void OnLightApplicationBackgroundColorChanged(FluentEditorShared.ColorPalette.IColorPaletteEntry palette)
+        {
+            UpdateLightThemeColor(palette, (theme, color) => { theme.AppBackground = color; });
+        }
+
+        private void OnDarkApplicationBackgroundColorChanged(IColorPaletteEntry palette)
+        {
+
+            UpdateDarkThemeColor(palette, (theme, color) => { theme.AppBackground = color; });
+        }
+
+        private void OnLightItemBackground0ColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateLightThemeColor(palette, (theme, color) => { theme.ItemBackground0 = color; });
+        }
+
+        private void OnDarkItemBackground0ColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateDarkThemeColor(palette, (theme, color) => { theme.ItemBackground0 = color; });
+        }
+
+        private void OnLightItemBackground1ColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateLightThemeColor(palette, (theme, color) => { theme.ItemBackground1 = color; });
+        }
+
+        private void OnDarkItemBackground1ColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateDarkThemeColor(palette, (theme, color) => { theme.ItemBackground1 = color; });
+        }
+
+        private void OnLightAcrylicBackgroundColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateLightThemeColor(palette, (theme, color) => { theme.AcrylicBackgroundColor = color; });
+        }
+
+        private void OnDarkAcrylicBackgroundColorChanged(IColorPaletteEntry palette)
+        {
+            UpdateDarkThemeColor(palette, (theme, color) => { theme.AcrylicBackgroundColor = color; });
+        }
+
+        private void OnLightAcrylicBackgroundOpacityChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if(ViewModel?.CurrentModel?.LightTheme != null)
             {
-                OnColorChanged(palette, (color) => { ViewModel.CurrentModel.LightTheme.AppBackground = color; });
+                ViewModel.CurrentModel.LightTheme.AcrylicBackgroundOpacity = e.NewValue;
             }
         }
 
-        private void OnDarkApplicationBackgroundColorChanged(FluentEditorShared.ColorPalette.IColorPaletteEntry obj)
+        private void OnDarkAcrylicBackgroundOpacityChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
-            if (obj is ThemePaletteEntry palette)
+            if (ViewModel?.CurrentModel?.DarkTheme != null)
             {
-                OnColorChanged(palette, (color) => { ViewModel.CurrentModel.DarkTheme.AppBackground = color; });
+                ViewModel.CurrentModel.DarkTheme.AcrylicBackgroundOpacity = e.NewValue;
             }
         }
 
-        private void OnColorChanged(ThemePaletteEntry palette, Action<Color> action)
+        private void OnLightTextColorChanged(IColorPaletteEntry obj)
         {
-            action(palette.ActiveColor);
+            UpdateLightThemeColor(obj, (theme, color) => { theme.TextColor = color; });
+        }
+
+        private void OnDarkTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextColor = color; });
+        }
+
+        private void OnLightSubTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.SubTextColor = color; });
+        }
+
+        private void OnDarkSubTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.SubTextColor = color; });
+        }
+
+        private void OnLightSubSubTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.SubSubTextColor = color; });
+        }
+
+        private void OnDarkSubSubTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.SubSubTextColor = color; });
+        }
+
+        private void OnLightActiveTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.ActiveTextColor = color; });
+        }
+
+        private void OnDarkActiveTextColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.ActiveTextColor = color; });
+        }
+
+        private void OnLightAccentColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.AccentColor = color; });
+        }
+
+        private void OnDarkAccentColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.AccentColor = color; });
+        }
+
+        private void OnLightActiveAccentColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.ActiveAccentColor = color; });
+        }
+
+        private void OnDarkActiveAccentColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.ActiveAccentColor = color; });
+        }
+
+        private void OnLightHyperlinkButtonForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.HyperlinkButtonForegroundColor = color; });
+        }
+
+        private void OnDarkHyperlinkButtonForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.HyperlinkButtonForegroundColor = color; });
+        }
+
+        private void OnLightHyperlinkButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.HyperlinkButtonActiveForegroundColor = color; });
+        }
+
+        private void OnDarkHyperlinkButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.HyperlinkButtonActiveForegroundColor = color; });
+        }
+
+        private void OnLightHyperlinkButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.HyperlinkButtonDisableForegroundColor = color; });
+        }
+
+        private void OnDarkHyperlinkButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.HyperlinkButtonDisableForegroundColor = color; });
+        }
+
+        private void OnLightTextButtonForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonForegroundColor = color; });
+        }
+
+        private void OnDarkTextButtonForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonForegroundColor = color; });
+        }
+
+        private void OnLightTextButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonActiveForegroundColor = color; });
+        }
+
+        private void OnDarkTextButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonActiveForegroundColor = color; });
+        }
+
+        private void OnLightTextButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonDisableForegroundColor = color; });
+        }
+
+        private void OnDarkTextButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonDisableForegroundColor = color; });
         }
 
         #endregion
