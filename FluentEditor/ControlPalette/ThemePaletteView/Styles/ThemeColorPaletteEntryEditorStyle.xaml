@@ -1,0 +1,22 @@
+﻿<ResourceDictionary x:Class="FluentEditor.ControlPalette.ThemePaletteView.Styles.ThemeColorPaletteEntryEditorStyle"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:color="using:FluentEditorShared.ColorPalette">
+
+    <Style x:Key="ThemeColorPaletteEntryEditorStyle"
+           TargetType="color:ColorPaletteEntryEditor"
+           BasedOn="{StaticResource LargeColorPaletteEntryEditorStyle}">
+        <Setter Property="FlyoutTemplate">
+            <Setter.Value>
+                <DataTemplate x:DataType="color:IColorPaletteEntry">
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch">
+                        <color:ExpandedColorPaletteEntryEditor ColorPaletteEntry="{Binding}"
+                                                               IsAlphaEnabled="True" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -107,6 +107,9 @@
             Grid.Column="2"
             Margin="0,12,12,12"
             ColorChanged="ColorPicker_ColorChanged"
+            IsAlphaEnabled="{x:Bind IsAlphaEnabled, Mode=OneWay}"
+            IsAlphaSliderVisible="{x:Bind IsAlphaEnabled, Mode=OneWay}"
+            IsAlphaTextInputVisible="{x:Bind IsAlphaEnabled, Mode=OneWay}"
             Color="{x:Bind Path=ColorPaletteEntry.ActiveColor, Mode=OneWay}" />
 
         <Button

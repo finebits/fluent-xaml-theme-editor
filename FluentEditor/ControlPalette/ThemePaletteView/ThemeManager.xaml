@@ -23,11 +23,11 @@
                           TextButtonForegroundColor="#FFE8E8E8"
                           TextButtonActiveForegroundColor="White"
                           TextButtonDisableForegroundColor="#FF999999" 
-                          
+
                           ControlBackgroundColor="Gray"
                           ControlActiveBackgroundColor="LightGray"
                           ControlDisableBackgroundColor="DarkGray"
-                          
+
                           ControlForegroundColor="#FFF8F8F8"
                           ControlActiveForegroundColor="White"
                           ControlDisableForegroundColor="#FFE8E8E8"/>
@@ -53,11 +53,11 @@
                           TextButtonForegroundColor="#FF666666"
                           TextButtonActiveForegroundColor="Black"
                           TextButtonDisableForegroundColor="#FF999999"
-                          
+
                           ControlBackgroundColor="Gray"
                           ControlActiveBackgroundColor="LightGray"
                           ControlDisableBackgroundColor="DarkGray"
-                          
+
                           ControlForegroundColor="#FF444444"
                           ControlActiveForegroundColor="Black"
                           ControlDisableForegroundColor="#FF999999" />

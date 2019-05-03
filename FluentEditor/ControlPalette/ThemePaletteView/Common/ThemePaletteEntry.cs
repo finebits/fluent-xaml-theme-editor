@@ -132,6 +132,7 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
                 {
                     _colorPaletteEntry.ActiveColorChanged += OnActiveColorChanged;
                     _colorPaletteEntry.ContrastColorChanged += OnContrastColorChanged;
+                    RaiseActiveColorChanged(this);
                 }
             }
         }

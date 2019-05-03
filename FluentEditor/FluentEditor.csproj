@@ -115,6 +115,9 @@
     <Compile Include="ControlPalette\ThemePaletteView\Common\BindableBase.cs" />
     <Compile Include="ControlPalette\ThemePaletteView\Common\Theme.cs" />
     <Compile Include="ControlPalette\ThemePaletteView\Common\ThemePaletteEntry.cs" />
+    <Compile Include="ControlPalette\ThemePaletteView\Styles\ThemeColorPaletteEntryEditorStyle.xaml.cs">
+      <DependentUpon>ThemeColorPaletteEntryEditorStyle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ControlPalette\ThemePaletteView\ThemePaletteViewModel.cs" />
     <Compile Include="ControlPalette\ThemePaletteView\ThemePaletteView.xaml.cs">
       <DependentUpon>ThemePaletteView.xaml</DependentUpon>
@@ -413,7 +416,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ControlPalette\ThemePaletteView\TextBlockButtonStyle.xaml">
+    <Page Include="ControlPalette\ThemePaletteView\Styles\TextBlockButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlPalette\ThemePaletteView\Styles\ThemeColorPaletteEntryEditorStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

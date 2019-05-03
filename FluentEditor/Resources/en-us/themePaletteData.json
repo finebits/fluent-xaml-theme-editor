@@ -93,8 +93,8 @@
                 "SubTextColor": "#FF666666",
                 "SubSubTextColor": "#FF999999",
 
-                "AccentColor": "#FF008000",
-                "ActiveAccentColor": "#FF90EE90",
+                "AccentColor": "#FFD09920",
+                "ActiveAccentColor": "#FFFACC80",
 
                 "HyperlinkButtonForegroundColor": "#FF0000FF",
                 "HyperlinkButtonActiveForegroundColor": "#FFADD8E6",
