@@ -42,6 +42,7 @@
                 <Border Grid.Column="0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
+                        Background="White"
                         RequestedTheme="Light">
                     <local:ColorTestContent Title="Light Theme" />
                 </Border>
@@ -49,6 +50,7 @@
                 <Border Grid.Column="1"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
+                        Background="Black"
                         RequestedTheme="Dark">
                     <local:ColorTestContent Title="Dark Theme" />
                 </Border>
@@ -170,7 +172,7 @@
                                                        Grid.Column="0"
                                                        Margin="0,0,6,6"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightApplicationBackgroundPalette"
                                                           ActiveColor="{Binding LightTheme.AppBackground, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -186,7 +188,7 @@
                                                        Margin="6,0,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkApplicationBackgroundPalette"
                                                           ActiveColor="{Binding DarkTheme.AppBackground, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -203,7 +205,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightItemBackground0Palette"
                                                           ActiveColor="{Binding LightTheme.ItemBackground0, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -219,7 +221,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkItemBackground0Palette"
                                                           ActiveColor="{Binding DarkTheme.ItemBackground0, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -236,7 +238,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightItemBackground1Palette"
                                                           ActiveColor="{Binding LightTheme.ItemBackground1, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -252,7 +254,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkItemBackground1Palette"
                                                           ActiveColor="{Binding DarkTheme.ItemBackground1, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -268,7 +270,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightAcrylicBackgroundPalette"
                                                           ActiveColor="{Binding LightTheme.AcrylicBackgroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -284,7 +286,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkAcrylicBackgroundPalette"
                                                           ActiveColor="{Binding DarkTheme.AcrylicBackgroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -375,7 +377,7 @@
                                                        Margin="0,0,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightTextPalette"
                                                           ActiveColor="{Binding LightTheme.TextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -391,7 +393,7 @@
                                                        Margin="6,0,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkTextPalette"
                                                           ActiveColor="{Binding DarkTheme.TextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -408,7 +410,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightSubTextPalette"
                                                           ActiveColor="{Binding LightTheme.SubTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -424,7 +426,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkSubTextPalette"
                                                           ActiveColor="{Binding DarkTheme.SubTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -441,7 +443,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightSubSubTextPalette"
                                                           ActiveColor="{Binding LightTheme.SubSubTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -457,7 +459,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkSubSubTextPalette"
                                                           ActiveColor="{Binding DarkTheme.SubSubTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -474,7 +476,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightActiveTextPalette"
                                                           ActiveColor="{Binding LightTheme.ActiveTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -490,7 +492,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkActiveTextPalette"
                                                           ActiveColor="{Binding DarkTheme.ActiveTextColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -560,7 +562,7 @@
                                                        Margin="0,0,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightAccentPalette"
                                                           ActiveColor="{Binding LightTheme.AccentColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -576,7 +578,7 @@
                                                        Margin="6,0,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkAccentPalette"
                                                           ActiveColor="{Binding DarkTheme.AccentColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -593,7 +595,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="LightActiveAccentPalette"
                                                           ActiveColor="{Binding LightTheme.ActiveAccentColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -609,7 +611,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry x:Name="DarkActiveAccentPalette"
                                                           ActiveColor="{Binding DarkTheme.ActiveAccentColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
@@ -680,7 +682,7 @@
                                                        Margin="0,0,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.HyperlinkButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -695,7 +697,7 @@
                                                        Margin="6,0,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.HyperlinkButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
@@ -711,7 +713,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.HyperlinkButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -726,7 +728,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
@@ -742,7 +744,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.HyperlinkButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -757,7 +759,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.HyperlinkButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
@@ -826,7 +828,7 @@
                                                        Margin="0,0,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -841,7 +843,7 @@
                                                        Margin="6,0,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
@@ -857,7 +859,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -872,7 +874,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
@@ -888,7 +890,7 @@
                                                        Margin="0,6,6,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
@@ -903,7 +905,7 @@
                                                        Margin="6,6,0,6"
                                                        HorizontalAlignment="Left"
                                                        VerticalAlignment="Top"
-                                                       Style="{StaticResource ThemeColorPaletteEntryEditorStyle}">
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
                                 <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"

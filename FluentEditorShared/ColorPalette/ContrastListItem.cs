@@ -12,11 +12,23 @@ namespace FluentEditorShared.ColorPalette
     public class ContrastListItem : INotifyPropertyChanged
     {
         public ContrastListItem() { }
+
         public ContrastListItem(IColorPaletteEntry baseColor, IColorPaletteEntry contrastColor, double minContrast = 4.5)
         {
             _minContrast = minContrast;
             _baseColorBrush = new SolidColorBrush();
             _contrastColorBrush = new SolidColorBrush();
+
+            BaseColor = baseColor;
+            ContrastColor = contrastColor;
+        }
+
+        public ContrastListItem(IColorPaletteEntry baseColor, IColorPaletteEntry contrastColor, Color themeBackground, double minContrast = 4.5)
+        {
+            _minContrast = minContrast;
+            _baseColorBrush = new SolidColorBrush();
+            _contrastColorBrush = new SolidColorBrush();
+            _themeBackground = themeBackground;
 
             BaseColor = baseColor;
             ContrastColor = contrastColor;
@@ -30,9 +42,10 @@ namespace FluentEditorShared.ColorPalette
                 return;
             }
 
-            Contrast = ColorUtils.ContrastRatio(_baseColor.ActiveColor, _contrastColor.ActiveColor);
+            Contrast = ColorUtils.ContrastRatio(_baseColor.ActiveColor, _contrastColor.ActiveColor, _themeBackground);
         }
 
+        private Color _themeBackground = Colors.White;
         private double _minContrast;
         private double _contrast;
         public double Contrast

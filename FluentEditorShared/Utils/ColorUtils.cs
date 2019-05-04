@@ -983,6 +983,15 @@ namespace FluentEditorShared.Utils
             return ContrastRatio(new NormalizedRGB(a, false), new NormalizedRGB(b, false), round, roundingPrecision);
         }
 
+        // This doesn't ignore the Alpha channel
+        public static double ContrastRatio(Color a, Color b, Color solid, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
+        {
+            var colorB = BlendColors(b, solid);
+            var colorA = BlendColors(a, colorB);
+
+            return ContrastRatio(colorA, colorB, round, roundingPrecision);
+        }
+
         public static double ContrastRatio(in NormalizedRGB a, in NormalizedRGB b, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
         {
             double la = RGBToLuminance(a, false);
@@ -1100,6 +1109,23 @@ namespace FluentEditorShared.Utils
                 default:
                     return InterpolateRGB(left, right, position);
             }
+        }
+
+        public static Color BlendColors(Color semiTransparent, Color solid)
+        {
+            var foreground = new NormalizedRGB(semiTransparent, false);
+            var background = new NormalizedRGB(solid, false);
+
+            var rf = foreground.R;
+            var gf = foreground.G;
+            var bf = foreground.B;
+            var af = (double)semiTransparent.A / 255.0;
+
+            var rb = background.R;
+            var gb = background.G;
+            var bb = background.B;
+
+            return new NormalizedRGB(rf * af + rb * (1 - af), gf * af + gb * (1 - af), bf * af + bb * (1 - af), false).Denormalize();
         }
     }
 }

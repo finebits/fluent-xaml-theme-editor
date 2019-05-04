@@ -3,7 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:color="using:FluentEditorShared.ColorPalette">
 
-    <Style x:Key="ThemeColorPaletteEntryEditorStyle"
+    <Style x:Key="DarkThemeColorPaletteEntryEditorStyle"
            TargetType="color:ColorPaletteEntryEditor"
            BasedOn="{StaticResource LargeColorPaletteEntryEditorStyle}">
         <Setter Property="FlyoutTemplate">
@@ -12,7 +12,25 @@
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch">
                         <color:ExpandedColorPaletteEntryEditor ColorPaletteEntry="{Binding}"
-                                                               IsAlphaEnabled="True" />
+                                                               IsAlphaEnabled="True"
+                                                               ThemeBackground="Black"/>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LightThemeColorPaletteEntryEditorStyle"
+           TargetType="color:ColorPaletteEntryEditor"
+           BasedOn="{StaticResource LargeColorPaletteEntryEditorStyle}">
+        <Setter Property="FlyoutTemplate">
+            <Setter.Value>
+                <DataTemplate x:DataType="color:IColorPaletteEntry">
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch">
+                        <color:ExpandedColorPaletteEntryEditor ColorPaletteEntry="{Binding}"
+                                                               IsAlphaEnabled="True"
+                                                               ThemeBackground="White" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>

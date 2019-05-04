@@ -17,6 +17,14 @@ namespace FluentEditorShared.ColorPalette
 
         #region ColorPaletteEntryProperty
 
+        public Color ThemeBackground
+        {
+            get { return (Color)GetValue(ThemeBackgroundProperty); }
+            set { SetValue(ThemeBackgroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty ThemeBackgroundProperty =
+            DependencyProperty.Register(nameof(ThemeBackground), typeof(Color), typeof(ExpandedColorPaletteEntryEditor), new PropertyMetadata(Colors.White));
 
         public bool IsAlphaEnabled
         {
@@ -84,17 +92,27 @@ namespace FluentEditorShared.ColorPalette
                 {
                     List<ContrastListItem> contrastList = new List<ContrastListItem>();
 
+                    ContrastListItem CreateContrastListItem(IColorPaletteEntry value, IColorPaletteEntry contrastColor, double minContrast = 4.5)
+                    {
+                        if (IsAlphaEnabled)
+                        {
+                            return new ContrastListItem(value, contrastColor, ThemeBackground, minContrast);
+                        }
+
+                        return new ContrastListItem(value, contrastColor, minContrast);
+                    }
+
                     foreach (var c in newValue.ContrastColors)
                     {
                         if (c.ShowInContrastList)
                         {
                             if (c.ShowContrastErrors)
                             {
-                                contrastList.Add(new ContrastListItem(newValue, c.Color));
+                                contrastList.Add(CreateContrastListItem(newValue, c.Color));
                             }
                             else
                             {
-                                contrastList.Add(new ContrastListItem(newValue, c.Color, 0));
+                                contrastList.Add(CreateContrastListItem(newValue, c.Color, 0));
                             }
 
                         }
