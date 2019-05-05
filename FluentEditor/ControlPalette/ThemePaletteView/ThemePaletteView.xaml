@@ -114,7 +114,7 @@
                                 Click="{x:Bind Path=ViewModel.OnSaveDataRequested, Mode=OneWay}" />
                     </Grid>
 
-                    <!-- Background Colors -->
+                    <!--#region Background Colors-->
 
                     <Grid Margin="0,32,0,0">
                         <Grid.ColumnDefinitions>
@@ -319,8 +319,10 @@
                                 Maximum="1" />
 
                     </Grid>
+                    
+                    <!--#endregion-->
 
-                    <!-- Text Colors -->
+                    <!--#region Text Colors-->
                     <Grid Margin="0,32,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -506,7 +508,9 @@
 
                     </Grid>
 
-                    <!--Accent Colors -->
+                    <!--#endregion-->
+
+                    <!--#region Accent Colors-->
 
                     <Grid Margin="0,32,0,0">
                         <Grid.ColumnDefinitions>
@@ -533,6 +537,8 @@
                     <Grid Margin="0,8,0,32"
                           Visibility="{x:Bind AccentExpanderButton.IsChecked.Value, Mode=OneWay}">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -623,9 +629,73 @@
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
                         </color:ColorPaletteEntryEditor>
 
+                        <color:ColorPaletteEntryEditor Grid.Row="3"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry x:Name="LightAccentTextPalette"
+                                                          ActiveColor="{Binding LightTheme.AccentContrastColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          ActiveColorChanged="OnLightAccentContrastColorChanged"
+                                                          Title="Accent Text Color"
+                                                          Description="ThemeResource Key 'AccentContrastColorBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="3"
+                                                       Grid.Column="1"
+                                                       Margin="6,0,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry x:Name="DarkAccentTextPalette"
+                                                          ActiveColor="{Binding DarkTheme.AccentContrastColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          ActiveColorChanged="OnDarkAccentContrastColorChanged"
+                                                          Title="Accent Text Color"
+                                                          Description="ThemeResource Key 'AccentContrastColorBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+
+                        <color:ColorPaletteEntryEditor Grid.Row="4"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,6,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry x:Name="LightActiveAccentTextPalette"
+                                                          ActiveColor="{Binding LightTheme.ActiveAccentContrastColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          ActiveColorChanged="OnLightActiveAccentContrastColorChanged"
+                                                          Title="Active Accent Text Color"
+                                                          Description="ThemeResource Key 'ActiveAccentContrastColorBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+                        <color:ColorPaletteEntryEditor Grid.Row="4"
+                                                       Grid.Column="1"
+                                                       Margin="6,0,0,6"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Top"
+                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
+                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                                <common:ThemePaletteEntry x:Name="DarkActiveAccentTextPalette"
+                                                          ActiveColor="{Binding DarkTheme.ActiveAccentContrastColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
+                                                          ActiveColorChanged="OnDarkActiveAccentContrastColorChanged"
+                                                          Title="Active Accent Text Color"
+                                                          Description="ThemeResource Key 'ActiveAccentContrastColorBrush'" />
+                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
+                        </color:ColorPaletteEntryEditor>
+
                     </Grid>
 
-                    <!-- Hyperlink -->
+                    <!--#endregion-->
+
+                    <!--#region Hyperlink-->
                     <Grid Margin="0,32,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -651,7 +721,6 @@
                     <Grid Margin="0,8,0,32"
                           Visibility="{x:Bind HyperlinkExpanderButton.IsChecked.Value, Mode=OneWay}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -739,51 +808,23 @@
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
                         </color:ColorPaletteEntryEditor>
 
-                        <color:ColorPaletteEntryEditor Grid.Row="3"
-                                                       Grid.Column="0"
-                                                       Margin="0,6,6,6"
-                                                       HorizontalAlignment="Left"
-                                                       VerticalAlignment="Top"
-                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
-                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.HyperlinkButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
-                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnLightHyperlinkButtonDisableForegroundColorChanged"
-                                                          Title="Disable Hyperlink Color"
-                                                          Description="ThemeResource Key 'HyperlinkButtonForegroundDisabled'" />
-                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                        </color:ColorPaletteEntryEditor>
-                        <color:ColorPaletteEntryEditor Grid.Row="3"
-                                                       Grid.Column="1"
-                                                       Margin="6,6,0,6"
-                                                       HorizontalAlignment="Left"
-                                                       VerticalAlignment="Top"
-                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
-                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.HyperlinkButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
-                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnDarkHyperlinkButtonDisableForegroundColorChanged"
-                                                          Title="Disable Hyperlink Color"
-                                                          Description="ThemeResource Key 'HyperlinkButtonForegroundDisabled'" />
-                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                        </color:ColorPaletteEntryEditor>
                     </Grid>
 
-                    <!-- TextBlock Button -->
+                    <!--#endregion-->
+
+                    <!--#region Button Colors-->
                     <Grid Margin="0,32,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="TextBlockButton control colors"
+                        <TextBlock Text="Button control colors"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    FontWeight="SemiBold"
                                    LineHeight="20"
                                    Style="{StaticResource BodyTextBlockStyle}" />
-                        <ToggleButton x:Name="TextBlockButtonExpanderButton"
+                        <ToggleButton x:Name="ButtonExpanderButton"
                                       Grid.Column="1"
                                       IsChecked="True"
                                       HorizontalAlignment="Right"
@@ -795,9 +836,8 @@
                     </Grid>
 
                     <Grid Margin="0,8,0,32"
-                          Visibility="{x:Bind TextBlockButtonExpanderButton.IsChecked.Value, Mode=OneWay}">
+                          Visibility="{x:Bind ButtonExpanderButton.IsChecked.Value, Mode=OneWay}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -830,11 +870,11 @@
                                                        VerticalAlignment="Top"
                                                        Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.ControlForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+
                                                           ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnLightTextButtonForegroundColorChanged"
-                                                          Title="TextBlockButton Color"
+                                                          ActiveColorChanged="OnLightButtonForegroundColorChanged"
+                                                          Title="Button Color"
                                                           Description="ThemeResource Key 'TextBlockButtonForeground'" />
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
                         </color:ColorPaletteEntryEditor>
@@ -845,10 +885,10 @@
                                                        VerticalAlignment="Top"
                                                        Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.ControlForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+
                                                           ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnDarkTextButtonForegroundColorChanged"
+                                                          ActiveColorChanged="OnDarkButtonForegroundColorChanged"
                                                           Title="TextBlockButton Color"
                                                           Description="ThemeResource Key 'TextBlockButtonForeground'" />
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
@@ -861,10 +901,10 @@
                                                        VerticalAlignment="Top"
                                                        Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.ControlActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
                                                           ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnLightTextButtonActiveForegroundColorChanged"
+                                                          ActiveColorChanged="OnLightButtonActiveForegroundColorChanged"
                                                           Title="Active TextBlockButton Color"
                                                           Description="ThemeResource Key 'TextBlockButtonForegroundPressed' and 'TextBlockButtonForegroundPointerOver'" />
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
@@ -876,47 +916,17 @@
                                                        VerticalAlignment="Top"
                                                        Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
                             <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
+                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.ControlActiveForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
                                                           ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
                                                           ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnDarkTextButtonActiveForegroundColorChanged"
+                                                          ActiveColorChanged="OnDarkButtonActiveForegroundColorChanged"
                                                           Title="Active TextBlockButton Color"
                                                           Description="ThemeResource Key 'TextBlockButtonForegroundPressed' and 'TextBlockButtonForegroundPointerOver'" />
                             </color:ColorPaletteEntryEditor.ColorPaletteEntry>
                         </color:ColorPaletteEntryEditor>
-
-                        <color:ColorPaletteEntryEditor Grid.Row="3"
-                                                       Grid.Column="0"
-                                                       Margin="0,6,6,6"
-                                                       HorizontalAlignment="Left"
-                                                       VerticalAlignment="Top"
-                                                       Style="{StaticResource LightThemeColorPaletteEntryEditorStyle}">
-                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding LightTheme.TextButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.LightBackgroundColors, Mode=OneWay}"
-                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnLightTextButtonDisableForegroundColorChanged"
-                                                          Title="Disable TextBlockButton Color"
-                                                          Description="ThemeResource Key 'TextBlockButtonForegroundDisabled'" />
-                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                        </color:ColorPaletteEntryEditor>
-                        <color:ColorPaletteEntryEditor Grid.Row="3"
-                                                       Grid.Column="1"
-                                                       Margin="6,6,0,6"
-                                                       HorizontalAlignment="Left"
-                                                       VerticalAlignment="Top"
-                                                       Style="{StaticResource DarkThemeColorPaletteEntryEditorStyle}">
-                            <color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                                <common:ThemePaletteEntry ActiveColor="{Binding DarkTheme.TextButtonDisableForegroundColor, Mode=TwoWay, Source={StaticResource ThemeManager}}"
-                                                          ContrastColors="{x:Bind ViewModel.DarkBackgroundColors, Mode=OneWay}"
-                                                          ActiveColorStringFormat="{x:Bind utils:ColorStringFormat.ARGB}"
-                                                          ActiveColorChanged="OnDarkTextButtonDisableForegroundColorChanged"
-                                                          Title="Disable TextBlockButton Color"
-                                                          Description="ThemeResource Key 'TextBlockButtonForegroundDisabled'" />
-                            </color:ColorPaletteEntryEditor.ColorPaletteEntry>
-                        </color:ColorPaletteEntryEditor>
                     </Grid>
 
+                    <!--#endregion-->
                 </StackPanel>
             </ScrollViewer>
             <Grid Grid.Row="2"

@@ -233,6 +233,26 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             UpdateDarkThemeColor(obj, (theme, color) => { theme.ActiveTextColor = color; });
         }
 
+        private void OnLightAccentContrastColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.AccentContrastColor = color; });
+        }
+
+        private void OnDarkAccentContrastColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.AccentContrastColor = color; });
+        }
+
+        private void OnLightActiveAccentContrastColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateLightThemeColor(obj, (theme, color) => { theme.ActiveAccentContrastColor = color; });
+        }
+
+        private void OnDarkActiveAccentContrastColorChanged(IColorPaletteEntry obj)
+        {
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.ActiveAccentContrastColor = color; });
+        }
+
         private void OnLightAccentColorChanged(IColorPaletteEntry obj)
         {
             UpdateLightThemeColor(obj, (theme, color) => { theme.AccentColor = color; });
@@ -273,44 +293,24 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             UpdateDarkThemeColor(obj, (theme, color) => { theme.HyperlinkButtonActiveForegroundColor = color; });
         }
 
-        private void OnLightHyperlinkButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        private void OnLightButtonForegroundColorChanged(IColorPaletteEntry obj)
         {
-            UpdateLightThemeColor(obj, (theme, color) => { theme.HyperlinkButtonDisableForegroundColor = color; });
+            UpdateLightThemeColor(obj, (theme, color) => { theme.ControlForegroundColor = color; });
         }
 
-        private void OnDarkHyperlinkButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
+        private void OnDarkButtonForegroundColorChanged(IColorPaletteEntry obj)
         {
-            UpdateDarkThemeColor(obj, (theme, color) => { theme.HyperlinkButtonDisableForegroundColor = color; });
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.ControlForegroundColor = color; });
         }
 
-        private void OnLightTextButtonForegroundColorChanged(IColorPaletteEntry obj)
+        private void OnLightButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
         {
-            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonForegroundColor = color; });
+            UpdateLightThemeColor(obj, (theme, color) => { theme.ControlActiveForegroundColor = color; });
         }
 
-        private void OnDarkTextButtonForegroundColorChanged(IColorPaletteEntry obj)
+        private void OnDarkButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
         {
-            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonForegroundColor = color; });
-        }
-
-        private void OnLightTextButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
-        {
-            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonActiveForegroundColor = color; });
-        }
-
-        private void OnDarkTextButtonActiveForegroundColorChanged(IColorPaletteEntry obj)
-        {
-            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonActiveForegroundColor = color; });
-        }
-
-        private void OnLightTextButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
-        {
-            UpdateLightThemeColor(obj, (theme, color) => { theme.TextButtonDisableForegroundColor = color; });
-        }
-
-        private void OnDarkTextButtonDisableForegroundColorChanged(IColorPaletteEntry obj)
-        {
-            UpdateDarkThemeColor(obj, (theme, color) => { theme.TextButtonDisableForegroundColor = color; });
+            UpdateDarkThemeColor(obj, (theme, color) => { theme.ControlActiveForegroundColor = color; });
         }
 
         #endregion

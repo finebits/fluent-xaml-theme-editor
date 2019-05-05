@@ -6,26 +6,24 @@
 
             "DarkTheme": {
                 "AppBackground": "#FF000000",
-                "ItemBackground0": "#FF444444",
-                "ItemBackground1": "#FF666666",
-                "AcrylicBackgroundColor": "#FF888888",
+                "ItemBackground0": "#FF222222",
+                "ItemBackground1": "#FF444444",
+                "AcrylicBackgroundColor": "#FF222222",
                 "AcrylicBackgroundOpacity": 0.7,
 
                 "TextColor": "#FFFFFFFF",
-                "ActiveTextColor": "#FFF8F8F8",
-                "SubTextColor": "#FFF0F0F0",
-                "SubSubTextColor": "#FFE8E8E8",
+                "ActiveTextColor": "#CCFFFFFF",
+                "SubTextColor": "#CCFFFFFF",
+                "SubSubTextColor": "#99FFFFFF",
 
-                "AccentColor": "#FF0000FF",
-                "ActiveAccentColor": "#FF000088",
+                "AccentColor": "#FF0073CF",
+                "ActiveAccentColor": "#CC0073CF",
 
-                "HyperlinkButtonForegroundColor": "#FF0000FF",
-                "HyperlinkButtonActiveForegroundColor": "#FF000088",
-                "HyperlinkButtonDisableForegroundColor": "#FF707070",
+                "AccentContrastColor": "#FFFFFFFF",
+                "ActiveAccentContrastColor": "#FFFFFFFF",
 
-                "TextButtonForegroundColor": "#FFFFFFFF",
-                "TextButtonActiveForegroundColor": "#FFF8F8F8",
-                "TextButtonDisableForegroundColor": "#FF707070"
+                "HyperlinkButtonForegroundColor": "#FF0073CF",
+                "HyperlinkButtonActiveForegroundColor": "#CC0073CF"
             },
 
             "LightTheme": {
@@ -36,20 +34,17 @@
                 "AcrylicBackgroundOpacity": 0.7,
 
                 "TextColor": "#FF000000",
-                "ActiveTextColor": "#FF444444",
-                "SubTextColor": "#FF666666",
-                "SubSubTextColor": "#FF999999",
+                "ActiveTextColor": "#AA000000",
+                "SubTextColor": "#CC000000",
+                "SubSubTextColor": "#99000000",
 
-                "AccentColor": "#FF0000FF",
-                "ActiveAccentColor": "#FF000088",
+                "AccentColor": "#FF0073CF",
+                "ActiveAccentColor": "#CC0073CF",
+                "AccentContrastColor": "#FFFFFFFF",
+                "ActiveAccentContrastColor": "#FFFFFFFF",
 
-                "HyperlinkButtonForegroundColor": "#FF0000FF",
-                "HyperlinkButtonActiveForegroundColor": "#FF000088",
-                "HyperlinkButtonDisableForegroundColor": "#FF707070",
-
-                "TextButtonForegroundColor": "#FF000000",
-                "TextButtonActiveForegroundColor": "#FF444444",
-                "TextButtonDisableForegroundColor": "#FF707070"
+                "HyperlinkButtonForegroundColor": "#FF0073CF",
+                "HyperlinkButtonActiveForegroundColor": "#CC0073CF"
             }
         },
 
@@ -64,21 +59,18 @@
                 "AcrylicBackgroundColor": "#FF707070",
                 "AcrylicBackgroundOpacity": 0.7,
 
-                "TextColor": "#FFF8F8F8",
+                "TextColor": "#CCFFFFFF",
                 "ActiveTextColor": "#FFFFFFFF",
-                "SubTextColor": "#FFF0F0F0",
-                "SubSubTextColor": "#FFE8E8E8",
+                "SubTextColor": "#99FFFFFF",
+                "SubSubTextColor": "#66FFFFFF",
 
                 "AccentColor": "#FFDAA520",
                 "ActiveAccentColor": "#FFFAD280",
+                "AccentContrastColor": "#FFFFFFFF",
+                "ActiveAccentContrastColor": "#FFFFFFFF",
 
-                "HyperlinkButtonForegroundColor": "#FF0000FF",
-                "HyperlinkButtonActiveForegroundColor": "#FFADD8E6",
-                "HyperlinkButtonDisableForegroundColor": "#FF808080",
-
-                "TextButtonForegroundColor": "#FFF8F8F8",
-                "TextButtonActiveForegroundColor": "#FFFFFFFF",
-                "TextButtonDisableForegroundColor": "#FFE8E8E8"
+                "HyperlinkButtonForegroundColor": "#FF0073CF",
+                "HyperlinkButtonActiveForegroundColor": "#CC0073CF"
             },
 
             "LightTheme": {
@@ -88,21 +80,18 @@
                 "AcrylicBackgroundColor": "#FFFAEBD7",
                 "AcrylicBackgroundOpacity": 0.7,
 
-                "TextColor": "#FF444444",
+                "TextColor": "#CC000000",
                 "ActiveTextColor": "#FF000000",
-                "SubTextColor": "#FF666666",
-                "SubSubTextColor": "#FF999999",
+                "SubTextColor": "#99000000",
+                "SubSubTextColor": "#66000000",
 
                 "AccentColor": "#FFD09920",
                 "ActiveAccentColor": "#FFFACC80",
+                "AccentContrastColor": "#FFFFFFFF",
+                "ActiveAccentContrastColor": "#FFFFFFFF",
 
-                "HyperlinkButtonForegroundColor": "#FF0000FF",
-                "HyperlinkButtonActiveForegroundColor": "#FFADD8E6",
-                "HyperlinkButtonDisableForegroundColor": "#FF808080",
-
-                "TextButtonForegroundColor": "#FF666666",
-                "TextButtonActiveForegroundColor": "#FF000000",
-                "TextButtonDisableForegroundColor": "#FF999999"
+                "HyperlinkButtonForegroundColor": "#FF0073CF",
+                "HyperlinkButtonActiveForegroundColor": "#CC0073CF"
             }
         }
     ]

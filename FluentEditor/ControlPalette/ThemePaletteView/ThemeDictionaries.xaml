@@ -5,47 +5,8 @@
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="AppBackground"
-                                     Color="{Binding DarkTheme.AppBackground, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground0"
-                                     Color="{Binding DarkTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ItemBackground1"
-                                     Color="{Binding DarkTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
-                    <AcrylicBrush x:Key="AppAcrylicBrush"
-                                  BackgroundSource="Backdrop"
-                                  TintOpacity="{Binding DarkTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
-                                  TintColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
-                                  FallbackColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
-                    <SolidColorBrush x:Key="TextColorBrush"
-                                     Color="{Binding DarkTheme.TextColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="SubTextColorBrush"
-                                     Color="{Binding DarkTheme.SubTextColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="SubSubTextColorBrush"
-                                     Color="{Binding DarkTheme.SubSubTextColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ActiveTextColorBrush"
-                                     Color="{Binding DarkTheme.ActiveTextColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="AccentColorBrush"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
-                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
 
-                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
-                                     Color="{Binding DarkTheme.HyperlinkButtonForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
-                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
-                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
-                                     Color="{Binding DarkTheme.HyperlinkButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
-
-                    <SolidColorBrush x:Key="TextBlockButtonForeground"
-                                     Color="{Binding DarkTheme.TextButtonForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundPressed"
-                                     Color="{Binding DarkTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundPointerOver"
-                                     Color="{Binding DarkTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundDisabled"
-                                     Color="{Binding DarkTheme.TextButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <!--#region Controls Colors-->
 
                     <SolidColorBrush x:Key="ControlForeground"
                                      Color="{Binding DarkTheme.ControlForegroundColor, Source={StaticResource ThemeManager}}" />
@@ -61,30 +22,251 @@
                     <SolidColorBrush x:Key="ControlActiveBackground"
                                      Color="{Binding DarkTheme.ControlActiveBackgroundColor, Source={StaticResource ThemeManager}}" />
 
-                    <StaticResource x:Key="ToggleButtonBackground"
-                                    ResourceKey="ControlBackground" />
+                    <!--#endregion-->
+
+                    <!--#region Background colors-->
+
+                    <SolidColorBrush x:Key="AppBackground"
+                                     Color="{Binding DarkTheme.AppBackground, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{Binding DarkTheme.ItemBackground0, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{Binding DarkTheme.ItemBackground1, Source={StaticResource ThemeManager}}" />
+                    <AcrylicBrush x:Key="AppAcrylicBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintOpacity="{Binding DarkTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
+                                  TintColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
+                                  FallbackColor="{Binding DarkTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <!--#endregion-->
+
+                    <!--#region TextBlock colors-->
+
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{Binding DarkTheme.TextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubTextColorBrush"
+                                     Color="{Binding DarkTheme.SubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="SubSubTextColorBrush"
+                                     Color="{Binding DarkTheme.SubSubTextColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{Binding DarkTheme.ActiveTextColor, Source={StaticResource ThemeManager}}" />
+                    <!--#endregion-->
+
+                    <!--#region Accent colors-->
+
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
+                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{Binding DarkTheme.AccentContrastColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                                     Color="{Binding DarkTheme.ActiveAccentContrastColor, Source={StaticResource ThemeManager}}" />
+
+                    <!--#endregion-->
+
+                    <!--#region HyperlinkButton Control-->
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
+                                     Color="{Binding DarkTheme.HyperlinkButtonForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
+                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
+                                     Color="{Binding DarkTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <!--#endregion-->
+
+                    <!--#region Button Control-->
+
+                    <StaticResource x:Key="ButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region TextBlockButton Control-->
+
+                    <StaticResource x:Key="TextBlockButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="TextBlockButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="TextBlockButtonForegroundPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region AccentButton Control-->
+
+                    <StaticResource x:Key="AccentButtonForeground"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AccentButtonForegroundPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AccentButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="AccentButtonBackground"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="AccentButtonBackgroundPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region ToggleButton Control-->
+
+                    <StaticResource x:Key="ToggleButtonBackgroundChecked"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
                     <StaticResource x:Key="ToggleButtonForeground"
-                                    ResourceKey="ControlForeground" />
-                    
-                    <SolidColorBrush x:Key="ToggleButtonBackgroundChecked"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
 
-                    <SolidColorBrush x:Key="AccentButtonBackground"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="AccentButtonBackgroundPressed"
-                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+                    <StaticResource x:Key="ToggleButtonForegroundIndeterminate"
+                                    ResourceKey="ToggleButtonForeground" />
+                    <StaticResource x:Key="ToggleButtonForegroundIndeterminatePointerOver"
+                                    ResourceKey="ToggleButtonForegroundPointerOver" />
+                    <StaticResource x:Key="ToggleButtonRevealBackgroundIndeterminatePressed"
+                                    ResourceKey="ToggleButtonForegroundPressed" />
 
-                    <SolidColorBrush x:Key="ToggleSwitchFillOn"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <StaticResource x:Key="ToggleButtonForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
 
-                    <SolidColorBrush x:Key="RadioButtonOuterEllipseCheckedStroke"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ToggleSwitchFillOnPressed"
-                                     Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+                    <!--#endregion-->
+
+                    <!--#region CheckBox Control-->
+
+                    <StaticResource x:Key="CheckBoxForegroundUnchecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundUncheckedPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundUncheckedPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxForegroundChecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundCheckedPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundCheckedPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminate"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminatePointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminatePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminate"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUnchecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUncheckedPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeCheckedPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundFillChecked"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminate"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminatePointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region RadioButton Control-->
+
+                    <StaticResource x:Key="RadioButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonForegroundPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonOuterEllipseStroke"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStroke"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePointerOver"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonCheckGlyphFill"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonCheckGlyphFillPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="RadioButtonCheckGlyphFillPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region ToggleSwitch Control-->
+
+                    <StaticResource x:Key="ToggleSwitchHeaderForeground"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchContentForeground"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchStrokeOff"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchStrokeOffPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchKnobFillOff"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOffPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchKnobFillOn"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOnPointerOver"
+                                    ResourceKey="ActiveAccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOnPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchFillOn"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchFillOnPointerOver"
+                                    ResourceKey="ActiveAccentColorBrush" />
+
+                    <!--#endregion-->
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
@@ -92,6 +274,9 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+
+                    <!--#region Background colors -->
+
                     <SolidColorBrush x:Key="AppBackground"
                                      Color="{Binding LightTheme.AppBackground, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="ItemBackground0"
@@ -102,7 +287,12 @@
                                   BackgroundSource="Backdrop"
                                   TintOpacity="{Binding LightTheme.AcrylicBackgroundOpacity, Source={StaticResource ThemeManager}}"
                                   TintColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"
-                                  FallbackColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}"/>
+                                  FallbackColor="{Binding LightTheme.AcrylicBackgroundColor, Source={StaticResource ThemeManager}}" />
+
+                    <!--#endregion-->
+
+                    <!--#region TextBlock colors-->
+
                     <SolidColorBrush x:Key="TextColorBrush"
                                      Color="{Binding LightTheme.TextColor, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="SubTextColorBrush"
@@ -111,10 +301,21 @@
                                      Color="{Binding LightTheme.SubSubTextColor, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="ActiveTextColorBrush"
                                      Color="{Binding LightTheme.ActiveTextColor, Source={StaticResource ThemeManager}}" />
+
+                    <!--#endregion-->
+
+                    <!--#region Accent colors -->
                     <SolidColorBrush x:Key="AccentColorBrush"
                                      Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="ActiveAccentColorBrush"
                                      Color="{Binding LightTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{Binding LightTheme.AccentContrastColor, Source={StaticResource ThemeManager}}" />
+                    <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                                     Color="{Binding LightTheme.ActiveAccentContrastColor, Source={StaticResource ThemeManager}}" />
+                    <!--#endregion-->
+
+                    <!--#region HyperlinkButton Control-->
 
                     <SolidColorBrush x:Key="HyperlinkButtonForeground"
                                      Color="{Binding LightTheme.HyperlinkButtonForegroundColor, Source={StaticResource ThemeManager}}" />
@@ -122,17 +323,31 @@
                                      Color="{Binding LightTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
                                      Color="{Binding LightTheme.HyperlinkButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
-                                     Color="{Binding LightTheme.HyperlinkButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
 
-                    <SolidColorBrush x:Key="TextBlockButtonForeground"
-                                     Color="{Binding LightTheme.TextButtonForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundPressed"
-                                     Color="{Binding LightTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundPointerOver"
-                                     Color="{Binding LightTheme.TextButtonActiveForegroundColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="TextBlockButtonForegroundDisabled"
-                                     Color="{Binding LightTheme.TextButtonDisableForegroundColor, Source={StaticResource ThemeManager}}" />
+                    <!--#endregion-->
+
+                    <!--#region Button Control-->
+
+                    <StaticResource x:Key="ButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region TextBlockButton Control-->
+
+                    <StaticResource x:Key="TextBlockButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="TextBlockButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="TextBlockButtonForegroundPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <!--#endregion-->
+
+                    <!--#region Controls Colors-->
 
                     <SolidColorBrush x:Key="ControlForeground"
                                      Color="{Binding LightTheme.ControlForegroundColor, Source={StaticResource ThemeManager}}" />
@@ -148,30 +363,175 @@
                     <SolidColorBrush x:Key="ControlActiveBackground"
                                      Color="{Binding LightTheme.ControlActiveBackgroundColor, Source={StaticResource ThemeManager}}" />
 
-                    <StaticResource x:Key="ToggleButtonBackground"
-                                    ResourceKey="ControlBackground" />
+                    <!--#endregion-->
+
+                    <!--#region AccentButton Control-->
+
+                    <StaticResource x:Key="AccentButtonForeground"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AccentButtonForegroundPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AccentButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="AccentButtonBackground"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="AccentButtonBackgroundPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region ToggleButton Control-->
+
+                    <StaticResource x:Key="ToggleButtonBackgroundChecked"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
                     <StaticResource x:Key="ToggleButtonForeground"
-                                    ResourceKey="ControlForeground" />
-                    
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
 
-                    <SolidColorBrush x:Key="ToggleButtonBackgroundChecked"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ToggleButtonBackgroundCheckedPointerOver"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <StaticResource x:Key="ToggleButtonForegroundIndeterminate"
+                                    ResourceKey="ToggleButtonForeground" />
+                    <StaticResource x:Key="ToggleButtonForegroundIndeterminatePointerOver"
+                                    ResourceKey="ToggleButtonForegroundPointerOver" />
+                    <StaticResource x:Key="ToggleButtonRevealBackgroundIndeterminatePressed"
+                                    ResourceKey="ToggleButtonForegroundPressed" />
 
-                    <SolidColorBrush x:Key="AccentButtonBackground"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="AccentButtonBackgroundPointerOver"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <StaticResource x:Key="ToggleButtonForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleButtonForegroundCheckedPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <!--#endregion-->
 
-                    
-                    <SolidColorBrush x:Key="ToggleSwitchFillOn"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                    <!--#region CheckBox Control-->
 
-                    <SolidColorBrush x:Key="RadioButtonOuterEllipseCheckedStroke"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
-                    <SolidColorBrush x:Key="ToggleSwitchFillOnPressed"
-                                     Color="{Binding LightTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
+                    <StaticResource x:Key="CheckBoxForegroundUnchecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundUncheckedPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundUncheckedPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxForegroundChecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundCheckedPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundCheckedPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminate"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminatePointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxForegroundIndeterminatePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPressed"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminate"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUnchecked"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUncheckedPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeCheckedPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundFillChecked"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminate"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminatePointerOver"
+                                    ResourceKey="AccentColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region RadioButton Control-->
+
+                    <StaticResource x:Key="RadioButtonForeground"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonForegroundPointerOver"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonForegroundPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonOuterEllipseStroke"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStroke"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePointerOver"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="RadioButtonCheckGlyphFill"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="RadioButtonCheckGlyphFillPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="RadioButtonCheckGlyphFillPressed"
+                                    ResourceKey="TextColorBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region ToggleSwitch Control-->
+
+                    <StaticResource x:Key="ToggleSwitchHeaderForeground"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchContentForeground"
+                                    ResourceKey="TextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchStrokeOff"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchStrokeOffPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchKnobFillOff"
+                                    ResourceKey="TextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver"
+                                    ResourceKey="ActiveTextColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOffPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchKnobFillOn"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOnPointerOver"
+                                    ResourceKey="ActiveAccentContrastColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchKnobFillOnPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <StaticResource x:Key="ToggleSwitchFillOn"
+                                    ResourceKey="AccentColorBrush" />
+                    <StaticResource x:Key="ToggleSwitchFillOnPointerOver"
+                                    ResourceKey="ActiveAccentColorBrush" />
+
+                    <!--#endregion-->
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

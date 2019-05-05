@@ -13,16 +13,17 @@
                           ActiveTextColor="White"
                           SubTextColor="#FFF0F0F0"
                           SubSubTextColor="#FFE8E8E8"
+                          
+                          AccentContrastColor="White"
+                          ActiveAccentContrastColor="White"
+                          
                           AccentColor="Goldenrod"
                           ActiveAccentColor="#FFFAD280"
 
                           HyperlinkButtonForegroundColor="Blue"
                           HyperlinkButtonActiveForegroundColor="LightBlue"
-                          HyperlinkButtonDisableForegroundColor="Gray"
+                          
 
-                          TextButtonForegroundColor="#FFE8E8E8"
-                          TextButtonActiveForegroundColor="White"
-                          TextButtonDisableForegroundColor="#FF999999" 
 
                           ControlBackgroundColor="Gray"
                           ControlActiveBackgroundColor="LightGray"
@@ -43,16 +44,19 @@
                           ActiveTextColor="Black"
                           SubTextColor="#FF666666"
                           SubSubTextColor="#FF999999"
+
+                          AccentContrastColor="White"
+                          ActiveAccentContrastColor="White"
+                          
                           AccentColor="Green"
                           ActiveAccentColor="LightGreen"
 
                           HyperlinkButtonForegroundColor="Blue"
                           HyperlinkButtonActiveForegroundColor="LightBlue"
-                          HyperlinkButtonDisableForegroundColor="Gray"
 
-                          TextButtonForegroundColor="#FF666666"
-                          TextButtonActiveForegroundColor="Black"
-                          TextButtonDisableForegroundColor="#FF999999"
+
+
+
 
                           ControlBackgroundColor="Gray"
                           ControlActiveBackgroundColor="LightGray"

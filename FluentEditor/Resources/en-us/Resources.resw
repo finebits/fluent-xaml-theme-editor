@@ -294,6 +294,9 @@
   <data name="TestContentHyperlinksBlock.Text" xml:space="preserve">
     <value>Hyperlinks</value>
   </data>
+  <data name="TestContentIndeterminateToggleButton.Content" xml:space="preserve">
+    <value>Indeterminate Toggle Button</value>
+  </data>
   <data name="TestContentListviewBlock.Text" xml:space="preserve">
     <value>List view</value>
   </data>

@@ -97,6 +97,27 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
             }
         }
 
+        private Color _accentContrastColor;
+        public Color AccentContrastColor
+        {
+            get { return _accentContrastColor; }
+            set
+            {
+                SetProperty(ref _accentContrastColor, value);
+            }
+        }
+
+        private Color _activeAccentContrastColor;
+        public Color ActiveAccentContrastColor
+        {
+            get { return _activeAccentContrastColor; }
+            set
+            {
+                SetProperty(ref _activeAccentContrastColor, value);
+            }
+        }
+
+
         private Color _accentColor;
         public Color AccentColor
         {
@@ -135,47 +156,6 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
             set
             {
                 SetProperty(ref _hyperlinkButtonActiveForegroundColor, value);
-            }
-        }
-
-        private Color _hyperlinkButtonDisableForegroundColor;
-        public Color HyperlinkButtonDisableForegroundColor
-        {
-            get { return _hyperlinkButtonDisableForegroundColor; }
-            set
-            {
-                SetProperty(ref _hyperlinkButtonDisableForegroundColor, value);
-            }
-        }
-
-
-        private Color _textButtonForegroundColor;
-        public Color TextButtonForegroundColor
-        {
-            get { return _textButtonForegroundColor; }
-            set
-            {
-                SetProperty(ref _textButtonForegroundColor, value);
-            }
-        }
-
-        private Color _textButtonActiveForegroundColor;
-        public Color TextButtonActiveForegroundColor
-        {
-            get { return _textButtonActiveForegroundColor; }
-            set
-            {
-                SetProperty(ref _textButtonActiveForegroundColor, value);
-            }
-        }
-
-        private Color _textButtonDisableForegroundColor;
-        public Color TextButtonDisableForegroundColor
-        {
-            get { return _textButtonDisableForegroundColor; }
-            set
-            {
-                SetProperty(ref _textButtonDisableForegroundColor, value);
             }
         }
 
@@ -252,14 +232,14 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
             ActiveTextColor = theme.ActiveTextColor;
             SubTextColor = theme.SubTextColor;
             SubSubTextColor = theme.SubSubTextColor;
+
             AccentColor = theme.AccentColor;
             ActiveAccentColor = theme.ActiveAccentColor;
+            AccentContrastColor = theme.AccentContrastColor;
+            ActiveAccentContrastColor = theme.ActiveAccentContrastColor;
+
             HyperlinkButtonForegroundColor = theme.HyperlinkButtonForegroundColor;
             HyperlinkButtonActiveForegroundColor = theme.HyperlinkButtonActiveForegroundColor;
-            HyperlinkButtonDisableForegroundColor = theme.HyperlinkButtonDisableForegroundColor;
-            TextButtonForegroundColor = theme.TextButtonForegroundColor;
-            TextButtonActiveForegroundColor = theme.TextButtonActiveForegroundColor;
-            TextButtonDisableForegroundColor = theme.TextButtonDisableForegroundColor;
         }
 
 
@@ -320,32 +300,23 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
                 return false;
             }
 
+            if (AccentContrastColor != theme.AccentContrastColor)
+            {
+                return false;
+            }
+
+            if (ActiveAccentContrastColor != theme.ActiveAccentContrastColor)
+            {
+                return false;
+            }
+
+
             if (HyperlinkButtonForegroundColor != theme.HyperlinkButtonForegroundColor)
             {
                 return false;
             }
 
             if (HyperlinkButtonActiveForegroundColor != theme.HyperlinkButtonActiveForegroundColor)
-            {
-                return false;
-            }
-
-            if (HyperlinkButtonDisableForegroundColor != theme.HyperlinkButtonDisableForegroundColor)
-            {
-                return false;
-            }
-
-            if (TextButtonForegroundColor != theme.TextButtonForegroundColor)
-            {
-                return false;
-            }
-
-            if (TextButtonActiveForegroundColor != theme.TextButtonActiveForegroundColor)
-            {
-                return false;
-            }
-
-            if (TextButtonDisableForegroundColor != theme.TextButtonDisableForegroundColor)
             {
                 return false;
             }
@@ -369,17 +340,13 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
             data[nameof(SubTextColor)] = JsonValue.CreateStringValue(SubTextColor.ToString());
             data[nameof(SubSubTextColor)] = JsonValue.CreateStringValue(SubSubTextColor.ToString());
 
-
             data[nameof(AccentColor)] = JsonValue.CreateStringValue(AccentColor.ToString());
             data[nameof(ActiveAccentColor)] = JsonValue.CreateStringValue(ActiveAccentColor.ToString());
+            data[nameof(AccentContrastColor)] = JsonValue.CreateStringValue(AccentContrastColor.ToString());
+            data[nameof(ActiveAccentContrastColor)] = JsonValue.CreateStringValue(ActiveAccentContrastColor.ToString());
 
             data[nameof(HyperlinkButtonForegroundColor)] = JsonValue.CreateStringValue(HyperlinkButtonForegroundColor.ToString());
             data[nameof(HyperlinkButtonActiveForegroundColor)] = JsonValue.CreateStringValue(HyperlinkButtonActiveForegroundColor.ToString());
-            data[nameof(HyperlinkButtonDisableForegroundColor)] = JsonValue.CreateStringValue(HyperlinkButtonDisableForegroundColor.ToString());
-
-            data[nameof(TextButtonForegroundColor)] = JsonValue.CreateStringValue(TextButtonForegroundColor.ToString());
-            data[nameof(TextButtonActiveForegroundColor)] = JsonValue.CreateStringValue(TextButtonActiveForegroundColor.ToString());
-            data[nameof(TextButtonDisableForegroundColor)] = JsonValue.CreateStringValue(TextButtonDisableForegroundColor.ToString());
 
             return data;
         }
@@ -399,14 +366,11 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
 
             AccentColor = data[nameof(AccentColor)].GetColor();
             ActiveAccentColor = data[nameof(ActiveAccentColor)].GetColor();
+            AccentContrastColor = data[nameof(AccentContrastColor)].GetColor();
+            ActiveAccentContrastColor = data[nameof(ActiveAccentContrastColor)].GetColor();
 
             HyperlinkButtonForegroundColor = data[nameof(HyperlinkButtonForegroundColor)].GetColor();
             HyperlinkButtonActiveForegroundColor = data[nameof(HyperlinkButtonActiveForegroundColor)].GetColor();
-            HyperlinkButtonDisableForegroundColor = data[nameof(HyperlinkButtonDisableForegroundColor)].GetColor();
-
-            TextButtonForegroundColor = data[nameof(TextButtonForegroundColor)].GetColor();
-            TextButtonActiveForegroundColor = data[nameof(TextButtonActiveForegroundColor)].GetColor();
-            TextButtonDisableForegroundColor = data[nameof(TextButtonDisableForegroundColor)].GetColor();
         }
     }
 }

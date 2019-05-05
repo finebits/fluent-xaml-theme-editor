@@ -16,43 +16,75 @@
                 <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <Style x:Key="GroupTextBlockStyle"
+                   BasedOn="{StaticResource BaseTextBlockStyle}"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource TextColorBrush}" />
+            </Style>
+
+            <Style x:Key="ControlSubtitleTextBlockStyle"
+                   BasedOn="{StaticResource SubtitleTextBlockStyle}"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource TextColorBrush}" />
+            </Style>
+
             <Style x:Key="TextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource TextColorBrush}" />
             </Style>
 
             <Style x:Key="SubTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource SubTextColorBrush}" />
             </Style>
 
             <Style x:Key="SubSubTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource SubSubTextColorBrush}" />
             </Style>
 
             <Style x:Key="ActiveTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource ActiveTextColorBrush}" />
             </Style>
 
-            <Style x:Key="AccentTextBlockStyle"
+            <Style x:Key="AccentColorTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource AccentColorBrush}" />
             </Style>
 
-            <Style x:Key="ActiveAccentTextBlockStyle"
+            <Style x:Key="ActiveAccentColorTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource ActiveAccentColorBrush}" />
             </Style>
 
+            <Style x:Key="AccentTextTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource AccentContrastColorBrush}" />
+            </Style>
 
+            <Style x:Key="ActiveAccentTextTextBlockStyle"
+                   BasedOn="{StaticResource BodyTextBlockStyle}"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="{ThemeResource ActiveAccentContrastColorBrush}" />
+            </Style>
 
         </ResourceDictionary>
 
@@ -66,13 +98,15 @@
                 <TextBlock VerticalAlignment="Center"
                            FontWeight="SemiBold"
                            LineHeight="20"
-                           Style="{StaticResource SubtitleTextBlockStyle}"
+                           Style="{StaticResource ControlSubtitleTextBlockStyle}"
                            Text="{x:Bind Title, Mode=OneWay}" />
             </Border>
 
+            <!--#region Backgrounds-->
+
             <TextBlock Text="Backgrounds"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
 
             <Grid Margin="0,0,0,28"
                   Height="400">
@@ -98,37 +132,51 @@
                                    Margin="12"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="Text"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="SubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubTextBlockStyle}" />
                         <TextBlock Text="SubSubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubSubTextBlockStyle}" />
                         <TextBlock Text="ActiveText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource ActiveTextBlockStyle}" />
                         <TextBlock Text="Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource AccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource AccentColorTextBlockStyle}" />
                         <TextBlock Text="Active Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource ActiveAccentColorTextBlockStyle}" />
 
                         <StackPanel Orientation="Horizontal"
                                     Margin="4">
@@ -144,7 +192,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource TextBlockStyle}" />
+                                               Style="{StaticResource AccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -160,7 +208,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -181,37 +229,51 @@
                                    Margin="12"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="Text"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="SubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubTextBlockStyle}" />
                         <TextBlock Text="SubSubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubSubTextBlockStyle}" />
                         <TextBlock Text="ActiveText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource ActiveTextBlockStyle}" />
                         <TextBlock Text="Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource AccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource AccentColorTextBlockStyle}" />
                         <TextBlock Text="Active Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource ActiveAccentColorTextBlockStyle}" />
 
                         <StackPanel Orientation="Horizontal"
                                     Margin="4">
@@ -227,7 +289,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource TextBlockStyle}" />
+                                               Style="{StaticResource AccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -243,7 +305,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -263,37 +325,51 @@
                                    Margin="12"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="Text"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="SubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubTextBlockStyle}" />
                         <TextBlock Text="SubSubText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource SubSubTextBlockStyle}" />
                         <TextBlock Text="ActiveText"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource ActiveTextBlockStyle}" />
                         <TextBlock Text="Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource AccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource AccentColorTextBlockStyle}" />
                         <TextBlock Text="Active Accent"
                                    Margin="4"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Style="{StaticResource ActiveAccentTextBlockStyle}" />
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   Style="{StaticResource ActiveAccentColorTextBlockStyle}" />
 
                         <StackPanel Orientation="Horizontal"
                                     Margin="4">
@@ -309,7 +385,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource TextBlockStyle}" />
+                                               Style="{StaticResource AccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -325,7 +401,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -346,6 +422,8 @@
                                    Margin="12"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
                                    Style="{StaticResource TextBlockStyle}" />
                         <StackPanel Margin="0,0,0,0"
                                     HorizontalAlignment="Center"
@@ -355,41 +433,57 @@
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
                                        Style="{StaticResource TextBlockStyle}" />
                             <TextBlock Text="SubText"
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
                                        Style="{StaticResource SubTextBlockStyle}" />
                             <TextBlock Text="SubSubText"
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
                                        Style="{StaticResource SubSubTextBlockStyle}" />
                             <TextBlock Text="ActiveText"
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
                                        Style="{StaticResource ActiveTextBlockStyle}" />
                             <TextBlock Text="Accent"
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Style="{StaticResource AccentTextBlockStyle}" />
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
+                                       Style="{StaticResource AccentColorTextBlockStyle}" />
                             <TextBlock Text="Active Accent"
                                        Margin="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Style="{StaticResource ActiveAccentTextBlockStyle}" />
+                                       TextWrapping="NoWrap"
+                                       TextTrimming="CharacterEllipsis"
+                                       Style="{StaticResource ActiveAccentColorTextBlockStyle}" />
                         </StackPanel>
                     </StackPanel>
                 </Border>
 
             </Grid>
 
+            <!--#endregion-->
+
+            <!--#region Buttons-->
+
             <TextBlock x:Uid="TestContentButtonsBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <Button x:Uid="TestContentEnabledButton"
                     Margin="0,0,0,12" />
             <Button x:Uid="TestContentDisabledButton"
@@ -400,6 +494,9 @@
             <ToggleButton x:Uid="TestContentToggledButton"
                           Margin="0,0,0,12"
                           IsChecked="True" />
+            <ToggleButton x:Uid="TestContentIndeterminateToggleButton"
+                          Margin="0,0,0,12"
+                          IsChecked="{x:Null}" />
             <Button x:Uid="TestContentEnabledAccentButton"
                     Margin="0,0,0,12"
                     Style="{StaticResource AccentButtonStyle}" />
@@ -424,9 +521,13 @@
                     Style="{StaticResource ButtonRevealStyle}"
                     Margin="0,0,0,28" />
 
+            <!--#endregion-->
+
+            <!--#region Hyperlinks-->
+
             <TextBlock x:Uid="TestContentHyperlinksBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
 
             <HyperlinkButton x:Uid="TestHyperlinkButton"
                              Margin="0,0,0,12" />
@@ -434,9 +535,14 @@
                              IsEnabled="False"
                              Margin="0,0,0,28" />
 
+            <!--#endregion-->
+
+            <!--#region Checkboxes-->
+
             <TextBlock x:Uid="TestContentCheckboxBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
+
             <CheckBox x:Uid="TestContentUncheckedCheckbox"
                       Margin="0,0,0,12" />
             <CheckBox x:Uid="TestContentCheckedCheckbox"
@@ -449,9 +555,12 @@
                       Margin="0,0,0,28"
                       IsChecked="True"
                       IsEnabled="False" />
+            <!--#endregion-->
+
+            <!--#region Radio buttons-->
             <TextBlock x:Uid="TestContentRadioBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <RadioButton x:Uid="TestContentUncheckedRadio"
                          Margin="0,0,0,12"
                          GroupName="Test1" />
@@ -464,9 +573,12 @@
                          GroupName="Test2"
                          IsChecked="True"
                          IsEnabled="False" />
+            <!--#endregion-->
+
+            <!--#region ComboBoxes-->
             <TextBlock x:Uid="TestContentComboBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <ComboBox Width="200"
                       Margin="0,0,0,12">
                 <ComboBox.Items>
@@ -496,32 +608,46 @@
                     <ComboBoxItem x:Uid="TestContentEditableComboItem3" />
                 </ComboBox.Items>
             </ComboBox>
+            <!--#endregion-->
+
+            <!--#region Textboxes-->
+
             <TextBlock x:Uid="TestContentTextboxBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <TextBox x:Uid="TestContentTextbox"
                      Width="200"
                      Margin="0,0,0,28"
                      HorizontalAlignment="Left" />
+            <!--#endregion-->
+
+            <!--#region Toggles-->
             <TextBlock x:Uid="TestContentToggleBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
+
             <ToggleSwitch Margin="0,0,0,12"
                           IsOn="False" />
             <ToggleSwitch Margin="0,0,0,28"
                           IsOn="True" />
+            <!--#endregion-->
+
+            <!--#region Slider-->
             <TextBlock x:Uid="TestContentSliderBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}"
+                       Style="{StaticResource GroupTextBlockStyle}"
                        Text="Slider" />
             <Slider Margin="0,0,0,28"
                     HorizontalAlignment="Stretch"
                     Maximum="100"
                     Minimum="0"
                     Value="50" />
+            <!--#endregion-->
+
+            <!--#region ListView-->
             <TextBlock x:Uid="TestContentListviewBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <ListView Margin="0,0,0,28"
                       HorizontalAlignment="Stretch">
                 <ListView.ItemTemplate>
@@ -538,9 +664,12 @@
                     <ListViewItem x:Uid="TestContentListviewItem4" />
                 </ListView.Items>
             </ListView>
+            <!--#endregion-->
+
+            <!--#region CommandBar-->
             <TextBlock x:Uid="TestContentCommandBarBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <CommandBar Margin="0,0,0,28"
                         HorizontalAlignment="Stretch"
                         DefaultLabelPosition="Right">
@@ -563,9 +692,12 @@
                                         Icon="Favorite" />
                 </CommandBar.SecondaryCommands>
             </CommandBar>
+            <!--#endregion-->
+
+            <!--#region Flyouts-->
             <TextBlock x:Uid="TestContentFlyoutBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
 
             <Button Content="Edit Options"
                     Margin="0,0,0,28">
@@ -602,23 +734,33 @@
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>
+            <!--#endregion-->
 
+            <!--#region CalendarView-->
             <TextBlock x:Uid="TestContentCalendarViewBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <CalendarView Margin="0,0,0,28"
                           HorizontalAlignment="Stretch" />
+
+            <!--#endregion-->
+
+            <!--#region DatePicker-->
             <TextBlock x:Uid="TestContentDatePickerBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <DatePicker Margin="0,0,0,28"
                         HorizontalAlignment="Stretch" />
+
+            <!--#endregion-->
+
+            <!--#region TimePicker-->
             <TextBlock x:Uid="TestContentTimePickerBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}" />
+                       Style="{StaticResource GroupTextBlockStyle}" />
             <TimePicker Margin="0,0,0,0"
                         HorizontalAlignment="Stretch" />
-
+            <!--#endregion-->
         </StackPanel>
     </Grid>
 </UserControl>
