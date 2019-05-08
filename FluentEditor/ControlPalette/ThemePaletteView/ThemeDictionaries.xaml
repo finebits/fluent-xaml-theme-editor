@@ -24,6 +24,8 @@
 
                     <!--#endregion-->
 
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
+                    
                     <!--#region Background colors-->
 
                     <SolidColorBrush x:Key="AppBackground"
@@ -274,6 +276,8 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
 
                     <!--#region Background colors -->
 
@@ -535,6 +539,49 @@
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+
+            <Thickness x:Key="ItemBackgroundBorder">2,2,2,2</Thickness>
+
+            <!--#region Background colors-->
+            <SolidColorBrush x:Key="ItemBackground0"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="ItemBackground1"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="AppBackground"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <AcrylicBrush x:Key="AppAcrylicBrush"
+                          BackgroundSource="Backdrop"
+                          AlwaysUseFallback="True"
+                          FallbackColor="{ThemeResource SystemColorButtonFaceColor}" />
+
+            <!--#endregion-->
+
+            <!--#region TextBlock colors-->
+
+            <SolidColorBrush x:Key="TextColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="SubSubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="ActiveTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <!--#endregion-->
+
+            <!--#region Accent colors-->
+
+            <StaticResource x:Key="AccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+            <StaticResource x:Key="ActiveAccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+
+            <SolidColorBrush x:Key="AccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

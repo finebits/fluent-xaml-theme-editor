@@ -54,9 +54,9 @@
 
             "DarkTheme": {
                 "AppBackground": "#FF000000",
-                "ItemBackground0": "#FF424242",
-                "ItemBackground1": "#FF666666",
-                "AcrylicBackgroundColor": "#FF707070",
+                "ItemBackground0": "#FF222222",
+                "ItemBackground1": "#FF444444",
+                "AcrylicBackgroundColor": "#FF333333",
                 "AcrylicBackgroundOpacity": 0.7,
 
                 "TextColor": "#CCFFFFFF",

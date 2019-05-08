@@ -121,6 +121,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Border Background="{ThemeResource AppBackground}"
+                        BorderBrush="{ThemeResource SystemControlForegroundTransparentBrush}"
+                        BorderThickness="{ThemeResource ItemBackgroundBorder}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.Column="0"
@@ -218,6 +220,8 @@
                 </Border>
 
                 <Border Background="{ThemeResource ItemBackground0}"
+                        BorderBrush="{ThemeResource SystemControlForegroundTransparentBrush}"
+                        BorderThickness="{ThemeResource ItemBackgroundBorder}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.Column="1"
@@ -314,6 +318,8 @@
                 </Border>
 
                 <Border Background="{ThemeResource ItemBackground1}"
+                        BorderBrush="{ThemeResource SystemControlForegroundTransparentBrush}"
+                        BorderThickness="{ThemeResource ItemBackgroundBorder}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.Column="2"
@@ -410,6 +416,8 @@
                 </Border>
 
                 <Border Background="{ThemeResource AppAcrylicBrush}"
+                        BorderBrush="{ThemeResource SystemControlForegroundTransparentBrush}"
+                        BorderThickness="{ThemeResource ItemBackgroundBorder}"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
                         Grid.ColumnSpan="3"
