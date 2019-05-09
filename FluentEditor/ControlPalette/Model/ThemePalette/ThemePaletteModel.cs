@@ -29,6 +29,7 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
 
         Theme DarkTheme { get; }
         Theme LightTheme { get; }
+        bool IsSystemTheme { get; }
     }
 
     public class ThemePaletteModel : IThemePaletteModel
@@ -78,6 +79,8 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
                 }
             }
         }
+
+        public bool IsSystemTheme { get; private set; }
 
         public async Task InitializeData(IStringProvider stringProvider, string dataPath)
         {
@@ -185,6 +188,7 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
 
             DarkTheme = preset.CloneDarkTheme();
             LightTheme = preset.CloneLightTheme();
+            IsSystemTheme = preset.IsSystemTheme;
 
             UpdateActivePreset();
 

@@ -107,6 +107,11 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             base.OnNavigatedFrom(e);
             ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
             ViewModel.ThemeChanged -= OnThemeChanged;
+
+            if (Application.Current is App app)
+            {
+                app.ThemeManager.IsSystemTheme = null;
+            }
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -122,6 +127,13 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             App app = Application.Current as App;
             app.ThemeManager.DarkTheme = obj.DarkTheme;
             app.ThemeManager.LightTheme = obj.LightTheme;
+            app.ThemeManager.IsSystemTheme = obj.IsSystemTheme;
+
+            LightArea.RequestedTheme = ElementTheme.Dark;
+            LightArea.RequestedTheme = ElementTheme.Light;
+
+            DarkArea.RequestedTheme = ElementTheme.Light;
+            DarkArea.RequestedTheme = ElementTheme.Dark;
         }
 
         #region Theme parameters changed
@@ -179,7 +191,7 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
 
         private void OnLightAcrylicBackgroundOpacityChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
-            if(ViewModel?.CurrentModel?.LightTheme != null)
+            if (ViewModel?.CurrentModel?.LightTheme != null)
             {
                 ViewModel.CurrentModel.LightTheme.AcrylicBackgroundOpacity = e.NewValue;
             }

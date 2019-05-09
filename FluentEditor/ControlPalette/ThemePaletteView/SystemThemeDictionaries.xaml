@@ -1,0 +1,143 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
+
+                    <!--#region Background colors-->
+
+                    <StaticResource x:Key="AppBackground"
+                                    ResourceKey="ApplicationPageBackgroundThemeBrush" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{ThemeResource SystemChromeLowColor}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{ThemeResource SystemChromeMediumColor}" />
+                    <StaticResource x:Key="AppAcrylicBrush"
+                                    ResourceKey="SystemControlAcrylicElementMediumHighBrush" />
+
+                    <!--#endregion-->
+
+                    <!--#region TextBlock colors-->
+
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{StaticResource SystemBaseHighColor}" />
+                    <SolidColorBrush x:Key="SubTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumHighColor}" />
+                    <SolidColorBrush x:Key="SubSubTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumColor}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumHighColor}" />
+                    <!--#endregion-->
+
+                    <!--#region Accent colors-->
+
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColor}" />
+                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorLight1}" />
+
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+                    <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+
+                    <!--#endregion-->
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
+
+                    <!--#region Background colors -->
+                    <StaticResource x:Key="AppBackground"
+                                    ResourceKey="ApplicationPageBackgroundThemeBrush" />
+                    <SolidColorBrush x:Key="ItemBackground0"
+                                     Color="{ThemeResource SystemChromeLowColor}" />
+                    <SolidColorBrush x:Key="ItemBackground1"
+                                     Color="{ThemeResource SystemChromeMediumColor}" />
+                    <StaticResource x:Key="AppAcrylicBrush"
+                                    ResourceKey="SystemControlAcrylicElementMediumHighBrush" />
+                    <!--#endregion-->
+
+                    <!--#region TextBlock colors-->
+
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{StaticResource SystemBaseHighColor}" />
+                    <SolidColorBrush x:Key="SubTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumHighColor}" />
+                    <SolidColorBrush x:Key="SubSubTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumColor}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{StaticResource SystemBaseMediumHighColor}" />
+                    <!--#endregion-->
+
+                    <!--#region Accent colors-->
+
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColor}" />
+                    <SolidColorBrush x:Key="ActiveAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorDark1}" />
+
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+                    <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+
+                    <!--#endregion-->
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+
+            <Thickness x:Key="ItemBackgroundBorder">2,2,2,2</Thickness>
+
+            <!--#region Background colors-->
+            <SolidColorBrush x:Key="ItemBackground0"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="ItemBackground1"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="AppBackground"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <AcrylicBrush x:Key="AppAcrylicBrush"
+                          BackgroundSource="Backdrop"
+                          AlwaysUseFallback="True"
+                          FallbackColor="{ThemeResource SystemColorButtonFaceColor}" />
+
+            <!--#endregion-->
+
+            <!--#region TextBlock colors-->
+
+            <SolidColorBrush x:Key="TextColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="SubSubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="ActiveTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <!--#endregion-->
+
+            <!--#region Accent colors-->
+
+            <StaticResource x:Key="AccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+            <StaticResource x:Key="ActiveAccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+
+            <SolidColorBrush x:Key="AccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>

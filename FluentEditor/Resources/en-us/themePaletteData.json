@@ -3,6 +3,7 @@
         {
             "Id": "Default",
             "Name": "Default",
+            "IsSystemTheme": false,
 
             "DarkTheme": {
                 "AppBackground": "#FF000000",
@@ -51,6 +52,7 @@
         {
             "Id": "Golden",
             "Name": "Golden",
+            "IsSystemTheme": false,
 
             "DarkTheme": {
                 "AppBackground": "#FF000000",
@@ -93,6 +95,11 @@
                 "HyperlinkButtonForegroundColor": "#FF0073CF",
                 "HyperlinkButtonActiveForegroundColor": "#CC0073CF"
             }
+        },
+        {
+            "Id": "SystemTheme",
+            "Name": "System Theme",
+            "IsSystemTheme": true
         }
     ]
 }

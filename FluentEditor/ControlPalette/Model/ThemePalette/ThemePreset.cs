@@ -17,6 +17,7 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
         private readonly string _name;
         public string Name { get { return _name; } }
 
+        public bool IsSystemTheme { get; private set; }
 
         private Theme DarkTheme { get; set; }
         private Theme LightTheme { get; set; }
@@ -32,13 +33,22 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
                 name = data[nameof(Name)].GetString();
             }
 
+            bool isSystemTheme = false;
+            if (data.ContainsKey(nameof(IsSystemTheme)))
+            {
+                isSystemTheme = data[nameof(IsSystemTheme)].GetBoolean();
+            }
+
             Theme darkTheme = new Theme();
-            darkTheme.Load(data[nameof(DarkTheme)].GetObject());
-
             Theme lightTheme = new Theme();
-            lightTheme.Load(data[nameof(LightTheme)].GetObject());
 
-            return new ThemePreset(id, name, darkTheme, lightTheme);
+            if(!isSystemTheme)
+            {
+                darkTheme.Load(data[nameof(DarkTheme)].GetObject());
+                lightTheme.Load(data[nameof(LightTheme)].GetObject());
+            }
+
+            return new ThemePreset(id, name, darkTheme, lightTheme, isSystemTheme);
         }
 
         public static JsonObject Serialize(ThemePreset preset)
@@ -58,14 +68,16 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
 
             data[nameof(DarkTheme)] = darkTheme;
             data[nameof(LightTheme)] = lightTheme;
+            data[nameof(IsSystemTheme)] = JsonValue.CreateBooleanValue(false);
 
             return data;
         }
 
-        public ThemePreset(string id, string name, Theme darkTheme, Theme lightTheme)
+        private ThemePreset(string id, string name, Theme darkTheme, Theme lightTheme, bool isSystemTheme)
         {
             _id = id;
             _name = name;
+            IsSystemTheme = isSystemTheme;
 
             DarkTheme = new Theme(darkTheme);
             LightTheme = new Theme(lightTheme);
@@ -84,6 +96,7 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
         {
             _id = preset._id;
             _name = preset._name;
+            IsSystemTheme = preset.IsSystemTheme;
 
             DarkTheme = new Theme(preset.DarkTheme);
             LightTheme = new Theme(preset.LightTheme);
@@ -94,6 +107,11 @@ namespace FluentEditor.ControlPalette.Model.ThemePalette
             if (model == null || DarkTheme == null || LightTheme == null)
             {
                 return false;
+            }
+
+            if(IsSystemTheme && model.IsSystemTheme)
+            {
+                return true;
             }
 
             return DarkTheme.IsEquals(model.DarkTheme) && LightTheme.IsEquals(model.LightTheme);

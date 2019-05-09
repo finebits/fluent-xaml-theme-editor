@@ -12,8 +12,8 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/SystemThemeDictionaries.xaml" />
                 <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/Styles/TextBlockButtonStyle.xaml" />
-                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style x:Key="GroupTextBlockStyle"

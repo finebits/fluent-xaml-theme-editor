@@ -83,6 +83,11 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             }
         }
 
+        public bool CanEdit
+        {
+            get { return CurrentModel.IsSystemTheme == false; }
+        }
+
         public List<ContrastColorWrapper> TextLightContrastColors
         {
             get;
@@ -164,6 +169,7 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
         private void OnActivePresetChanged(IThemePaletteModel obj)
         {
             RaisePropertyChanged(nameof(ActivePreset));
+            RaisePropertyChanged(nameof(CanEdit));
         }
 
         public void OnSaveDataRequested(object sender, RoutedEventArgs e)
