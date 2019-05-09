@@ -17,6 +17,7 @@ using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using Windows.Storage.Provider;
 using FluentEditor.ControlPalette.Model.ThemePalette;
+using Windows.UI.ViewManagement;
 
 namespace FluentEditor.ControlPalette.ThemePaletteView
 {
@@ -85,8 +86,13 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
 
         public bool CanEdit
         {
-            get { return CurrentModel.IsSystemTheme == false; }
+            get
+            {
+                return !_accessibilitySettings.HighContrast && !CurrentModel.IsSystemTheme;
+            }
         }
+
+        private AccessibilitySettings _accessibilitySettings = new AccessibilitySettings();
 
         public List<ContrastColorWrapper> TextLightContrastColors
         {
@@ -157,8 +163,15 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
 
             CurrentModel = paletteModel;
 
+            _accessibilitySettings.HighContrastChanged += OnHighContrastChanged;
+
             CurrentModel.ActivePresetChanged += OnActivePresetChanged;
             CurrentModel.ThemeChanged += OnThemeChanged;
+        }
+
+        private void OnHighContrastChanged(AccessibilitySettings sender, object args)
+        {
+            RaisePropertyChanged(nameof(CanEdit));
         }
 
         private void OnThemeChanged(IThemePaletteModel obj)

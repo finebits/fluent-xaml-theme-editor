@@ -72,14 +72,14 @@
                         Value="{ThemeResource ActiveAccentColorBrush}" />
             </Style>
 
-            <Style x:Key="AccentTextTextBlockStyle"
+            <Style x:Key="AccentContrastTextBlockStyle"
                    BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
                         Value="{ThemeResource AccentContrastColorBrush}" />
             </Style>
 
-            <Style x:Key="ActiveAccentTextTextBlockStyle"
+            <Style x:Key="ActiveAccentContrastTextBlockStyle"
                    BasedOn="{StaticResource BodyTextBlockStyle}"
                    TargetType="TextBlock">
                 <Setter Property="Foreground"
@@ -194,7 +194,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource AccentTextTextBlockStyle}" />
+                                               Style="{StaticResource AccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -210,7 +210,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -293,7 +293,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource AccentTextTextBlockStyle}" />
+                                               Style="{StaticResource AccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -309,7 +309,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -391,7 +391,7 @@
                                     <TextBlock Text="Accents"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource AccentTextTextBlockStyle}" />
+                                               Style="{StaticResource AccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 
@@ -407,7 +407,7 @@
                                     <TextBlock Text="Active"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
-                                               Style="{StaticResource ActiveAccentTextTextBlockStyle}" />
+                                               Style="{StaticResource ActiveAccentContrastTextBlockStyle}" />
                                 </Border>
                             </Border>
 

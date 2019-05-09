@@ -6,6 +6,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
 
+                    <x:Boolean x:Key="IsHighContrast">False</x:Boolean>
                     <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
 
                     <!--#region Background colors-->
@@ -52,6 +53,7 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+                    <x:Boolean x:Key="IsHighContrast">False</x:Boolean>
 
                     <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
 
@@ -97,6 +99,7 @@
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
 
+            <x:Boolean x:Key="IsHighContrast">True</x:Boolean>
             <Thickness x:Key="ItemBackgroundBorder">2,2,2,2</Thickness>
 
             <!--#region Background colors-->
