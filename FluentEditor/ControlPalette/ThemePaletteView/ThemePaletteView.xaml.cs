@@ -107,11 +107,6 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             base.OnNavigatedFrom(e);
             ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
             ViewModel.ThemeChanged -= OnThemeChanged;
-
-            if (Application.Current is App app)
-            {
-                app.ThemeManager.IsSystemTheme = null;
-            }
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -127,7 +122,6 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             App app = Application.Current as App;
             app.ThemeManager.DarkTheme = obj.DarkTheme;
             app.ThemeManager.LightTheme = obj.LightTheme;
-            app.ThemeManager.IsSystemTheme = obj.IsSystemTheme;
 
             LightArea.RequestedTheme = ElementTheme.Dark;
             LightArea.RequestedTheme = ElementTheme.Light;

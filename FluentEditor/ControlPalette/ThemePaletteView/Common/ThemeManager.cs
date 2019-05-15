@@ -24,16 +24,5 @@ namespace FluentEditor.ControlPalette.ThemePaletteView.Common
                 SetProperty(ref _lightTheme, value);
             }
         }
-
-        private bool? _isSystemTheme = null;
-
-        public bool? IsSystemTheme
-        {
-            get { return _isSystemTheme; }
-            set
-            {
-                SetProperty(ref _isSystemTheme, value);
-            }
-        }
     }
 }

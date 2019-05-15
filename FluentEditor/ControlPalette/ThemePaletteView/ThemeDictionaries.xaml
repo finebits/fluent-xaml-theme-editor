@@ -4,8 +4,13 @@
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
 
+                <ColorPaletteResources Accent="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+
+                <ResourceDictionary>
+                    <x:Boolean x:Key="IsHighContrast">False</x:Boolean>
+
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
                     <!--#region Controls Colors-->
 
                     <SolidColorBrush x:Key="ControlForeground"
@@ -55,7 +60,7 @@
                     <!--#region Accent colors-->
 
                     <SolidColorBrush x:Key="AccentColorBrush"
-                                     Color="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                                     Color="{ThemeResource SystemAccentColor}" />
                     <SolidColorBrush x:Key="ActiveAccentColorBrush"
                                      Color="{Binding DarkTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
 
@@ -64,6 +69,7 @@
                     <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
                                      Color="{Binding DarkTheme.ActiveAccentContrastColor, Source={StaticResource ThemeManager}}" />
 
+                    
                     <!--#endregion-->
 
                     <!--#region HyperlinkButton Control-->
@@ -108,19 +114,9 @@
                     <StaticResource x:Key="AccentButtonForegroundPressed"
                                     ResourceKey="ActiveTextColorBrush" />
 
-                    <StaticResource x:Key="AccentButtonBackground"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="AccentButtonBackgroundPointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
                     <!--#endregion-->
 
                     <!--#region ToggleButton Control-->
-
-                    <StaticResource x:Key="ToggleButtonBackgroundChecked"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver"
-                                    ResourceKey="AccentColorBrush" />
 
                     <StaticResource x:Key="ToggleButtonForeground"
                                     ResourceKey="TextColorBrush" />
@@ -168,38 +164,6 @@
                     <StaticResource x:Key="CheckBoxForegroundIndeterminatePressed"
                                     ResourceKey="TextColorBrush" />
 
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundChecked"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPointerOver"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPressed"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminate"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUnchecked"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUncheckedPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeCheckedPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundFillChecked"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminate"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminatePointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
                     <!--#endregion-->
 
                     <!--#region RadioButton Control-->
@@ -209,27 +173,6 @@
                     <StaticResource x:Key="RadioButtonForegroundPointerOver"
                                     ResourceKey="TextColorBrush" />
                     <StaticResource x:Key="RadioButtonForegroundPressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonOuterEllipseStroke"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStroke"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePointerOver"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonCheckGlyphFill"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="RadioButtonCheckGlyphFillPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="RadioButtonCheckGlyphFillPressed"
                                     ResourceKey="TextColorBrush" />
 
                     <!--#endregion-->
@@ -242,30 +185,6 @@
                     <StaticResource x:Key="ToggleSwitchContentForeground"
                                     ResourceKey="TextColorBrush" />
 
-                    <StaticResource x:Key="ToggleSwitchStrokeOff"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchStrokeOffPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchKnobFillOff"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOffPressed"
-                                    ResourceKey="AccentContrastColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchKnobFillOn"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOnPointerOver"
-                                    ResourceKey="ActiveAccentContrastColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOnPressed"
-                                    ResourceKey="AccentContrastColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchFillOn"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchFillOnPointerOver"
-                                    ResourceKey="ActiveAccentColorBrush" />
-
                     <!--#endregion-->
 
                 </ResourceDictionary>
@@ -273,8 +192,11 @@
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
+                <ColorPaletteResources Accent="{Binding DarkTheme.AccentColor, Source={StaticResource ThemeManager}}" />
                 <ResourceDictionary>
+                    <x:Boolean x:Key="IsHighContrast">False</x:Boolean>
 
+                    <Thickness x:Key="ItemBackgroundBorder">0,0,0,0</Thickness>
                     <!--#region Background colors -->
 
                     <SolidColorBrush x:Key="AppBackground"
@@ -306,7 +228,7 @@
 
                     <!--#region Accent colors -->
                     <SolidColorBrush x:Key="AccentColorBrush"
-                                     Color="{Binding LightTheme.AccentColor, Source={StaticResource ThemeManager}}" />
+                                     Color="{ThemeResource SystemAccentColor}" />
                     <SolidColorBrush x:Key="ActiveAccentColorBrush"
                                      Color="{Binding LightTheme.ActiveAccentColor, Source={StaticResource ThemeManager}}" />
                     <SolidColorBrush x:Key="AccentContrastColorBrush"
@@ -374,19 +296,9 @@
                     <StaticResource x:Key="AccentButtonForegroundPressed"
                                     ResourceKey="ActiveTextColorBrush" />
 
-                    <StaticResource x:Key="AccentButtonBackground"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="AccentButtonBackgroundPointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
                     <!--#endregion-->
 
                     <!--#region ToggleButton Control-->
-
-                    <StaticResource x:Key="ToggleButtonBackgroundChecked"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="ToggleButtonBackgroundCheckedPointerOver"
-                                    ResourceKey="AccentColorBrush" />
 
                     <StaticResource x:Key="ToggleButtonForeground"
                                     ResourceKey="TextColorBrush" />
@@ -433,38 +345,6 @@
                     <StaticResource x:Key="CheckBoxForegroundIndeterminatePressed"
                                     ResourceKey="TextColorBrush" />
 
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundChecked"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPointerOver"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundCheckedPressed"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminate"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUnchecked"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeUncheckedPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeCheckedPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundFillChecked"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminate"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="CheckBoxCheckBackgroundStrokeIndeterminatePointerOver"
-                                    ResourceKey="AccentColorBrush" />
-
                     <!--#endregion-->
 
                     <!--#region RadioButton Control-->
@@ -474,27 +354,6 @@
                     <StaticResource x:Key="RadioButtonForegroundPointerOver"
                                     ResourceKey="TextColorBrush" />
                     <StaticResource x:Key="RadioButtonForegroundPressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonOuterEllipseStroke"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseStrokePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStroke"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePointerOver"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="RadioButtonOuterEllipseCheckedStrokePressed"
-                                    ResourceKey="TextColorBrush" />
-
-                    <StaticResource x:Key="RadioButtonCheckGlyphFill"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="RadioButtonCheckGlyphFillPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="RadioButtonCheckGlyphFillPressed"
                                     ResourceKey="TextColorBrush" />
 
                     <!--#endregion-->
@@ -507,37 +366,52 @@
                     <StaticResource x:Key="ToggleSwitchContentForeground"
                                     ResourceKey="TextColorBrush" />
 
-                    <StaticResource x:Key="ToggleSwitchStrokeOff"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchStrokeOffPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchKnobFillOff"
-                                    ResourceKey="TextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver"
-                                    ResourceKey="ActiveTextColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOffPressed"
-                                    ResourceKey="AccentContrastColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchKnobFillOn"
-                                    ResourceKey="AccentContrastColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOnPointerOver"
-                                    ResourceKey="ActiveAccentContrastColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchKnobFillOnPressed"
-                                    ResourceKey="AccentContrastColorBrush" />
-
-                    <StaticResource x:Key="ToggleSwitchFillOn"
-                                    ResourceKey="AccentColorBrush" />
-                    <StaticResource x:Key="ToggleSwitchFillOnPointerOver"
-                                    ResourceKey="ActiveAccentColorBrush" />
-
                     <!--#endregion-->
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
+            <x:Boolean x:Key="IsHighContrast">True</x:Boolean>
+            <Thickness x:Key="ItemBackgroundBorder">2,2,2,2</Thickness>
 
+            <!--#region Background colors-->
+            <SolidColorBrush x:Key="ItemBackground0"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="ItemBackground1"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="AppBackground"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <AcrylicBrush x:Key="AppAcrylicBrush"
+                          BackgroundSource="Backdrop"
+                          AlwaysUseFallback="True"
+                          FallbackColor="{ThemeResource SystemColorButtonFaceColor}" />
+
+            <!--#endregion-->
+
+            <!--#region TextBlock colors-->
+
+            <SolidColorBrush x:Key="TextColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="SubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="SubSubTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="ActiveTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+            <!--#endregion-->
+
+            <!--#region Accent colors-->
+
+            <StaticResource x:Key="AccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+            <StaticResource x:Key="ActiveAccentColorBrush"
+                            ResourceKey="SystemControlHighlightAccentBrush" />
+
+            <SolidColorBrush x:Key="AccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="ActiveAccentContrastColorBrush"
+                             Color="{ThemeResource SystemColorWindowTextColor}" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

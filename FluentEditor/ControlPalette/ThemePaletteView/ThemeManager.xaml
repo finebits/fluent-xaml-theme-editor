@@ -54,10 +54,6 @@
                           HyperlinkButtonForegroundColor="Blue"
                           HyperlinkButtonActiveForegroundColor="LightBlue"
 
-
-
-
-
                           ControlBackgroundColor="Gray"
                           ControlActiveBackgroundColor="LightGray"
                           ControlDisableBackgroundColor="DarkGray"

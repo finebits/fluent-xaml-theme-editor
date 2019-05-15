@@ -16,23 +16,6 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
             DependencyProperty.Register(nameof(Title), typeof(string), typeof(ColorTestContent), new PropertyMetadata(null));
 
 
-        public bool IsSystemTheme
-        {
-            get { return (bool)GetValue(IsSystemThemeProperty); }
-            set { SetValue(IsSystemThemeProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsSystemThemeProperty =
-            DependencyProperty.Register(nameof(IsSystemTheme), typeof(bool), typeof(ColorTestContent), new PropertyMetadata(true, OnIsSystemThemeChanged));
-
-        private static void OnIsSystemThemeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if(d is ColorTestContent control)
-            {
-                control.UpdateTheme();
-            }
-        }
-
         public ResourceDictionary CustomThemeResource
         {
             get { return (ResourceDictionary)GetValue(CustomThemeResourceProperty); }
@@ -46,34 +29,6 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
         public ColorTestContent()
         {
             this.InitializeComponent();
-        }
-
-        private void UpdateTheme()
-        {
-            if (IsSystemTheme)
-            {
-                Unload();
-            }
-            else 
-            {
-                Load();
-            }
-        }
-
-        private void Load()
-        {
-            if (Resources != null && !Resources.MergedDictionaries.Contains(CustomThemeResource))
-            {
-                Resources.MergedDictionaries.Add(CustomThemeResource);
-            }
-        }
-
-        private void Unload()
-        {
-            if (Resources != null && Resources.MergedDictionaries.Contains(CustomThemeResource))
-            {
-                Resources.MergedDictionaries.Remove(CustomThemeResource);
-            }
         }
     }
 }

@@ -44,8 +44,7 @@
                         VerticalAlignment="Top"
                         Background="White"
                         RequestedTheme="Light">
-                    <local:ColorTestContent Title="Light Theme"
-                                            IsSystemTheme="{Binding IsSystemTheme, Source={StaticResource ThemeManager}}">
+                    <local:ColorTestContent Title="Light Theme">
                         <local:ColorTestContent.CustomThemeResource>
                             <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml" />
                         </local:ColorTestContent.CustomThemeResource>
@@ -58,8 +57,7 @@
                         VerticalAlignment="Top"
                         Background="Black"
                         RequestedTheme="Dark">
-                    <local:ColorTestContent Title="Dark Theme"
-                                            IsSystemTheme="{Binding IsSystemTheme, Source={StaticResource ThemeManager}}">
+                    <local:ColorTestContent Title="Dark Theme">
                         <local:ColorTestContent.CustomThemeResource>
                             <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml"/>
                         </local:ColorTestContent.CustomThemeResource>

@@ -88,7 +88,7 @@ namespace FluentEditor.ControlPalette.ThemePaletteView
         {
             get
             {
-                return !_accessibilitySettings.HighContrast && !CurrentModel.IsSystemTheme;
+                return !_accessibilitySettings.HighContrast;
             }
         }
 

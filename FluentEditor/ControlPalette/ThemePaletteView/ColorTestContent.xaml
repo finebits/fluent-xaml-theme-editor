@@ -12,7 +12,7 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/SystemThemeDictionaries.xaml" />
+                <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/ThemeDictionaries.xaml" />
                 <ResourceDictionary Source="ms-appx:///ControlPalette/ThemePaletteView/Styles/TextBlockButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
