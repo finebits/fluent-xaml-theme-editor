@@ -5,27 +5,27 @@ using FluentEditorShared;
 using FluentEditorShared.ColorPalette;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
 using Windows.UI;
-using System.Linq;
 
-namespace FluentEditor.ControlPalette.Model
+namespace FluentEditor.ThemePalette.Model
 {
-    public interface IControlPaletteModel
+    public interface IThemePaletteModel
     {
         Task InitializeData(IStringProvider stringProvider, string dataPath);
         Task HandleAppSuspend();
 
-        void AddOrReplacePreset(Preset preset);
-        void ApplyPreset(Preset preset);
-        ObservableList<Preset> Presets { get; }
-        Preset ActivePreset { get; }
-        event Action<IControlPaletteModel> ActivePresetChanged;
+        void AddOrReplacePreset(ThemePreset preset);
+        void ApplyPreset(ThemePreset preset);
+        ObservableList<ThemePreset> Presets { get; }
+        ThemePreset ActivePreset { get; }
+        event Action<IThemePaletteModel> ActivePresetChanged;
 
-        IReadOnlyList<ColorMapping> LightColorMapping { get; }
-        IReadOnlyList<ColorMapping> DarkColorMapping { get; }
+        IReadOnlyList<ThemeColorMapping> LightColorMapping { get; }
+        IReadOnlyList<ThemeColorMapping> DarkColorMapping { get; }
         ColorPaletteEntry LightRegion { get; }
         ColorPaletteEntry DarkRegion { get; }
         ColorPalette LightBase { get; }
@@ -34,7 +34,7 @@ namespace FluentEditor.ControlPalette.Model
         ColorPalette DarkPrimary { get; }
     }
 
-    public class ControlPaletteModel : IControlPaletteModel
+    public class ThemePaletteModel : IThemePaletteModel
     {
         public async Task InitializeData(IStringProvider stringProvider, string dataPath)
         {
@@ -65,13 +65,13 @@ namespace FluentEditor.ControlPalette.Model
             var darkPrimaryNode = rootObject["DarkPrimary"].GetObject();
             _darkPrimary = ColorPalette.Parse(darkPrimaryNode, null);
 
-            _presets = new ObservableList<Preset>();
+            _presets = new ObservableList<ThemePreset>();
             if (rootObject.ContainsKey("Presets"))
             {
                 var presetsNode = rootObject["Presets"].GetArray();
                 foreach (var presetNode in presetsNode)
                 {
-                    _presets.Add(Preset.Parse(presetNode.GetObject()));
+                    _presets.Add(ThemePreset.Parse(presetNode.GetObject()));
                 }
             }
             if (_presets.Count >= 1)
@@ -88,13 +88,13 @@ namespace FluentEditor.ControlPalette.Model
             _lightPrimary.ContrastColors = new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) };
             _darkPrimary.ContrastColors = new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) };
 
-            _lightColorMappings = ColorMapping.ParseList(rootObject["LightPaletteMapping"].GetArray(), _lightRegion, _darkRegion, _lightBase, _darkBase, _lightPrimary, _darkPrimary, _whiteColor, _blackColor);
+            _lightColorMappings = ThemeColorMapping.ParseList(rootObject["LightPaletteMapping"].GetArray(), _lightRegion, _darkRegion, _lightBase, _darkBase, _lightPrimary, _darkPrimary, _whiteColor, _blackColor);
             _lightColorMappings.Sort((a, b) =>
             {
                 return a.Target.ToString().CompareTo(b.Target.ToString());
             });
 
-            _darkColorMappings = ColorMapping.ParseList(rootObject["DarkPaletteMapping"].GetArray(), _lightRegion, _darkRegion, _lightBase, _darkBase, _lightPrimary, _darkPrimary, _whiteColor, _blackColor);
+            _darkColorMappings = ThemeColorMapping.ParseList(rootObject["DarkPaletteMapping"].GetArray(), _lightRegion, _darkRegion, _lightBase, _darkBase, _lightPrimary, _darkPrimary, _whiteColor, _blackColor);
             _darkColorMappings.Sort((a, b) =>
             {
                 return a.Target.ToString().CompareTo(b.Target.ToString());
@@ -161,7 +161,7 @@ namespace FluentEditor.ControlPalette.Model
             }
         }
 
-        private string GenerateMappingDescription(IColorPaletteEntry paletteEntry, List<ColorMapping> mappings)
+        private string GenerateMappingDescription(IColorPaletteEntry paletteEntry, List<ThemeColorMapping> mappings)
         {
             string retVal = string.Empty;
 
@@ -216,11 +216,11 @@ namespace FluentEditor.ControlPalette.Model
 
         private IStringProvider _stringProvider;
 
-        public void AddOrReplacePreset(Preset preset)
+        public void AddOrReplacePreset(ThemePreset preset)
         {
             if (!string.IsNullOrEmpty(preset.Name))
             {
-                var oldPreset = _presets.FirstOrDefault<Preset>((a) => a.Id == preset.Id);
+                var oldPreset = _presets.FirstOrDefault<ThemePreset>((a) => a.Id == preset.Id);
                 if (oldPreset != null)
                 {
                     _presets.Remove(oldPreset);
@@ -232,7 +232,7 @@ namespace FluentEditor.ControlPalette.Model
             UpdateActivePreset();
         }
 
-        public void ApplyPreset(Preset preset)
+        public void ApplyPreset(ThemePreset preset)
         {
             if (preset == null)
             {
@@ -269,14 +269,14 @@ namespace FluentEditor.ControlPalette.Model
             }
         }
 
-        private ObservableList<Preset> _presets;
-        public ObservableList<Preset> Presets
+        private ObservableList<ThemePreset> _presets;
+        public ObservableList<ThemePreset> Presets
         {
             get { return _presets; }
         }
 
-        private Preset _activePreset;
-        public Preset ActivePreset
+        private ThemePreset _activePreset;
+        public ThemePreset ActivePreset
         {
             get { return _activePreset; }
             private set
@@ -289,16 +289,16 @@ namespace FluentEditor.ControlPalette.Model
             }
         }
 
-        public event Action<IControlPaletteModel> ActivePresetChanged;
+        public event Action<IThemePaletteModel> ActivePresetChanged;
 
-        private List<ColorMapping> _lightColorMappings;
-        public IReadOnlyList<ColorMapping> LightColorMapping
+        private List<ThemeColorMapping> _lightColorMappings;
+        public IReadOnlyList<ThemeColorMapping> LightColorMapping
         {
             get { return _lightColorMappings; }
         }
 
-        private List<ColorMapping> _darkColorMappings;
-        public IReadOnlyList<ColorMapping> DarkColorMapping
+        private List<ThemeColorMapping> _darkColorMappings;
+        public IReadOnlyList<ThemeColorMapping> DarkColorMapping
         {
             get { return _darkColorMappings; }
         }

@@ -109,9 +109,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ControlPalette\CustomPaletteViewModel.cs" />
-    <Compile Include="ControlPalette\CustomPaletteView.xaml.cs">
-      <DependentUpon>CustomPaletteView.xaml</DependentUpon>
+    <Compile Include="ThemePalette\Model\ThemePreset.cs" />
+    <Compile Include="ThemePalette\Model\ThemePaletteModel.cs" />
+    <Compile Include="ThemePalette\ThemeColorMapping.cs" />
+    <Compile Include="ThemePalette\ThemePaletteResources.xaml.cs">
+      <DependentUpon>ThemePaletteResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemePalette\ThemePaletteTestContent.xaml.cs">
+      <DependentUpon>ThemePaletteTestContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemePalette\ThemePaletteViewModel.cs" />
+    <Compile Include="ThemePalette\ThemePaletteView.xaml.cs">
+      <DependentUpon>ThemePaletteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="OuterNav\INavItem.cs" />
     <Compile Include="ControlPalette\ColorMapping.cs" />
@@ -360,6 +369,7 @@
     <Content Include="Resources\zh-cn\demodata.json" />
     <Content Include="Resources\pt-pt\controlPaletteData.json" />
     <Content Include="Resources\pt-pt\demodata.json" />
+    <Content Include="Resources\en-us\themePaletteData.json" />
     <PRIResource Include="Resources\zh-cn\Resources.resw" />
     <PRIResource Include="Resources\nl-nl\Resources.resw" />
     <PRIResource Include="Resources\es-es\Resources.resw" />
@@ -401,7 +411,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ControlPalette\CustomPaletteView.xaml">
+    <Page Include="ThemePalette\ThemePaletteResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThemePalette\ThemePaletteTestContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThemePalette\ThemePaletteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -423,6 +441,9 @@
       <Project>{42a312ef-7c4a-4661-a684-db14e40a2a90}</Project>
       <Name>FluentEditorShared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ThemePalette\Styles\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

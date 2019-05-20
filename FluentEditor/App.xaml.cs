@@ -67,7 +67,7 @@ namespace FluentEditor
                 if (_state == AppState.Running)
                 {
                     var deferral = e.SuspendingOperation.GetDeferral();
-                    var suspendTask = SuspendApp(_mainNavModel, _paletteModel);
+                    var suspendTask = SuspendApp(_mainNavModel);
                     suspendTask.ContinueWith((t) =>
                     {
                         deferral.Complete();
@@ -76,9 +76,8 @@ namespace FluentEditor
             }
         }
 
-        private async Task SuspendApp(IMainNavModel mainModel, IControlPaletteModel controlPaletteModel)
+        private async Task SuspendApp(IMainNavModel mainModel)
         {
-            await controlPaletteModel.HandleAppSuspend();
             await mainModel.HandleAppSuspend();
         }
 
@@ -87,18 +86,13 @@ namespace FluentEditor
             var stringProvider = new StringProvider(Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse());
             var exportProvider = new ControlPaletteExportProvider();
 
-            var paletteModel = new ControlPaletteModel();
-            await paletteModel.InitializeData(stringProvider, stringProvider.GetString("ControlPaletteDataPath"));
-
             var navModel = new MainNavModel(stringProvider);
-            await navModel.InitializeData(stringProvider.GetString("MainDataPath"), paletteModel, exportProvider);
+            await navModel.InitializeData(stringProvider.GetString("MainDataPath"), exportProvider);
 
             lock (_initLock)
             {
                 _stringProvider = stringProvider;
                 _exportProvider = exportProvider;
-
-                _paletteModel = paletteModel;
 
                 _mainNavModel = navModel;
                 _outerNavViewModel = new OuterNavViewModel(_mainNavModel.NavItems, _mainNavModel.DefaultNavItem);
@@ -112,7 +106,6 @@ namespace FluentEditor
         private StringProvider _stringProvider;
         private ControlPaletteExportProvider _exportProvider;
         private IMainNavModel _mainNavModel;
-        private IControlPaletteModel _paletteModel;
 
         private OuterNavViewModel _outerNavViewModel;
     }

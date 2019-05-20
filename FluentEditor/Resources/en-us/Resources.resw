@@ -315,4 +315,7 @@
   <data name="TestContentUncheckedRadio.Content" xml:space="preserve">
     <value>Unchecked</value>
   </data>
+  <data name="ThemePaletteDataPath" xml:space="preserve">
+    <value>ms-appx:///Resources/en-us/themePaletteData.json</value>
+  </data>
 </root>

@@ -2,32 +2,32 @@
 // Licensed under the MIT License.
 
 using FluentEditor.OuterNav;
+using FluentEditor.ThemePalette.Model;
+using FluentEditorShared;
+using FluentEditorShared.ColorPalette;
+using FluentEditorShared.Utils;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Windows.Data.Json;
-using FluentEditorShared.ColorPalette;
-using Windows.UI.Xaml;
-using FluentEditorShared.Utils;
-using FluentEditor.ControlPalette.Model;
-using Windows.UI.Xaml.Media;
-using FluentEditorShared;
-using Windows.Storage;
-using Windows.Storage.Provider;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Windows.Data.Json;
+using Windows.Storage;
+using Windows.Storage.Provider;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
-namespace FluentEditor.ControlPalette
+namespace FluentEditor.ThemePalette
 {
-    public class CustomPaletteViewModel : INavItem
+    public class ThemePaletteViewModel : INavItem
     {
-        public static CustomPaletteViewModel Parse(IStringProvider stringProvider, JsonObject data, IControlPaletteModel paletteModel, IControlPaletteExportProvider exportProvider)
+        public static ThemePaletteViewModel Parse(IStringProvider stringProvider, JsonObject data, IThemePaletteModel paletteModel, FluentEditor.ControlPalette.Model.IControlPaletteExportProvider exportProvider)
         {
-            return new CustomPaletteViewModel(stringProvider, paletteModel, data["Id"].GetOptionalString(), data["Title"].GetOptionalString(), data["Glyph"].GetOptionalString(), exportProvider);
+            return new ThemePaletteViewModel(stringProvider, paletteModel, data["Id"].GetOptionalString(), data["Title"].GetOptionalString(), data["Glyph"].GetOptionalString(), exportProvider);
         }
 
-        public CustomPaletteViewModel(IStringProvider stringProvider, IControlPaletteModel paletteModel, string id, string title, string glyph, IControlPaletteExportProvider exportProvider)
+        public ThemePaletteViewModel(IStringProvider stringProvider, IThemePaletteModel paletteModel, string id, string title, string glyph, FluentEditor.ControlPalette.Model.IControlPaletteExportProvider exportProvider)
         {
             _stringProvider = stringProvider;
             _id = id;
@@ -96,8 +96,8 @@ namespace FluentEditor.ControlPalette
             }
             CachedFileManager.DeferUpdates(file);
 
-            Preset savePreset = new Preset(file.Path, file.DisplayName, _paletteModel);
-            var saveData = Preset.Serialize(savePreset);
+            ThemePreset savePreset = new ThemePreset(file.Path, file.DisplayName, _paletteModel);
+            var saveData = ThemePreset.Serialize(savePreset);
             var saveString = saveData.Stringify();
 
             await FileIO.WriteTextAsync(file, saveString);
@@ -139,17 +139,17 @@ namespace FluentEditor.ControlPalette
             }
             string dataString = await FileIO.ReadTextAsync(file);
             JsonObject rootObject = JsonObject.Parse(dataString);
-            Preset loadedPreset = null;
+            ThemePreset loadedPreset = null;
             try
             {
-                loadedPreset = Preset.Parse(rootObject, file.Path, file.DisplayName);
+                loadedPreset = ThemePreset.Parse(rootObject, file.Path, file.DisplayName);
             }
             catch
             {
                 loadedPreset = null;
             }
 
-            if(loadedPreset == null)
+            if (loadedPreset == null)
             {
                 if (file == null || file.Path == null)
                 {
@@ -170,15 +170,15 @@ namespace FluentEditor.ControlPalette
             _paletteModel.ApplyPreset(loadedPreset);
         }
 
-        private void OnActivePresetChanged(IControlPaletteModel obj)
+        private void OnActivePresetChanged(IThemePaletteModel obj)
         {
             RaisePropertyChanged("ActivePreset");
         }
 
-        private readonly IControlPaletteModel _paletteModel;
-        private readonly IControlPaletteExportProvider _exportProvider;
+        private readonly IThemePaletteModel _paletteModel;
+        private readonly FluentEditor.ControlPalette.Model.IControlPaletteExportProvider _exportProvider;
 
-        public Preset ActivePreset
+        public ThemePreset ActivePreset
         {
             get { return _paletteModel.ActivePreset; }
             set
@@ -187,7 +187,7 @@ namespace FluentEditor.ControlPalette
             }
         }
 
-        public IReadOnlyList<Preset> Presets
+        public IReadOnlyList<ThemePreset> Presets
         {
             get { return _paletteModel.Presets; }
         }
@@ -244,19 +244,20 @@ namespace FluentEditor.ControlPalette
             get { return _paletteModel.DarkPrimary; }
         }
 
-        public IReadOnlyList<ColorMapping> LightColorMapping
+        public IReadOnlyList<ThemeColorMapping> LightColorMapping
         {
             get { return _paletteModel.LightColorMapping; }
         }
 
-        public IReadOnlyList<ColorMapping> DarkColorMapping
+        public IReadOnlyList<ThemeColorMapping> DarkColorMapping
         {
             get { return _paletteModel.DarkColorMapping; }
         }
 
         public void OnExportRequested(object sender, RoutedEventArgs e)
         {
-            _exportProvider.ShowExportView(_exportProvider.GenerateExportData(_paletteModel));
+            // Todo Export
+            //_exportProvider.ShowExportView(_exportProvider.GenerateExportData(_paletteModel));
         }
 
         #region INotifyPropertyChanged

@@ -1,17 +1,17 @@
 ﻿{
-  "Demos": [
-    {
-      "Type": "ControlPalette",
-      "Id": "ControlPalette",
-      "Title": "控件配色示例",
-      "Glyph": ""
-    },
-    {
-      "Type": "CustomPalette",
-      "Id": "CustomPalette",
-      "Title": "Custom Palette",
-      "Glyph": ""
-    }
-  ],
-  "DefaultDemoId": "ControlPalette"
+    "Demos": [
+        {
+            "Type": "ControlPalette",
+            "Id": "ControlPalette",
+            "Title": "控件配色示例",
+            "Glyph": ""
+        },
+        {
+            "Type": "ThemePalette",
+            "Id": "ThemePalette",
+            "Title": "Theme's palette",
+            "Glyph": ""
+        }
+    ],
+    "DefaultDemoId": "ControlPalette"
 }

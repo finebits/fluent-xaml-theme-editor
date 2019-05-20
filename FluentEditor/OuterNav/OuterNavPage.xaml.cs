@@ -36,11 +36,11 @@ namespace FluentEditor.OuterNav
 
             switch (viewModel)
             {
-                case FluentEditor.ControlPalette.ControlPaletteViewModel controlPalette:
+                case FluentEditor.ControlPalette.ControlPaletteViewModel _:
                     pageType = typeof(FluentEditor.ControlPalette.ControlPaletteView);
                     break;
-                case FluentEditor.ControlPalette.CustomPaletteViewModel homePage:
-                    pageType = typeof(FluentEditor.ControlPalette.CustomPaletteView);
+                case FluentEditor.ThemePalette.ThemePaletteViewModel _:
+                    pageType = typeof(FluentEditor.ThemePalette.ThemePaletteView);
                     break;
             }
 
