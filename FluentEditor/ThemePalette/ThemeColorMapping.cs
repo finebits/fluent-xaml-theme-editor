@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using FluentEditor.ThemePalette.Model;
 using FluentEditorShared.ColorPalette;
 using FluentEditorShared.Utils;
 using System;
@@ -10,8 +11,52 @@ using Windows.UI.Xaml;
 
 namespace FluentEditor.ThemePalette
 {
-    public enum ThemeColorTarget { Accent, ErrorText, AltHigh, AltLow, AltMedium, AltMediumHigh, AltMediumLow, BaseHigh, BaseLow, BaseMedium, BaseMediumHigh, BaseMediumLow, ChromeAltLow, ChromeBlackHigh, ChromeBlackLow, ChromeBlackMedium, ChromeBlackMediumLow, ChromeDisabledHigh, ChromeDisabledLow, ChromeGray, ChromeHigh, ChromeLow, ChromeMedium, ChromeMediumLow, ChromeWhite, ListLow, ListMedium }
-    public enum ThemeColorSource { LightRegion, DarkRegion, LightBase, DarkBase, LightPrimary, DarkPrimary, White, Black }
+    public enum ThemeColorTarget
+    {
+        Accent,
+        ErrorText,
+        AltHigh,
+        AltLow,
+        AltMedium,
+        AltMediumHigh,
+        AltMediumLow,
+        BaseHigh,
+        BaseLow,
+        BaseMedium,
+        BaseMediumHigh,
+        BaseMediumLow,
+        ChromeAltLow,
+        ChromeBlackHigh,
+        ChromeBlackLow,
+        ChromeBlackMedium,
+        ChromeBlackMediumLow,
+        ChromeDisabledHigh,
+        ChromeDisabledLow,
+        ChromeGray,
+        ChromeHigh,
+        ChromeLow,
+        ChromeMedium,
+        ChromeMediumLow,
+        ChromeWhite,
+        ListLow,
+        ListMedium,
+
+        // Extra
+        TextActive,
+    }
+    public enum ThemeColorSource
+    {
+        LightRegion,
+        DarkRegion,
+        LightBase, 
+        DarkBase,
+        LightPrimary,
+        DarkPrimary,
+        White,
+        Black,
+
+        // Extra
+    }
 
     public class ThemeColorMapping
     {
@@ -76,19 +121,20 @@ namespace FluentEditor.ThemePalette
             get { return _targetColor; }
         }
 
-        public ThemeColorMappingInstance CreateInstance(ColorPaletteResources targetResources)
+        public ThemeColorMappingInstance CreateInstance(ColorPaletteResources targetResources, ThemeExtraPalette extraPalette)
         {
-            return new ThemeColorMappingInstance(_source, _targetColor, targetResources);
+            return new ThemeColorMappingInstance(_source, _targetColor, targetResources, extraPalette);
         }
     }
 
     public class ThemeColorMappingInstance : IDisposable
     {
-        public ThemeColorMappingInstance(IColorPaletteEntry source, ThemeColorTarget targetColor, ColorPaletteResources targetResources)
+        public ThemeColorMappingInstance(IColorPaletteEntry source, ThemeColorTarget targetColor, ColorPaletteResources targetResources, ThemeExtraPalette extraPalette)
         {
             _source = source;
             _targetColor = targetColor;
             _targetResources = targetResources;
+            _extraPalette = extraPalette;
 
             Apply();
 
@@ -98,6 +144,7 @@ namespace FluentEditor.ThemePalette
         private readonly IColorPaletteEntry _source;
         private readonly ThemeColorTarget _targetColor;
         private readonly ColorPaletteResources _targetResources;
+        private readonly ThemeExtraPalette _extraPalette;
 
         private static object _linkMapLock = new object();
         private static Dictionary<FrameworkElement, bool> _updateInProgress = new Dictionary<FrameworkElement, bool>();
@@ -298,6 +345,12 @@ namespace FluentEditor.ThemePalette
                     break;
                 case ThemeColorTarget.ListMedium:
                     _targetResources.ListMedium = _source.ActiveColor;
+                    break;
+
+                // Extra
+
+                case ThemeColorTarget.TextActive:
+                    _extraPalette.ActiveTextColor = _source.ActiveColor;
                     break;
             }
         }

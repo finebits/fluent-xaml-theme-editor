@@ -6,8 +6,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:color="using:FluentEditorShared.ColorPalette"
       xmlns:shared="using:FluentEditorShared.Shadow"
-      mc:Ignorable="d"
-      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+      mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/PaletteEditorStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid XYFocusKeyboardNavigation="Enabled">
         <Grid.ColumnDefinitions>
@@ -68,7 +74,8 @@
                         <local:ThemePaletteTestContent x:Name="LightTestContent"
                                                        x:Uid="ControlPaletteLightTestContent"
                                                        HorizontalAlignment="Stretch"
-                                                       VerticalAlignment="Top">
+                                                       VerticalAlignment="Top"
+                                                       RequestedTheme="Light">
                             <local:ThemePaletteTestContent.Resources>
                                 <local:ThemePaletteResources DarkColorMapping="{x:Bind Path=ViewModel.DarkColorMapping, Mode=OneWay}"
                                                              LightColorMapping="{x:Bind Path=ViewModel.LightColorMapping, Mode=OneWay}"
@@ -84,7 +91,8 @@
                         <local:ThemePaletteTestContent x:Name="DarkTestContent"
                                                        x:Uid="ControlPaletteDarkTestContent"
                                                        HorizontalAlignment="Stretch"
-                                                       VerticalAlignment="Top">
+                                                       VerticalAlignment="Top"
+                                                       RequestedTheme="Dark">
                             <local:ThemePaletteTestContent.Resources>
                                 <local:ThemePaletteResources DarkColorMapping="{x:Bind Path=ViewModel.DarkColorMapping, Mode=OneWay}"
                                                              LightColorMapping="{x:Bind Path=ViewModel.LightColorMapping, Mode=OneWay}"
@@ -198,7 +206,7 @@
                                                        ColorPaletteEntry="{x:Bind Path=ViewModel.DarkRegion, Mode=OneWay}"
                                                        Style="{StaticResource LargeColorPaletteEntryEditorStyle}" />
                     </Grid>
-                    <Grid HorizontalAlignment="Stretch"
+                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -251,14 +259,16 @@
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.LightBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" 
+                                                  Style="{StaticResource ColorPaletteEditorAlphaStyle}"/>
                         <color:ColorPaletteEditor Grid.Row="1"
                                                   Grid.Column="1"
                                                   Margin="6,0,0,0"
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.DarkBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" 
+                                                  Style="{StaticResource ColorPaletteEditorAlphaStyle}"/>
                     </Grid>
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Top">

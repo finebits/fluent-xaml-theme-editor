@@ -1,326 +1,212 @@
 ﻿{
-  "LightRegion": {
-    "Title": "Light Region",
-    "Color": "#FFFFFFFF"
-  },
-  "DarkRegion": {
-    "Title": "Dark Region",
-    "Color": "#FF282828"
-  },
-  "LightBase": {
-    "Steps": 11,
-    "BaseColor": {
-      "Title": "Light Base",
-      "Color": "#FFCCCCCC"
-    }
-  },
-  "DarkBase": {
-    "Steps": 11,
-    "BaseColor": {
-      "Title": "Dark Base",
-      "Color": "#FF333333"
-    }
-  },
-  "LightPrimary": {
-    "Steps": 11,
-    "BaseColor": {
-      "Title": "Light Primary",
-      "Color": "#FF1686AE"
-    }
-  },
-  "DarkPrimary": {
-    "Steps": 11,
-    "BaseColor": {
-      "Title": "Dark Primary",
-      "Color": "#FF1686AE"
-    }
-  },
-  "LightPaletteMapping": [
-    {
-      "Target": "Accent",
-      "Source": "LightPrimary",
-      "SourceIndex": "5"
+    "LightRegion": {
+        "Title": "Light Region",
+        "Color": "#FFFFFFFF"
     },
-    {
-      "Target": "AltHigh",
-      "Source": "White"
+    "DarkRegion": {
+        "Title": "Dark Region",
+        "Color": "#FF282828"
     },
-    {
-      "Target": "AltLow",
-      "Source": "White"
+    "LightBase": {
+        "Steps": 7,
+        "BaseColor": {
+            "Title": "Light Base",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FF000000"
+        }
     },
-    {
-      "Target": "AltMedium",
-      "Source": "White"
+    "DarkBase": {
+        "Steps": 7,
+        "BaseColor": {
+            "Title": "Dark Base",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FFFFFFFF"
+        }
     },
-    {
-      "Target": "AltMediumHigh",
-      "Source": "White"
+    "LightPrimary": {
+        "Steps": 7,
+        "BaseColor": {
+            "Title": "Light Primary",
+            "Color": "#FF1686AE"
+        }
     },
-    {
-      "Target": "AltMediumLow",
-      "Source": "White"
+    "DarkPrimary": {
+        "Steps": 7,
+        "BaseColor": {
+            "Title": "Dark Primary",
+            "Color": "#FF1686AE"
+        }
     },
-    {
-      "Target": "BaseHigh",
-      "Source": "Black"
-    },
-    {
-      "Target": "BaseLow",
-      "Source": "LightBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "BaseMedium",
-      "Source": "LightBase",
-      "SourceIndex": "8"
-    },
-    {
-      "Target": "BaseMediumHigh",
-      "Source": "LightBase",
-      "SourceIndex": "10"
-    },
-    {
-      "Target": "BaseMediumLow",
-      "Source": "LightBase",
-      "SourceIndex": "9"
-    },
-    {
-      "Target": "ChromeAltLow",
-      "Source": "LightBase",
-      "SourceIndex": "10"
-    },
-    {
-      "Target": "ChromeBlackHigh",
-      "Source": "Black"
-    },
-    {
-      "Target": "ChromeBlackLow",
-      "Source": "LightBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "ChromeBlackMedium",
-      "Source": "LightBase",
-      "SourceIndex": "10"
-    },
-    {
-      "Target": "ChromeBlackMediumLow",
-      "Source": "LightBase",
-      "SourceIndex": "8"
-    },
-    {
-      "Target": "ChromeDisabledHigh",
-      "Source": "LightBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "ChromeDisabledLow",
-      "Source": "LightBase",
-      "SourceIndex": "8"
-    },
-    {
-      "Target": "ChromeGray",
-      "Source": "LightBase",
-      "SourceIndex": "9"
-    },
-    {
-      "Target": "ChromeHigh",
-      "Source": "LightBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "ChromeLow",
-      "Source": "LightBase",
-      "SourceIndex": "0"
-    },
-    {
-      "Target": "ChromeMedium",
-      "Source": "LightBase",
-      "SourceIndex": "1"
-    },
-    {
-      "Target": "ChromeMediumLow",
-      "Source": "LightBase",
-      "SourceIndex": "0"
-    },
-    {
-      "Target": "ChromeWhite",
-      "Source": "White"
-    },
-    {
-      "Target": "ListLow",
-      "Source": "LightBase",
-      "SourceIndex": "1"
-    },
-    {
-      "Target": "ListMedium",
-      "Source": "LightBase",
-      "SourceIndex": "5"
-    }
-  ],
-  "DarkPaletteMapping": [
-    {
-      "Target": "Accent",
-      "Source": "DarkPrimary",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "AltHigh",
-      "Source": "Black"
-    },
-    {
-      "Target": "AltLow",
-      "Source": "Black"
-    },
-    {
-      "Target": "AltMedium",
-      "Source": "Black"
-    },
-    {
-      "Target": "AltMediumHigh",
-      "Source": "Black"
-    },
-    {
-      "Target": "AltMediumLow",
-      "Source": "Black"
-    },
-    {
-      "Target": "BaseHigh",
-      "Source": "White"
-    },
-    {
-      "Target": "BaseLow",
-      "Source": "DarkBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "BaseMedium",
-      "Source": "DarkBase",
-      "SourceIndex": "1"
-    },
-    {
-      "Target": "BaseMediumHigh",
-      "Source": "DarkBase",
-      "SourceIndex": "0"
-    },
-    {
-      "Target": "BaseMediumLow",
-      "Source": "DarkBase",
-      "SourceIndex": "3"
-    },
-    {
-      "Target": "ChromeAltLow",
-      "Source": "DarkBase",
-      "SourceIndex": "0"
-    },
-    {
-      "Target": "ChromeBlackHigh",
-      "Source": "Black"
-    },
-    {
-      "Target": "ChromeBlackLow",
-      "Source": "DarkBase",
-      "SourceIndex": "0"
-    },
-    {
-      "Target": "ChromeBlackMedium",
-      "Source": "Black"
-    },
-    {
-      "Target": "ChromeBlackMediumLow",
-      "Source": "Black"
-    },
-    {
-      "Target": "ChromeDisabledHigh",
-      "Source": "DarkBase",
-      "SourceIndex": "5"
-    },
-    {
-      "Target": "ChromeDisabledLow",
-      "Source": "DarkBase",
-      "SourceIndex": "1"
-    },
-    {
-      "Target": "ChromeGray",
-      "Source": "DarkBase",
-      "SourceIndex": "2"
-    },
-    {
-      "Target": "ChromeHigh",
-      "Source": "DarkBase",
-      "SourceIndex": "2"
-    },
-    {
-      "Target": "ChromeLow",
-      "Source": "DarkBase",
-      "SourceIndex": "9"
-    },
-    {
-      "Target": "ChromeMedium",
-      "Source": "DarkBase",
-      "SourceIndex": "8"
-    },
-    {
-      "Target": "ChromeMediumLow",
-      "Source": "DarkBase",
-      "SourceIndex": "6"
-    },
-    {
-      "Target": "ChromeWhite",
-      "Source": "White"
-    },
-    {
-      "Target": "ListLow",
-      "Source": "DarkBase",
-      "SourceIndex": "8"
-    },
-    {
-      "Target": "ListMedium",
-      "Source": "DarkBase",
-      "SourceIndex": "5"
-    }
-  ],
-  "Presets": [
-    {
-      "Id": "Default",
-      "Name": "Default",
-      "LightRegionColor": "#FFFFFFFF",
-      "DarkRegionColor": "#FF000000",
-      "LightBaseColor": "#FFCCCCCC",
-      "DarkBaseColor": "#FF333333",
-      "LightPrimaryColor": "#FF0073CF",
-      "DarkPrimaryColor": "#FF0073CF"
-    },
-    {
-      "Id": "Lavender",
-      "Name": "Lavender",
-      "LightRegionColor": "#FFFEF6FF",
-      "DarkRegionColor": "#FF262738",
-      "LightBaseColor": "#FFEECEFF",
-      "DarkBaseColor": "#FF64576B",
-      "LightPrimaryColor": "#FF8961CC",
-      "DarkPrimaryColor": "#FF8961CC"
-    },
-    {
-      "Id": "Forest",
-      "Name": "Forest",
-      "LightRegionColor": "#FFF7FFFF",
-      "DarkRegionColor": "#FF353819",
-      "LightBaseColor": "#FFC2DB65",
-      "DarkBaseColor": "#FF784834",
-      "LightPrimaryColor": "#FF34854D",
-      "DarkPrimaryColor": "#FF34854D"
-    },
-    {
-      "Id": "Nighttime",
-      "Name": "Nighttime",
-      "LightRegionColor": "#FFCFEAFF",
-      "DarkRegionColor": "#FF0D2644",
-      "LightBaseColor": "#FF7CBEE0",
-      "DarkBaseColor": "#FF2F7BAD",
-      "LightPrimaryColor": "#FFCC4D11",
-      "DarkPrimaryColor": "#FFCC4D11"
-    }
-  ]
+
+    "LightPaletteMapping": [
+        {
+            "Target": "Accent",
+            "Source": "LightPrimary",
+            "SourceIndex": "3"
+        },
+
+
+        {
+            "Target": "ChromeWhite",
+            "Source": "LightBase",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "TextActive",
+            "Source": "LightBase",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "BaseHigh",
+            "Source": "LightBase",
+            "SourceIndex": "2"
+        },
+        {
+            "Target": "BaseMediumHigh",
+            "Source": "LightBase",
+            "SourceIndex": "2"
+        },
+        {
+            "Target": "BaseMedium",
+            "Source": "LightBase",
+            "SourceIndex": "3"
+        },
+        {
+            "Target": "BaseMediumLow",
+            "Source": "LightBase",
+            "SourceIndex": "4"
+        },
+        {
+            "Target": "BaseLow",
+            "Source": "LightBase",
+            "SourceIndex": "5"
+        },
+        {
+            "Target": "ChromeMedium",
+            "Source": "LightBase",
+            "SourceIndex": "6"
+        }
+    ],
+    "DarkPaletteMapping": [
+        {
+            "Target": "Accent",
+            "Source": "DarkPrimary",
+            "SourceIndex": "3"
+        },
+
+
+        {
+            "Target": "ChromeWhite",
+            "Source": "DarkBase",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "TextActive",
+            "Source": "DarkBase",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "BaseHigh",
+            "Source": "DarkBase",
+            "SourceIndex": "2"
+        },
+        {
+            "Target": "BaseMediumHigh",
+            "Source": "DarkBase",
+            "SourceIndex": "2"
+        },
+        {
+            "Target": "BaseMedium",
+            "Source": "DarkBase",
+            "SourceIndex": "3"
+        },
+        {
+            "Target": "BaseMediumLow",
+            "Source": "DarkBase",
+            "SourceIndex": "4"
+        },
+        {
+            "Target": "BaseLow",
+            "Source": "DarkBase",
+            "SourceIndex": "5"
+        },
+        {
+            "Target": "ChromeMedium",
+            "Source": "DarkBase",
+            "SourceIndex": "6"
+        }
+    ],
+    "Presets": [
+        {
+            "Id": "Default",
+            "Name": "Default",
+            "LightRegionColor": "#FFFFFFFF",
+            "DarkRegionColor": "#FF000000",
+            "LightBaseColor": "#FF000000",
+            "DarkBaseColor": "#FFFFFFFF",
+            "LightPrimaryColor": "#FF0073CF",
+            "DarkPrimaryColor": "#FF0073CF",
+
+            "LightBaseOverrides": [
+                {
+                    "Index": 0,
+                    "Color": "#FFFFFFFF"
+                },
+                {
+                    "Index": 1,
+                    "Color": "#FF000000"
+                },
+                {
+                    "Index": 2,
+                    "Color": "#CC000000"
+                },
+                {
+                    "Index": 3,
+                    "Color": "#99000000"
+                },
+                {
+                    "Index": 4,
+                    "Color": "#66000000"
+                },
+                {
+                    "Index": 5,
+                    "Color": "#33000000"
+                },
+                {
+                    "Index": 6,
+                    "Color": "#00000000"
+                }
+            ],
+            "DarkBaseOverrides": [
+                {
+                    "Index": 0,
+                    "Color": "#FFFFFFFF"
+                },
+                {
+                    "Index": 1,
+                    "Color": "#FFFFFFFF"
+                },
+                {
+                    "Index": 2,
+                    "Color": "#CCFFFFFF"
+                },
+                {
+                    "Index": 3,
+                    "Color": "#99FFFFFF"
+                },
+                {
+                    "Index": 4,
+                    "Color": "#66FFFFFF"
+                },
+                {
+                    "Index": 5,
+                    "Color": "#33FFFFFF"
+                },
+                {
+                    "Index": 6,
+                    "Color": "#00000000"
+                }
+            ]
+        }
+    ]
 }

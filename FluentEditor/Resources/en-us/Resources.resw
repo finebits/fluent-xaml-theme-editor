@@ -249,6 +249,9 @@
   <data name="TestContentDisabledCheckbox.Content" xml:space="preserve">
     <value>Disabled</value>
   </data>
+  <data name="TestContentDisabledHyperlinkButton.Content" xml:space="preserve">
+    <value>Disabled hyperlink button</value>
+  </data>
   <data name="TestContentDisabledRadio.Content" xml:space="preserve">
     <value>Disabled</value>
   </data>
@@ -266,6 +269,12 @@
   </data>
   <data name="TestContentEnabledButton.Content" xml:space="preserve">
     <value>Enabled button</value>
+  </data>
+  <data name="TestContentHyperlinkButton.Content" xml:space="preserve">
+    <value>Hyperlink button</value>
+  </data>
+  <data name="TestContentHyperLinksBlock.Text" xml:space="preserve">
+    <value>Hyperlinks</value>
   </data>
   <data name="TestContentListviewBlock.Text" xml:space="preserve">
     <value>List view</value>
@@ -317,5 +326,35 @@
   </data>
   <data name="ThemePaletteDataPath" xml:space="preserve">
     <value>ms-appx:///Resources/en-us/themePaletteData.json</value>
+  </data>
+  <data name="TestContentDisabledTextBlockButton.Content" xml:space="preserve">
+    <value>Disabled text block button</value>
+  </data>
+  <data name="TestContentEnabledTextBlockButton.Content" xml:space="preserve">
+    <value>Enabled text block button</value>
+  </data>
+  <data name="TestContentAccentContrastTextBlock.Text" xml:space="preserve">
+    <value>Accent contrast text</value>
+  </data>
+  <data name="TestContentAccentTextBlock.Text" xml:space="preserve">
+    <value>Accent text</value>
+  </data>
+  <data name="TestContentActiveTextBlock.Text" xml:space="preserve">
+    <value>Active text</value>
+  </data>
+  <data name="TestContentLowTextBlock.Text" xml:space="preserve">
+    <value>Low text</value>
+  </data>
+  <data name="TestContentMediumTextBlock.Text" xml:space="preserve">
+    <value>Medium text</value>
+  </data>
+  <data name="TestContentTextAndBackgroundBlock.Text" xml:space="preserve">
+    <value>Text &amp; Backgrounds</value>
+  </data>
+  <data name="TestContentTextBlock.Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ThemePaletteTextColorsBlock.Text" xml:space="preserve">
+    <value>Text Colors</value>
   </data>
 </root>

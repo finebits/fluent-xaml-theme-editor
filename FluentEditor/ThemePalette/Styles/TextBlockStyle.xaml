@@ -1,0 +1,122 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{ThemeResource SystemBaseHighColor}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumLowColor}" />
+                    <SolidColorBrush x:Key="MediumTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumHighColor}" />
+                    <SolidColorBrush x:Key="LowTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumColor}" />
+
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColor}" />
+                    <SolidColorBrush x:Key="LightAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorLight1}" />
+                    <SolidColorBrush x:Key="DarkAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorDark1}" />
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="TextColorBrush"
+                                     Color="{ThemeResource SystemBaseHighColor}" />
+                    <SolidColorBrush x:Key="ActiveTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumLowColor}" />
+                    <SolidColorBrush x:Key="MediumTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumHighColor}" />
+                    <SolidColorBrush x:Key="LowTextColorBrush"
+                                     Color="{ThemeResource SystemBaseMediumColor}" />
+
+                    <SolidColorBrush x:Key="AccentContrastColorBrush"
+                                     Color="{ThemeResource SystemChromeWhiteColor}" />
+                    <SolidColorBrush x:Key="AccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColor}" />
+                    <SolidColorBrush x:Key="LightAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorLight1}" />
+                    <SolidColorBrush x:Key="DarkAccentColorBrush"
+                                     Color="{ThemeResource SystemAccentColorDark1}" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+
+            <SolidColorBrush x:Key="TextColorBrush"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="ActiveTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="MediumTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="LowTextColorBrush"
+                             Color="{ThemeResource SystemColorButtonFaceColor}" />
+
+            <SolidColorBrush x:Key="AccentContrastColorBrush"
+                             Color="{ThemeResource SystemChromeWhiteColor}" />
+            <SolidColorBrush x:Key="AccentColorBrush"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="LightAccentColorBrush"
+                             Color="{ThemeResource SystemAccentColorLight1}" />
+            <SolidColorBrush x:Key="DarkAccentColorBrush"
+                             Color="{ThemeResource SystemAccentColorDark1}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <Style x:Key="TextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource TextColorBrush}" />
+    </Style>
+
+    <Style x:Key="MediumTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource MediumTextColorBrush}" />
+    </Style>
+
+    <Style x:Key="LowTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource LowTextColorBrush}" />
+    </Style>
+
+    <Style x:Key="ActiveTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource ActiveTextColorBrush}" />
+    </Style>
+
+    <Style x:Key="AccentContrastTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentContrastColorBrush}" />
+    </Style>
+
+    <Style x:Key="AccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentColorBrush}" />
+    </Style>
+
+    <Style x:Key="LightAccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource LightAccentColorBrush}" />
+    </Style>
+
+    <Style x:Key="DarkAccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource DarkAccentColorBrush}" />
+    </Style>
+
+</ResourceDictionary>

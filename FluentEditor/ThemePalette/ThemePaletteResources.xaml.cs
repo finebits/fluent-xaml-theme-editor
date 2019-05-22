@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 using System.Collections.Generic;
+using Windows.UI;
 using Windows.UI.Xaml;
 
 namespace FluentEditor.ThemePalette
@@ -84,7 +85,7 @@ namespace FluentEditor.ThemePalette
                 _lightColorMappings = new List<ThemeColorMappingInstance>(newValue.Count);
                 for (int i = 0; i < newValue.Count; i++)
                 {
-                    var instance = newValue[i].CreateInstance(LightColorPaletteResources);
+                    var instance = newValue[i].CreateInstance(LightColorPaletteResources, LightExtraPalette);
                     instance.LinkedElement = linkedElement;
                     _lightColorMappings.Add(instance);
                 }
@@ -129,7 +130,7 @@ namespace FluentEditor.ThemePalette
                 _darkColorMappings = new List<ThemeColorMappingInstance>(newValue.Count);
                 for (int i = 0; i < newValue.Count; i++)
                 {
-                    var instance = newValue[i].CreateInstance(DarkColorPaletteResources);
+                    var instance = newValue[i].CreateInstance(DarkColorPaletteResources, DarkExtraPalette);
                     instance.LinkedElement = linkedElement;
                     _darkColorMappings.Add(instance);
                 }

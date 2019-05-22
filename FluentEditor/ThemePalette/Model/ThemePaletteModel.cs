@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using FluentEditor.ThemePalette.Data;
 using FluentEditorShared;
 using FluentEditorShared.ColorPalette;
 using System;
@@ -47,23 +48,27 @@ namespace FluentEditor.ThemePalette.Model
             _whiteColor = new ColorPaletteEntry(Colors.White, _stringProvider.GetString("DarkThemeTextContrastTitle"), null, FluentEditorShared.Utils.ColorStringFormat.PoundRGB, null);
             _blackColor = new ColorPaletteEntry(Colors.Black, _stringProvider.GetString("LightThemeTextContrastTitle"), null, FluentEditorShared.Utils.ColorStringFormat.PoundRGB, null);
 
-            var lightRegionNode = rootObject["LightRegion"].GetObject();
+            var lightRegionNode = rootObject[nameof(LightRegion)].GetObject();
             _lightRegion = ColorPaletteEntry.Parse(lightRegionNode, null);
 
-            var darkRegionNode = rootObject["DarkRegion"].GetObject();
+            var darkRegionNode = rootObject[nameof(DarkRegion)].GetObject();
             _darkRegion = ColorPaletteEntry.Parse(darkRegionNode, null);
 
-            var lightBaseNode = rootObject["LightBase"].GetObject();
-            _lightBase = ColorPalette.Parse(lightBaseNode, null);
+            var lightBaseNode = rootObject[nameof(LightBase)].GetObject();
+            var lightPalette = ThemeColorPalette.Parse(lightBaseNode, null);
+            lightPalette.IsInterpolationEnabled = false;
+            _lightBase = lightPalette;
 
-            var darkBaseNode = rootObject["DarkBase"].GetObject();
-            _darkBase = ColorPalette.Parse(darkBaseNode, null);
+            var darkBaseNode = rootObject[nameof(DarkBase)].GetObject();
+            var darkPalette = ThemeColorPalette.Parse(darkBaseNode, null);
+            darkPalette.IsInterpolationEnabled = false;
+            _darkBase = darkPalette;
 
-            var lightPrimaryNode = rootObject["LightPrimary"].GetObject();
-            _lightPrimary = ColorPalette.Parse(lightPrimaryNode, null);
+            var lightPrimaryNode = rootObject[nameof(LightPrimary)].GetObject();
+            _lightPrimary = ThemeColorPalette.Parse(lightPrimaryNode, null);
 
-            var darkPrimaryNode = rootObject["DarkPrimary"].GetObject();
-            _darkPrimary = ColorPalette.Parse(darkPrimaryNode, null);
+            var darkPrimaryNode = rootObject[nameof(DarkPrimary)].GetObject();
+            _darkPrimary = ThemeColorPalette.Parse(darkPrimaryNode, null);
 
             _presets = new ObservableList<ThemePreset>();
             if (rootObject.ContainsKey("Presets"))

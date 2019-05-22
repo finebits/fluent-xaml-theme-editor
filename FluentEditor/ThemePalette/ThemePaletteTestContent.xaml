@@ -11,6 +11,14 @@
              d:DesignHeight="300"
              d:DesignWidth="400"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/TextBlockButtonStyle.xaml" />
+                <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/TextBlockStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <StackPanel Margin="24,20,24,20"
                 Orientation="Vertical">
@@ -22,6 +30,34 @@
                        Style="{StaticResource SubtitleTextBlockStyle}"
                        Text="{x:Bind Path=Title, Mode=OneWay}" />
         </Border>
+        <TextBlock x:Uid="TestContentTextAndBackgroundBlock"
+                   Margin="0,0,0,16"
+                   Style="{StaticResource BaseTextBlockStyle}" />
+        <TextBlock x:Uid="TestContentActiveTextBlock"
+                   Style="{StaticResource ActiveTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentTextBlock"
+                   Style="{StaticResource TextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentMediumTextBlock"
+                   Style="{StaticResource MediumTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentLowTextBlock"
+                   Style="{StaticResource LowTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentContrastTextBlock"
+                   Style="{StaticResource AccentContrastTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource LightAccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource AccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource DarkAccentTextBlockStyle}"
+                   Margin="0,0,0,28" />
+
         <TextBlock x:Uid="TestContentButtonsBlock"
                    Margin="0,0,0,16"
                    Style="{StaticResource BaseTextBlockStyle}" />
@@ -42,6 +78,23 @@
                 Margin="0,0,0,28"
                 IsEnabled="False"
                 Style="{StaticResource AccentButtonStyle}" />
+        <TextBlock x:Uid="TestContentHyperlinksBlock"
+                   Margin="0,0,0,16"
+                   Style="{StaticResource BaseTextBlockStyle}" />
+        <Button x:Uid="TestContentEnabledTextBlockButton"
+                Margin="0,0,0,12"
+                Style="{StaticResource ThemeTextBlockButtonStyle}" />
+        <Button x:Uid="TestContentDisabledTextBlockButton"
+                Margin="0,0,0,12"
+                IsEnabled="False"
+                Style="{StaticResource ThemeTextBlockButtonStyle}" />
+        <HyperlinkButton x:Uid="TestContentHyperlinkButton"
+                         Padding="0"
+                         Margin="0,0,0,12" />
+        <HyperlinkButton x:Uid="TestContentDisabledHyperlinkButton"
+                         Padding="0"
+                         Margin="0,0,0,28"
+                         IsEnabled="False" />
         <TextBlock x:Uid="TestContentCheckboxBlock"
                    Margin="0,0,0,16"
                    Style="{StaticResource BaseTextBlockStyle}" />
