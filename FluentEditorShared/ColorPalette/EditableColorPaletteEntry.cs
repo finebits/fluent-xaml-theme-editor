@@ -33,7 +33,7 @@ namespace FluentEditorShared.ColorPalette
             FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat = FluentEditorShared.Utils.ColorStringFormat.PoundRGB;
             if (data.ContainsKey("ActiveColorStringFormat"))
             {
-                activeColorStringFormat = data.GetEnum<FluentEditorShared.Utils.ColorStringFormat>();
+                activeColorStringFormat = data["ActiveColorStringFormat"].GetEnum<FluentEditorShared.Utils.ColorStringFormat>();
             }
 
             return new EditableColorPaletteEntry(sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);

@@ -53,7 +53,7 @@ namespace FluentEditorShared.ColorPalette
             for (int i = 0; i < _steps; i++)
             {
                 string title = baseColor.Title + " " + (i * 100).ToString("000");
-                _palette.Add(new EditableColorPaletteEntry(null, default(Color), false, title, baseColor.Description, ColorStringFormat.PoundRGB, _contrastColors));
+                _palette.Add(new EditableColorPaletteEntry(null, default(Color), false, title, baseColor.Description, baseColor.ActiveColorStringFormat, _contrastColors));
             }
 
             UpdatePaletteColors();
