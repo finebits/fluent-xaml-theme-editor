@@ -122,6 +122,19 @@ namespace FluentEditorShared.ColorPalette
 
         #endregion
 
+        #region IsAlphaEnabledProperty
+
+        public bool IsAlphaEnabled
+        {
+            get { return (bool)GetValue(IsAlphaEnabledProperty); }
+            set { SetValue(IsAlphaEnabledProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsAlphaEnabledProperty =
+            DependencyProperty.Register(nameof(IsAlphaEnabled), typeof(bool), typeof(ExpandedColorPaletteEntryEditor), new PropertyMetadata(false));
+
+        #endregion
+
         private void ColorPaletteEntry_ActiveColorChanged(IColorPaletteEntry obj)
         {
             if (obj is EditableColorPaletteEntry editablePaletteEntry)

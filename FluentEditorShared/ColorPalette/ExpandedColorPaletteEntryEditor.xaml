@@ -106,6 +106,9 @@
             Grid.Row="0"
             Grid.Column="2"
             Margin="0,12,12,12"
+            IsAlphaEnabled="{x:Bind IsAlphaEnabled, Mode=OneWay}"
+            IsAlphaSliderVisible="{x:Bind IsAlphaEnabled, Mode=OneWay}"
+            IsAlphaTextInputVisible="{x:Bind IsAlphaEnabled, Mode=OneWay}"
             ColorChanged="ColorPicker_ColorChanged"
             Color="{x:Bind Path=ColorPaletteEntry.ActiveColor, Mode=OneWay}" />
 
