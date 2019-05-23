@@ -9,6 +9,37 @@
     },
     "LightBase": {
         "Steps": 7,
+        "GenerationMode": "Mix",
+        "MixColors": [
+            {
+                "Pattern": "#FFFFFFFF",
+                "Mask": "#FFFFFFFF"
+            },
+            {
+                "Pattern": "#FF000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#CC000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#99000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#66000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#33000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#00000000",
+                "Mask": "#FF000000"
+            }
+        ],
         "BaseColor": {
             "Title": "Light Base",
             "ActiveColorStringFormat": "ARGB",
@@ -17,6 +48,37 @@
     },
     "DarkBase": {
         "Steps": 7,
+        "GenerationMode": "Mix",
+        "MixColors": [
+            {
+                "Pattern": "#FFFFFFFF",
+                "Mask": "#FFFFFFFF"
+            },
+            {
+                "Pattern": "#FF000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#CC000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#99000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#66000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#33000000",
+                "Mask": "#FF000000"
+            },
+            {
+                "Pattern": "#00000000",
+                "Mask": "#FF000000"
+            }
+        ],
         "BaseColor": {
             "Title": "Dark Base",
             "ActiveColorStringFormat": "ARGB",
@@ -25,24 +87,62 @@
     },
     "LightPrimary": {
         "Steps": 7,
+        "GenerationMode": "RGB",
+        "ClipDark": 0.25,
+        "ClipLight": 0.25,
         "BaseColor": {
             "Title": "Light Primary",
+            "ActiveColorStringFormat": "ARGB",
             "Color": "#FF1686AE"
         }
     },
     "DarkPrimary": {
         "Steps": 7,
+        "GenerationMode": "RGB",
+        "ClipDark": 0.25,
+        "ClipLight": 0.25,
         "BaseColor": {
             "Title": "Dark Primary",
+            "ActiveColorStringFormat": "ARGB",
             "Color": "#FF1686AE"
         }
     },
 
     "LightPaletteMapping": [
         {
+            "Target": "LightAccent3",
+            "Source": "LightPrimary",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "LightAccent2",
+            "Source": "LightPrimary",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "LightAccent1",
+            "Source": "LightPrimary",
+            "SourceIndex": "2"
+        },
+        {
             "Target": "Accent",
             "Source": "LightPrimary",
             "SourceIndex": "3"
+        },
+        {
+            "Target": "DarkAccent1",
+            "Source": "LightPrimary",
+            "SourceIndex": "4"
+        },
+        {
+            "Target": "DarkAccent2",
+            "Source": "LightPrimary",
+            "SourceIndex": "5"
+        },
+        {
+            "Target": "DarkAccent3",
+            "Source": "LightPrimary",
+            "SourceIndex": "6"
         },
 
 
@@ -89,11 +189,40 @@
     ],
     "DarkPaletteMapping": [
         {
+            "Target": "LightAccent3",
+            "Source": "DarkPrimary",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "LightAccent2",
+            "Source": "DarkPrimary",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "LightAccent1",
+            "Source": "DarkPrimary",
+            "SourceIndex": "2"
+        },
+        {
             "Target": "Accent",
             "Source": "DarkPrimary",
             "SourceIndex": "3"
         },
-
+        {
+            "Target": "DarkAccent1",
+            "Source": "DarkPrimary",
+            "SourceIndex": "4"
+        },
+        {
+            "Target": "DarkAccent2",
+            "Source": "DarkPrimary",
+            "SourceIndex": "5"
+        },
+        {
+            "Target": "DarkAccent3",
+            "Source": "DarkPrimary",
+            "SourceIndex": "6"
+        },
 
         {
             "Target": "ChromeWhite",
@@ -145,68 +274,7 @@
             "LightBaseColor": "#FF000000",
             "DarkBaseColor": "#FFFFFFFF",
             "LightPrimaryColor": "#FF0073CF",
-            "DarkPrimaryColor": "#FF0073CF",
-
-            "LightBaseOverrides": [
-                {
-                    "Index": 0,
-                    "Color": "#FFFFFFFF"
-                },
-                {
-                    "Index": 1,
-                    "Color": "#FF000000"
-                },
-                {
-                    "Index": 2,
-                    "Color": "#CC000000"
-                },
-                {
-                    "Index": 3,
-                    "Color": "#99000000"
-                },
-                {
-                    "Index": 4,
-                    "Color": "#66000000"
-                },
-                {
-                    "Index": 5,
-                    "Color": "#33000000"
-                },
-                {
-                    "Index": 6,
-                    "Color": "#00000000"
-                }
-            ],
-            "DarkBaseOverrides": [
-                {
-                    "Index": 0,
-                    "Color": "#FFFFFFFF"
-                },
-                {
-                    "Index": 1,
-                    "Color": "#FFFFFFFF"
-                },
-                {
-                    "Index": 2,
-                    "Color": "#CCFFFFFF"
-                },
-                {
-                    "Index": 3,
-                    "Color": "#99FFFFFF"
-                },
-                {
-                    "Index": 4,
-                    "Color": "#66FFFFFF"
-                },
-                {
-                    "Index": 5,
-                    "Color": "#33FFFFFF"
-                },
-                {
-                    "Index": 6,
-                    "Color": "#00000000"
-                }
-            ]
+            "DarkPrimaryColor": "#FF0073CF"
         }
     ]
 }

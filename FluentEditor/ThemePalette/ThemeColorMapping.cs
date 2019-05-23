@@ -43,6 +43,12 @@ namespace FluentEditor.ThemePalette
 
         // Extra
         TextActive,
+        LightAccent1,
+        DarkAccent1,
+        LightAccent2,
+        DarkAccent2,
+        LightAccent3,
+        DarkAccent3,
     }
     public enum ThemeColorSource
     {
@@ -351,6 +357,24 @@ namespace FluentEditor.ThemePalette
 
                 case ThemeColorTarget.TextActive:
                     _extraPalette.ActiveTextColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.LightAccent1:
+                    _extraPalette.AccentLight1Color = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.DarkAccent1:
+                    _extraPalette.AccentDark1Color = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.LightAccent2:
+                    _extraPalette.AccentLight2Color = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.DarkAccent2:
+                    _extraPalette.AccentDark2Color = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.LightAccent3:
+                    _extraPalette.AccentLight3Color = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.DarkAccent3:
+                    _extraPalette.AccentDark3Color = _source.ActiveColor;
                     break;
             }
         }

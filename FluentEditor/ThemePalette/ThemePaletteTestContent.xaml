@@ -49,13 +49,25 @@
                    Style="{StaticResource AccentContrastTextBlockStyle}"
                    Margin="0,0,0,12" />
         <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource LightAccentTextBlockStyle}"
+                   Style="{StaticResource Light3AccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource Light2AccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource Light1AccentTextBlockStyle}"
                    Margin="0,0,0,12" />
         <TextBlock x:Uid="TestContentAccentTextBlock"
                    Style="{StaticResource AccentTextBlockStyle}"
                    Margin="0,0,0,12" />
         <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource DarkAccentTextBlockStyle}"
+                   Style="{StaticResource Dark1AccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource Dark2AccentTextBlockStyle}"
+                   Margin="0,0,0,12" />
+        <TextBlock x:Uid="TestContentAccentTextBlock"
+                   Style="{StaticResource Dark3AccentTextBlockStyle}"
                    Margin="0,0,0,28" />
 
         <TextBlock x:Uid="TestContentButtonsBlock"

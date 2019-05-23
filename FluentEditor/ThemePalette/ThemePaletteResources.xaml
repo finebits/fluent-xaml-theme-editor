@@ -32,14 +32,35 @@
 
                     <!--#region Accent Color-->
 
+                    <SolidColorBrush x:Key="SystemAccentColorLight1"
+                                     Color="{Binding AccentLight1Color, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark1"
+                                     Color="{Binding AccentDark1Color, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorLight2"
+                                     Color="{Binding AccentLight2Color, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark2"
+                                     Color="{Binding AccentDark2Color, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorLight3"
+                                     Color="{Binding AccentLight3Color, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark3"
+                                     Color="{Binding AccentDark3Color, Source={StaticResource DarkExtraPalette}}" />
+
                     <SolidColorBrush x:Key="AccentContrastColorBrush"
                                      Color="{ThemeResource SystemChromeWhiteColor}" />
                     <SolidColorBrush x:Key="AccentColorBrush"
                                      Color="{ThemeResource SystemAccentColor}" />
-                    <SolidColorBrush x:Key="LightAccentColorBrush"
-                                     Color="{ThemeResource SystemAccentColorLight1}" />
-                    <SolidColorBrush x:Key="DarkAccentColorBrush"
-                                     Color="{ThemeResource SystemAccentColorDark1}" />
+                    <StaticResource x:Key="AccentColorLight1Brush"
+                                    ResourceKey="SystemAccentColorLight1" />
+                    <StaticResource x:Key="AccentColorDark1Brush"
+                                    ResourceKey="SystemAccentColorDark1" />
+                    <StaticResource x:Key="AccentColorLight2Brush"
+                                    ResourceKey="SystemAccentColorLight2" />
+                    <StaticResource x:Key="AccentColorDark2Brush"
+                                    ResourceKey="SystemAccentColorDark2" />
+                    <StaticResource x:Key="AccentColorLight3Brush"
+                                    ResourceKey="SystemAccentColorLight3" />
+                    <StaticResource x:Key="AccentColorDark3Brush"
+                                    ResourceKey="SystemAccentColorDark3" />
                     <!-- #endregion-->
 
                     <!--#region TextBlockButton Control-->
@@ -102,14 +123,35 @@
 
                     <!--#region Accent Color-->
 
+                    <SolidColorBrush x:Key="SystemAccentColorLight1"
+                                     Color="{Binding AccentLight1Color, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark1"
+                                     Color="{Binding AccentDark1Color, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorLight2"
+                                     Color="{Binding AccentLight2Color, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark2"
+                                     Color="{Binding AccentDark2Color, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorLight3"
+                                     Color="{Binding AccentLight3Color, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="SystemAccentColorDark3"
+                                     Color="{Binding AccentDark3Color, Source={StaticResource LightExtraPalette}}" />
+
                     <SolidColorBrush x:Key="AccentContrastColorBrush"
                                      Color="{ThemeResource SystemChromeWhiteColor}" />
                     <SolidColorBrush x:Key="AccentColorBrush"
                                      Color="{ThemeResource SystemAccentColor}" />
-                    <SolidColorBrush x:Key="LightAccentColorBrush"
-                                     Color="{ThemeResource SystemAccentColorLight1}" />
-                    <SolidColorBrush x:Key="DarkAccentColorBrush"
-                                     Color="{ThemeResource SystemAccentColorDark1}" />
+                    <StaticResource x:Key="AccentColorLight1Brush"
+                                    ResourceKey="SystemAccentColorLight1" />
+                    <StaticResource x:Key="AccentColorDark1Brush"
+                                    ResourceKey="SystemAccentColorDark1" />
+                    <StaticResource x:Key="AccentColorLight2Brush"
+                                    ResourceKey="SystemAccentColorLight2" />
+                    <StaticResource x:Key="AccentColorDark2Brush"
+                                    ResourceKey="SystemAccentColorDark2" />
+                    <StaticResource x:Key="AccentColorLight3Brush"
+                                    ResourceKey="SystemAccentColorLight3" />
+                    <StaticResource x:Key="AccentColorDark3Brush"
+                                    ResourceKey="SystemAccentColorDark3" />
                     <!-- #endregion-->
 
                     <!--#region TextBlockButton Control-->

@@ -18,10 +18,18 @@
                                      Color="{ThemeResource SystemChromeWhiteColor}" />
                     <SolidColorBrush x:Key="AccentColorBrush"
                                      Color="{ThemeResource SystemAccentColor}" />
-                    <SolidColorBrush x:Key="LightAccentColorBrush"
+                    <SolidColorBrush x:Key="AccentColorLight1Brush"
                                      Color="{ThemeResource SystemAccentColorLight1}" />
-                    <SolidColorBrush x:Key="DarkAccentColorBrush"
+                    <SolidColorBrush x:Key="AccentColorDark1Brush"
                                      Color="{ThemeResource SystemAccentColorDark1}" />
+                    <SolidColorBrush x:Key="AccentColorLight2Brush"
+                                     Color="{ThemeResource SystemAccentColorLight2}" />
+                    <SolidColorBrush x:Key="AccentColorDark2Brush"
+                                     Color="{ThemeResource SystemAccentColorDark2}" />
+                    <SolidColorBrush x:Key="AccentColorLight3Brush"
+                                     Color="{ThemeResource SystemAccentColorLight3}" />
+                    <SolidColorBrush x:Key="AccentColorDark3Brush"
+                                     Color="{ThemeResource SystemAccentColorDark3}" />
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
@@ -42,10 +50,18 @@
                                      Color="{ThemeResource SystemChromeWhiteColor}" />
                     <SolidColorBrush x:Key="AccentColorBrush"
                                      Color="{ThemeResource SystemAccentColor}" />
-                    <SolidColorBrush x:Key="LightAccentColorBrush"
+                    <SolidColorBrush x:Key="AccentColorLight1Brush"
                                      Color="{ThemeResource SystemAccentColorLight1}" />
-                    <SolidColorBrush x:Key="DarkAccentColorBrush"
+                    <SolidColorBrush x:Key="AccentColorDark1Brush"
                                      Color="{ThemeResource SystemAccentColorDark1}" />
+                    <SolidColorBrush x:Key="AccentColorLight2Brush"
+                                     Color="{ThemeResource SystemAccentColorLight2}" />
+                    <SolidColorBrush x:Key="AccentColorDark2Brush"
+                                     Color="{ThemeResource SystemAccentColorDark2}" />
+                    <SolidColorBrush x:Key="AccentColorLight3Brush"
+                                     Color="{ThemeResource SystemAccentColorLight3}" />
+                    <SolidColorBrush x:Key="AccentColorDark3Brush"
+                                     Color="{ThemeResource SystemAccentColorDark3}" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -64,10 +80,18 @@
                              Color="{ThemeResource SystemChromeWhiteColor}" />
             <SolidColorBrush x:Key="AccentColorBrush"
                              Color="{ThemeResource SystemAccentColor}" />
-            <SolidColorBrush x:Key="LightAccentColorBrush"
+            <SolidColorBrush x:Key="AccentColorLight1Brush"
                              Color="{ThemeResource SystemAccentColorLight1}" />
-            <SolidColorBrush x:Key="DarkAccentColorBrush"
+            <SolidColorBrush x:Key="AccentColorDark1Brush"
                              Color="{ThemeResource SystemAccentColorDark1}" />
+            <SolidColorBrush x:Key="AccentColorLight2Brush"
+                             Color="{ThemeResource SystemAccentColorLight2}" />
+            <SolidColorBrush x:Key="AccentColorDark2Brush"
+                             Color="{ThemeResource SystemAccentColorDark2}" />
+            <SolidColorBrush x:Key="AccentColorLight3Brush"
+                             Color="{ThemeResource SystemAccentColorLight3}" />
+            <SolidColorBrush x:Key="AccentColorDark3Brush"
+                             Color="{ThemeResource SystemAccentColorDark3}" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -107,16 +131,40 @@
                 Value="{ThemeResource AccentColorBrush}" />
     </Style>
 
-    <Style x:Key="LightAccentTextBlockStyle"
+    <Style x:Key="Light1AccentTextBlockStyle"
            TargetType="TextBlock">
         <Setter Property="Foreground"
-                Value="{ThemeResource LightAccentColorBrush}" />
+                Value="{ThemeResource AccentColorLight1Brush}" />
     </Style>
 
-    <Style x:Key="DarkAccentTextBlockStyle"
+    <Style x:Key="Dark1AccentTextBlockStyle"
            TargetType="TextBlock">
         <Setter Property="Foreground"
-                Value="{ThemeResource DarkAccentColorBrush}" />
+                Value="{ThemeResource AccentColorDark1Brush}" />
+    </Style>
+
+    <Style x:Key="Light2AccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentColorLight2Brush}" />
+    </Style>
+
+    <Style x:Key="Dark2AccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentColorDark2Brush}" />
+    </Style>
+
+    <Style x:Key="Light3AccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentColorLight3Brush}" />
+    </Style>
+
+    <Style x:Key="Dark3AccentTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{ThemeResource AccentColorDark3Brush}" />
     </Style>
 
 </ResourceDictionary>
