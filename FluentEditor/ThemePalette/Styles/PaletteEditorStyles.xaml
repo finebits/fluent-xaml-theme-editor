@@ -80,4 +80,50 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ColorPaletteEditorExtraAlphaStyle"
+           TargetType="color:ColorPaletteEditor">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="color:ColorPaletteEditor">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <color:ColorPaletteEntryEditor Margin="0,0,0,16"
+                                                       AutomationProperties.Name="{Binding Path=ColorPalette.BaseColor.Title, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                       ColorPaletteEntry="{Binding Path=ColorPalette.BaseColor, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                       IsTabStop="True"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}" />
+
+                        <ItemsControl Grid.Row="1"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      IsTabStop="False"
+                                      ItemsSource="{TemplateBinding PaletteEntries}"
+                                      Visibility="{Binding Path=IsExpanded, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="color:IColorPaletteEntry">
+                                    <color:ColorPaletteEntryEditor Margin="0,0,0,8"
+                                                                   AutomationProperties.Name="{Binding Title}"
+                                                                   ColorPaletteEntry="{Binding}"
+                                                                   Style="{StaticResource ColorPaletteEntryEditorAlphaStyle}"
+                                                                   IsTabStop="True" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

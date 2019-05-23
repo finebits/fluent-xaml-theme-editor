@@ -259,16 +259,16 @@
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.LightBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" 
-                                                  Style="{StaticResource ColorPaletteEditorAlphaStyle}"/>
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}"/>
                         <color:ColorPaletteEditor Grid.Row="1"
                                                   Grid.Column="1"
                                                   Margin="6,0,0,0"
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.DarkBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}" 
-                                                  Style="{StaticResource ColorPaletteEditorAlphaStyle}"/>
+                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}"/>
                     </Grid>
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Top">
@@ -323,14 +323,16 @@
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.LightPrimary, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}"/>
                         <color:ColorPaletteEditor Grid.Row="1"
                                                   Grid.Column="1"
                                                   Margin="6,0,0,0"
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.DarkPrimary, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}" />
+                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
                     </Grid>
                 </StackPanel>
             </ScrollViewer>
