@@ -55,14 +55,10 @@ namespace FluentEditor.ThemePalette.Model
             _darkRegion = ColorPaletteEntry.Parse(darkRegionNode, null);
 
             var lightBaseNode = rootObject[nameof(LightBase)].GetObject();
-            var lightPalette = ThemeColorPalette.Parse(lightBaseNode, null);
-            lightPalette.IsInterpolationEnabled = false;
-            _lightBase = lightPalette;
+            _lightBase = ThemeColorPalette.Parse(lightBaseNode, null);
 
             var darkBaseNode = rootObject[nameof(DarkBase)].GetObject();
-            var darkPalette = ThemeColorPalette.Parse(darkBaseNode, null);
-            darkPalette.IsInterpolationEnabled = false;
-            _darkBase = darkPalette;
+            _darkBase = ThemeColorPalette.Parse(darkBaseNode, null);
 
             var lightPrimaryNode = rootObject[nameof(LightPrimary)].GetObject();
             _lightPrimary = ThemeColorPalette.Parse(lightPrimaryNode, null);
