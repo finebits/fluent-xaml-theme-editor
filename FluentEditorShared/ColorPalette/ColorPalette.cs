@@ -9,10 +9,44 @@ using Windows.UI;
 
 namespace FluentEditorShared.ColorPalette
 {
+    public interface IPaletteEntryData
+    {
+        string GetPaletteEntryTitle(int index);
+        string GetPaletteEntryDescription(int index);
+        IReadOnlyList<ContrastColorWrapper> GetPaletteEntryContrastColors(int index);
+    }
+
     // These classes are not intended to be viewmodels.
     // They deal with the data about an editable palette and are passed to special purpose controls for editing
     public class ColorPalette : IColorPalette
     {
+        public class PaletteEntryData : IPaletteEntryData
+        {
+            protected readonly IColorPaletteEntry _baseColor;
+            protected readonly IReadOnlyList<ContrastColorWrapper> _contrastColors;
+
+            public PaletteEntryData(IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors)
+            {
+                _baseColor = baseColor;
+                _contrastColors = contrastColors;
+            }
+
+            public virtual IReadOnlyList<ContrastColorWrapper> GetPaletteEntryContrastColors(int index)
+            {
+                return _contrastColors;
+            }
+
+            public virtual string GetPaletteEntryDescription(int index)
+            {
+                return _baseColor.Description;
+            }
+
+            public virtual string GetPaletteEntryTitle(int index)
+            {
+                return _baseColor.Title + " " + (index * 100).ToString("000");
+            }
+        }
+
         public static ColorPalette Parse(JsonObject data, IReadOnlyList<ContrastColorWrapper> contrastColors)
         {
             IColorPaletteEntry baseColor = null;
@@ -35,6 +69,10 @@ namespace FluentEditorShared.ColorPalette
         { }
 
         public ColorPalette(int steps, IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors)
+            : this(steps, baseColor, contrastColors, new PaletteEntryData(baseColor, contrastColors))
+        { }
+
+        public ColorPalette(int steps, IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors, IPaletteEntryData paletteEntryData)
         {
             if (baseColor == null)
             {
@@ -52,8 +90,7 @@ namespace FluentEditorShared.ColorPalette
             _palette = new List<EditableColorPaletteEntry>(_steps);
             for (int i = 0; i < _steps; i++)
             {
-                string title = baseColor.Title + " " + (i * 100).ToString("000");
-                _palette.Add(new EditableColorPaletteEntry(null, default(Color), false, title, baseColor.Description, baseColor.ActiveColorStringFormat, _contrastColors));
+                _palette.Add(new EditableColorPaletteEntry(null, default(Color), false, paletteEntryData.GetPaletteEntryTitle(i), paletteEntryData.GetPaletteEntryDescription(i), baseColor.ActiveColorStringFormat, paletteEntryData.GetPaletteEntryContrastColors(i)));
             }
 
             UpdatePaletteColors();

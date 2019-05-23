@@ -70,7 +70,24 @@
                                                                    AutomationProperties.Name="{Binding Title}"
                                                                    ColorPaletteEntry="{Binding}"
                                                                    Style="{StaticResource ColorPaletteEntryEditorAlphaStyle}"
-                                                                   IsTabStop="True" />
+                                                                   IsTabStop="True">
+                                        <color:ColorPaletteEntryEditor.Resources>
+                                            <ResourceDictionary>
+                                                <ResourceDictionary.ThemeDictionaries>
+                                                    <ResourceDictionary x:Key="Default">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="#33000000" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
+                                                    <ResourceDictionary x:Key="Light">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="#33000000" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
+                                                </ResourceDictionary.ThemeDictionaries>
+                                            </ResourceDictionary>
+                                        </color:ColorPaletteEntryEditor.Resources>
+                                    </color:ColorPaletteEntryEditor>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -116,7 +133,24 @@
                                                                    AutomationProperties.Name="{Binding Title}"
                                                                    ColorPaletteEntry="{Binding}"
                                                                    Style="{StaticResource ColorPaletteEntryEditorAlphaStyle}"
-                                                                   IsTabStop="True" />
+                                                                   IsTabStop="True">
+                                        <color:ColorPaletteEntryEditor.Resources>
+                                            <ResourceDictionary>
+                                                <ResourceDictionary.ThemeDictionaries>
+                                                    <ResourceDictionary x:Key="Default">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="#33000000" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
+                                                    <ResourceDictionary x:Key="Light">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="#33000000" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
+                                                </ResourceDictionary.ThemeDictionaries>
+                                            </ResourceDictionary>
+                                        </color:ColorPaletteEntryEditor.Resources>
+                                    </color:ColorPaletteEntryEditor>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

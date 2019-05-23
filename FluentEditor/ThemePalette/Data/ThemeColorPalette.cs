@@ -11,6 +11,66 @@ namespace FluentEditor.ThemePalette.Data
 
     internal class ThemeColorPalette : ColorPalette
     {
+        public class ThemePaletteEntryData : ColorPalette.PaletteEntryData
+        {
+            protected readonly IReadOnlyList<(string title, string description)> _paletteEntryCaptions;
+
+            public ThemePaletteEntryData(IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors, IReadOnlyList<(string title, string description)> captions)
+                : base(baseColor, contrastColors)
+            {
+                _paletteEntryCaptions = captions;
+            }
+
+            public override IReadOnlyList<ContrastColorWrapper> GetPaletteEntryContrastColors(int index)
+            {
+                return base.GetPaletteEntryContrastColors(index);
+            }
+
+            public override string GetPaletteEntryDescription(int index)
+            {
+                var result = base.GetPaletteEntryDescription(index);
+                if (index >= 0 && index < _paletteEntryCaptions.Count)
+                {
+                    if (!string.IsNullOrEmpty(_paletteEntryCaptions[index].description))
+                    {
+                        result = _paletteEntryCaptions[index].description;
+                    }
+                }
+
+                return result;
+            }
+
+            public override string GetPaletteEntryTitle(int index)
+            {
+                var result = base.GetPaletteEntryTitle(index);
+                if (index >= 0 && index < _paletteEntryCaptions.Count)
+                {
+                    if (!string.IsNullOrEmpty(_paletteEntryCaptions[index].title))
+                    {
+                        result = _paletteEntryCaptions[index].title;
+                    }
+                }
+
+                return result;
+            }
+
+            public static IReadOnlyList<(string title, string description)> Parse(JsonArray data)
+            {
+                var result = new List<(string title, string description)>();
+
+                foreach (var item in data)
+                {
+                    var caption = item.GetObject();
+                    string title = caption.ContainsKey("Title") ? caption["Title"].GetOptionalString() : null;
+                    string description = caption.ContainsKey("Description") ? caption["Description"].GetOptionalString() : null;
+
+                    result.Add((title, description));
+                }
+
+                return result;
+            }
+        }
+
         public new static ThemeColorPalette Parse(JsonObject data, IReadOnlyList<ContrastColorWrapper> contrastColors)
         {
             IColorPaletteEntry baseColor = null;
@@ -25,65 +85,26 @@ namespace FluentEditor.ThemePalette.Data
 
             int steps = data["Steps"].GetInt();
 
-            var palette = new ThemeColorPalette(steps, baseColor, contrastColors);
+            IPaletteEntryData paletteEntryData = new ColorPalette.PaletteEntryData(baseColor, contrastColors);
 
-            if (data.ContainsKey(nameof(GenerationMode)))
+            if (data.ContainsKey("PaletteEntryCaptions"))
             {
-                var generationMode = data[nameof(GenerationMode)].GetEnum<GenerationMode>();
+                var captions = ThemePaletteEntryData.Parse(data["PaletteEntryCaptions"].GetArray());
+                paletteEntryData = new ThemePaletteEntryData(baseColor, contrastColors, captions);
+            }
 
-                if(generationMode == GenerationMode.Mix && data.ContainsKey(nameof(MixColors)))
-                {
-                    var mixColors = data[nameof(MixColors)].GetArray();
+            var palette = new ThemeColorPalette(steps, baseColor, contrastColors, paletteEntryData);
 
-                    foreach (var item in mixColors)
-                    {
-                        var mixData = item.GetObject();
-                        if (mixData.ContainsKey("Pattern") && mixData.ContainsKey("Mask"))
-                        {
-                            var pattern = mixData["Pattern"].GetColor();
-                            var mask = mixData["Mask"].GetColor();
-                            palette.MixColors.Add((pattern, mask));
-                        }
-                    }
-                    palette.GenerationMode = generationMode;
-                }
-                else
-                {
-                    if (data.ContainsKey(nameof(ClipDark)))
-                    {
-                        palette.ClipDark = data[nameof(ClipDark)].GetNumber();
-                    }
-
-                    if (data.ContainsKey(nameof(ClipLight)))
-                    {
-                        palette.ClipLight = data[nameof(ClipLight)].GetNumber();
-                    }
-
-                    switch (generationMode)
-                    {
-                        case GenerationMode.RGB:
-                            palette.InterpolationMode = ColorScaleInterpolationMode.RGB;
-                            break;
-                        case GenerationMode.XYZ:
-                            palette.InterpolationMode = ColorScaleInterpolationMode.XYZ;
-                            break;
-                        case GenerationMode.LAB:
-                            palette.InterpolationMode = ColorScaleInterpolationMode.LAB;
-                            break;
-                    }
-                    palette.GenerationMode = generationMode;
-                }
+            if(data.ContainsKey("PaletteGenerator"))
+            {
+                palette.UsePaletteGenerator(data["PaletteGenerator"].GetObject());
             }
 
             return palette;
         }
 
-        public ThemeColorPalette(int steps, Color baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors)
-            : base(steps, new ColorPaletteEntry(baseColor, null, null, ColorStringFormat.PoundRGB, null), contrastColors)
-        {}
-
-        public ThemeColorPalette(int steps, IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors)
-            : base(steps, baseColor, contrastColors)
+        public ThemeColorPalette(int steps, IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors, IPaletteEntryData paletteEntryData)
+            : base(steps, baseColor, contrastColors, paletteEntryData)
         {}
 
         protected override void UpdatePaletteColors()
@@ -95,6 +116,59 @@ namespace FluentEditor.ThemePalette.Data
             else
             {
                 base.UpdatePaletteColors();
+            }
+        }
+
+        private void UsePaletteGenerator(JsonObject data)
+        {
+            if (data.ContainsKey("Mode"))
+            {
+                var generationMode = data["Mode"].GetEnum<GenerationMode>();
+
+                if (generationMode == GenerationMode.Mix && data.ContainsKey(nameof(MixColors)))
+                {
+                    var mixColors = data[nameof(MixColors)].GetArray();
+
+                    foreach (var item in mixColors)
+                    {
+                        var mixData = item.GetObject();
+                        if (mixData.ContainsKey("Pattern") && mixData.ContainsKey("Mask"))
+                        {
+                            var pattern = mixData["Pattern"].GetColor();
+                            var mask = mixData["Mask"].GetColor();
+                            MixColors.Add((pattern, mask));
+                        }
+                    }
+
+                    GenerationMode = generationMode;
+                }
+                else
+                {
+                    if (data.ContainsKey(nameof(ClipDark)))
+                    {
+                        ClipDark = data[nameof(ClipDark)].GetNumber();
+                    }
+
+                    if (data.ContainsKey(nameof(ClipLight)))
+                    {
+                        ClipLight = data[nameof(ClipLight)].GetNumber();
+                    }
+
+                    switch (generationMode)
+                    {
+                        case GenerationMode.RGB:
+                            InterpolationMode = ColorScaleInterpolationMode.RGB;
+                            break;
+                        case GenerationMode.XYZ:
+                            InterpolationMode = ColorScaleInterpolationMode.XYZ;
+                            break;
+                        case GenerationMode.LAB:
+                            InterpolationMode = ColorScaleInterpolationMode.LAB;
+                            break;
+                    }
+
+                    GenerationMode = generationMode;
+                }
             }
         }
 
