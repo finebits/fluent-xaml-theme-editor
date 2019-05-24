@@ -53,6 +53,11 @@ namespace FluentEditor.ThemePalette
         Hyperlink,
         HyperlinkActive,
         HyperlinkDisabled,
+
+        RegionBackground,
+        MediumBackground,
+        HighBackground,
+        AcrylicBackground,
     }
     public enum ThemeColorSource
     {
@@ -72,7 +77,7 @@ namespace FluentEditor.ThemePalette
 
     public class ThemeColorMapping
     {
-        public static ThemeColorMapping Parse(JsonObject data, IColorPaletteEntry lightRegion, IColorPaletteEntry darkRegion, ColorPalette lightBase, ColorPalette darkBase, ColorPalette lightPrimary, ColorPalette darkPrimary, ColorPalette lightHyperlink, ColorPalette darkHyperlink, IColorPaletteEntry white, IColorPaletteEntry black)
+        public static ThemeColorMapping Parse(JsonObject data, ColorPalette lightRegion, ColorPalette darkRegion, ColorPalette lightBase, ColorPalette darkBase, ColorPalette lightPrimary, ColorPalette darkPrimary, ColorPalette lightHyperlink, ColorPalette darkHyperlink, IColorPaletteEntry white, IColorPaletteEntry black)
         {
             var target = data["Target"].GetEnum<ThemeColorTarget>();
             var source = data["Source"].GetEnum<ThemeColorSource>();
@@ -85,9 +90,9 @@ namespace FluentEditor.ThemePalette
             switch (source)
             {
                 case ThemeColorSource.LightRegion:
-                    return new ThemeColorMapping(lightRegion, target);
+                    return new ThemeColorMapping(lightRegion.Palette[index], target);
                 case ThemeColorSource.DarkRegion:
-                    return new ThemeColorMapping(darkRegion, target);
+                    return new ThemeColorMapping(darkRegion.Palette[index], target);
                 case ThemeColorSource.LightBase:
                     return new ThemeColorMapping(lightBase.Palette[index], target);
                 case ThemeColorSource.DarkBase:
@@ -110,8 +115,8 @@ namespace FluentEditor.ThemePalette
         }
 
         public static List<ThemeColorMapping> ParseList(JsonArray data,
-                                                        IColorPaletteEntry lightRegion,
-                                                        IColorPaletteEntry darkRegion,
+                                                        ColorPalette lightRegion,
+                                                        ColorPalette darkRegion,
                                                         ColorPalette lightBase,
                                                         ColorPalette darkBase,
                                                         ColorPalette lightPrimary,
@@ -405,6 +410,19 @@ namespace FluentEditor.ThemePalette
                     break;
                 case ThemeColorTarget.HyperlinkDisabled:
                     _extraPalette.HyperlinkButtonDisabledForegroundColor = _source.ActiveColor;
+                    break;
+
+                case ThemeColorTarget.RegionBackground:
+                    _extraPalette.RegionBackgroundColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.MediumBackground:
+                    _extraPalette.MediumBackgroundColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.HighBackground:
+                    _extraPalette.HighBackgroundColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.AcrylicBackground:
+                    _extraPalette.AcrylicBackgroundColor = _source.ActiveColor;
                     break;
             }
         }

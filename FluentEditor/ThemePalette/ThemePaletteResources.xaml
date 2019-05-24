@@ -18,6 +18,21 @@
                 <ResourceDictionary>
                     <!--  Other resources  -->
 
+                    <!--#region Background Color-->
+
+                    <SolidColorBrush x:Key="RegionBackgroundBrush"
+                                     Color="{Binding RegionBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="MediumBackgroundBrush"
+                                     Color="{Binding MediumBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="HighBackgroundBrush"
+                                     Color="{Binding HighBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintColor="{Binding AcrylicBackgroundColor, Source={StaticResource DarkExtraPalette}}"
+                                  FallbackColor="{Binding AcrylicBackgroundColor, Source={StaticResource DarkExtraPalette}}"
+                                  Opacity="0.8" />
+                    <!-- #endregion-->
+
                     <!--#region Text Color-->
 
                     <SolidColorBrush x:Key="ActiveTextColorBrush"
@@ -121,6 +136,21 @@
                 <ColorPaletteResources x:Name="LightColorPaletteResources" />
                 <ResourceDictionary>
                     <!--  Other resources  -->
+
+                    <!--#region Background Color-->
+
+                    <SolidColorBrush x:Key="RegionBackgroundBrush"
+                                     Color="{Binding RegionBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="MediumBackgroundBrush"
+                                     Color="{Binding MediumBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="HighBackgroundBrush"
+                                     Color="{Binding HighBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintColor="{Binding AcrylicBackgroundColor, Source={StaticResource LightExtraPalette}}"
+                                  FallbackColor="{Binding AcrylicBackgroundColor, Source={StaticResource LightExtraPalette}}"
+                                  Opacity="0.8" />
+                    <!-- #endregion-->
 
                     <!--#region Text Color-->
 

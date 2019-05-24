@@ -105,6 +105,46 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
+        private Color _regionBackgroundColor;
+        public Color RegionBackgroundColor
+        {
+            get { return _regionBackgroundColor; }
+            set
+            {
+                SetProperty(ref _regionBackgroundColor, value);
+            }
+        }
+
+        private Color _mediumBackgroundColor;
+        public Color MediumBackgroundColor
+        {
+            get { return _mediumBackgroundColor; }
+            set
+            {
+                SetProperty(ref _mediumBackgroundColor, value);
+            }
+        }
+
+        private Color _highBackgroundColor;
+        public Color HighBackgroundColor
+        {
+            get { return _highBackgroundColor; }
+            set
+            {
+                SetProperty(ref _highBackgroundColor, value);
+            }
+        }
+
+        private Color _acrylicBackgroundColor;
+        public Color AcrylicBackgroundColor
+        {
+            get { return _acrylicBackgroundColor; }
+            set
+            {
+                SetProperty(ref _acrylicBackgroundColor, value);
+            }
+        }
+
         public static Color GetColor(Color? color)
         {
             return color ?? Colors.Transparent;

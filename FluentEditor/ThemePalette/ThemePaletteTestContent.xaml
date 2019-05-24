@@ -16,213 +16,276 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/TextBlockButtonStyle.xaml" />
                 <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/TextBlockStyle.xaml" />
+                <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/BackgroundStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="TextData">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center">
+                    <TextBlock x:Uid="TestContentActiveTextBlock"
+                               Style="{StaticResource ActiveTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentTextBlock"
+                               Style="{StaticResource TextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentMediumTextBlock"
+                               Style="{StaticResource MediumTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentLowTextBlock"
+                               Style="{StaticResource LowTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentContrastTextBlock"
+                               Style="{StaticResource AccentContrastTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Light3AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Light2AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Light1AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Dark1AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Dark2AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                    <TextBlock x:Uid="TestContentAccentTextBlock"
+                               Style="{StaticResource Dark3AccentTextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="0,0,0,12" />
+                </StackPanel>
+            </DataTemplate>
+
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel Margin="24,20,24,20"
-                Orientation="Vertical">
-        <Border Height="40"
-                Margin="0,0,0,20">
-            <TextBlock VerticalAlignment="Center"
-                       FontWeight="SemiBold"
-                       LineHeight="20"
-                       Style="{StaticResource SubtitleTextBlockStyle}"
-                       Text="{x:Bind Path=Title, Mode=OneWay}" />
-        </Border>
-        <TextBlock x:Uid="TestContentTextAndBackgroundBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <TextBlock x:Uid="TestContentActiveTextBlock"
-                   Style="{StaticResource ActiveTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentTextBlock"
-                   Style="{StaticResource TextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentMediumTextBlock"
-                   Style="{StaticResource MediumTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentLowTextBlock"
-                   Style="{StaticResource LowTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentContrastTextBlock"
-                   Style="{StaticResource AccentContrastTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Light3AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Light2AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Light1AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Dark1AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Dark2AccentTextBlockStyle}"
-                   Margin="0,0,0,12" />
-        <TextBlock x:Uid="TestContentAccentTextBlock"
-                   Style="{StaticResource Dark3AccentTextBlockStyle}"
-                   Margin="0,0,0,28" />
+    <Border Background="{ThemeResource RegionBackgroundBrush}">
+        <StackPanel Margin="24,20,24,20"
+                    Orientation="Vertical">
+            <Border Height="40"
+                    Margin="0,0,0,20">
+                <TextBlock VerticalAlignment="Center"
+                           FontWeight="SemiBold"
+                           LineHeight="20"
+                           Style="{StaticResource SubtitleTextBlockStyle}"
+                           Text="{x:Bind Path=Title, Mode=OneWay}" />
+            </Border>
 
-        <TextBlock x:Uid="TestContentButtonsBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <Button x:Uid="TestContentEnabledButton"
-                Margin="0,0,0,12" />
-        <Button x:Uid="TestContentDisabledButton"
-                Margin="0,0,0,12"
-                IsEnabled="False" />
-        <ToggleButton x:Uid="TestContentToggleButton"
+            <TextBlock x:Uid="TestContentTextAndBackgroundBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <Grid Margin="0,0,0,28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <ContentControl Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                ContentTemplate="{StaticResource TextData}" />
+
+                <Border Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Background="{ThemeResource MediumBackgroundBrush}" />
+
+                <ContentControl Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                ContentTemplate="{StaticResource TextData}"/>
+
+                <Border Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Background="{ThemeResource HighBackgroundBrush}" />
+
+                <ContentControl Grid.Row="1"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                ContentTemplate="{StaticResource TextData}" />
+
+                <Border Grid.Row="0"
+                        Grid.ColumnSpan="3"
+                        Height="30"
+                        Background="{ThemeResource AcrylicBackgroundBrush}">
+                </Border>
+            </Grid>
+
+            <TextBlock x:Uid="TestContentButtonsBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <Button x:Uid="TestContentEnabledButton"
+                    Margin="0,0,0,12" />
+            <Button x:Uid="TestContentDisabledButton"
+                    Margin="0,0,0,12"
+                    IsEnabled="False" />
+            <ToggleButton x:Uid="TestContentToggleButton"
+                          Margin="0,0,0,12" />
+            <ToggleButton x:Uid="TestContentToggledButton"
+                          Margin="0,0,0,12"
+                          IsChecked="True" />
+            <Button x:Uid="TestContentEnabledAccentButton"
+                    Margin="0,0,0,12"
+                    Style="{StaticResource AccentButtonStyle}" />
+            <Button x:Uid="TestContentDisabledAccentButton"
+                    Margin="0,0,0,28"
+                    IsEnabled="False"
+                    Style="{StaticResource AccentButtonStyle}" />
+            <TextBlock x:Uid="TestContentHyperlinksBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <Button x:Uid="TestContentEnabledTextBlockButton"
+                    Margin="0,0,0,12"
+                    Style="{StaticResource ThemeTextBlockButtonStyle}" />
+            <Button x:Uid="TestContentDisabledTextBlockButton"
+                    Margin="0,0,0,12"
+                    IsEnabled="False"
+                    Style="{StaticResource ThemeTextBlockButtonStyle}" />
+            <HyperlinkButton x:Uid="TestContentHyperlinkButton"
+                             Padding="0"
+                             Margin="0,0,0,12" />
+            <HyperlinkButton x:Uid="TestContentDisabledHyperlinkButton"
+                             Padding="0"
+                             Margin="0,0,0,28"
+                             IsEnabled="False" />
+            <TextBlock x:Uid="TestContentCheckboxBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <CheckBox x:Uid="TestContentUncheckedCheckbox"
                       Margin="0,0,0,12" />
-        <ToggleButton x:Uid="TestContentToggledButton"
+            <CheckBox x:Uid="TestContentCheckedCheckbox"
                       Margin="0,0,0,12"
                       IsChecked="True" />
-        <Button x:Uid="TestContentEnabledAccentButton"
-                Margin="0,0,0,12"
-                Style="{StaticResource AccentButtonStyle}" />
-        <Button x:Uid="TestContentDisabledAccentButton"
-                Margin="0,0,0,28"
-                IsEnabled="False"
-                Style="{StaticResource AccentButtonStyle}" />
-        <TextBlock x:Uid="TestContentHyperlinksBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <Button x:Uid="TestContentEnabledTextBlockButton"
-                Margin="0,0,0,12"
-                Style="{StaticResource ThemeTextBlockButtonStyle}" />
-        <Button x:Uid="TestContentDisabledTextBlockButton"
-                Margin="0,0,0,12"
-                IsEnabled="False"
-                Style="{StaticResource ThemeTextBlockButtonStyle}" />
-        <HyperlinkButton x:Uid="TestContentHyperlinkButton"
-                         Padding="0"
-                         Margin="0,0,0,12" />
-        <HyperlinkButton x:Uid="TestContentDisabledHyperlinkButton"
-                         Padding="0"
+            <CheckBox x:Uid="TestContentThirdStateCheckbox"
+                      Margin="0,0,0,12"
+                      IsChecked="{x:Null}" />
+            <CheckBox x:Uid="TestContentDisabledCheckbox"
+                      Margin="0,0,0,28"
+                      IsChecked="True"
+                      IsEnabled="False" />
+            <TextBlock x:Uid="TestContentRadioBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <RadioButton x:Uid="TestContentUncheckedRadio"
+                         Margin="0,0,0,12"
+                         GroupName="Test1" />
+            <RadioButton x:Uid="TestContentCheckedRadio"
+                         Margin="0,0,0,12"
+                         GroupName="Test1"
+                         IsChecked="True" />
+            <RadioButton x:Uid="TestContentDisabledRadio"
                          Margin="0,0,0,28"
+                         GroupName="Test2"
+                         IsChecked="True"
                          IsEnabled="False" />
-        <TextBlock x:Uid="TestContentCheckboxBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <CheckBox x:Uid="TestContentUncheckedCheckbox"
-                  Margin="0,0,0,12" />
-        <CheckBox x:Uid="TestContentCheckedCheckbox"
-                  Margin="0,0,0,12"
-                  IsChecked="True" />
-        <CheckBox x:Uid="TestContentThirdStateCheckbox"
-                  Margin="0,0,0,12"
-                  IsChecked="{x:Null}" />
-        <CheckBox x:Uid="TestContentDisabledCheckbox"
-                  Margin="0,0,0,28"
-                  IsChecked="True"
-                  IsEnabled="False" />
-        <TextBlock x:Uid="TestContentRadioBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <RadioButton x:Uid="TestContentUncheckedRadio"
-                     Margin="0,0,0,12"
-                     GroupName="Test1" />
-        <RadioButton x:Uid="TestContentCheckedRadio"
-                     Margin="0,0,0,12"
-                     GroupName="Test1"
-                     IsChecked="True" />
-        <RadioButton x:Uid="TestContentDisabledRadio"
+            <TextBlock x:Uid="TestContentComboBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <ComboBox Width="200"
+                      Margin="0,0,0,12">
+                <ComboBox.Items>
+                    <ComboBoxItem x:Uid="TestContentComboItem1"
+                                  IsSelected="True" />
+                    <ComboBoxItem x:Uid="TestContentComboItem2" />
+                    <ComboBoxItem x:Uid="TestContentComboItem3" />
+                </ComboBox.Items>
+            </ComboBox>
+            <ComboBox Width="200"
+                      Margin="0,0,0,28"
+                      IsEditable="True">
+                <ComboBox.Items>
+                    <ComboBoxItem x:Uid="TestContentEditableComboItem1"
+                                  IsSelected="True" />
+                    <ComboBoxItem x:Uid="TestContentEditableComboItem2" />
+                    <ComboBoxItem x:Uid="TestContentEditableComboItem3" />
+                </ComboBox.Items>
+            </ComboBox>
+            <TextBlock x:Uid="TestContentTextboxBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <TextBox x:Uid="TestContentTextbox"
+                     Width="200"
                      Margin="0,0,0,28"
-                     GroupName="Test2"
-                     IsChecked="True"
-                     IsEnabled="False" />
-        <TextBlock x:Uid="TestContentComboBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <ComboBox Width="200"
-                  Margin="0,0,0,12">
-            <ComboBox.Items>
-                <ComboBoxItem x:Uid="TestContentComboItem1"
-                              IsSelected="True" />
-                <ComboBoxItem x:Uid="TestContentComboItem2" />
-                <ComboBoxItem x:Uid="TestContentComboItem3" />
-            </ComboBox.Items>
-        </ComboBox>
-        <ComboBox Width="200"
-                  Margin="0,0,0,28"
-                  IsEditable="True">
-            <ComboBox.Items>
-                <ComboBoxItem x:Uid="TestContentEditableComboItem1"
-                              IsSelected="True" />
-                <ComboBoxItem x:Uid="TestContentEditableComboItem2" />
-                <ComboBoxItem x:Uid="TestContentEditableComboItem3" />
-            </ComboBox.Items>
-        </ComboBox>
-        <TextBlock x:Uid="TestContentTextboxBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <TextBox x:Uid="TestContentTextbox"
-                 Width="200"
-                 Margin="0,0,0,28"
-                 HorizontalAlignment="Left" />
-        <TextBlock x:Uid="TestContentToggleBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <ToggleSwitch Margin="0,0,0,12"
-                      IsOn="False" />
-        <ToggleSwitch Margin="0,0,0,28"
-                      IsOn="True" />
-        <TextBlock x:Uid="TestContentSliderBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}"
-                   Text="Slider" />
-        <Slider Margin="0,0,0,28"
-                HorizontalAlignment="Stretch"
-                Maximum="100"
-                Minimum="0"
-                Value="50" />
-        <TextBlock x:Uid="TestContentListviewBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <ListView Margin="0,0,0,28"
-                  HorizontalAlignment="Stretch">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.Items>
-                <ListViewItem x:Uid="TestContentListviewItem1"
-                              IsEnabled="False" />
-                <ListViewItem x:Uid="TestContentListviewItem2"
-                              IsSelected="True" />
-                <ListViewItem x:Uid="TestContentListviewItem3" />
-                <ListViewItem x:Uid="TestContentListviewItem4" />
-            </ListView.Items>
-        </ListView>
-        <TextBlock x:Uid="TestContentCommandBarBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <CommandBar Margin="0,0,0,28"
-                    HorizontalAlignment="Stretch">
-            <AppBarButton x:Uid="TestContentAppBarButton" />
-        </CommandBar>
-        <TextBlock x:Uid="TestContentCalendarViewBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <CalendarView Margin="0,0,0,28"
-                      HorizontalAlignment="Stretch" />
-        <TextBlock x:Uid="TestContentDatePickerBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <DatePicker Margin="0,0,0,28"
-                    HorizontalAlignment="Stretch" />
-        <TextBlock x:Uid="TestContentTimePickerBlock"
-                   Margin="0,0,0,16"
-                   Style="{StaticResource BaseTextBlockStyle}" />
-        <TimePicker Margin="0,0,0,0"
-                    HorizontalAlignment="Stretch" />
+                     HorizontalAlignment="Left" />
+            <TextBlock x:Uid="TestContentToggleBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <ToggleSwitch Margin="0,0,0,12"
+                          IsOn="False" />
+            <ToggleSwitch Margin="0,0,0,28"
+                          IsOn="True" />
+            <TextBlock x:Uid="TestContentSliderBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}"
+                       Text="Slider" />
+            <Slider Margin="0,0,0,28"
+                    HorizontalAlignment="Stretch"
+                    Maximum="100"
+                    Minimum="0"
+                    Value="50" />
+            <TextBlock x:Uid="TestContentListviewBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <ListView Margin="0,0,0,28"
+                      HorizontalAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Items>
+                    <ListViewItem x:Uid="TestContentListviewItem1"
+                                  IsEnabled="False" />
+                    <ListViewItem x:Uid="TestContentListviewItem2"
+                                  IsSelected="True" />
+                    <ListViewItem x:Uid="TestContentListviewItem3" />
+                    <ListViewItem x:Uid="TestContentListviewItem4" />
+                </ListView.Items>
+            </ListView>
+            <TextBlock x:Uid="TestContentCommandBarBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <CommandBar Margin="0,0,0,28"
+                        HorizontalAlignment="Stretch">
+                <AppBarButton x:Uid="TestContentAppBarButton" />
+            </CommandBar>
+            <TextBlock x:Uid="TestContentCalendarViewBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <CalendarView Margin="0,0,0,28"
+                          HorizontalAlignment="Stretch" />
+            <TextBlock x:Uid="TestContentDatePickerBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <DatePicker Margin="0,0,0,28"
+                        HorizontalAlignment="Stretch" />
+            <TextBlock x:Uid="TestContentTimePickerBlock"
+                       Margin="0,0,0,16"
+                       Style="{StaticResource BaseTextBlockStyle}" />
+            <TimePicker Margin="0,0,0,0"
+                        HorizontalAlignment="Stretch" />
 
-    </StackPanel>
+        </StackPanel>
+    </Border>
 </UserControl>

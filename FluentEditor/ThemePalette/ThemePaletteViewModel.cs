@@ -37,12 +37,6 @@ namespace FluentEditor.ThemePalette
             _paletteModel = paletteModel;
             _exportProvider = exportProvider;
 
-            _lightRegionBrush = new SolidColorBrush(_paletteModel.LightRegion.ActiveColor);
-            _darkRegionBrush = new SolidColorBrush(_paletteModel.DarkRegion.ActiveColor);
-
-            _paletteModel.LightRegion.ActiveColorChanged += LightRegion_ActiveColorChanged;
-            _paletteModel.DarkRegion.ActiveColorChanged += DarkRegion_ActiveColorChanged;
-
             _paletteModel.ActivePresetChanged += OnActivePresetChanged;
         }
 
@@ -172,7 +166,7 @@ namespace FluentEditor.ThemePalette
 
         private void OnActivePresetChanged(IThemePaletteModel obj)
         {
-            RaisePropertyChanged("ActivePreset");
+            RaisePropertyChanged(nameof(ActivePreset));
         }
 
         private readonly IThemePaletteModel _paletteModel;
@@ -192,36 +186,14 @@ namespace FluentEditor.ThemePalette
             get { return _paletteModel.Presets; }
         }
 
-        public ColorPaletteEntry LightRegion
+        public ColorPalette LightRegion
         {
             get { return _paletteModel.LightRegion; }
         }
 
-        private void LightRegion_ActiveColorChanged(IColorPaletteEntry obj)
-        {
-            _lightRegionBrush.Color = obj.ActiveColor;
-        }
-
-        private SolidColorBrush _lightRegionBrush;
-        public SolidColorBrush LightRegionBrush
-        {
-            get { return _lightRegionBrush; }
-        }
-
-        public ColorPaletteEntry DarkRegion
+        public ColorPalette DarkRegion
         {
             get { return _paletteModel.DarkRegion; }
-        }
-
-        private void DarkRegion_ActiveColorChanged(IColorPaletteEntry obj)
-        {
-            _darkRegionBrush.Color = obj.ActiveColor;
-        }
-
-        private SolidColorBrush _darkRegionBrush;
-        public SolidColorBrush DarkRegionBrush
-        {
-            get { return _darkRegionBrush; }
         }
 
         public ColorPalette LightBase

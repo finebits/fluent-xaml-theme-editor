@@ -27,8 +27,8 @@ namespace FluentEditor.ThemePalette.Model
 
         IReadOnlyList<ThemeColorMapping> LightColorMapping { get; }
         IReadOnlyList<ThemeColorMapping> DarkColorMapping { get; }
-        ColorPaletteEntry LightRegion { get; }
-        ColorPaletteEntry DarkRegion { get; }
+        ColorPalette LightRegion { get; }
+        ColorPalette DarkRegion { get; }
         ColorPalette LightBase { get; }
         ColorPalette DarkBase { get; }
         ColorPalette LightPrimary { get; }
@@ -51,10 +51,10 @@ namespace FluentEditor.ThemePalette.Model
             _blackColor = new ColorPaletteEntry(Colors.Black, _stringProvider.GetString("LightThemeTextContrastTitle"), null, FluentEditorShared.Utils.ColorStringFormat.PoundRGB, null);
 
             var lightRegionNode = rootObject[nameof(LightRegion)].GetObject();
-            _lightRegion = ColorPaletteEntry.Parse(lightRegionNode, null);
+            _lightRegion = ThemeColorPalette.Parse(lightRegionNode, null);
 
             var darkRegionNode = rootObject[nameof(DarkRegion)].GetObject();
-            _darkRegion = ColorPaletteEntry.Parse(darkRegionNode, null);
+            _darkRegion = ThemeColorPalette.Parse(darkRegionNode, null);
 
             var lightBaseNode = rootObject[nameof(LightBase)].GetObject();
             _lightBase = ThemeColorPalette.Parse(lightBaseNode, null);
@@ -102,45 +102,34 @@ namespace FluentEditor.ThemePalette.Model
                 return a.Target.ToString().CompareTo(b.Target.ToString());
             });
 
-            InitColorPaletteEntry(_lightRegion, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightBase.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
-            InitColorPaletteEntry(_darkRegion, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
-
-            InitColorPalette(_lightBase, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightRegion, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
-            InitColorPalette(_darkBase, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
-            InitColorPalette(_lightPrimary, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
-            InitColorPalette(_darkPrimary, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
-            InitColorPalette(_lightHyperlink, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
-            InitColorPalette(_darkHyperlink, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
-        }
-
-        private void InitColorPalette(ColorPalette colorPalette, List<ThemeColorMapping> mappings, IReadOnlyList<ContrastColorWrapper> contrastColors)
-        {
-            colorPalette.ContrastColors = contrastColors;
-            colorPalette.BaseColor.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
-
-            foreach (var entry in colorPalette.Palette)
+            void InitColorPalette(ColorPalette colorPalette, List<ThemeColorMapping> mappings, IReadOnlyList<ContrastColorWrapper> contrastColors)
             {
-                entry.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
-            }
+                colorPalette.ContrastColors = contrastColors;
+                colorPalette.BaseColor.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
 
-            foreach (var entry in colorPalette.Palette)
-            {
-                if (entry.Description == null)
+                foreach (var entry in colorPalette.Palette)
                 {
-                    entry.Description = GenerateMappingDescription(entry, mappings);
+                    entry.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
+                }
+
+                foreach (var entry in colorPalette.Palette)
+                {
+                    if (entry.Description == null)
+                    {
+                        entry.Description = GenerateMappingDescription(entry, mappings);
+                    }
                 }
             }
-        }
 
-        private void InitColorPaletteEntry(ColorPaletteEntry colorPalette, List<ThemeColorMapping> mappings, IReadOnlyList<ContrastColorWrapper> contrastColors)
-        {
-            colorPalette.ContrastColors = contrastColors;
-            colorPalette.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
+            InitColorPalette(_lightRegion, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightBase.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
+            InitColorPalette(_darkRegion, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
 
-            if (colorPalette.Description == null)
-            {
-                colorPalette.Description = GenerateMappingDescription(colorPalette, mappings);
-            }
+            InitColorPalette(_lightBase, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
+            InitColorPalette(_darkBase, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
+            InitColorPalette(_lightPrimary, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
+            InitColorPalette(_darkPrimary, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
+            InitColorPalette(_lightHyperlink, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
+            InitColorPalette(_darkHyperlink, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
         }
 
         private string GenerateMappingDescription(IColorPaletteEntry paletteEntry, List<ThemeColorMapping> mappings)
@@ -222,8 +211,8 @@ namespace FluentEditor.ThemePalette.Model
                 return;
             }
 
-            _lightRegion.ActiveColor = preset.LightRegionColor;
-            _darkRegion.ActiveColor = preset.DarkRegionColor;
+            _lightRegion.BaseColor.ActiveColor = preset.LightRegionColor;
+            _darkRegion.BaseColor.ActiveColor = preset.DarkRegionColor;
             _lightBase.BaseColor.ActiveColor = preset.LightBaseColor;
             _darkBase.BaseColor.ActiveColor = preset.DarkBaseColor;
             _lightPrimary.BaseColor.ActiveColor = preset.LightPrimaryColor;
@@ -231,6 +220,8 @@ namespace FluentEditor.ThemePalette.Model
             _lightHyperlink.BaseColor.ActiveColor = preset.LightHyperlinkColor;
             _darkHyperlink.BaseColor.ActiveColor = preset.DarkHyperlinkColor;
 
+            ApplyPresetOverrides(_lightRegion.Palette, preset.LightRegionOverrides);
+            ApplyPresetOverrides(_darkRegion.Palette, preset.DarkRegionOverrides);
             ApplyPresetOverrides(_lightBase.Palette, preset.LightBaseOverrides);
             ApplyPresetOverrides(_darkBase.Palette, preset.DarkBaseOverrides);
             ApplyPresetOverrides(_lightPrimary.Palette, preset.LightPrimaryOverrides);
@@ -292,14 +283,14 @@ namespace FluentEditor.ThemePalette.Model
         private ColorPaletteEntry _whiteColor;
         private ColorPaletteEntry _blackColor;
 
-        private ColorPaletteEntry _lightRegion;
-        public ColorPaletteEntry LightRegion
+        private ColorPalette _lightRegion;
+        public ColorPalette LightRegion
         {
             get { return _lightRegion; }
         }
 
-        private ColorPaletteEntry _darkRegion;
-        public ColorPaletteEntry DarkRegion
+        private ColorPalette _darkRegion;
+        public ColorPalette DarkRegion
         {
             get { return _darkRegion; }
         }

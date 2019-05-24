@@ -1,11 +1,89 @@
 ﻿{
     "LightRegion": {
-        "Title": "Light Region",
-        "Color": "#FFFFFFFF"
+        "Steps": 4,
+        "PaletteGenerator": {
+            "Mode": "Mix",
+            "MixColors": [
+                {
+                    "Pattern": "#FF000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#33000000",
+                    "Mask": "#FFFFFFFF"
+                },
+                {
+                    "Pattern": "#66000000",
+                    "Mask": "#FFFFFFFF"
+                },
+                {
+                    "Pattern": "#00000000",
+                    "Mask": "#FFFFFFFF"
+                }
+            ]
+        },
+        "PaletteEntryCaptions": [
+            {
+                "Title": "Background color"
+            },
+            {
+                "Title": "2nd background color"
+            },
+            {
+                "Title": "3rd background color"
+            },
+            {
+                "Title": "Acrylic color"
+            }
+        ],
+        "BaseColor": {
+            "Title": "Light Region",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FFFFFFFF"
+        }
     },
     "DarkRegion": {
-        "Title": "Dark Region",
-        "Color": "#FF282828"
+        "Steps": 4,
+        "PaletteGenerator": {
+            "Mode": "Mix",
+            "MixColors": [
+                {
+                    "Pattern": "#FF000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#33FFFFFF",
+                    "Mask": "#FFFFFFFF"
+                },
+                {
+                    "Pattern": "#66FFFFFF",
+                    "Mask": "#FFFFFFFF"
+                },
+                {
+                    "Pattern": "#00FFFFFF",
+                    "Mask": "#FFFFFFFF"
+                }
+            ]
+        },
+        "PaletteEntryCaptions": [
+            {
+                "Title": "Background color"
+            },
+            {
+                "Title": "2nd background color"
+            },
+            {
+                "Title": "3rd background color"
+            },
+            {
+                "Title": "Acrylic color"
+            }
+        ],
+        "BaseColor": {
+            "Title": "Dark Region",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FF282828"
+        }
     },
     "LightBase": {
         "Steps": 7,
@@ -283,6 +361,31 @@
 
     "LightPaletteMapping": [
         {
+            "Target": "RegionBackground",
+            "Source": "LightRegion",
+            "SourceIndex": "0"
+        },
+
+        {
+            "Target": "MediumBackground",
+            "Source": "LightRegion",
+            "SourceIndex": "1"
+        },
+
+        {
+            "Target": "HighBackground",
+            "Source": "LightRegion",
+            "SourceIndex": "2"
+        },
+
+        {
+            "Target": "AcrylicBackground",
+            "Source": "LightRegion",
+            "SourceIndex": "3"
+        },
+
+
+        {
             "Target": "LightAccent3",
             "Source": "LightPrimary",
             "SourceIndex": "0"
@@ -377,6 +480,30 @@
         }
     ],
     "DarkPaletteMapping": [
+        {
+            "Target": "RegionBackground",
+            "Source": "DarkRegion",
+            "SourceIndex": "0"
+        },
+
+        {
+            "Target": "MediumBackground",
+            "Source": "DarkRegion",
+            "SourceIndex": "1"
+        },
+
+        {
+            "Target": "HighBackground",
+            "Source": "DarkRegion",
+            "SourceIndex": "2"
+        },
+
+        {
+            "Target": "AcrylicBackground",
+            "Source": "DarkRegion",
+            "SourceIndex": "3"
+        },
+
         {
             "Target": "LightAccent3",
             "Source": "DarkPrimary",

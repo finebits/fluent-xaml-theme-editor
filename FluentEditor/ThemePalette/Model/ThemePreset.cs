@@ -43,8 +43,8 @@ namespace FluentEditor.ThemePalette.Model
                 return (color, overrides);
             }
 
-            var (lightRegionColor, _) = ParseBlock(nameof(LightRegionColor));
-            var (darkRegionColor, _) = ParseBlock(nameof(DarkRegionColor));
+            var (lightRegionColor, lightRegionOverrides) = ParseBlock(nameof(LightRegionColor), nameof(DarkRegionOverrides));
+            var (darkRegionColor, darkRegionOverrides) = ParseBlock(nameof(DarkRegionColor), nameof(DarkRegionOverrides));
 
             var (lightBaseColor, lightBaseOverrides) = ParseBlock(nameof(LightBaseColor), nameof(LightBaseOverrides));
             var (darkBaseColor, darkBaseOverrides) = ParseBlock(nameof(DarkBaseColor), nameof(DarkBaseOverrides));
@@ -56,7 +56,9 @@ namespace FluentEditor.ThemePalette.Model
             return new ThemePreset(id,
                                    name,
                                    lightRegionColor,
+                                   lightRegionOverrides,
                                    darkRegionColor,
+                                   darkRegionOverrides,
                                    lightBaseColor,
                                    lightBaseOverrides,
                                    darkBaseColor,
@@ -101,8 +103,8 @@ namespace FluentEditor.ThemePalette.Model
                 }
             }
 
-            SerializeBlock(preset.LightRegionColor, nameof(LightRegionColor));
-            SerializeBlock(preset.DarkRegionColor, nameof(DarkRegionColor));
+            SerializeBlock(preset.LightRegionColor, nameof(LightRegionColor), preset.LightRegionOverrides, nameof(LightBaseOverrides));
+            SerializeBlock(preset.DarkRegionColor, nameof(DarkRegionColor), preset.DarkRegionOverrides, nameof(DarkRegionOverrides));
             SerializeBlock(preset.LightBaseColor, nameof(LightBaseColor), preset.LightBaseOverrides, nameof(LightBaseOverrides));
             SerializeBlock(preset.DarkBaseColor, nameof(DarkBaseColor), preset.DarkBaseOverrides, nameof(DarkBaseOverrides));
             SerializeBlock(preset.LightPrimaryColor, nameof(LightPrimaryColor), preset.LightPrimaryOverrides, nameof(LightPrimaryOverrides));
@@ -116,7 +118,9 @@ namespace FluentEditor.ThemePalette.Model
         public ThemePreset(string id,
                            string name,
                            Color lightRegionColor,
+                           Dictionary<int, Color> lightRegionOverrides,
                            Color darkRegionColor,
+                           Dictionary<int, Color> darkRegionOverrides,
                            Color lightBaseColor,
                            Dictionary<int, Color> lightBaseOverrides,
                            Color darkBaseColor,
@@ -133,7 +137,9 @@ namespace FluentEditor.ThemePalette.Model
             _id = id;
             _name = name;
             _lightRegionColor = lightRegionColor;
+            _lightRegionOverrides = lightRegionOverrides;
             _darkRegionColor = darkRegionColor;
+            _lightRegionOverrides = darkRegionOverrides;
             _lightBaseColor = lightBaseColor;
             _lightBaseOverrides = lightBaseOverrides;
             _darkBaseColor = darkBaseColor;
@@ -153,9 +159,6 @@ namespace FluentEditor.ThemePalette.Model
             _id = id;
             _name = name;
 
-            _lightRegionColor = model.LightRegion.ActiveColor;
-            _darkRegionColor = model.DarkRegion.ActiveColor;
-
             Dictionary<int, Color> Clone(ColorPalette source)
             {
                 var overrides = new Dictionary<int, Color>();
@@ -169,6 +172,12 @@ namespace FluentEditor.ThemePalette.Model
 
                 return overrides;
             }
+
+            _lightRegionColor = model.LightRegion.BaseColor.ActiveColor;
+            _lightRegionOverrides = Clone(model.LightBase);
+
+            _darkRegionColor = model.DarkRegion.BaseColor.ActiveColor;
+            _darkRegionOverrides = Clone(model.DarkBase);
 
             _lightBaseColor = model.LightBase.BaseColor.ActiveColor;
             _lightBaseOverrides = Clone(model.LightBase);
@@ -184,6 +193,7 @@ namespace FluentEditor.ThemePalette.Model
 
             _lightHyperlinkColor = model.LightHyperlink.BaseColor.ActiveColor;
             _lightHyperlinkOverrides = Clone(model.LightHyperlink);
+
             _darkHyperlinkColor = model.DarkHyperlink.BaseColor.ActiveColor;
             _darkHyperlinkOverrides = Clone(model.DarkHyperlink);
         }
@@ -197,8 +207,14 @@ namespace FluentEditor.ThemePalette.Model
         private readonly Color _lightRegionColor;
         public Color LightRegionColor { get { return _lightRegionColor; } }
 
+        private readonly Dictionary<int, Color> _lightRegionOverrides;
+        public Dictionary<int, Color> LightRegionOverrides { get { return _lightRegionOverrides; } }
+
         private readonly Color _darkRegionColor;
         public Color DarkRegionColor { get { return _darkRegionColor; } }
+
+        private readonly Dictionary<int, Color> _darkRegionOverrides;
+        public Dictionary<int, Color> DarkRegionOverrides { get { return _darkRegionOverrides; } }
 
         private readonly Color _lightBaseColor;
         public Color LightBaseColor { get { return _lightBaseColor; } }
@@ -242,11 +258,11 @@ namespace FluentEditor.ThemePalette.Model
             {
                 return false;
             }
-            if (model.LightRegion.ActiveColor != _lightRegionColor)
+            if (model.LightRegion.BaseColor.ActiveColor != _lightRegionColor)
             {
                 return false;
             }
-            if (model.DarkRegion.ActiveColor != _darkRegionColor)
+            if (model.DarkRegion.BaseColor.ActiveColor != _darkRegionColor)
             {
                 return false;
             }
@@ -271,6 +287,14 @@ namespace FluentEditor.ThemePalette.Model
                 return false;
             }
             if (model.DarkHyperlink.BaseColor.ActiveColor != _darkHyperlinkColor)
+            {
+                return false;
+            }
+            if (!CompareOverrides(_lightRegionOverrides, model.LightRegion.Palette))
+            {
+                return false;
+            }
+            if (!CompareOverrides(_darkRegionOverrides, model.DarkRegion.Palette))
             {
                 return false;
             }
