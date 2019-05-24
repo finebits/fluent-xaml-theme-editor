@@ -49,12 +49,16 @@ namespace FluentEditor.ThemePalette
         DarkAccent2,
         LightAccent3,
         DarkAccent3,
+
+        Hyperlink,
+        HyperlinkActive,
+        HyperlinkDisabled,
     }
     public enum ThemeColorSource
     {
         LightRegion,
         DarkRegion,
-        LightBase, 
+        LightBase,
         DarkBase,
         LightPrimary,
         DarkPrimary,
@@ -62,11 +66,13 @@ namespace FluentEditor.ThemePalette
         Black,
 
         // Extra
+        LightHyperlink,
+        DarkHyperlink,
     }
 
     public class ThemeColorMapping
     {
-        public static ThemeColorMapping Parse(JsonObject data, IColorPaletteEntry lightRegion, IColorPaletteEntry darkRegion, ColorPalette lightBase, ColorPalette darkBase, ColorPalette lightPrimary, ColorPalette darkPrimary, IColorPaletteEntry white, IColorPaletteEntry black)
+        public static ThemeColorMapping Parse(JsonObject data, IColorPaletteEntry lightRegion, IColorPaletteEntry darkRegion, ColorPalette lightBase, ColorPalette darkBase, ColorPalette lightPrimary, ColorPalette darkPrimary, ColorPalette lightHyperlink, ColorPalette darkHyperlink, IColorPaletteEntry white, IColorPaletteEntry black)
         {
             var target = data["Target"].GetEnum<ThemeColorTarget>();
             var source = data["Source"].GetEnum<ThemeColorSource>();
@@ -90,6 +96,10 @@ namespace FluentEditor.ThemePalette
                     return new ThemeColorMapping(lightPrimary.Palette[index], target);
                 case ThemeColorSource.DarkPrimary:
                     return new ThemeColorMapping(darkPrimary.Palette[index], target);
+                case ThemeColorSource.LightHyperlink:
+                    return new ThemeColorMapping(lightHyperlink.Palette[index], target);
+                case ThemeColorSource.DarkHyperlink:
+                    return new ThemeColorMapping(darkHyperlink.Palette[index], target);
                 case ThemeColorSource.White:
                     return new ThemeColorMapping(white, target);
                 case ThemeColorSource.Black:
@@ -99,12 +109,22 @@ namespace FluentEditor.ThemePalette
             return null;
         }
 
-        public static List<ThemeColorMapping> ParseList(JsonArray data, IColorPaletteEntry lightRegion, IColorPaletteEntry darkRegion, ColorPalette lightBase, ColorPalette darkBase, ColorPalette lightPrimary, ColorPalette darkPrimary, IColorPaletteEntry white, IColorPaletteEntry black)
+        public static List<ThemeColorMapping> ParseList(JsonArray data,
+                                                        IColorPaletteEntry lightRegion,
+                                                        IColorPaletteEntry darkRegion,
+                                                        ColorPalette lightBase,
+                                                        ColorPalette darkBase,
+                                                        ColorPalette lightPrimary,
+                                                        ColorPalette darkPrimary,
+                                                        ColorPalette lightHyperlink,
+                                                        ColorPalette darkHyperlink,
+                                                        IColorPaletteEntry white,
+                                                        IColorPaletteEntry black)
         {
             List<ThemeColorMapping> retVal = new List<ThemeColorMapping>();
             foreach (var node in data)
             {
-                retVal.Add(ThemeColorMapping.Parse(node.GetObject(), lightRegion, darkRegion, lightBase, darkBase, lightPrimary, darkPrimary, white, black));
+                retVal.Add(ThemeColorMapping.Parse(node.GetObject(), lightRegion, darkRegion, lightBase, darkBase, lightPrimary, darkPrimary, lightHyperlink, darkHyperlink, white, black));
             }
             return retVal;
         }
@@ -375,6 +395,16 @@ namespace FluentEditor.ThemePalette
                     break;
                 case ThemeColorTarget.DarkAccent3:
                     _extraPalette.AccentDark3Color = _source.ActiveColor;
+                    break;
+
+                case ThemeColorTarget.Hyperlink:
+                    _extraPalette.HyperlinkButtonForegroundColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.HyperlinkActive:
+                    _extraPalette.HyperlinkButtonActiveForegroundColor = _source.ActiveColor;
+                    break;
+                case ThemeColorTarget.HyperlinkDisabled:
+                    _extraPalette.HyperlinkButtonDisabledForegroundColor = _source.ActiveColor;
                     break;
             }
         }

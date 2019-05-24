@@ -21,70 +21,54 @@ namespace FluentEditor.ThemePalette.Model
             {
                 name = data["Name"].GetString();
             }
-            Color lightRegionColor = data["LightRegionColor"].GetColor();
-            Color darkRegionColor = data["DarkRegionColor"].GetColor();
-            Color lightBaseColor = data["LightBaseColor"].GetColor();
-            Color darkBaseColor = data["DarkBaseColor"].GetColor();
-            Color lightPrimaryColor = data["LightPrimaryColor"].GetColor();
-            Color darkPrimaryColor = data["DarkPrimaryColor"].GetColor();
 
-            Dictionary<int, Color> lightBaseOverrides = new Dictionary<int, Color>();
-            if (data.ContainsKey("LightBaseOverrides"))
+            (Color, Dictionary<int, Color>) ParseBlock(string colorNodeName, string overridesNodeName = null)
             {
-                var lightBaseOverridesNode = data["LightBaseOverrides"].GetArray();
-                foreach (var v in lightBaseOverridesNode)
-                {
-                    var node = v.GetObject();
+                Color color = data[colorNodeName].GetColor();
 
-                    int index = node["Index"].GetInt();
-                    Color color = node["Color"].GetColor();
-                    lightBaseOverrides.Add(index, color);
+                Dictionary<int, Color> overrides = new Dictionary<int, Color>();
+                if (!string.IsNullOrEmpty(overridesNodeName) && data.ContainsKey(overridesNodeName))
+                {
+                    var overridesNode = data[overridesNodeName].GetArray();
+                    foreach (var v in overridesNode)
+                    {
+                        var node = v.GetObject();
+
+                        int idx = node["Index"].GetInt();
+                        Color clr = node["Color"].GetColor();
+                        overrides.Add(idx, clr);
+                    }
                 }
+
+                return (color, overrides);
             }
 
-            Dictionary<int, Color> darkBaseOverrides = new Dictionary<int, Color>();
-            if (data.ContainsKey("DarkBaseOverrides"))
-            {
-                var darkBaseOverridesNode = data["DarkBaseOverrides"].GetArray();
-                foreach (var v in darkBaseOverridesNode)
-                {
-                    var node = v.GetObject();
+            var (lightRegionColor, _) = ParseBlock(nameof(LightRegionColor));
+            var (darkRegionColor, _) = ParseBlock(nameof(DarkRegionColor));
 
-                    int index = node["Index"].GetInt();
-                    Color color = node["Color"].GetColor();
-                    darkBaseOverrides.Add(index, color);
-                }
-            }
+            var (lightBaseColor, lightBaseOverrides) = ParseBlock(nameof(LightBaseColor), nameof(LightBaseOverrides));
+            var (darkBaseColor, darkBaseOverrides) = ParseBlock(nameof(DarkBaseColor), nameof(DarkBaseOverrides));
+            var (lightPrimaryColor, lightPrimaryOverrides) = ParseBlock(nameof(LightPrimaryColor), nameof(LightPrimaryOverrides));
+            var (darkPrimaryColor, darkPrimaryOverrides) = ParseBlock(nameof(DarkPrimaryColor), nameof(DarkPrimaryOverrides));
+            var (lightHyperlinkColor, lightHyperlinkOverrides) = ParseBlock(nameof(LightHyperlinkColor), nameof(LightHyperlinkOverrides));
+            var (darkHyperlinkColor, darkHyperlinkOverrides) = ParseBlock(nameof(DarkHyperlinkColor), nameof(DarkHyperlinkOverrides));
 
-            Dictionary<int, Color> lightPrimaryOverrides = new Dictionary<int, Color>();
-            if (data.ContainsKey("LightPrimaryOverrides"))
-            {
-                var lightPrimaryOverridesNode = data["LightPrimaryOverrides"].GetArray();
-                foreach (var v in lightPrimaryOverridesNode)
-                {
-                    var node = v.GetObject();
-
-                    int index = node["Index"].GetInt();
-                    Color color = node["Color"].GetColor();
-                    lightPrimaryOverrides.Add(index, color);
-                }
-            }
-
-            Dictionary<int, Color> darkPrimaryOverrides = new Dictionary<int, Color>();
-            if (data.ContainsKey("DarkPrimaryOverrides"))
-            {
-                var darkPrimaryOverridesNode = data["DarkPrimaryOverrides"].GetArray();
-                foreach (var v in darkPrimaryOverridesNode)
-                {
-                    var node = v.GetObject();
-
-                    int index = node["Index"].GetInt();
-                    Color color = node["Color"].GetColor();
-                    darkPrimaryOverrides.Add(index, color);
-                }
-            }
-
-            return new ThemePreset(id, name, lightRegionColor, darkRegionColor, lightBaseColor, lightBaseOverrides, darkBaseColor, darkBaseOverrides, lightPrimaryColor, lightPrimaryOverrides, darkPrimaryColor, darkPrimaryOverrides);
+            return new ThemePreset(id,
+                                   name,
+                                   lightRegionColor,
+                                   darkRegionColor,
+                                   lightBaseColor,
+                                   lightBaseOverrides,
+                                   darkBaseColor,
+                                   darkBaseOverrides,
+                                   lightPrimaryColor,
+                                   lightPrimaryOverrides,
+                                   darkPrimaryColor,
+                                   darkPrimaryOverrides,
+                                   lightHyperlinkColor,
+                                   lightHyperlinkOverrides,
+                                   darkHyperlinkColor,
+                                   darkHyperlinkOverrides);
         }
 
         public static JsonObject Serialize(ThemePreset preset)
@@ -98,57 +82,53 @@ namespace FluentEditor.ThemePalette.Model
             {
                 data["Name"] = JsonValue.CreateStringValue(preset.Name);
             }
-            data["LightRegionColor"] = JsonValue.CreateStringValue(preset.LightRegionColor.ToString());
-            data["DarkRegionColor"] = JsonValue.CreateStringValue(preset.DarkRegionColor.ToString());
-            data["LightBaseColor"] = JsonValue.CreateStringValue(preset.LightBaseColor.ToString());
-            data["DarkBaseColor"] = JsonValue.CreateStringValue(preset.DarkBaseColor.ToString());
-            data["LightPrimaryColor"] = JsonValue.CreateStringValue(preset.LightPrimaryColor.ToString());
-            data["DarkPrimaryColor"] = JsonValue.CreateStringValue(preset.DarkPrimaryColor.ToString());
 
-            var lightBaseOverridesNode = new JsonArray();
-            foreach (int index in preset.LightBaseOverrides.Keys)
+            void SerializeBlock(Color color, string colorNodeName, Dictionary<int, Color> overrides = null, string overridesNodeName = null)
             {
-                JsonObject node = new JsonObject();
-                node["Index"] = JsonValue.CreateNumberValue(index);
-                node["Color"] = JsonValue.CreateStringValue(preset.LightBaseOverrides[index].ToString());
-                lightBaseOverridesNode.Add(node);
-            }
-            data["LightBaseOverrides"] = lightBaseOverridesNode;
+                data[colorNodeName] = JsonValue.CreateStringValue(color.ToString());
 
-            var darkBaseOverridesNode = new JsonArray();
-            foreach (int index in preset.DarkBaseOverrides.Keys)
-            {
-                JsonObject node = new JsonObject();
-                node["Index"] = JsonValue.CreateNumberValue(index);
-                node["Color"] = JsonValue.CreateStringValue(preset.DarkBaseOverrides[index].ToString());
-                darkBaseOverridesNode.Add(node);
+                if(overrides != null && !string.IsNullOrEmpty(overridesNodeName))
+                {
+                    var overridesNode = new JsonArray();
+                    foreach (int index in overrides.Keys)
+                    {
+                        JsonObject node = new JsonObject();
+                        node["Index"] = JsonValue.CreateNumberValue(index);
+                        node["Color"] = JsonValue.CreateStringValue(overrides[index].ToString());
+                        overridesNode.Add(node);
+                    }
+                    data[overridesNodeName] = overridesNode;
+                }
             }
-            data["DarkBaseOverrides"] = darkBaseOverridesNode;
 
-            var lightPrimaryOverridesNode = new JsonArray();
-            foreach (int index in preset.LightPrimaryOverrides.Keys)
-            {
-                JsonObject node = new JsonObject();
-                node["Index"] = JsonValue.CreateNumberValue(index);
-                node["Color"] = JsonValue.CreateStringValue(preset.LightPrimaryOverrides[index].ToString());
-                lightPrimaryOverridesNode.Add(node);
-            }
-            data["LightPrimaryOverrides"] = lightPrimaryOverridesNode;
-
-            var darkPrimaryOverridesNode = new JsonArray();
-            foreach (int index in preset.DarkPrimaryOverrides.Keys)
-            {
-                JsonObject node = new JsonObject();
-                node["Index"] = JsonValue.CreateNumberValue(index);
-                node["Color"] = JsonValue.CreateStringValue(preset.DarkPrimaryOverrides[index].ToString());
-                darkPrimaryOverridesNode.Add(node);
-            }
-            data["DarkPrimaryOverrides"] = darkPrimaryOverridesNode;
+            SerializeBlock(preset.LightRegionColor, nameof(LightRegionColor));
+            SerializeBlock(preset.DarkRegionColor, nameof(DarkRegionColor));
+            SerializeBlock(preset.LightBaseColor, nameof(LightBaseColor), preset.LightBaseOverrides, nameof(LightBaseOverrides));
+            SerializeBlock(preset.DarkBaseColor, nameof(DarkBaseColor), preset.DarkBaseOverrides, nameof(DarkBaseOverrides));
+            SerializeBlock(preset.LightPrimaryColor, nameof(LightPrimaryColor), preset.LightPrimaryOverrides, nameof(LightPrimaryOverrides));
+            SerializeBlock(preset.DarkPrimaryColor, nameof(DarkPrimaryColor), preset.DarkPrimaryOverrides, nameof(DarkPrimaryOverrides));
+            SerializeBlock(preset.LightHyperlinkColor, nameof(LightHyperlinkColor), preset.LightHyperlinkOverrides, nameof(LightHyperlinkOverrides));
+            SerializeBlock(preset.DarkHyperlinkColor, nameof(DarkHyperlinkColor), preset.DarkHyperlinkOverrides, nameof(DarkHyperlinkOverrides));
 
             return data;
         }
 
-        public ThemePreset(string id, string name, Color lightRegionColor, Color darkRegionColor, Color lightBaseColor, Dictionary<int, Color> lightBaseOverrides, Color darkBaseColor, Dictionary<int, Color> darkBaseOverrides, Color lightPrimaryColor, Dictionary<int, Color> lightPrimaryOverrides, Color darkPrimaryColor, Dictionary<int, Color> darkPrimaryOverrides)
+        public ThemePreset(string id,
+                           string name,
+                           Color lightRegionColor,
+                           Color darkRegionColor,
+                           Color lightBaseColor,
+                           Dictionary<int, Color> lightBaseOverrides,
+                           Color darkBaseColor,
+                           Dictionary<int, Color> darkBaseOverrides,
+                           Color lightPrimaryColor,
+                           Dictionary<int, Color> lightPrimaryOverrides,
+                           Color darkPrimaryColor,
+                           Dictionary<int, Color> darkPrimaryOverrides,
+                           Color lightHyperlinkColor,
+                           Dictionary<int, Color> lightHyperlinkOverrides,
+                           Color darkHyperlinkColor,
+                           Dictionary<int, Color> darkHyperlinkOverrides)
         {
             _id = id;
             _name = name;
@@ -162,6 +142,10 @@ namespace FluentEditor.ThemePalette.Model
             _lightPrimaryOverrides = lightPrimaryOverrides;
             _darkPrimaryColor = darkPrimaryColor;
             _darkPrimaryOverrides = darkPrimaryOverrides;
+            _lightHyperlinkColor = lightHyperlinkColor;
+            _lightHyperlinkOverrides = lightHyperlinkOverrides;
+            _darkHyperlinkColor = darkHyperlinkColor;
+            _darkHyperlinkOverrides = darkHyperlinkOverrides;
         }
 
         public ThemePreset(string id, string name, IThemePaletteModel model)
@@ -172,45 +156,36 @@ namespace FluentEditor.ThemePalette.Model
             _lightRegionColor = model.LightRegion.ActiveColor;
             _darkRegionColor = model.DarkRegion.ActiveColor;
 
-            _lightBaseColor = model.LightBase.BaseColor.ActiveColor;
-            _lightBaseOverrides = new Dictionary<int, Color>();
-            for (int i = 0; i < model.LightBase.Palette.Count; i++)
+            Dictionary<int, Color> Clone(ColorPalette source)
             {
-                if (model.LightBase.Palette[i].UseCustomColor)
+                var overrides = new Dictionary<int, Color>();
+                for (int i = 0; i < source.Palette.Count; i++)
                 {
-                    _lightBaseOverrides.Add(i, model.LightBase.Palette[i].ActiveColor);
+                    if (source.Palette[i].UseCustomColor)
+                    {
+                        overrides.Add(i, source.Palette[i].ActiveColor);
+                    }
                 }
+
+                return overrides;
             }
+
+            _lightBaseColor = model.LightBase.BaseColor.ActiveColor;
+            _lightBaseOverrides = Clone(model.LightBase);
 
             _darkBaseColor = model.DarkBase.BaseColor.ActiveColor;
-            _darkBaseOverrides = new Dictionary<int, Color>();
-            for (int i = 0; i < model.DarkBase.Palette.Count; i++)
-            {
-                if (model.DarkBase.Palette[i].UseCustomColor)
-                {
-                    _darkBaseOverrides.Add(i, model.DarkBase.Palette[i].ActiveColor);
-                }
-            }
+            _darkBaseOverrides = Clone(model.DarkBase);
 
             _lightPrimaryColor = model.LightPrimary.BaseColor.ActiveColor;
-            _lightPrimaryOverrides = new Dictionary<int, Color>();
-            for (int i = 0; i < model.LightPrimary.Palette.Count; i++)
-            {
-                if (model.LightPrimary.Palette[i].UseCustomColor)
-                {
-                    _lightPrimaryOverrides.Add(i, model.LightPrimary.Palette[i].ActiveColor);
-                }
-            }
+            _lightPrimaryOverrides = Clone(model.LightPrimary);
 
             _darkPrimaryColor = model.DarkPrimary.BaseColor.ActiveColor;
-            _darkPrimaryOverrides = new Dictionary<int, Color>();
-            for (int i = 0; i < model.DarkPrimary.Palette.Count; i++)
-            {
-                if (model.DarkPrimary.Palette[i].UseCustomColor)
-                {
-                    _darkPrimaryOverrides.Add(i, model.DarkPrimary.Palette[i].ActiveColor);
-                }
-            }
+            _darkPrimaryOverrides = Clone(model.DarkPrimary);
+
+            _lightHyperlinkColor = model.LightHyperlink.BaseColor.ActiveColor;
+            _lightHyperlinkOverrides = Clone(model.LightHyperlink);
+            _darkHyperlinkColor = model.DarkHyperlink.BaseColor.ActiveColor;
+            _darkHyperlinkOverrides = Clone(model.DarkHyperlink);
         }
 
         private readonly string _id;
@@ -249,6 +224,18 @@ namespace FluentEditor.ThemePalette.Model
         private readonly Dictionary<int, Color> _darkPrimaryOverrides;
         public Dictionary<int, Color> DarkPrimaryOverrides { get { return _darkPrimaryOverrides; } }
 
+        private readonly Color _lightHyperlinkColor;
+        public Color LightHyperlinkColor { get { return _lightHyperlinkColor; } }
+
+        private readonly Dictionary<int, Color> _lightHyperlinkOverrides;
+        public Dictionary<int, Color> LightHyperlinkOverrides { get { return _lightHyperlinkOverrides; } }
+
+        private readonly Color _darkHyperlinkColor;
+        public Color DarkHyperlinkColor { get { return _darkHyperlinkColor; } }
+
+        private readonly Dictionary<int, Color> _darkHyperlinkOverrides;
+        public Dictionary<int, Color> DarkHyperlinkOverrides { get { return _darkHyperlinkOverrides; } }
+
         public bool IsPresetActive(IThemePaletteModel model)
         {
             if (model == null)
@@ -279,6 +266,14 @@ namespace FluentEditor.ThemePalette.Model
             {
                 return false;
             }
+            if (model.LightHyperlink.BaseColor.ActiveColor != _lightHyperlinkColor)
+            {
+                return false;
+            }
+            if (model.DarkHyperlink.BaseColor.ActiveColor != _darkHyperlinkColor)
+            {
+                return false;
+            }
             if (!CompareOverrides(_lightBaseOverrides, model.LightBase.Palette))
             {
                 return false;
@@ -292,6 +287,14 @@ namespace FluentEditor.ThemePalette.Model
                 return false;
             }
             if (!CompareOverrides(_darkPrimaryOverrides, model.DarkPrimary.Palette))
+            {
+                return false;
+            }
+            if (!CompareOverrides(_lightHyperlinkOverrides, model.LightHyperlink.Palette))
+            {
+                return false;
+            }
+            if (!CompareOverrides(_darkHyperlinkOverrides, model.DarkHyperlink.Palette))
             {
                 return false;
             }

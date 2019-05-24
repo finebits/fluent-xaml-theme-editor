@@ -75,6 +75,36 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
+        private Color _hyperlinkButtonForegroundColor;
+        public Color HyperlinkButtonForegroundColor
+        {
+            get { return _hyperlinkButtonForegroundColor; }
+            set
+            {
+                SetProperty(ref _hyperlinkButtonForegroundColor, value);
+            }
+        }
+
+        private Color _hyperlinkButtonActiveForegroundColor;
+        public Color HyperlinkButtonActiveForegroundColor
+        {
+            get { return _hyperlinkButtonActiveForegroundColor; }
+            set
+            {
+                SetProperty(ref _hyperlinkButtonActiveForegroundColor, value);
+            }
+        }
+
+        private Color _hyperlinkButtonDisabledForegroundColor;
+        public Color HyperlinkButtonDisabledForegroundColor
+        {
+            get { return _hyperlinkButtonDisabledForegroundColor; }
+            set
+            {
+                SetProperty(ref _hyperlinkButtonDisabledForegroundColor, value);
+            }
+        }
+
         public static Color GetColor(Color? color)
         {
             return color ?? Colors.Transparent;

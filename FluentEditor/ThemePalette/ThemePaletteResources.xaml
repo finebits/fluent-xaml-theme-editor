@@ -75,6 +75,19 @@
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
                     <!--#endregion-->
 
+                    <!--#region HyperlinkButton Control-->
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
+                                     Color="{Binding HyperlinkButtonForegroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
+                                     Color="{Binding HyperlinkButtonActiveForegroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
+                                     Color="{Binding HyperlinkButtonActiveForegroundColor, Source={StaticResource DarkExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
+                                     Color="{Binding HyperlinkButtonDisabledForegroundColor, Source={StaticResource DarkExtraPalette}}" />
+
+                    <!--#endregion-->
+
                     <!--#region CheckBox Control-->
                     <StaticResource x:Key="CheckBoxCheckGlyphForegroundIndeterminatePointerOver"
                                     ResourceKey="ActiveTextColorBrush" />
@@ -164,6 +177,19 @@
                                     ResourceKey="ActiveTextColorBrush" />
                     <SolidColorBrush x:Key="TextBlockButtonForegroundDisabled"
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
+                    <!--#endregion-->
+
+                    <!--#region HyperlinkButton Control-->
+
+                    <SolidColorBrush x:Key="HyperlinkButtonForeground"
+                                     Color="{Binding HyperlinkButtonForegroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPressed"
+                                     Color="{Binding HyperlinkButtonActiveForegroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundPointerOver"
+                                     Color="{Binding HyperlinkButtonActiveForegroundColor, Source={StaticResource LightExtraPalette}}" />
+                    <SolidColorBrush x:Key="HyperlinkButtonForegroundDisabled"
+                                     Color="{Binding HyperlinkButtonDisabledForegroundColor, Source={StaticResource LightExtraPalette}}" />
+
                     <!--#endregion-->
 
                     <!--#region CheckBox Control-->

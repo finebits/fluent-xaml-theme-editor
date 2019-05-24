@@ -244,6 +244,16 @@ namespace FluentEditor.ThemePalette
             get { return _paletteModel.DarkPrimary; }
         }
 
+        public ColorPalette LightHyperlink
+        {
+            get { return _paletteModel.LightHyperlink; }
+        }
+
+        public ColorPalette DarkHyperlink
+        {
+            get { return _paletteModel.DarkHyperlink; }
+        }
+
         public IReadOnlyList<ThemeColorMapping> LightColorMapping
         {
             get { return _paletteModel.LightColorMapping; }

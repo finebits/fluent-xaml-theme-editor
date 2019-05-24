@@ -127,7 +127,7 @@
     <value>Maps to {0}</value>
   </data>
   <data name="ControlPaletteBaseBlock.Text" xml:space="preserve">
-    <value>Base</value>
+    <value>Base colors</value>
   </data>
   <data name="ControlPaletteDarkTestContent.Title" xml:space="preserve">
     <value>Dark theme</value>
@@ -169,7 +169,7 @@
     <value>Custom</value>
   </data>
   <data name="ControlPalettePrimaryBlock.Text" xml:space="preserve">
-    <value>Primary</value>
+    <value>Accent colors</value>
   </data>
   <data name="ControlPaletteRegionBlock.Text" xml:space="preserve">
     <value>Region</value>
@@ -356,5 +356,8 @@
   </data>
   <data name="ThemePaletteTextColorsBlock.Text" xml:space="preserve">
     <value>Text Colors</value>
+  </data>
+  <data name="ControlPaletteHyperlinkBlock.Text" xml:space="preserve">
+    <value>Hyperlink colors</value>
   </data>
 </root>

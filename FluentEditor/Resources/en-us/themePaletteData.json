@@ -208,6 +208,79 @@
         }
     },
 
+    "LightHyperlink": {
+        "Steps": 3,
+        "PaletteGenerator": {
+            "Mode": "Mix",
+            "MixColors": [
+                {
+                    "Pattern": "#FF000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#99000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#66000000",
+                    "Mask": "#FFFFFFFF"
+                }
+            ]
+        },
+        "PaletteEntryCaptions": [
+            {
+                "Title": "Hyperlink base color"
+            },
+            {
+                "Title": "Hyperlink active color"
+            },
+            {
+                "Title": "Hyperlink disabled Color"
+            }
+        ],
+        "BaseColor": {
+            "Title": "Light Base",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FF00FF00"
+        }
+    },
+    "DarkHyperlink": {
+        "Steps": 3,
+        "PaletteGenerator": {
+            "Mode": "Mix",
+            "MixColors": [
+                {
+                    "Pattern": "#FF000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#99000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#66FFFFFF",
+                    "Mask": "#FFFFFFFF"
+                }
+            ]
+        },
+        "PaletteEntryCaptions": [
+            {
+                "Title": "Hyperlink base color"
+            },
+            {
+                "Title": "Hyperlink active color"
+            },
+            {
+                "Title": "Hyperlink disabled Color"
+            }
+        ],
+        "BaseColor": {
+            "Title": "Dark Base",
+            "ActiveColorStringFormat": "ARGB",
+            "Color": "#FF00FF00"
+        }
+    },
+
     "LightPaletteMapping": [
         {
             "Target": "LightAccent3",
@@ -285,6 +358,22 @@
             "Target": "ChromeMedium",
             "Source": "LightBase",
             "SourceIndex": "6"
+        },
+
+        {
+            "Target": "Hyperlink",
+            "Source": "LightHyperlink",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "HyperlinkActive",
+            "Source": "LightHyperlink",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "HyperlinkDisabled",
+            "Source": "LightHyperlink",
+            "SourceIndex": "2"
         }
     ],
     "DarkPaletteMapping": [
@@ -363,6 +452,22 @@
             "Target": "ChromeMedium",
             "Source": "DarkBase",
             "SourceIndex": "6"
+        },
+
+        {
+            "Target": "Hyperlink",
+            "Source": "DarkHyperlink",
+            "SourceIndex": "0"
+        },
+        {
+            "Target": "HyperlinkActive",
+            "Source": "DarkHyperlink",
+            "SourceIndex": "1"
+        },
+        {
+            "Target": "HyperlinkDisabled",
+            "Source": "DarkHyperlink",
+            "SourceIndex": "2"
         }
     ],
     "Presets": [
@@ -374,7 +479,9 @@
             "LightBaseColor": "#FF000000",
             "DarkBaseColor": "#FFFFFFFF",
             "LightPrimaryColor": "#FF0073CF",
-            "DarkPrimaryColor": "#FF0073CF"
+            "DarkPrimaryColor": "#FF0073CF",
+            "LightHyperlinkColor": "#FF0073CF",
+            "DarkHyperlinkColor": "#FF0073CF"
         }
     ]
 }
