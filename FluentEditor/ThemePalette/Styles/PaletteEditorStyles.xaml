@@ -1,7 +1,9 @@
 ﻿<ResourceDictionary x:Class="FluentEditor.ThemePalette.Styles.PaletteEditorStyles"
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:color="using:FluentEditorShared.ColorPalette">
+                    xmlns:color="using:FluentEditorShared.ColorPalette"
+                    xmlns:local="using:FluentEditor.ThemePalette.Styles"
+                    xmlns:data="using:FluentEditor.ThemePalette.Data">
 
     <Style x:Key="ColorPaletteEntryEditorAlphaStyle"
            TargetType="color:ColorPaletteEntryEditor">
@@ -153,6 +155,135 @@
                                     </color:ColorPaletteEntryEditor>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AcrylicPaletteEditorExtraAlphaStyle"
+           TargetType="color:ColorPaletteEditor">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="color:ColorPaletteEditor">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <color:ColorPaletteEntryEditor Margin="0,0,0,16"
+                                                       AutomationProperties.Name="{Binding Path=ColorPalette.BaseColor.Title, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                       ColorPaletteEntry="{Binding Path=ColorPalette.BaseColor, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                       IsTabStop="True"
+                                                       Style="{StaticResource LargeColorPaletteEntryEditorStyle}" />
+
+                        <ItemsControl Grid.Row="1"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      IsTabStop="False"
+                                      ItemsSource="{TemplateBinding PaletteEntries}"
+                                      Visibility="{Binding Path=IsExpanded, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplateSelector>
+                                <local:AcrylicTemplateSelector>
+                                    <local:AcrylicTemplateSelector.BaseDataTemplate>
+                                        <DataTemplate x:DataType="color:IColorPaletteEntry">
+                                            <color:ColorPaletteEntryEditor Margin="0,0,0,8"
+                                                                           AutomationProperties.Name="{x:Bind Title, Mode=OneWay}"
+                                                                           ColorPaletteEntry="{Binding}"
+                                                                           Style="{StaticResource ColorPaletteEntryEditorAlphaStyle}"
+                                                                           HorizontalAlignment="Left"
+                                                                           IsTabStop="True">
+                                                <color:ColorPaletteEntryEditor.Resources>
+                                                    <ResourceDictionary>
+                                                        <ResourceDictionary.ThemeDictionaries>
+                                                            <ResourceDictionary x:Key="Default">
+                                                                <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                 Color="#33000000" />
+                                                                <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                            </ResourceDictionary>
+                                                            <ResourceDictionary x:Key="Light">
+                                                                <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                 Color="#33000000" />
+                                                                <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                            </ResourceDictionary>
+                                                        </ResourceDictionary.ThemeDictionaries>
+                                                    </ResourceDictionary>
+                                                </color:ColorPaletteEntryEditor.Resources>
+                                            </color:ColorPaletteEntryEditor>
+                                        </DataTemplate>
+                                    </local:AcrylicTemplateSelector.BaseDataTemplate>
+                                    <local:AcrylicTemplateSelector.AcrylicDataTemplate>
+                                        <DataTemplate x:DataType="data:ThemeEditableAcrylicPaletteEntry">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <color:ColorPaletteEntryEditor Margin="0,0,0,8"
+                                                                               AutomationProperties.Name="{x:Bind Title, Mode=OneWay}"
+                                                                               ColorPaletteEntry="{Binding}"
+                                                                               Style="{StaticResource ColorPaletteEntryEditorAlphaStyle}"
+                                                                               HorizontalAlignment="Left"
+                                                                               IsTabStop="True">
+                                                    <color:ColorPaletteEntryEditor.Resources>
+                                                        <ResourceDictionary>
+                                                            <ResourceDictionary.ThemeDictionaries>
+                                                                <ResourceDictionary x:Key="Default">
+                                                                    <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                     Color="#33000000" />
+                                                                    <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                                </ResourceDictionary>
+                                                                <ResourceDictionary x:Key="Light">
+                                                                    <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                     Color="#33000000" />
+                                                                    <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                                </ResourceDictionary>
+                                                            </ResourceDictionary.ThemeDictionaries>
+                                                        </ResourceDictionary>
+                                                    </color:ColorPaletteEntryEditor.Resources>
+                                                </color:ColorPaletteEntryEditor>
+
+                                                <Button Grid.Column="1"
+                                                        Margin="8,0,0,8"
+                                                        HorizontalAlignment="Stretch"
+                                                        VerticalAlignment="Stretch">
+                                                    <Button.Content>
+                                                        <FontIcon Glyph="&#xE713;"
+                                                                  FontSize="14"/>
+                                                    </Button.Content>
+                                                    <Button.Flyout>
+                                                        <Flyout>
+                                                            <Grid Width="300"
+                                                                  VerticalAlignment="Stretch">
+                                                                <Slider x:Uid="AcrylicOpacitySlider"
+                                                                        Value="{Binding Opacity, Mode=TwoWay}"
+                                                                        Header="Acrylic Opacity"
+                                                                        Orientation="Horizontal"
+                                                                        HorizontalAlignment="Stretch"
+                                                                        VerticalAlignment="Stretch"
+                                                                        Maximum="1"
+                                                                        Minimum="0"
+                                                                        StepFrequency="0.05"
+                                                                        TickPlacement="Outside"
+                                                                        TickFrequency="0.05"/>
+                                                            </Grid>
+                                                        </Flyout>
+                                                    </Button.Flyout>
+                                                </Button>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </local:AcrylicTemplateSelector.AcrylicDataTemplate>
+                                </local:AcrylicTemplateSelector>
+                            </ItemsControl.ItemTemplateSelector>
                         </ItemsControl>
                     </Grid>
                 </ControlTemplate>

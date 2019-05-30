@@ -121,8 +121,7 @@
         <TextBlock
             x:Uid="TestContentSliderBlock"
             Margin="0,0,0,16"
-            Style="{StaticResource BaseTextBlockStyle}"
-            Text="Slider" />
+            Style="{StaticResource BaseTextBlockStyle}" />
         <Slider
             Margin="0,0,0,28"
             HorizontalAlignment="Stretch"

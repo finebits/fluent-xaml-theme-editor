@@ -1,4 +1,5 @@
-﻿using FluentEditorShared.ColorPalette;
+﻿using FluentEditor.ThemePalette.Data;
+using FluentEditorShared.ColorPalette;
 using FluentEditorShared.Utils;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,16 @@ namespace FluentEditor.ThemePalette.Data
         public class ThemePaletteEntryData : ColorPalette.PaletteEntryData
         {
             protected readonly IReadOnlyList<(string title, string description)> _paletteEntryCaptions;
+            protected readonly IReadOnlyList<(int index, double opacity)> _paletteEntryAcrylics;
 
-            public ThemePaletteEntryData(IColorPaletteEntry baseColor, IReadOnlyList<ContrastColorWrapper> contrastColors, IReadOnlyList<(string title, string description)> captions)
+            public ThemePaletteEntryData(IColorPaletteEntry baseColor, 
+                                        IReadOnlyList<ContrastColorWrapper> contrastColors, 
+                                        IReadOnlyList<(string title, string description)> captions,
+                                        IReadOnlyList<(int index, double opacity)> acrylics)
                 : base(baseColor, contrastColors)
             {
                 _paletteEntryCaptions = captions;
+                _paletteEntryAcrylics = acrylics;
             }
 
             public override IReadOnlyList<ContrastColorWrapper> GetPaletteEntryContrastColors(int index)
@@ -29,7 +35,7 @@ namespace FluentEditor.ThemePalette.Data
             public override string GetPaletteEntryDescription(int index)
             {
                 var result = base.GetPaletteEntryDescription(index);
-                if (index >= 0 && index < _paletteEntryCaptions.Count)
+                if (_paletteEntryCaptions != null && index >= 0 && index < _paletteEntryCaptions.Count)
                 {
                     if (!string.IsNullOrEmpty(_paletteEntryCaptions[index].description))
                     {
@@ -43,7 +49,7 @@ namespace FluentEditor.ThemePalette.Data
             public override string GetPaletteEntryTitle(int index)
             {
                 var result = base.GetPaletteEntryTitle(index);
-                if (index >= 0 && index < _paletteEntryCaptions.Count)
+                if (_paletteEntryCaptions != null && index >= 0 && index < _paletteEntryCaptions.Count)
                 {
                     if (!string.IsNullOrEmpty(_paletteEntryCaptions[index].title))
                     {
@@ -54,7 +60,37 @@ namespace FluentEditor.ThemePalette.Data
                 return result;
             }
 
-            public static IReadOnlyList<(string title, string description)> Parse(JsonArray data)
+            public override EditableColorPaletteEntry GetColorPaletteEntry(IColorPaletteEntry baseColor, int idx)
+            {
+                (bool isAcrylic, double opacity) IsAcrylic()
+                {
+                    if(_paletteEntryAcrylics != null)
+                    {
+                        foreach (var acrylic in _paletteEntryAcrylics)
+                        {
+                            if (acrylic.index == idx)
+                            {
+                                return (true, acrylic.opacity);
+                            }
+                        }
+                    }
+
+                    return (false, 0);
+                }
+
+                (bool isAcrylic, double opacity) = IsAcrylic();
+
+                if (isAcrylic)
+                {
+                    return new ThemeEditableAcrylicPaletteEntry(opacity, null, default, false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
+                }
+                else
+                {
+                    return base.GetColorPaletteEntry(baseColor, idx);
+                }
+            }
+
+            public static IReadOnlyList<(string title, string description)> ParseCaptions(JsonArray data)
             {
                 var result = new List<(string title, string description)>();
 
@@ -65,6 +101,22 @@ namespace FluentEditor.ThemePalette.Data
                     string description = caption.ContainsKey("Description") ? caption["Description"].GetOptionalString() : null;
 
                     result.Add((title, description));
+                }
+
+                return result;
+            }
+
+            public static IReadOnlyList<(int index, double opacity)> ParseAcrylics(JsonArray data)
+            {
+                var result = new List<(int index, double opacity)>();
+
+                foreach (var item in data)
+                {
+                    var acrylic = item.GetObject();
+                    int index = acrylic.ContainsKey("SourceIndex") ? acrylic["SourceIndex"].GetInt() : -1;
+                    double opacity = acrylic.ContainsKey("Opacity") ? acrylic["Opacity"].GetNumber() : 0.0;
+
+                    result.Add((index, opacity));
                 }
 
                 return result;
@@ -86,11 +138,22 @@ namespace FluentEditor.ThemePalette.Data
             int steps = data["Steps"].GetInt();
 
             IPaletteEntryData paletteEntryData = new ColorPalette.PaletteEntryData(baseColor, contrastColors);
+            IReadOnlyList<(string title, string description)> captions = null;
+            IReadOnlyList<(int index, double opacity)> opacities = null;
 
             if (data.ContainsKey("PaletteEntryCaptions"))
             {
-                var captions = ThemePaletteEntryData.Parse(data["PaletteEntryCaptions"].GetArray());
-                paletteEntryData = new ThemePaletteEntryData(baseColor, contrastColors, captions);
+                captions = ThemePaletteEntryData.ParseCaptions(data["PaletteEntryCaptions"].GetArray());
+            }
+
+            if (data.ContainsKey("AcrylicData"))
+            {
+                opacities = ThemePaletteEntryData.ParseAcrylics(data["AcrylicData"].GetArray());
+            }
+
+            if(captions!= null || opacities != null)
+            {
+                paletteEntryData = new ThemePaletteEntryData(baseColor, contrastColors, captions, opacities);
             }
 
             var palette = new ThemeColorPalette(steps, baseColor, contrastColors, paletteEntryData);

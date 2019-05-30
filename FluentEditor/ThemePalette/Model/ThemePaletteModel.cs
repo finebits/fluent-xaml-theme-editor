@@ -220,8 +220,8 @@ namespace FluentEditor.ThemePalette.Model
             _lightHyperlink.BaseColor.ActiveColor = preset.LightHyperlinkColor;
             _darkHyperlink.BaseColor.ActiveColor = preset.DarkHyperlinkColor;
 
-            ApplyPresetOverrides(_lightRegion.Palette, preset.LightRegionOverrides);
-            ApplyPresetOverrides(_darkRegion.Palette, preset.DarkRegionOverrides);
+            ApplyPresetOverrides(_lightRegion.Palette, preset.LightRegionOverrides, preset.LightRegionAcrylicOverrides);
+            ApplyPresetOverrides(_darkRegion.Palette, preset.DarkRegionOverrides, preset.DarkRegionAcrylicOverrides);
             ApplyPresetOverrides(_lightBase.Palette, preset.LightBaseOverrides);
             ApplyPresetOverrides(_darkBase.Palette, preset.DarkBaseOverrides);
             ApplyPresetOverrides(_lightPrimary.Palette, preset.LightPrimaryOverrides);
@@ -230,7 +230,7 @@ namespace FluentEditor.ThemePalette.Model
             ApplyPresetOverrides(_darkHyperlink.Palette, preset.DarkHyperlinkOverrides);
         }
 
-        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides)
+        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides, Dictionary<int, double> acrylicOverrides = null)
         {
             for (int i = 0; i < palette.Count; i++)
             {
@@ -242,6 +242,18 @@ namespace FluentEditor.ThemePalette.Model
                 else
                 {
                     palette[i].UseCustomColor = false;
+                }
+
+                if(palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette)
+                {
+                    if (acrylicOverrides != null && acrylicOverrides.ContainsKey(i))
+                    {
+                        acrylicPalette.Opacity = acrylicOverrides[i];
+                    }
+                    else
+                    {
+                        acrylicPalette.ResetOpacity();
+                    }
                 }
             }
         }

@@ -57,7 +57,8 @@ namespace FluentEditor.ThemePalette
         RegionBackground,
         MediumBackground,
         HighBackground,
-        AcrylicBackground,
+        AcrylicBackdropBackground,
+        AcrylicHostBackdropBackground
     }
     public enum ThemeColorSource
     {
@@ -421,9 +422,27 @@ namespace FluentEditor.ThemePalette
                 case ThemeColorTarget.HighBackground:
                     _extraPalette.HighBackgroundColor = _source.ActiveColor;
                     break;
-                case ThemeColorTarget.AcrylicBackground:
-                    _extraPalette.AcrylicBackgroundColor = _source.ActiveColor;
-                    break;
+                case ThemeColorTarget.AcrylicBackdropBackground:
+                    {
+                        if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
+                        {
+                            _extraPalette.AcrylicBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
+                        }
+
+                        _extraPalette.AcrylicBackdropBackgroundColor = _source.ActiveColor;
+                        break;
+                    }
+
+                case ThemeColorTarget.AcrylicHostBackdropBackground:
+                    {
+                        if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
+                        {
+                            _extraPalette.AcrylicHostBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
+                        }
+
+                        _extraPalette.AcrylicHostBackdropBackgroundColor = _source.ActiveColor;
+                        break;
+                    }
             }
         }
     }

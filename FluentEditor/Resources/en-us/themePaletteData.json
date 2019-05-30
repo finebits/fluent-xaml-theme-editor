@@ -1,6 +1,6 @@
 ﻿{
     "LightRegion": {
-        "Steps": 4,
+        "Steps": 5,
         "PaletteGenerator": {
             "Mode": "Mix",
             "MixColors": [
@@ -17,8 +17,12 @@
                     "Mask": "#FFFFFFFF"
                 },
                 {
-                    "Pattern": "#00000000",
-                    "Mask": "#FFFFFFFF"
+                    "Pattern": "#CC000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#99000000",
+                    "Mask": "#FF000000"
                 }
             ]
         },
@@ -33,7 +37,20 @@
                 "Title": "3rd background color"
             },
             {
-                "Title": "Acrylic color"
+                "Title": "Acrylic Backdrop color"
+            },
+            {
+                "Title": "Acrylic HostBackdrop color"
+            }
+        ],
+        "AcrylicData": [
+            {
+                "SourceIndex": 3,
+                "Opacity": 0.8
+            },
+            {
+                "SourceIndex": 4,
+                "Opacity": 0.8
             }
         ],
         "BaseColor": {
@@ -43,7 +60,7 @@
         }
     },
     "DarkRegion": {
-        "Steps": 4,
+        "Steps": 5,
         "PaletteGenerator": {
             "Mode": "Mix",
             "MixColors": [
@@ -60,8 +77,12 @@
                     "Mask": "#FFFFFFFF"
                 },
                 {
-                    "Pattern": "#00FFFFFF",
-                    "Mask": "#FFFFFFFF"
+                    "Pattern": "#33000000",
+                    "Mask": "#FF000000"
+                },
+                {
+                    "Pattern": "#99000000",
+                    "Mask": "#FF000000"
                 }
             ]
         },
@@ -76,7 +97,20 @@
                 "Title": "3rd background color"
             },
             {
-                "Title": "Acrylic color"
+                "Title": "Acrylic Backdrop color"
+            },
+            {
+                "Title": "Acrylic HostBackdrop color"
+            }
+        ],
+        "AcrylicData": [
+            {
+                "SourceIndex": 3,
+                "Opacity": 0.8
+            },
+            {
+                "SourceIndex": 4,
+                "Opacity": 0.8
             }
         ],
         "BaseColor": {
@@ -379,9 +413,14 @@
         },
 
         {
-            "Target": "AcrylicBackground",
+            "Target": "AcrylicBackdropBackground",
             "Source": "LightRegion",
             "SourceIndex": "3"
+        },
+        {
+            "Target": "AcrylicHostBackdropBackground",
+            "Source": "LightRegion",
+            "SourceIndex": "4"
         },
 
 
@@ -499,9 +538,14 @@
         },
 
         {
-            "Target": "AcrylicBackground",
+            "Target": "AcrylicBackdropBackground",
             "Source": "DarkRegion",
             "SourceIndex": "3"
+        },
+        {
+            "Target": "AcrylicHostBackdropBackground",
+            "Source": "DarkRegion",
+            "SourceIndex": "4"
         },
 
         {

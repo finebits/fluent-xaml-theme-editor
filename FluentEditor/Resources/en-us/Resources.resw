@@ -360,4 +360,7 @@
   <data name="ControlPaletteHyperlinkBlock.Text" xml:space="preserve">
     <value>Hyperlink colors</value>
   </data>
+  <data name="AcrylicOpacitySlider.Header" xml:space="preserve">
+    <value>Acrylic Opacity</value>
+  </data>
 </root>

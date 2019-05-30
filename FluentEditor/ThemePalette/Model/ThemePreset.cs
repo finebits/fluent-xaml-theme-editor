@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using FluentEditor.ThemePalette.Data;
 using FluentEditorShared.ColorPalette;
 using FluentEditorShared.Utils;
 using System.Collections.Generic;
@@ -22,11 +23,13 @@ namespace FluentEditor.ThemePalette.Model
                 name = data["Name"].GetString();
             }
 
-            (Color, Dictionary<int, Color>) ParseBlock(string colorNodeName, string overridesNodeName = null)
+            (Color, Dictionary<int, Color>, Dictionary<int, double>) ParseBlock(string colorNodeName, string overridesNodeName = null, string acrylicOverridesNodeName = null)
             {
                 Color color = data[colorNodeName].GetColor();
 
                 Dictionary<int, Color> overrides = new Dictionary<int, Color>();
+                Dictionary<int, double> acrylicOverrides = new Dictionary<int, double>();
+
                 if (!string.IsNullOrEmpty(overridesNodeName) && data.ContainsKey(overridesNodeName))
                 {
                     var overridesNode = data[overridesNodeName].GetArray();
@@ -40,25 +43,40 @@ namespace FluentEditor.ThemePalette.Model
                     }
                 }
 
-                return (color, overrides);
+                if (!string.IsNullOrEmpty(acrylicOverridesNodeName) && data.ContainsKey(acrylicOverridesNodeName))
+                {
+                    var overridesNode = data[acrylicOverridesNodeName].GetArray();
+                    foreach (var v in overridesNode)
+                    {
+                        var node = v.GetObject();
+
+                        int idx = node["Index"].GetInt();
+                        double opacity = node["Opacity"].GetNumber();
+                        acrylicOverrides.Add(idx, opacity);
+                    }
+                }
+
+                return (color, overrides, acrylicOverrides);
             }
 
-            var (lightRegionColor, lightRegionOverrides) = ParseBlock(nameof(LightRegionColor), nameof(DarkRegionOverrides));
-            var (darkRegionColor, darkRegionOverrides) = ParseBlock(nameof(DarkRegionColor), nameof(DarkRegionOverrides));
+            var (lightRegionColor, lightRegionOverrides, lightRegionAcrylicOverrides) = ParseBlock(nameof(LightRegionColor), nameof(LightRegionOverrides), nameof(LightRegionAcrylicOverrides));
+            var (darkRegionColor, darkRegionOverrides, darkRegionAcrylicOverrides) = ParseBlock(nameof(DarkRegionColor), nameof(DarkRegionOverrides), nameof(DarkRegionAcrylicOverrides));
 
-            var (lightBaseColor, lightBaseOverrides) = ParseBlock(nameof(LightBaseColor), nameof(LightBaseOverrides));
-            var (darkBaseColor, darkBaseOverrides) = ParseBlock(nameof(DarkBaseColor), nameof(DarkBaseOverrides));
-            var (lightPrimaryColor, lightPrimaryOverrides) = ParseBlock(nameof(LightPrimaryColor), nameof(LightPrimaryOverrides));
-            var (darkPrimaryColor, darkPrimaryOverrides) = ParseBlock(nameof(DarkPrimaryColor), nameof(DarkPrimaryOverrides));
-            var (lightHyperlinkColor, lightHyperlinkOverrides) = ParseBlock(nameof(LightHyperlinkColor), nameof(LightHyperlinkOverrides));
-            var (darkHyperlinkColor, darkHyperlinkOverrides) = ParseBlock(nameof(DarkHyperlinkColor), nameof(DarkHyperlinkOverrides));
+            var (lightBaseColor, lightBaseOverrides, _) = ParseBlock(nameof(LightBaseColor), nameof(LightBaseOverrides));
+            var (darkBaseColor, darkBaseOverrides, _) = ParseBlock(nameof(DarkBaseColor), nameof(DarkBaseOverrides));
+            var (lightPrimaryColor, lightPrimaryOverrides, _) = ParseBlock(nameof(LightPrimaryColor), nameof(LightPrimaryOverrides));
+            var (darkPrimaryColor, darkPrimaryOverrides, _) = ParseBlock(nameof(DarkPrimaryColor), nameof(DarkPrimaryOverrides));
+            var (lightHyperlinkColor, lightHyperlinkOverrides, _) = ParseBlock(nameof(LightHyperlinkColor), nameof(LightHyperlinkOverrides));
+            var (darkHyperlinkColor, darkHyperlinkOverrides, _) = ParseBlock(nameof(DarkHyperlinkColor), nameof(DarkHyperlinkOverrides));
 
             return new ThemePreset(id,
                                    name,
                                    lightRegionColor,
                                    lightRegionOverrides,
+                                   lightRegionAcrylicOverrides,
                                    darkRegionColor,
                                    darkRegionOverrides,
+                                   darkRegionAcrylicOverrides,
                                    lightBaseColor,
                                    lightBaseOverrides,
                                    darkBaseColor,
@@ -85,7 +103,7 @@ namespace FluentEditor.ThemePalette.Model
                 data["Name"] = JsonValue.CreateStringValue(preset.Name);
             }
 
-            void SerializeBlock(Color color, string colorNodeName, Dictionary<int, Color> overrides = null, string overridesNodeName = null)
+            void SerializeBlock(Color color, string colorNodeName, Dictionary<int, Color> overrides = null, string overridesNodeName = null, Dictionary<int, double> acrylicOverrides = null, string acrylicOverridesNodeName = null)
             {
                 data[colorNodeName] = JsonValue.CreateStringValue(color.ToString());
 
@@ -101,10 +119,23 @@ namespace FluentEditor.ThemePalette.Model
                     }
                     data[overridesNodeName] = overridesNode;
                 }
+
+                if (acrylicOverrides != null && !string.IsNullOrEmpty(acrylicOverridesNodeName))
+                {
+                    var acrylicOverridesNode = new JsonArray();
+                    foreach ((int index, double opacity) in acrylicOverrides)
+                    {
+                        JsonObject node = new JsonObject();
+                        node["Index"] = JsonValue.CreateNumberValue(index);
+                        node["Opacity"] = JsonValue.CreateNumberValue(opacity);
+                        acrylicOverridesNode.Add(node);
+                    }
+                    data[acrylicOverridesNodeName] = acrylicOverridesNode;
+                }
             }
 
-            SerializeBlock(preset.LightRegionColor, nameof(LightRegionColor), preset.LightRegionOverrides, nameof(LightBaseOverrides));
-            SerializeBlock(preset.DarkRegionColor, nameof(DarkRegionColor), preset.DarkRegionOverrides, nameof(DarkRegionOverrides));
+            SerializeBlock(preset.LightRegionColor, nameof(LightRegionColor), preset.LightRegionOverrides, nameof(LightRegionOverrides), preset.LightRegionAcrylicOverrides, nameof(LightRegionAcrylicOverrides));
+            SerializeBlock(preset.DarkRegionColor, nameof(DarkRegionColor), preset.DarkRegionOverrides, nameof(DarkRegionOverrides), preset.DarkRegionAcrylicOverrides, nameof(DarkRegionAcrylicOverrides));
             SerializeBlock(preset.LightBaseColor, nameof(LightBaseColor), preset.LightBaseOverrides, nameof(LightBaseOverrides));
             SerializeBlock(preset.DarkBaseColor, nameof(DarkBaseColor), preset.DarkBaseOverrides, nameof(DarkBaseOverrides));
             SerializeBlock(preset.LightPrimaryColor, nameof(LightPrimaryColor), preset.LightPrimaryOverrides, nameof(LightPrimaryOverrides));
@@ -119,8 +150,10 @@ namespace FluentEditor.ThemePalette.Model
                            string name,
                            Color lightRegionColor,
                            Dictionary<int, Color> lightRegionOverrides,
+                           Dictionary<int, double> lightRegionAcrylicOverrides,
                            Color darkRegionColor,
                            Dictionary<int, Color> darkRegionOverrides,
+                           Dictionary<int, double> darkRegionAcrylicOverrides,
                            Color lightBaseColor,
                            Dictionary<int, Color> lightBaseOverrides,
                            Color darkBaseColor,
@@ -138,8 +171,10 @@ namespace FluentEditor.ThemePalette.Model
             _name = name;
             _lightRegionColor = lightRegionColor;
             _lightRegionOverrides = lightRegionOverrides;
+            _lightRegionAcrylicOverrides = lightRegionAcrylicOverrides;
             _darkRegionColor = darkRegionColor;
-            _lightRegionOverrides = darkRegionOverrides;
+            _darkRegionOverrides = darkRegionOverrides;
+            _darkRegionAcrylicOverrides = darkRegionAcrylicOverrides;
             _lightBaseColor = lightBaseColor;
             _lightBaseOverrides = lightBaseOverrides;
             _darkBaseColor = darkBaseColor;
@@ -173,11 +208,27 @@ namespace FluentEditor.ThemePalette.Model
                 return overrides;
             }
 
+            Dictionary<int, double> CloneAcrylic(ColorPalette source)
+            {
+                var overrides = new Dictionary<int, double>();
+                for (int i = 0; i < source.Palette.Count; i++)
+                {
+                    if (source.Palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && acrylicPalette.IsCustomOpacity)
+                    {
+                        overrides.Add(i, acrylicPalette.Opacity);
+                    }
+                }
+
+                return overrides;
+            }
+
             _lightRegionColor = model.LightRegion.BaseColor.ActiveColor;
-            _lightRegionOverrides = Clone(model.LightBase);
+            _lightRegionOverrides = Clone(model.LightRegion);
+            _lightRegionAcrylicOverrides = CloneAcrylic(model.LightRegion);
 
             _darkRegionColor = model.DarkRegion.BaseColor.ActiveColor;
-            _darkRegionOverrides = Clone(model.DarkBase);
+            _darkRegionOverrides = Clone(model.DarkRegion);
+            _darkRegionAcrylicOverrides = CloneAcrylic(model.DarkRegion);
 
             _lightBaseColor = model.LightBase.BaseColor.ActiveColor;
             _lightBaseOverrides = Clone(model.LightBase);
@@ -207,11 +258,17 @@ namespace FluentEditor.ThemePalette.Model
         private readonly Color _lightRegionColor;
         public Color LightRegionColor { get { return _lightRegionColor; } }
 
+        private readonly Dictionary<int, double> _lightRegionAcrylicOverrides;
+        public Dictionary<int, double> LightRegionAcrylicOverrides { get { return _lightRegionAcrylicOverrides; } }
+
         private readonly Dictionary<int, Color> _lightRegionOverrides;
         public Dictionary<int, Color> LightRegionOverrides { get { return _lightRegionOverrides; } }
 
         private readonly Color _darkRegionColor;
         public Color DarkRegionColor { get { return _darkRegionColor; } }
+
+        private readonly Dictionary<int, double> _darkRegionAcrylicOverrides;
+        public Dictionary<int, double> DarkRegionAcrylicOverrides { get { return _darkRegionAcrylicOverrides; } }
 
         private readonly Dictionary<int, Color> _darkRegionOverrides;
         public Dictionary<int, Color> DarkRegionOverrides { get { return _darkRegionOverrides; } }
@@ -294,7 +351,15 @@ namespace FluentEditor.ThemePalette.Model
             {
                 return false;
             }
+            if (!CompareAcrylicOverrides(_lightRegionAcrylicOverrides, model.LightRegion.Palette))
+            {
+                return false;
+            }
             if (!CompareOverrides(_darkRegionOverrides, model.DarkRegion.Palette))
+            {
+                return false;
+            }
+            if (!CompareAcrylicOverrides(_darkRegionAcrylicOverrides, model.DarkRegion.Palette))
             {
                 return false;
             }
@@ -354,6 +419,43 @@ namespace FluentEditor.ThemePalette.Model
                 if (!palette[index].UseCustomColor || palette[index].ActiveColor != presetDictionary[index])
                 {
                     return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool CompareAcrylicOverrides(Dictionary<int, double> presetDictionary, IReadOnlyList<EditableColorPaletteEntry> palette)
+        {
+            if (presetDictionary == null || palette == null)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < palette.Count; i++)
+            {
+                if (palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && acrylicPalette.IsCustomOpacity)
+                {
+                    if (!presetDictionary.ContainsKey(i) || presetDictionary[i] != acrylicPalette.Opacity)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            var keys = presetDictionary.Keys;
+            foreach (var index in keys)
+            {
+                if (index >= palette.Count || index < 0)
+                {
+                    return false;
+                }
+                if (palette[index] is ThemeEditableAcrylicPaletteEntry acrylicPalette)
+                {
+                    if (!acrylicPalette.IsCustomOpacity || acrylicPalette.Opacity != presetDictionary[index])
+                    {
+                        return false;
+                    }
                 }
             }
 

@@ -14,6 +14,7 @@ namespace FluentEditorShared.ColorPalette
         string GetPaletteEntryTitle(int index);
         string GetPaletteEntryDescription(int index);
         IReadOnlyList<ContrastColorWrapper> GetPaletteEntryContrastColors(int index);
+        EditableColorPaletteEntry GetColorPaletteEntry(IColorPaletteEntry baseColor, int step);
     }
 
     // These classes are not intended to be viewmodels.
@@ -44,6 +45,11 @@ namespace FluentEditorShared.ColorPalette
             public virtual string GetPaletteEntryTitle(int index)
             {
                 return _baseColor.Title + " " + (index * 100).ToString("000");
+            }
+
+            public virtual EditableColorPaletteEntry GetColorPaletteEntry(IColorPaletteEntry baseColor, int idx)
+            {
+                return new EditableColorPaletteEntry(null, default(Color), false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
             }
         }
 
@@ -90,7 +96,7 @@ namespace FluentEditorShared.ColorPalette
             _palette = new List<EditableColorPaletteEntry>(_steps);
             for (int i = 0; i < _steps; i++)
             {
-                _palette.Add(new EditableColorPaletteEntry(null, default(Color), false, paletteEntryData.GetPaletteEntryTitle(i), paletteEntryData.GetPaletteEntryDescription(i), baseColor.ActiveColorStringFormat, paletteEntryData.GetPaletteEntryContrastColors(i)));
+                _palette.Add(paletteEntryData.GetColorPaletteEntry(baseColor, i));
             }
 
             UpdatePaletteColors();

@@ -186,6 +186,11 @@ namespace FluentEditorShared.ColorPalette
 
         public event Action<IColorPaletteEntry> ActiveColorChanged;
 
+        protected void RaiseActiveColorChanged()
+        {
+            ActiveColorChanged?.Invoke(this);
+        }
+
         private IReadOnlyList<ContrastColorWrapper> _contrastColors;
         public IReadOnlyList<ContrastColorWrapper> ContrastColors
         {

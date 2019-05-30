@@ -147,13 +147,29 @@
                                 HorizontalAlignment="Stretch"
                                 Click="{x:Bind Path=ViewModel.OnSaveDataRequested, Mode=OneWay}" />
                     </Grid>
-                    <TextBlock x:Uid="ControlPaletteRegionBlock"
-                               Margin="0,32,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               FontWeight="SemiBold"
-                               LineHeight="20"
-                               Style="{StaticResource BodyTextBlockStyle}" />
+
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          Margin="0,32,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="ControlPaletteRegionBlock"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   FontWeight="SemiBold"
+                                   LineHeight="20"
+                                   Style="{StaticResource BodyTextBlockStyle}" />
+                        <ToggleButton x:Name="RegionExpanderButton"
+                                      Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Top"
+                                      Style="{StaticResource ExpanderButtonStyle}">
+                            <FontIcon FontSize="14"
+                                      Glyph="&#xE70D;" />
+                        </ToggleButton>
+                    </Grid>
                     <Grid Margin="0,8,0,32">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -185,14 +201,16 @@
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.LightRegion, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
+                                                  IsExpanded="{x:Bind Path=RegionExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource AcrylicPaletteEditorExtraAlphaStyle}" />
                         <color:ColorPaletteEditor Grid.Row="1"
                                                   Grid.Column="1"
                                                   Margin="6,0,0,0"
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top"
                                                   ColorPalette="{x:Bind Path=ViewModel.DarkRegion, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
+                                                  IsExpanded="{x:Bind Path=RegionExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                                  Style="{StaticResource AcrylicPaletteEditorExtraAlphaStyle}" />
                     </Grid>
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Top">

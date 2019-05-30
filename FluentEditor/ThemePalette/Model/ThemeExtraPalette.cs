@@ -135,13 +135,43 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
-        private Color _acrylicBackgroundColor;
-        public Color AcrylicBackgroundColor
+        private Color _acrylicBackdropBackgroundColor;
+        public Color AcrylicBackdropBackgroundColor
         {
-            get { return _acrylicBackgroundColor; }
+            get { return _acrylicBackdropBackgroundColor; }
             set
             {
-                SetProperty(ref _acrylicBackgroundColor, value);
+                SetProperty(ref _acrylicBackdropBackgroundColor, value);
+            }
+        }
+
+        private double _acrylicBackdropBackgroundOpacity;
+        public double AcrylicBackdropBackgroundOpacity
+        {
+            get { return _acrylicBackdropBackgroundOpacity; }
+            set
+            {
+                SetProperty(ref _acrylicBackdropBackgroundOpacity, value);
+            }
+        }
+
+        private Color _acrylicHostBackdropBackgroundColor;
+        public Color AcrylicHostBackdropBackgroundColor
+        {
+            get { return _acrylicHostBackdropBackgroundColor; }
+            set
+            {
+                SetProperty(ref _acrylicHostBackdropBackgroundColor, value);
+            }
+        }
+
+        private double _acrylicHostBackdropBackgroundOpacity;
+        public double AcrylicHostBackdropBackgroundOpacity
+        {
+            get { return _acrylicHostBackdropBackgroundOpacity; }
+            set
+            {
+                SetProperty(ref _acrylicHostBackdropBackgroundOpacity, value);
             }
         }
 

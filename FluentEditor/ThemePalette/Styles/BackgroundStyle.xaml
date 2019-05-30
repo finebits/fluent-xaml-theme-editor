@@ -11,11 +11,16 @@
                                      Color="{ThemeResource SystemBaseLowColor}" />
                     <SolidColorBrush x:Key="HighBackgroundBrush"
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
-                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                    <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
                                   BackgroundSource="Backdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
                                   Opacity="0.8"/>
+                    <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
+                                  BackgroundSource="HostBackdrop"
+                                  TintColor="Transparent"
+                                  FallbackColor="Transparent"
+                                  Opacity="0.8" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -28,8 +33,13 @@
                                      Color="{ThemeResource SystemBaseLowColor}" />
                     <SolidColorBrush x:Key="HighBackgroundBrush"
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
-                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                    <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
                                   BackgroundSource="Backdrop"
+                                  TintColor="Transparent"
+                                  FallbackColor="Transparent"
+                                  Opacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
+                                  BackgroundSource="HostBackdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
                                   Opacity="0.8" />
@@ -44,9 +54,13 @@
                              Color="{ThemeResource SystemBaseLowColor}" />
             <SolidColorBrush x:Key="HighBackgroundBrush"
                              Color="{ThemeResource SystemBaseMediumLowColor}" />
-            <AcrylicBrush x:Key="AcrylicBackgroundBrush"
-                          AlwaysUseFallback="True"
+            <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
                           BackgroundSource="Backdrop"
+                          TintColor="Transparent"
+                          FallbackColor="Transparent"
+                          Opacity="0.8" />
+            <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
+                          BackgroundSource="HostBackdrop"
                           TintColor="Transparent"
                           FallbackColor="Transparent"
                           Opacity="0.8" />

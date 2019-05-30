@@ -110,6 +110,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="ThemePalette\Data\IAcrylicBrushEntry.cs" />
+    <Compile Include="ThemePalette\Data\ThemeAcrylicPaletteEntry.cs" />
     <Compile Include="ThemePalette\Data\ThemeColorPalette.cs" />
     <Compile Include="ThemePalette\Model\ThemeExtraPalette.cs" />
     <Compile Include="ThemePalette\Model\ThemePreset.cs" />

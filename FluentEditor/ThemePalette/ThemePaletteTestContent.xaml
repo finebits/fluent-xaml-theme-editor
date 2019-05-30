@@ -19,6 +19,37 @@
                 <ResourceDictionary Source="ms-appx:///ThemePalette/Styles/BackgroundStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <DataTemplate x:Key="AccentBlock">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="{ThemeResource SystemAccentColor}"
+                            BorderBrush="{Binding}"
+                            BorderThickness="2"
+                            Margin="2"
+                            Grid.Column="0">
+                        <TextBlock x:Uid="TestContentAccentContrastTextBlock"
+                                   Style="{StaticResource AccentContrastTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4" />
+                    </Border>
+
+                    <Border Background="{Binding}"
+                            BorderBrush="{ThemeResource SystemAccentColor}"
+                            BorderThickness="2"
+                            Margin="2"
+                            Grid.Column="1">
+                        <TextBlock x:Uid="TestContentAccentContrastTextBlock"
+                                   Style="{StaticResource AccentContrastTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4" />
+                    </Border>
+                </Grid>
+            </DataTemplate>
+
             <DataTemplate x:Key="TextData">
                 <StackPanel Orientation="Vertical"
                             HorizontalAlignment="Center">
@@ -38,10 +69,21 @@
                                Style="{StaticResource LowTextBlockStyle}"
                                TextTrimming="CharacterEllipsis"
                                Margin="0,0,0,12" />
-                    <TextBlock x:Uid="TestContentAccentContrastTextBlock"
-                               Style="{StaticResource AccentContrastTextBlockStyle}"
-                               TextTrimming="CharacterEllipsis"
-                               Margin="0,0,0,12" />
+
+                    <ContentControl HorizontalAlignment="Center"
+                                    DataContext="{ThemeResource AccentColorDark3Brush}"
+                                    ContentTemplate="{StaticResource AccentBlock}"
+                                    Margin="0,0,0,12" />
+
+                    <ContentControl HorizontalAlignment="Center"
+                                    DataContext="{ThemeResource AccentColorDark2Brush}"
+                                    ContentTemplate="{StaticResource AccentBlock}"
+                                    Margin="0,0,0,12" />
+                    <ContentControl HorizontalAlignment="Center"
+                                    DataContext="{ThemeResource AccentColorDark1Brush}"
+                                    ContentTemplate="{StaticResource AccentBlock}"
+                                    Margin="0,0,0,12" />
+
                     <TextBlock x:Uid="TestContentAccentTextBlock"
                                Style="{StaticResource Light3AccentTextBlockStyle}"
                                TextTrimming="CharacterEllipsis"
@@ -73,6 +115,68 @@
                 </StackPanel>
             </DataTemplate>
 
+            <DataTemplate x:Key="AcrylicTextBlock">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding}"
+                               HorizontalAlignment="Center"
+                               Style="{StaticResource TextBlockStyle}"
+                               TextTrimming="CharacterEllipsis"
+                               Margin="4,12" />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,12">
+                        <TextBlock x:Uid="TestContentActiveTextBlock"
+                                   Style="{StaticResource ActiveTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentTextBlock"
+                                   Style="{StaticResource TextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentMediumTextBlock"
+                                   Style="{StaticResource MediumTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentLowTextBlock"
+                                   Style="{StaticResource LowTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,12">
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Light3AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Light2AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Light1AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Dark1AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Dark2AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                        <TextBlock x:Uid="TestContentAccentTextBlock"
+                                   Style="{StaticResource Dark3AccentTextBlockStyle}"
+                                   TextTrimming="CharacterEllipsis"
+                                   Margin="4,0" />
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -95,6 +199,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -114,7 +219,7 @@
                 <ContentControl Grid.Row="1"
                                 Grid.Column="1"
                                 HorizontalAlignment="Center"
-                                ContentTemplate="{StaticResource TextData}"/>
+                                ContentTemplate="{StaticResource TextData}" />
 
                 <Border Grid.RowSpan="2"
                         Grid.Column="2"
@@ -127,9 +232,23 @@
 
                 <Border Grid.Row="0"
                         Grid.ColumnSpan="3"
-                        Height="30"
-                        Background="{ThemeResource AcrylicBackgroundBrush}">
+                        Background="{ThemeResource AcrylicBackdropBackgroundBrush}">
+                    <ContentControl HorizontalAlignment="Center"
+                                    ContentTemplate="{StaticResource AcrylicTextBlock}"
+                                    DataContext="Custom Backdrop Acrylic" />
                 </Border>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3">
+
+                    <Border Background="{ThemeResource AcrylicHostBackdropBackgroundBrush}">
+                        <ContentControl HorizontalAlignment="Center"
+                                        ContentTemplate="{StaticResource AcrylicTextBlock}"
+                                        DataContext="HostBackdrop" />
+                    </Border>
+                </StackPanel>
+
             </Grid>
 
             <TextBlock x:Uid="TestContentButtonsBlock"
@@ -237,8 +356,7 @@
                           IsOn="True" />
             <TextBlock x:Uid="TestContentSliderBlock"
                        Margin="0,0,0,16"
-                       Style="{StaticResource BaseTextBlockStyle}"
-                       Text="Slider" />
+                       Style="{StaticResource BaseTextBlockStyle}" />
             <Slider Margin="0,0,0,28"
                     HorizontalAlignment="Stretch"
                     Maximum="100"
