@@ -653,6 +653,42 @@
             "DarkPrimaryColor": "#FF0073CF",
             "LightHyperlinkColor": "#FF0073CF",
             "DarkHyperlinkColor": "#FF0073CF"
+        },
+        {
+            "Id": "Lavender",
+            "Name": "Lavender",
+            "LightRegionColor": "#FFFEF6FF",
+            "DarkRegionColor": "#FF262738",
+            "LightBaseColor": "#FF37104D",
+            "DarkBaseColor": "#FFEECFFF",
+            "LightPrimaryColor": "#FF8961CC",
+            "DarkPrimaryColor": "#FF8961CC",
+            "LightHyperlinkColor": "#FF8961CC",
+            "DarkHyperlinkColor": "#FF8961CC"
+        },
+        {
+            "Id": "Forest",
+            "Name": "Forest",
+            "LightRegionColor": "#FFF7FFFF",
+            "DarkRegionColor": "#FF353819",
+            "LightBaseColor": "#FF444D23",
+            "DarkBaseColor": "#FFFF996E",
+            "LightPrimaryColor": "#FF34854D",
+            "DarkPrimaryColor": "#FF34854D",
+            "LightHyperlinkColor": "#FF34854D",
+            "DarkHyperlinkColor": "#FF34854D"
+        },
+        {
+            "Id": "Nighttime",
+            "Name": "Nighttime",
+            "LightRegionColor": "#FFCFEAFF",
+            "DarkRegionColor": "#FF0D2644",
+            "LightBaseColor": "#FF314C59",
+            "DarkBaseColor": "#FF45B5FF",
+            "LightPrimaryColor": "#FFCC4D11",
+            "DarkPrimaryColor": "#FFCC4D11",
+            "LightHyperlinkColor": "#FFCC4D11",
+            "DarkHyperlinkColor": "#FFCC4D11"
         }
     ]
 }
