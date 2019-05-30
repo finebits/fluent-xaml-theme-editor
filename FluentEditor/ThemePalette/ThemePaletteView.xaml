@@ -155,7 +155,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteRegionBlock"
+                        <TextBlock x:Uid="ThemePaletteRegionBlock"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    FontWeight="SemiBold"
@@ -218,7 +218,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteBaseBlock"
+                        <TextBlock x:Uid="ThemePaletteControlsAndTextColorsBlock"
                                    Grid.Column="0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
@@ -282,7 +282,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPalettePrimaryBlock"
+                        <TextBlock x:Uid="ThemePalettePrimaryBlock"
                                    Grid.Column="0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
@@ -347,7 +347,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteHyperlinkBlock"
+                        <TextBlock x:Uid="ThemePaletteHyperlinkBlock"
                                    Grid.Column="0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"

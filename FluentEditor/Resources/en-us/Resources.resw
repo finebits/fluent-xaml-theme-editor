@@ -127,7 +127,7 @@
     <value>Maps to {0}</value>
   </data>
   <data name="ControlPaletteBaseBlock.Text" xml:space="preserve">
-    <value>Base colors</value>
+    <value>Base</value>
   </data>
   <data name="ControlPaletteDarkTestContent.Title" xml:space="preserve">
     <value>Dark theme</value>
@@ -169,7 +169,7 @@
     <value>Custom</value>
   </data>
   <data name="ControlPalettePrimaryBlock.Text" xml:space="preserve">
-    <value>Accent colors</value>
+    <value>Primary</value>
   </data>
   <data name="ControlPaletteRegionBlock.Text" xml:space="preserve">
     <value>Region</value>
@@ -354,13 +354,19 @@
   <data name="TestContentTextBlock.Text" xml:space="preserve">
     <value>Text</value>
   </data>
-  <data name="ThemePaletteTextColorsBlock.Text" xml:space="preserve">
-    <value>Text Colors</value>
+  <data name="ThemePaletteControlsAndTextColorsBlock.Text" xml:space="preserve">
+    <value>Control &amp; Text colors</value>
   </data>
-  <data name="ControlPaletteHyperlinkBlock.Text" xml:space="preserve">
+  <data name="ThemePaletteHyperlinkBlock.Text" xml:space="preserve">
     <value>Hyperlink colors</value>
   </data>
   <data name="AcrylicOpacitySlider.Header" xml:space="preserve">
     <value>Acrylic Opacity</value>
+  </data>
+  <data name="ThemePalettePrimaryBlock.Text" xml:space="preserve">
+    <value>Accent colors</value>
+  </data>
+  <data name="ThemePaletteRegionBlock.Text" xml:space="preserve">
+    <value>Background colors</value>
   </data>
 </root>
