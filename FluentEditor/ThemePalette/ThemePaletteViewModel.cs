@@ -83,7 +83,7 @@ namespace FluentEditor.ThemePalette
 
         private async Task SaveData()
         {
-            StorageFile file = await FilePickerAdapters.ShowSaveFilePicker("ColorData", ".json", new Tuple<string, IList<string>>[] { new Tuple<string, IList<string>>("JSON", new List<string>() { ".json" }) }, null, Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary, true, true);
+            StorageFile file = await FilePickerAdapters.ShowSaveFilePicker("ColorData", ".uwpapptheme", new Tuple<string, IList<string>>[] { new Tuple<string, IList<string>>("UWP App Theme", new List<string>() { ".uwpapptheme" }) }, null, Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary, true, true);
             if (file == null)
             {
                 return;
@@ -126,7 +126,7 @@ namespace FluentEditor.ThemePalette
 
         private async Task LoadData()
         {
-            StorageFile file = await FilePickerAdapters.ShowLoadFilePicker(new string[] { ".json" }, Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary, Windows.Storage.Pickers.PickerViewMode.List, true, true);
+            StorageFile file = await FilePickerAdapters.ShowLoadFilePicker(new string[] { ".uwpapptheme" }, Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary, Windows.Storage.Pickers.PickerViewMode.List, true, true);
             if (file == null)
             {
                 return;
