@@ -387,4 +387,10 @@
   <data name="TestContentEnabledAppBarButton.Label" xml:space="preserve">
     <value>Enabled app button</value>
   </data>
+  <data name="TestContentAccentDark3TextBlock.Text" xml:space="preserve">
+    <value>Accent dark 3 text</value>
+  </data>
+  <data name="TestContentAccentLight3TextBlock.Text" xml:space="preserve">
+    <value>Accent light 3 text</value>
+  </data>
 </root>
