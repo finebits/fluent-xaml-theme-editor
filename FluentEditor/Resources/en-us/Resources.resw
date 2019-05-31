@@ -369,4 +369,22 @@
   <data name="ThemePaletteRegionBlock.Text" xml:space="preserve">
     <value>Background colors</value>
   </data>
+  <data name="TestContentDisabledRevealButton.Content" xml:space="preserve">
+    <value>Disabled reveal button</value>
+  </data>
+  <data name="TestContentEnabledRevealButton.Content" xml:space="preserve">
+    <value>Enabled reveal button</value>
+  </data>
+  <data name="TestContentAppBarToggleButton.Label" xml:space="preserve">
+    <value>Toggle button</value>
+  </data>
+  <data name="TestContentDisableAppBarButton.Label" xml:space="preserve">
+    <value>Disabled app button</value>
+  </data>
+  <data name="TestContentDisableAppBarToggleButton.Label" xml:space="preserve">
+    <value>Disabled toggle button</value>
+  </data>
+  <data name="TestContentEnabledAppBarButton.Label" xml:space="preserve">
+    <value>Enabled app button</value>
+  </data>
 </root>

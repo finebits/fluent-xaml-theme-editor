@@ -8,6 +8,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="using:FluentEditor.ThemePalette"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
              d:DesignHeight="300"
              d:DesignWidth="400"
              mc:Ignorable="d">
@@ -268,9 +269,17 @@
                     Margin="0,0,0,12"
                     Style="{StaticResource AccentButtonStyle}" />
             <Button x:Uid="TestContentDisabledAccentButton"
-                    Margin="0,0,0,28"
+                    Margin="0,0,0,12"
                     IsEnabled="False"
                     Style="{StaticResource AccentButtonStyle}" />
+            <Button x:Uid="TestContentEnabledRevealButton"
+                    Margin="0,0,0,12"
+                    BackgroundSizing="OuterBorderEdge"
+                    Style="{StaticResource ButtonRevealStyle}" />
+            <Button x:Uid="TestContentDisabledRevealButton"
+                    Margin="0,0,0,28"
+                    IsEnabled="False"
+                    Style="{StaticResource ButtonRevealStyle}" />
             <TextBlock x:Uid="TestContentHyperlinksBlock"
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />
@@ -385,9 +394,23 @@
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />
             <CommandBar Margin="0,0,0,28"
+                        Style="{StaticResource CommandBarRevealStyle}"
+                        DefaultLabelPosition="Right"
                         HorizontalAlignment="Stretch">
-                <AppBarButton x:Uid="TestContentAppBarButton" />
+                <AppBarButton x:Uid="TestContentEnabledAppBarButton"
+                              Icon="Add"/>
+                <AppBarButton x:Uid="TestContentDisableAppBarButton"
+                              Icon="Remove"
+                              IsEnabled="False"/>
+                <AppBarSeparator />
+                <AppBarToggleButton x:Uid="TestContentAppBarToggleButton"
+                                    Icon="Favorite"/>
+                <AppBarToggleButton x:Uid="TestContentDisableAppBarToggleButton"
+                                    IsEnabled="False"
+                                    IsChecked="True"
+                                    Icon="UnFavorite" />
             </CommandBar>
+
             <TextBlock x:Uid="TestContentCalendarViewBlock"
                        Margin="0,0,0,16"
                        Style="{StaticResource BaseTextBlockStyle}" />

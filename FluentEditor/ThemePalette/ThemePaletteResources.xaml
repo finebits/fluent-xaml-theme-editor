@@ -6,7 +6,8 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="using:FluentEditor.ThemePalette"
-                    xmlns:model="using:FluentEditor.ThemePalette.Model">
+                    xmlns:model="using:FluentEditor.ThemePalette.Model"
+                    xmlns:muxm="using:Microsoft.UI.Xaml.Media">
 
     <model:ThemeExtraPalette x:Name="DarkExtraPalette" />
     <model:ThemeExtraPalette x:Name="LightExtraPalette" />
@@ -17,6 +18,60 @@
                 <ColorPaletteResources x:Name="DarkColorPaletteResources" />
                 <ResourceDictionary>
                     <!--  Other resources  -->
+
+                    <!--#region Reveal Color-->
+
+                    <muxm:RevealBorderBrush x:Key="SystemControlBackgroundBaseLowRevealBorderBrush"
+                                            TargetTheme="Dark"
+                                            Color="{ThemeResource SystemBaseLowColor}"
+                                            FallbackColor="{ThemeResource SystemRevealBaseLowColor}" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightBaseLowRevealBorderBrush"
+                                            TargetTheme="Dark"
+                                            Color="{ThemeResource SystemBaseLowColor}"
+                                            FallbackColor="{ThemeResource SystemRevealBaseLowColor}" />
+
+                    <muxm:RevealBackgroundBrush x:Key="SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush"
+                                                TargetTheme="Dark"
+                                                Color="{ThemeResource SystemBaseLowColor}"
+                                                FallbackColor="{ThemeResource SystemBaseMediumLowColor}" />
+
+                    <muxm:RevealBackgroundBrush x:Key="SystemControlBackgroundBaseLowRevealBackgroundBrush"
+                                                TargetTheme="Dark"
+                                                Color="{ThemeResource SystemBaseLowColor}"
+                                                FallbackColor="{ThemeResource SystemBaseLowColor}" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightBaseMediumLowRevealBorderBrush"
+                                            TargetTheme="Dark"
+                                            Color="{ThemeResource SystemBaseMediumLowColor}"
+                                            FallbackColor="{ThemeResource SystemBaseMediumLowColor}" />
+
+                    <muxm:RevealBorderBrush x:Key="SystemControlBackgroundTransparentRevealBorderBrush"
+                                            TargetTheme="Dark"
+                                            Color="Transparent"
+                                            FallbackColor="Transparent" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightTransparentRevealBorderBrush"
+                                            TargetTheme="Dark"
+                                            Color="Transparent"
+                                            FallbackColor="Transparent" />
+
+                    <StaticResource x:Key="ButtonRevealBackground"
+                                    ResourceKey="SystemControlBackgroundBaseLowRevealBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrush"
+                                    ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBackgroundPointerOver"
+                                    ResourceKey="SystemControlBackgroundBaseLowRevealBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrushPointerOver"
+                                    ResourceKey="SystemControlHighlightBaseMediumLowRevealBorderBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBackgroundPressed"
+                                    ResourceKey="SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrushPressed"
+                                    ResourceKey="SystemControlHighlightTransparentRevealBorderBrush" />
+
+                    <!-- #endregion-->
 
                     <!--#region Background Color-->
 
@@ -135,6 +190,23 @@
                                     ResourceKey="ActiveTextColorBrush" />
                     <!--#endregion-->
 
+                    <!--#region AppBarToggleButton Control-->
+
+                    <StaticResource x:Key="AppBarToggleButtonForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AppBarToggleButtonForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AppBarToggleButtonForegroundCheckedPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <!--#endregion-->
+
+                    <!--#region ListViewItem Control-->
+
+                    <StaticResource x:Key="ListViewItemForegroundSelected"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <!--#endregion-->
+
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -143,6 +215,59 @@
                 <ColorPaletteResources x:Name="LightColorPaletteResources" />
                 <ResourceDictionary>
                     <!--  Other resources  -->
+
+                    <!--#region Reveal Color-->
+                    <muxm:RevealBorderBrush x:Key="SystemControlBackgroundBaseLowRevealBorderBrush"
+                                            TargetTheme="Light"
+                                            Color="{ThemeResource SystemBaseLowColor}"
+                                            FallbackColor="{ThemeResource SystemRevealBaseLowColor}" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightBaseLowRevealBorderBrush"
+                                            TargetTheme="Light"
+                                            Color="{ThemeResource SystemBaseLowColor}"
+                                            FallbackColor="{ThemeResource SystemRevealBaseLowColor}" />
+
+                    <muxm:RevealBackgroundBrush x:Key="SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush"
+                                                TargetTheme="Light"
+                                                Color="{ThemeResource SystemBaseLowColor}"
+                                                FallbackColor="{ThemeResource SystemBaseMediumLowColor}" />
+
+                    <muxm:RevealBackgroundBrush x:Key="SystemControlBackgroundBaseLowRevealBackgroundBrush"
+                                                TargetTheme="Light"
+                                                Color="{ThemeResource SystemBaseLowColor}"
+                                                FallbackColor="{ThemeResource SystemBaseLowColor}" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightBaseMediumLowRevealBorderBrush"
+                                            TargetTheme="Light"
+                                            Color="{ThemeResource SystemBaseMediumLowColor}"
+                                            FallbackColor="{ThemeResource SystemBaseMediumLowColor}" />
+
+                    <muxm:RevealBorderBrush x:Key="SystemControlBackgroundTransparentRevealBorderBrush"
+                                            TargetTheme="Light"
+                                            Color="Transparent"
+                                            FallbackColor="Transparent" />
+                    <muxm:RevealBorderBrush x:Key="SystemControlHighlightTransparentRevealBorderBrush"
+                                            TargetTheme="Light"
+                                            Color="Transparent"
+                                            FallbackColor="Transparent" />
+
+                    <StaticResource x:Key="ButtonRevealBackground"
+                                    ResourceKey="SystemControlBackgroundBaseLowRevealBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrush"
+                                    ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBackgroundPointerOver"
+                                    ResourceKey="SystemControlBackgroundBaseLowRevealBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrushPointerOver"
+                                    ResourceKey="SystemControlHighlightBaseMediumLowRevealBorderBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBackgroundPressed"
+                                    ResourceKey="SystemControlBackgroundBaseMediumLowRevealBaseLowBackgroundBrush" />
+
+                    <StaticResource x:Key="ButtonRevealBorderBrushPressed"
+                                    ResourceKey="SystemControlHighlightTransparentRevealBorderBrush" />
+
+                    <!-- #endregion-->
 
                     <!--#region Background Color-->
 
@@ -262,6 +387,24 @@
                     <StaticResource x:Key="ToggleSwitchKnobFillOffPointerOver"
                                     ResourceKey="ActiveTextColorBrush" />
                     <!--#endregion-->
+
+                    <!--#region AppBarToggleButton Control-->
+
+                    <StaticResource x:Key="AppBarToggleButtonForegroundChecked"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AppBarToggleButtonForegroundCheckedPointerOver"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <StaticResource x:Key="AppBarToggleButtonForegroundCheckedPressed"
+                                    ResourceKey="AccentContrastColorBrush" />
+                    <!--#endregion-->
+
+                    <!--#region ListViewItem Control-->
+
+                    <StaticResource x:Key="ListViewItemForegroundSelected"
+                                    ResourceKey="AccentContrastColorBrush" />
+
+                    <!--#endregion-->
+
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
