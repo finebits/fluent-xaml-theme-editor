@@ -54,7 +54,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Light Region",
+            "Title": "Light Background",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FFFFFFFF"
         }
@@ -114,7 +114,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Dark Region",
+            "Title": "Dark Background",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF282828"
         }
@@ -178,7 +178,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Light Base",
+            "Title": "Light Text & Controls",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF000000"
         }
@@ -242,7 +242,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Dark Base",
+            "Title": "Dark Text & Controls",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FFFFFFFF"
         }
@@ -278,7 +278,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Light Primary",
+            "Title": "Light Accent",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF1686AE"
         }
@@ -314,7 +314,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Dark Primary",
+            "Title": "Dark Accent",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF1686AE"
         }
@@ -351,7 +351,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Light Base",
+            "Title": "Light Hyperlink",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF00FF00"
         }
@@ -387,7 +387,7 @@
             }
         ],
         "BaseColor": {
-            "Title": "Dark Base",
+            "Title": "Dark Hyperlink",
             "ActiveColorStringFormat": "ARGB",
             "Color": "#FF00FF00"
         }

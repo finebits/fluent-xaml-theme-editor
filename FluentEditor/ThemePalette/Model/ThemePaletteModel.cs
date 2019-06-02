@@ -102,9 +102,27 @@ namespace FluentEditor.ThemePalette.Model
                 return a.Target.ToString().CompareTo(b.Target.ToString());
             });
 
-            void InitColorPalette(ColorPalette colorPalette, List<ThemeColorMapping> mappings, IReadOnlyList<ContrastColorWrapper> contrastColors)
+            void InitColorPalette(ColorPalette colorPalette,
+                                  List<ThemeColorMapping> mappings,
+                                  IReadOnlyList<ContrastColorWrapper> contrastColors,
+                                  IReadOnlyList<IReadOnlyList<ContrastColorWrapper>> editContrastColors = null
+                                  )
             {
                 colorPalette.ContrastColors = contrastColors;
+
+                if (editContrastColors != null)
+                {
+                    var idx = 0;
+                    foreach (var entry in colorPalette.Palette)
+                    {
+                        if (idx < editContrastColors.Count && editContrastColors[idx] != null)
+                        {
+                            entry.ContrastColors = editContrastColors[idx];
+                        }
+                        ++idx;
+                    }
+                }
+
                 colorPalette.BaseColor.ActiveColorChanged += PaletteEntry_ActiveColorChanged;
 
                 foreach (var entry in colorPalette.Palette)
@@ -121,15 +139,105 @@ namespace FluentEditor.ThemePalette.Model
                 }
             }
 
-            InitColorPalette(_lightRegion, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightBase.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
-            InitColorPalette(_darkRegion, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
+            InitColorPalette(_lightRegion,
+                             _lightColorMappings,
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false), new ContrastColorWrapper(_lightHyperlink.BaseColor, true, false) },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, false), new ContrastColorWrapper(_blackColor, true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightRegion.Palette[2], true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightRegion.Palette[1], true, false), new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightRegion.Palette[1], true, false), new ContrastColorWrapper(_lightRegion.Palette[2], true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightRegion.Palette[1], true, false), new ContrastColorWrapper(_lightRegion.Palette[2], true, false), },
+                             });
 
-            InitColorPalette(_lightBase, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, true, true), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightPrimary.BaseColor, true, false) });
-            InitColorPalette(_darkBase, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false) });
-            InitColorPalette(_lightPrimary, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
-            InitColorPalette(_darkPrimary, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
-            InitColorPalette(_lightHyperlink, _lightColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), new ContrastColorWrapper(_lightBase.BaseColor, true, false) });
-            InitColorPalette(_darkHyperlink, _darkColorMappings, new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, true), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false) });
+            InitColorPalette(_darkRegion,
+                             _darkColorMappings,
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkBase.BaseColor, true, false), new ContrastColorWrapper(_darkPrimary.BaseColor, true, false), new ContrastColorWrapper(_darkHyperlink.BaseColor, true, false) },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, true, false), new ContrastColorWrapper(_blackColor, true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkRegion.Palette[2], true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkRegion.Palette[1], true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkRegion.Palette[1], true, false), new ContrastColorWrapper(_darkRegion.Palette[2], true, false), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), new ContrastColorWrapper(_darkRegion.Palette[1], true, false), new ContrastColorWrapper(_darkRegion.Palette[2], true, false), },
+                             });
+
+            InitColorPalette(_lightBase, 
+                             _lightColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightPrimary.Palette[0], true, true), new ContrastColorWrapper(_lightPrimary.Palette[3], true, true), new ContrastColorWrapper(_lightPrimary.Palette[6], true, true),},
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true),},
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, false), new ContrastColorWrapper(_lightRegion.Palette[1], true, false), new ContrastColorWrapper(_lightRegion.Palette[2], true, false), new ContrastColorWrapper(_lightRegion.Palette[3], true, false), new ContrastColorWrapper(_lightRegion.Palette[4], true, false), },
+                             });
+
+            InitColorPalette(_darkBase, 
+                             _darkColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkPrimary.Palette[0], true, true), new ContrastColorWrapper(_darkPrimary.Palette[3], true, true), new ContrastColorWrapper(_darkPrimary.Palette[6], true, true),},
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true),},
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, false), new ContrastColorWrapper(_darkRegion.Palette[1], true, false), new ContrastColorWrapper(_darkRegion.Palette[2], true, false), new ContrastColorWrapper(_darkRegion.Palette[3], true, false), new ContrastColorWrapper(_darkRegion.Palette[4], true, false), },
+                             });
+
+            InitColorPalette(_lightPrimary, 
+                             _lightColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                             });
+
+            InitColorPalette(_darkPrimary, 
+                             _darkColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                             });
+
+            InitColorPalette(_lightHyperlink, 
+                             _lightColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_lightRegion.Palette[0], true, true), new ContrastColorWrapper(_lightRegion.Palette[1], true, true), new ContrastColorWrapper(_lightRegion.Palette[2], true, true), new ContrastColorWrapper(_lightRegion.Palette[3], true, true), new ContrastColorWrapper(_lightRegion.Palette[4], true, true), },
+                             });
+
+            InitColorPalette(_darkHyperlink, 
+                             _darkColorMappings, 
+                             new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.BaseColor, true, false), },
+                             new List<IReadOnlyList<ContrastColorWrapper>>()
+                             {
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                                new List<ContrastColorWrapper>() { new ContrastColorWrapper(_whiteColor, false, false), new ContrastColorWrapper(_blackColor, false, false), new ContrastColorWrapper(_darkRegion.Palette[0], true, true), new ContrastColorWrapper(_darkRegion.Palette[1], true, true), new ContrastColorWrapper(_darkRegion.Palette[2], true, true), new ContrastColorWrapper(_darkRegion.Palette[3], true, true), new ContrastColorWrapper(_darkRegion.Palette[4], true, true), },
+                             });
         }
 
         private string GenerateMappingDescription(IColorPaletteEntry paletteEntry, List<ThemeColorMapping> mappings)
@@ -244,7 +352,7 @@ namespace FluentEditor.ThemePalette.Model
                     palette[i].UseCustomColor = false;
                 }
 
-                if(palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette)
+                if (palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette)
                 {
                     if (acrylicOverrides != null && acrylicOverrides.ContainsKey(i))
                     {

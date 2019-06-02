@@ -22,6 +22,17 @@ namespace FluentEditorShared.ColorPalette
             ContrastColor = contrastColor;
         }
 
+        public ContrastListItem(IColorPaletteEntry baseColor, IColorPaletteEntry contrastColor, Color themeBackground, double minContrast = 4.5)
+        {
+            _minContrast = minContrast;
+            _baseColorBrush = new SolidColorBrush();
+            _contrastColorBrush = new SolidColorBrush();
+            _themeBackground = themeBackground;
+
+            BaseColor = baseColor;
+            ContrastColor = contrastColor;
+        }
+
         private void RecalcContrast()
         {
             if (_baseColor == null || _contrastColor == null)
@@ -30,9 +41,11 @@ namespace FluentEditorShared.ColorPalette
                 return;
             }
 
-            Contrast = ColorUtils.ContrastRatio(_baseColor.ActiveColor, _contrastColor.ActiveColor);
+            Contrast = _themeBackground.HasValue ? ColorUtils.ContrastRatio(_baseColor.ActiveColor, _contrastColor.ActiveColor, _themeBackground.Value)
+                                                 : ColorUtils.ContrastRatio(_baseColor.ActiveColor, _contrastColor.ActiveColor);
         }
 
+        private readonly Color? _themeBackground = null;
         private double _minContrast;
         private double _contrast;
         public double Contrast

@@ -983,6 +983,15 @@ namespace FluentEditorShared.Utils
             return ContrastRatio(new NormalizedRGB(a, false), new NormalizedRGB(b, false), round, roundingPrecision);
         }
 
+        // This doesn't ignore the Alpha channel
+        public static double ContrastRatio(Color foreground, Color background, Color solidBackground, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
+        {
+            var b = ColorBlending.ComputeAlphaBlend(background, solidBackground);
+            var a = ColorBlending.ComputeAlphaBlend(foreground, b);
+
+            return ContrastRatio(a, b, round, roundingPrecision);
+        }
+
         public static double ContrastRatio(in NormalizedRGB a, in NormalizedRGB b, bool round = true, int roundingPrecision = DefaultRoundingPrecision)
         {
             double la = RGBToLuminance(a, false);
