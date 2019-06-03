@@ -354,19 +354,19 @@
   <data name="TestContentTextBlock.Text" xml:space="preserve">
     <value>Text</value>
   </data>
-  <data name="ThemePaletteControlsAndTextColorsBlock.Text" xml:space="preserve">
+  <data name="ThemePaletteControlsAndTextColorsBlock.Header" xml:space="preserve">
     <value>Control &amp; Text colors</value>
   </data>
-  <data name="ThemePaletteHyperlinkBlock.Text" xml:space="preserve">
+  <data name="ThemePaletteHyperlinkBlock.Header" xml:space="preserve">
     <value>Hyperlink colors</value>
   </data>
   <data name="AcrylicOpacitySlider.Header" xml:space="preserve">
     <value>Acrylic Opacity</value>
   </data>
-  <data name="ThemePalettePrimaryBlock.Text" xml:space="preserve">
+  <data name="ThemePalettePrimaryBlock.Header" xml:space="preserve">
     <value>Accent colors</value>
   </data>
-  <data name="ThemePaletteRegionBlock.Text" xml:space="preserve">
+  <data name="ThemePaletteRegionBlock.Header" xml:space="preserve">
     <value>Background colors</value>
   </data>
   <data name="TestContentDisabledRevealButton.Content" xml:space="preserve">

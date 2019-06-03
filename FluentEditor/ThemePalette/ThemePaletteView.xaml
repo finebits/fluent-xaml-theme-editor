@@ -6,6 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:color="using:FluentEditorShared.ColorPalette"
       xmlns:shared="using:FluentEditorShared.Shadow"
+      xmlns:controls="using:FluentEditor.ThemePalette.Controls"
       mc:Ignorable="d">
     <Page.Resources>
         <ResourceDictionary>
@@ -148,263 +149,29 @@
                                 Click="{x:Bind Path=ViewModel.OnSaveDataRequested, Mode=OneWay}" />
                     </Grid>
 
-                    <Grid HorizontalAlignment="Stretch"
-                          VerticalAlignment="Top"
-                          Margin="0,32,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ThemePaletteRegionBlock"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   FontWeight="SemiBold"
-                                   LineHeight="20"
-                                   Style="{StaticResource BodyTextBlockStyle}" />
-                        <ToggleButton x:Name="RegionExpanderButton"
-                                      Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Top"
-                                      Style="{StaticResource ExpanderButtonStyle}">
-                            <FontIcon FontSize="14"
-                                      Glyph="&#xE70D;" />
-                        </ToggleButton>
-                    </Grid>
-                    <Grid Margin="0,8,0,32">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   Margin="0,0,8,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Margin="0,0,6,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.LightRegion, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=RegionExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource AcrylicPaletteEditorExtraAlphaStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="1"
-                                                  Margin="6,0,0,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.DarkRegion, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=RegionExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource AcrylicPaletteEditorExtraAlphaStyle}" />
-                    </Grid>
-                    <Grid HorizontalAlignment="Stretch"
-                          VerticalAlignment="Top">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ThemePaletteControlsAndTextColorsBlock"
-                                   Grid.Column="0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   FontWeight="SemiBold"
-                                   LineHeight="20"
-                                   Style="{StaticResource BodyTextBlockStyle}" />
-                        <ToggleButton x:Name="BaseExpanderButton"
-                                      Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Top"
-                                      Style="{StaticResource ExpanderButtonStyle}">
-                            <FontIcon FontSize="14"
-                                      Glyph="&#xE70D;" />
-                        </ToggleButton>
-                    </Grid>
-                    <Grid Margin="0,8,0,32">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   Margin="0,0,8,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Margin="0,0,6,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.LightBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="1"
-                                                  Margin="6,0,0,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.DarkBase, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=BaseExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                    </Grid>
-                    <Grid HorizontalAlignment="Stretch"
-                          VerticalAlignment="Top">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ThemePalettePrimaryBlock"
-                                   Grid.Column="0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   FontWeight="SemiBold"
-                                   LineHeight="20"
-                                   Style="{StaticResource BodyTextBlockStyle}" />
-                        <ToggleButton x:Name="PrimaryExpanderButton"
-                                      Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Top"
-                                      Style="{StaticResource ExpanderButtonStyle}">
-                            <FontIcon FontSize="14"
-                                      Glyph="&#xE70D;" />
-                        </ToggleButton>
-                    </Grid>
-                    <Grid Margin="0,8,0,32">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   Margin="0,0,8,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Margin="0,0,6,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.LightPrimary, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="1"
-                                                  Margin="6,0,0,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.DarkPrimary, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=PrimaryExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                    </Grid>
+                    <controls:ThemePaletteBlock x:Uid="ThemePaletteRegionBlock"
+                                                LightColorPalette="{x:Bind Path=ViewModel.LightRegion, Mode=OneWay}"
+                                                DarkColorPalette="{x:Bind Path=ViewModel.DarkRegion, Mode=OneWay}"
+                                                PaletteEditorStyle="{StaticResource AcrylicPaletteEditorExtraAlphaStyle}"
+                                                Margin="0,32"/>
 
-                    <Grid HorizontalAlignment="Stretch"
-                          VerticalAlignment="Top">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ThemePaletteHyperlinkBlock"
-                                   Grid.Column="0"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   FontWeight="SemiBold"
-                                   LineHeight="20"
-                                   Style="{StaticResource BodyTextBlockStyle}" />
-                        <ToggleButton x:Name="HyperlinkExpanderButton"
-                                      Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Top"
-                                      Style="{StaticResource ExpanderButtonStyle}">
-                            <FontIcon FontSize="14"
-                                      Glyph="&#xE70D;" />
-                        </ToggleButton>
-                    </Grid>
-                    <Grid Margin="0,8,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock x:Uid="ControlPaletteLightThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="0"
-                                   Margin="0,0,8,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
-                                   Grid.Row="0"
-                                   Grid.Column="1"
-                                   Margin="8,0,0,12"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   LineHeight="16"
-                                   Style="{StaticResource CaptionTextBlockStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="0"
-                                                  Margin="0,0,6,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.LightHyperlink, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=HyperlinkExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                        <color:ColorPaletteEditor Grid.Row="1"
-                                                  Grid.Column="1"
-                                                  Margin="6,0,0,0"
-                                                  HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top"
-                                                  ColorPalette="{x:Bind Path=ViewModel.DarkHyperlink, Mode=OneWay}"
-                                                  IsExpanded="{x:Bind Path=HyperlinkExpanderButton.IsChecked.Value, Mode=OneWay}"
-                                                  Style="{StaticResource ColorPaletteEditorExtraAlphaStyle}" />
-                    </Grid>
+                    <controls:ThemePaletteBlock x:Uid="ThemePaletteControlsAndTextColorsBlock"
+                                                LightColorPalette="{x:Bind Path=ViewModel.LightBase, Mode=OneWay}"
+                                                DarkColorPalette="{x:Bind Path=ViewModel.DarkBase, Mode=OneWay}"
+                                                PaletteEditorStyle="{StaticResource ColorPaletteEditorExtraAlphaStyle}"
+                                                Margin="0,0,0,32" />
+
+                    <controls:ThemePaletteBlock x:Uid="ThemePalettePrimaryBlock"
+                                                LightColorPalette="{x:Bind Path=ViewModel.LightPrimary, Mode=OneWay}"
+                                                DarkColorPalette="{x:Bind Path=ViewModel.DarkPrimary, Mode=OneWay}"
+                                                PaletteEditorStyle="{StaticResource ColorPaletteEditorExtraAlphaStyle}"
+                                                Margin="0,0,0,32" />
+
+                    <controls:ThemePaletteBlock x:Uid="ThemePaletteHyperlinkBlock"
+                                                LightColorPalette="{x:Bind Path=ViewModel.LightHyperlink, Mode=OneWay}"
+                                                DarkColorPalette="{x:Bind Path=ViewModel.DarkHyperlink, Mode=OneWay}"
+                                                PaletteEditorStyle="{StaticResource ColorPaletteEditorExtraAlphaStyle}"
+                                                Margin="0,0,0,32" />
                 </StackPanel>
             </ScrollViewer>
             <Grid Grid.Row="2"

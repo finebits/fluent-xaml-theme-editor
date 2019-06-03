@@ -110,6 +110,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="ThemePalette\Controls\ThemePaletteBlock.xaml.cs">
+      <DependentUpon>ThemePaletteBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThemePalette\Data\IAcrylicBrushEntry.cs" />
     <Compile Include="ThemePalette\Data\ThemeAcrylicPaletteEntry.cs" />
     <Compile Include="ThemePalette\Data\ThemeColorPalette.cs" />
@@ -416,6 +419,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ControlPalette\ExportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThemePalette\Controls\ThemePaletteBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

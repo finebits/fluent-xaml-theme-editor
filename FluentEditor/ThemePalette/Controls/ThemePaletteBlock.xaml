@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="FluentEditor.ThemePalette.Controls.ThemePaletteBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:FluentEditor.ThemePalette.Controls"
+             xmlns:color="using:FluentEditorShared.ColorPalette"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="400">
+
+    <StackPanel Orientation="Vertical">
+        <Grid HorizontalAlignment="Stretch"
+              VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{x:Bind Header, Mode=OneWay}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontWeight="SemiBold"
+                       LineHeight="20"
+                       Style="{StaticResource BodyTextBlockStyle}" />
+            <ToggleButton x:Name="ExpanderButton"
+                          Grid.Column="1"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Top"
+                          Style="{StaticResource ExpanderButtonStyle}">
+                <FontIcon FontSize="14"
+                          Glyph="&#xE70D;" />
+            </ToggleButton>
+        </Grid>
+        <Grid Margin="0,8,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Uid="ControlPaletteLightThemeBlock"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="0,0,8,12"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       LineHeight="16"
+                       Style="{StaticResource CaptionTextBlockStyle}" />
+            <TextBlock x:Uid="ControlPaletteDarkThemeBlock"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Margin="8,0,0,12"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       LineHeight="16"
+                       Style="{StaticResource CaptionTextBlockStyle}" />
+            <color:ColorPaletteEditor Grid.Row="1"
+                                      Grid.Column="0"
+                                      Margin="0,0,6,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ColorPalette="{x:Bind LightColorPalette, Mode=OneWay}"
+                                      IsExpanded="{x:Bind Path=ExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                      Style="{x:Bind PaletteEditorStyle}" />
+            <color:ColorPaletteEditor Grid.Row="1"
+                                      Grid.Column="1"
+                                      Margin="6,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ColorPalette="{x:Bind DarkColorPalette, Mode=OneWay}"
+                                      IsExpanded="{x:Bind Path=ExpanderButton.IsChecked.Value, Mode=OneWay}"
+                                      Style="{x:Bind PaletteEditorStyle}" />
+        </Grid>
+    </StackPanel>
+</UserControl>
