@@ -5,29 +5,6 @@
                     xmlns:local="using:FluentEditor.ThemePalette.Styles"
                     xmlns:data="using:FluentEditor.ThemePalette.Data">
 
-    <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Default">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <SolidColorBrush x:Key="ColorPaletteEntryEditorThemeBackground"
-                                     Color="Blue" />
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="Light">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <SolidColorBrush x:Key="ColorPaletteEntryEditorThemeBackground"
-                                     Color="Green" />
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="HighContrast">
-            <SolidColorBrush x:Key="ColorPaletteEntryEditorThemeBackground"
-                             Color="{ThemeResource SystemColorWindowColor}" />
-        </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
-
     <Style x:Key="ColorPaletteEntryEditorAlphaStyle"
            TargetType="color:ColorPaletteEntryEditor">
         <Setter Property="FlyoutTemplate">
@@ -36,7 +13,6 @@
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch">
                         <color:ExpandedColorPaletteEntryEditor ColorPaletteEntry="{Binding}"
-                                                               ThemeBackground="{ThemeResource ColorPaletteEntryEditorThemeBackground}"
                                                                IsAlphaEnabled="True" />
                     </Grid>
                 </DataTemplate>
@@ -53,7 +29,6 @@
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch">
                         <color:ExpandedColorPaletteEntryEditor ColorPaletteEntry="{Binding}"
-                                                               ThemeBackground="{ThemeResource ColorPaletteEntryEditorThemeBackground}"
                                                                IsAlphaEnabled="True" />
                     </Grid>
                 </DataTemplate>
