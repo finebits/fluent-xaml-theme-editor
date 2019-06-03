@@ -86,6 +86,11 @@
                                                                          Color="#33000000" />
                                                         <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
                                                     </ResourceDictionary>
+                                                    <ResourceDictionary x:Key="HighContrast">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="{ThemeResource SystemColorButtonTextColor}" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
                                                 </ResourceDictionary.ThemeDictionaries>
                                             </ResourceDictionary>
                                         </color:ColorPaletteEntryEditor.Resources>
@@ -147,6 +152,11 @@
                                                     <ResourceDictionary x:Key="Light">
                                                         <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
                                                                          Color="#33000000" />
+                                                        <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                    </ResourceDictionary>
+                                                    <ResourceDictionary x:Key="HighContrast">
+                                                        <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                         Color="{ThemeResource SystemColorButtonTextColor}" />
                                                         <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
                                                     </ResourceDictionary>
                                                 </ResourceDictionary.ThemeDictionaries>
@@ -215,6 +225,11 @@
                                                                                  Color="#33000000" />
                                                                 <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
                                                             </ResourceDictionary>
+                                                            <ResourceDictionary x:Key="HighContrast">
+                                                                <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                 Color="{ThemeResource SystemColorButtonTextColor}" />
+                                                                <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                            </ResourceDictionary>
                                                         </ResourceDictionary.ThemeDictionaries>
                                                     </ResourceDictionary>
                                                 </color:ColorPaletteEntryEditor.Resources>
@@ -245,6 +260,11 @@
                                                                 <ResourceDictionary x:Key="Light">
                                                                     <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
                                                                                      Color="#33000000" />
+                                                                    <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
+                                                                </ResourceDictionary>
+                                                                <ResourceDictionary x:Key="HighContrast">
+                                                                    <SolidColorBrush x:Key="PaletteEntryEditorBorderBrush"
+                                                                                     Color="{ThemeResource SystemColorButtonTextColor}" />
                                                                     <Thickness x:Key="PaletteEntryEditorBorderThickness">1 1 1 1</Thickness>
                                                                 </ResourceDictionary>
                                                             </ResourceDictionary.ThemeDictionaries>

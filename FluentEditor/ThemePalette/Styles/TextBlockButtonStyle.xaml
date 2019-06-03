@@ -76,6 +76,22 @@
                             ResourceKey="SystemColorButtonFaceColor" />
             <StaticResource x:Key="TextBlockButtonForegroundDisabled"
                             ResourceKey="SystemColorButtonFaceColor" />
+
+            <StaticResource x:Key="TextBlockButtonBackground"
+                            ResourceKey="SystemControlPageBackgroundTransparentBrush" />
+            <StaticResource x:Key="TextBlockButtonBackgroundPointerOver"
+                            ResourceKey="SystemControlPageBackgroundTransparentBrush" />
+            <StaticResource x:Key="TextBlockButtonBackgroundPressed"
+                            ResourceKey="SystemControlPageBackgroundTransparentBrush" />
+            <StaticResource x:Key="TextBlockButtonBackgroundDisabled"
+                            ResourceKey="SystemControlPageBackgroundTransparentBrush" />
+
+            <StaticResource x:Key="TextBlockButtonBorderBrushPointerOver"
+                            ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="TextBlockButtonBorderBrushPressed"
+                            ResourceKey="SystemControlTransparentBrush" />
+            <StaticResource x:Key="TextBlockButtonBorderBrushDisabled"
+                            ResourceKey="SystemControlTransparentBrush" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

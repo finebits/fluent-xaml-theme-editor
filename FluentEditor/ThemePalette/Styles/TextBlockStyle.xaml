@@ -81,17 +81,17 @@
             <SolidColorBrush x:Key="AccentColorBrush"
                              Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorLight1Brush"
-                             Color="{ThemeResource SystemAccentColorLight1}" />
+                             Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorDark1Brush"
-                             Color="{ThemeResource SystemAccentColorDark1}" />
+                             Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorLight2Brush"
-                             Color="{ThemeResource SystemAccentColorLight2}" />
+                             Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorDark2Brush"
-                             Color="{ThemeResource SystemAccentColorDark2}" />
+                             Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorLight3Brush"
-                             Color="{ThemeResource SystemAccentColorLight3}" />
+                             Color="{ThemeResource SystemAccentColor}" />
             <SolidColorBrush x:Key="AccentColorDark3Brush"
-                             Color="{ThemeResource SystemAccentColorDark3}" />
+                             Color="{ThemeResource SystemAccentColor}" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

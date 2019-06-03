@@ -93,6 +93,12 @@
                                   TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
                                   FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
                                   Opacity="{Binding AcrylicHostBackdropBackgroundOpacity, Source={StaticResource DarkExtraPalette}}" />
+
+                    <SolidColorBrush x:Key="RegionBorderBrush"
+                                     Color="Transparent" />
+
+                    <Thickness x:Key="RegionThickness">0</Thickness>
+
                     <!-- #endregion-->
 
                     <!--#region Text Color-->
@@ -290,6 +296,11 @@
                                   FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}"
                                   Opacity="{Binding AcrylicHostBackdropBackgroundOpacity, Source={StaticResource LightExtraPalette}}" />
 
+                    <SolidColorBrush x:Key="RegionBorderBrush"
+                                     Color="Transparent" />
+
+                    <Thickness x:Key="RegionThickness">0</Thickness>
+
                     <!-- #endregion-->
 
                     <!--#region Text Color-->
@@ -409,6 +420,62 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
+
+            <!--#region Background Color-->
+            
+            <SolidColorBrush x:Key="RegionBackgroundBrush"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="MediumBackgroundBrush"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="HighBackgroundBrush"
+                             Color="{ThemeResource SystemColorWindowColor}" />
+
+            <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
+                          BackgroundSource="Backdrop"
+                          AlwaysUseFallback="True"
+                          FallbackColor="{ThemeResource SystemColorWindowColor}" />
+
+            <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
+                          BackgroundSource="HostBackdrop"
+                          AlwaysUseFallback="True"
+                          FallbackColor="{ThemeResource SystemColorWindowColor}" />
+
+            <SolidColorBrush x:Key="RegionBorderBrush"
+                             Color="{ThemeResource SystemColorButtonTextColor}" />
+
+            <Thickness x:Key="RegionThickness">1</Thickness>
+
+            <!--#endregion-->
+
+            <!--#region Accent Color-->
+            
+            <SolidColorBrush x:Key="SystemAccentColorLight1"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="SystemAccentColorDark1"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="SystemAccentColorLight2"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="SystemAccentColorDark2"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="SystemAccentColorLight3"
+                             Color="{ThemeResource SystemAccentColor}" />
+            <SolidColorBrush x:Key="SystemAccentColorDark3"
+                             Color="{ThemeResource SystemAccentColor}" />
+
+            <StaticResource x:Key="AccentColorLight1Brush"
+                            ResourceKey="SystemAccentColorLight1" />
+            <StaticResource x:Key="AccentColorDark1Brush"
+                            ResourceKey="SystemAccentColorDark1" />
+            <StaticResource x:Key="AccentColorLight2Brush"
+                            ResourceKey="SystemAccentColorLight2" />
+            <StaticResource x:Key="AccentColorDark2Brush"
+                            ResourceKey="SystemAccentColorDark2" />
+            <StaticResource x:Key="AccentColorLight3Brush"
+                            ResourceKey="SystemAccentColorLight3" />
+            <StaticResource x:Key="AccentColorDark3Brush"
+                            ResourceKey="SystemAccentColorDark3" />
+
+            <!--#endregion-->
 
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>

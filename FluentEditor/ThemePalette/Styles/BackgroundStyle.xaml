@@ -5,6 +5,10 @@
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+                    <SolidColorBrush x:Key="RegionBorderBrush"
+                                     Color="Transparent" />
+                    <Thickness x:Key="RegionThickness">0</Thickness>
+
                     <SolidColorBrush x:Key="RegionBackgroundBrush"
                                      Color="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
                     <SolidColorBrush x:Key="MediumBackgroundBrush"
@@ -27,6 +31,10 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
+                    <SolidColorBrush x:Key="RegionBorderBrush"
+                                     Color="Transparent" />
+                    <Thickness x:Key="RegionThickness">0</Thickness>
+
                     <SolidColorBrush x:Key="RegionBackgroundBrush"
                                      Color="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
                     <SolidColorBrush x:Key="MediumBackgroundBrush"
@@ -47,6 +55,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
+
+            <SolidColorBrush x:Key="RegionBorderBrush"
+                             Color="Transparent" />
+            <Thickness x:Key="RegionThickness">0</Thickness>
 
             <SolidColorBrush x:Key="RegionBackgroundBrush"
                              Color="{ThemeResource ApplicationPageBackgroundThemeBrush}" />

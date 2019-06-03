@@ -204,6 +204,11 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
+                <Border Grid.RowSpan="2"
+                        Grid.Column="0"
+                        BorderBrush="{ThemeResource RegionBorderBrush}"
+                        BorderThickness="{ThemeResource RegionThickness}" />
+
                 <ContentControl Grid.Row="1"
                                 Grid.Column="0"
                                 HorizontalAlignment="Center"
@@ -211,7 +216,9 @@
 
                 <Border Grid.RowSpan="2"
                         Grid.Column="1"
-                        Background="{ThemeResource MediumBackgroundBrush}" />
+                        Background="{ThemeResource MediumBackgroundBrush}"
+                        BorderBrush="{ThemeResource RegionBorderBrush}"
+                        BorderThickness="{ThemeResource RegionThickness}"/>
 
                 <ContentControl Grid.Row="1"
                                 Grid.Column="1"
@@ -220,7 +227,9 @@
 
                 <Border Grid.RowSpan="2"
                         Grid.Column="2"
-                        Background="{ThemeResource HighBackgroundBrush}" />
+                        Background="{ThemeResource HighBackgroundBrush}"
+                        BorderBrush="{ThemeResource RegionBorderBrush}"
+                        BorderThickness="{ThemeResource RegionThickness}"/>
 
                 <ContentControl Grid.Row="1"
                                 Grid.Column="2"
@@ -229,7 +238,9 @@
 
                 <Border Grid.Row="0"
                         Grid.ColumnSpan="3"
-                        Background="{ThemeResource AcrylicBackdropBackgroundBrush}">
+                        Background="{ThemeResource AcrylicBackdropBackgroundBrush}"
+                        BorderBrush="{ThemeResource RegionBorderBrush}"
+                        BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl HorizontalAlignment="Center"
                                     ContentTemplate="{StaticResource AcrylicTextBlock}"
                                     DataContext="Custom Backdrop Acrylic" />
@@ -239,7 +250,9 @@
                             Grid.Row="2"
                             Grid.ColumnSpan="3">
 
-                    <Border Background="{ThemeResource AcrylicHostBackdropBackgroundBrush}">
+                    <Border Background="{ThemeResource AcrylicHostBackdropBackgroundBrush}"
+                            BorderBrush="{ThemeResource RegionBorderBrush}"
+                            BorderThickness="{ThemeResource RegionThickness}">
                         <ContentControl HorizontalAlignment="Center"
                                         ContentTemplate="{StaticResource AcrylicTextBlock}"
                                         DataContext="HostBackdrop" />
@@ -394,13 +407,13 @@
                         DefaultLabelPosition="Right"
                         HorizontalAlignment="Stretch">
                 <AppBarButton x:Uid="TestContentEnabledAppBarButton"
-                              Icon="Add"/>
+                              Icon="Add" />
                 <AppBarButton x:Uid="TestContentDisableAppBarButton"
                               Icon="Remove"
-                              IsEnabled="False"/>
+                              IsEnabled="False" />
                 <AppBarSeparator />
                 <AppBarToggleButton x:Uid="TestContentAppBarToggleButton"
-                                    Icon="Favorite"/>
+                                    Icon="Favorite" />
                 <AppBarToggleButton x:Uid="TestContentDisableAppBarToggleButton"
                                     IsEnabled="False"
                                     IsChecked="True"
