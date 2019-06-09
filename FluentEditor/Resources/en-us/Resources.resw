@@ -348,11 +348,8 @@
   <data name="TestContentMediumTextBlock.Text" xml:space="preserve">
     <value>Medium text</value>
   </data>
-  <data name="TestContentTextAndBackgroundBlock.Text" xml:space="preserve">
-    <value>Text &amp; Backgrounds</value>
-  </data>
-  <data name="TestContentTextBlock.Text" xml:space="preserve">
-    <value>Text</value>
+  <data name="TestContentBaseTextBlock.Text" xml:space="preserve">
+    <value>Common Text</value>
   </data>
   <data name="ThemePaletteControlsAndTextColorsBlock.Header" xml:space="preserve">
     <value>Control &amp; Text colors</value>
@@ -392,5 +389,11 @@
   </data>
   <data name="TestContentAccentLight3TextBlock.Text" xml:space="preserve">
     <value>Accent light 3 text</value>
+  </data>
+  <data name="TestContentBackgroundBlock.Text" xml:space="preserve">
+    <value>Backgrounds</value>
+  </data>
+  <data name="TestContentTextBlock.Text" xml:space="preserve">
+    <value>Text block</value>
   </data>
 </root>
