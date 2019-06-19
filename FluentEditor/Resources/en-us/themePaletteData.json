@@ -46,11 +46,13 @@
         "AcrylicData": [
             {
                 "SourceIndex": 3,
-                "Opacity": 0.8
+                "Opacity": 0.8,
+                "LuminosityOpacity": 0.5
             },
             {
                 "SourceIndex": 4,
-                "Opacity": 0.8
+                "Opacity": 0.8,
+                "LuminosityOpacity": 0.5
             }
         ],
         "BaseColor": {
@@ -106,11 +108,13 @@
         "AcrylicData": [
             {
                 "SourceIndex": 3,
-                "Opacity": 0.8
+                "Opacity": 0.8,
+                "LuminosityOpacity": 0.5
             },
             {
                 "SourceIndex": 4,
-                "Opacity": 0.8
+                "Opacity": 0.8,
+                "LuminosityOpacity": 0.5
             }
         ],
         "BaseColor": {

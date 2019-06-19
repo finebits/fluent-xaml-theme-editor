@@ -360,6 +360,9 @@
   <data name="AcrylicOpacitySlider.Header" xml:space="preserve">
     <value>Acrylic Opacity</value>
   </data>
+  <data name="AcrylicLuminosityOpacitySlider.Header" xml:space="preserve">
+    <value>Acrylic Luminosity Opacity</value>
+  </data>
   <data name="ThemePalettePrimaryBlock.Header" xml:space="preserve">
     <value>Accent colors</value>
   </data>

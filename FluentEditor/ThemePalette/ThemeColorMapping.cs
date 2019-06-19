@@ -427,6 +427,7 @@ namespace FluentEditor.ThemePalette
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
                             _extraPalette.AcrylicBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
+                            _extraPalette.AcrylicBackdropBackgroundLuminosityOpacity = acrylicBrushEntry.LuminosityOpacity;
                         }
 
                         _extraPalette.AcrylicBackdropBackgroundColor = _source.ActiveColor;
@@ -438,6 +439,7 @@ namespace FluentEditor.ThemePalette
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
                             _extraPalette.AcrylicHostBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
+                            _extraPalette.AcrylicHostBackdropBackgroundLuminosityOpacity = acrylicBrushEntry.LuminosityOpacity;
                         }
 
                         _extraPalette.AcrylicHostBackdropBackgroundColor = _source.ActiveColor;

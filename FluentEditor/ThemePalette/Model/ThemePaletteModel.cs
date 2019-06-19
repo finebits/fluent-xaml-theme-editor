@@ -338,7 +338,7 @@ namespace FluentEditor.ThemePalette.Model
             ApplyPresetOverrides(_darkHyperlink.Palette, preset.DarkHyperlinkOverrides);
         }
 
-        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides, Dictionary<int, double> acrylicOverrides = null)
+        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides, Dictionary<int, (double,double)> acrylicOverrides = null)
         {
             for (int i = 0; i < palette.Count; i++)
             {
@@ -356,7 +356,8 @@ namespace FluentEditor.ThemePalette.Model
                 {
                     if (acrylicOverrides != null && acrylicOverrides.ContainsKey(i))
                     {
-                        acrylicPalette.Opacity = acrylicOverrides[i];
+                        acrylicPalette.Opacity = acrylicOverrides[i].Item1;
+                        acrylicPalette.LuminosityOpacity = acrylicOverrides[i].Item2;
                     }
                     else
                     {

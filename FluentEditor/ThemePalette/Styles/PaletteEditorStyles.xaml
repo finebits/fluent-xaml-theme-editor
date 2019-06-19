@@ -188,14 +188,14 @@
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             AutomationProperties.AccessibilityView="Raw"
                             Background="Transparent"
-                            Foreground="{TemplateBinding Foreground}"
                             BackgroundSizing="{TemplateBinding BackgroundSizing}"
                             BorderBrush="Transparent"
                             BorderThickness="0"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             ContentTransitions="{TemplateBinding ContentTransitions}"
-                            CornerRadius="{TemplateBinding CornerRadius}" />
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Foreground="{TemplateBinding Foreground}" />
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -359,20 +359,23 @@
                                                     Margin="8,0,0,8"
                                                     HorizontalAlignment="Stretch"
                                                     VerticalAlignment="Stretch"
-                                                    Foreground="Black"
                                                     Background="White"
+                                                    Foreground="Black"
                                                     Style="{StaticResource BorderButtonStyle}">
                                                     <Button.Content>
                                                         <FontIcon FontSize="14" Glyph="&#xE713;" />
                                                     </Button.Content>
                                                     <Button.Flyout>
                                                         <Flyout>
-                                                            <Grid Width="300" VerticalAlignment="Stretch">
+                                                            <StackPanel
+                                                                Width="300"
+                                                                VerticalAlignment="Stretch"
+                                                                Orientation="Vertical">
                                                                 <Slider
                                                                     x:Uid="AcrylicOpacitySlider"
+                                                                    Margin="8"
                                                                     HorizontalAlignment="Stretch"
                                                                     VerticalAlignment="Stretch"
-                                                                    Header="Acrylic Opacity"
                                                                     Maximum="1"
                                                                     Minimum="0"
                                                                     Orientation="Horizontal"
@@ -380,7 +383,19 @@
                                                                     TickFrequency="0.05"
                                                                     TickPlacement="Outside"
                                                                     Value="{Binding Opacity, Mode=TwoWay}" />
-                                                            </Grid>
+                                                                <Slider
+                                                                    x:Uid="AcrylicLuminosityOpacitySlider"
+                                                                    Margin="8"
+                                                                    HorizontalAlignment="Stretch"
+                                                                    VerticalAlignment="Stretch"
+                                                                    Maximum="1"
+                                                                    Minimum="0"
+                                                                    Orientation="Horizontal"
+                                                                    StepFrequency="0.05"
+                                                                    TickFrequency="0.05"
+                                                                    TickPlacement="Outside"
+                                                                    Value="{Binding LuminosityOpacity, Mode=TwoWay}" />
+                                                            </StackPanel>
                                                         </Flyout>
                                                     </Button.Flyout>
                                                 </Button>

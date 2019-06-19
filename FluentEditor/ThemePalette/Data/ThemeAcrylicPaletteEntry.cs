@@ -34,20 +34,24 @@ namespace FluentEditor.ThemePalette.Data
                 activeColorStringFormat = data["ActiveColorStringFormat"].GetEnum<FluentEditorShared.Utils.ColorStringFormat>();
             }
 
-            if (data.ContainsKey(nameof(Opacity)))
+            if (data.ContainsKey(nameof(Opacity)) && data.ContainsKey(nameof(LuminosityOpacity)))
             {
                 var opacity = data[nameof(Opacity)].GetNumber();
-                return new ThemeEditableAcrylicPaletteEntry(opacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
+                var luminosityOpacity = data[nameof(LuminosityOpacity)].GetNumber();
+                return new ThemeEditableAcrylicPaletteEntry(opacity, luminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
             }
 
             return new EditableColorPaletteEntry(sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
         }
 
-        public ThemeEditableAcrylicPaletteEntry(double sourceOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
+        public ThemeEditableAcrylicPaletteEntry(double sourceOpacity, double sourceLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
             : base(sourceColor, customColor, useCustomColor, title, description, activeColorStringFormat, contrastColors)
         {
             SourceOpacity = sourceOpacity;
             Opacity = SourceOpacity;
+
+            SourceLuminosityOpacity = sourceLuminosityOpacity;
+            LuminosityOpacity = SourceLuminosityOpacity;
         }
 
         private double _sourceOpacity = 0;
@@ -57,6 +61,16 @@ namespace FluentEditor.ThemePalette.Data
             set
             {
                 SetOpacity(ref _sourceOpacity, value);
+            }
+        }
+
+        private double _sourceLuminosityOpacity = 0;
+        private double SourceLuminosityOpacity
+        {
+            get { return _sourceLuminosityOpacity; }
+            set
+            {
+                SetOpacity(ref _sourceLuminosityOpacity, value);
             }
         }
 
@@ -82,9 +96,32 @@ namespace FluentEditor.ThemePalette.Data
             }
         }
 
+        private double _luminosityOpacity = 0;
+        public double LuminosityOpacity
+        {
+            get { return _luminosityOpacity; }
+            set
+            {
+                if (SetOpacity(ref _luminosityOpacity, value))
+                {
+                    RaiseActiveColorChanged();
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        public bool IsCustomLuminosityOpacity
+        {
+            get
+            {
+                return Math.Abs(_sourceLuminosityOpacity - _luminosityOpacity) > double.Epsilon;
+            }
+        }
+
         public void ResetOpacity()
         {
             Opacity = SourceOpacity;
+            LuminosityOpacity = SourceLuminosityOpacity;
         }
 
         private bool SetOpacity(ref double opacity, double value)

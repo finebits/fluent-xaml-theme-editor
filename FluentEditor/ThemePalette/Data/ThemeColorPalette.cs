@@ -15,12 +15,12 @@ namespace FluentEditor.ThemePalette.Data
         public class ThemePaletteEntryData : ColorPalette.PaletteEntryData
         {
             protected readonly IReadOnlyList<(string title, string description)> _paletteEntryCaptions;
-            protected readonly IReadOnlyList<(int index, double opacity)> _paletteEntryAcrylics;
+            protected readonly IReadOnlyList<(int index, double opacity, double luminosityOpacity)> _paletteEntryAcrylics;
 
             public ThemePaletteEntryData(IColorPaletteEntry baseColor, 
                                         IReadOnlyList<ContrastColorWrapper> contrastColors, 
                                         IReadOnlyList<(string title, string description)> captions,
-                                        IReadOnlyList<(int index, double opacity)> acrylics)
+                                        IReadOnlyList<(int index, double opacity, double luminosityOpacity)> acrylics)
                 : base(baseColor, contrastColors)
             {
                 _paletteEntryCaptions = captions;
@@ -62,7 +62,7 @@ namespace FluentEditor.ThemePalette.Data
 
             public override EditableColorPaletteEntry GetColorPaletteEntry(IColorPaletteEntry baseColor, int idx)
             {
-                (bool isAcrylic, double opacity) IsAcrylic()
+                (bool isAcrylic, double opacity, double luminosityOpacity) IsAcrylic()
                 {
                     if(_paletteEntryAcrylics != null)
                     {
@@ -70,19 +70,19 @@ namespace FluentEditor.ThemePalette.Data
                         {
                             if (acrylic.index == idx)
                             {
-                                return (true, acrylic.opacity);
+                                return (true, acrylic.opacity, acrylic.luminosityOpacity);
                             }
                         }
                     }
 
-                    return (false, 0);
+                    return (false, 0, 0);
                 }
 
-                (bool isAcrylic, double opacity) = IsAcrylic();
+                (bool isAcrylic, double opacity, double luminosityOpacity) = IsAcrylic();
 
                 if (isAcrylic)
                 {
-                    return new ThemeEditableAcrylicPaletteEntry(opacity, null, default, false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
+                    return new ThemeEditableAcrylicPaletteEntry(opacity, luminosityOpacity, null, default, false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
                 }
                 else
                 {
@@ -106,17 +106,18 @@ namespace FluentEditor.ThemePalette.Data
                 return result;
             }
 
-            public static IReadOnlyList<(int index, double opacity)> ParseAcrylics(JsonArray data)
+            public static IReadOnlyList<(int index, double opacity, double luminosityOpacity)> ParseAcrylics(JsonArray data)
             {
-                var result = new List<(int index, double opacity)>();
+                var result = new List<(int index, double opacity, double luminosityOpacity)>();
 
                 foreach (var item in data)
                 {
                     var acrylic = item.GetObject();
                     int index = acrylic.ContainsKey("SourceIndex") ? acrylic["SourceIndex"].GetInt() : -1;
                     double opacity = acrylic.ContainsKey("Opacity") ? acrylic["Opacity"].GetNumber() : 0.0;
+                    double luminosityOpacity = acrylic.ContainsKey("LuminosityOpacity") ? acrylic["LuminosityOpacity"].GetNumber() : 0.0;
 
-                    result.Add((index, opacity));
+                    result.Add((index, opacity, luminosityOpacity));
                 }
 
                 return result;
@@ -139,7 +140,7 @@ namespace FluentEditor.ThemePalette.Data
 
             IPaletteEntryData paletteEntryData = new ColorPalette.PaletteEntryData(baseColor, contrastColors);
             IReadOnlyList<(string title, string description)> captions = null;
-            IReadOnlyList<(int index, double opacity)> opacities = null;
+            IReadOnlyList<(int index, double opacity, double luminosityOpacity)> opacities = null;
 
             if (data.ContainsKey("PaletteEntryCaptions"))
             {
