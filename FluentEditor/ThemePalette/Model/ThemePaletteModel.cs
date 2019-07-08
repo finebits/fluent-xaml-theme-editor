@@ -356,8 +356,8 @@ namespace FluentEditor.ThemePalette.Model
                 {
                     if (acrylicOverrides != null && acrylicOverrides.ContainsKey(i))
                     {
-                        acrylicPalette.Opacity = acrylicOverrides[i].Item1;
-                        acrylicPalette.LuminosityOpacity = acrylicOverrides[i].Item2;
+                        acrylicPalette.TintOpacity = acrylicOverrides[i].Item1;
+                        acrylicPalette.TintLuminosityOpacity = acrylicOverrides[i].Item2;
                     }
                     else
                     {

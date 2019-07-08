@@ -145,23 +145,23 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
-        private double _acrylicBackdropBackgroundOpacity;
-        public double AcrylicBackdropBackgroundOpacity
+        private double _acrylicBackdropBackgroundTintOpacity;
+        public double AcrylicBackdropBackgroundTintOpacity
         {
-            get { return _acrylicBackdropBackgroundOpacity; }
+            get { return _acrylicBackdropBackgroundTintOpacity; }
             set
             {
-                SetProperty(ref _acrylicBackdropBackgroundOpacity, value);
+                SetProperty(ref _acrylicBackdropBackgroundTintOpacity, value);
             }
         }
 
-        private double? _acrylicBackdropBackgroundLuminosityOpacity;
-        public double? AcrylicBackdropBackgroundLuminosityOpacity
+        private double? _acrylicBackdropBackgroundTintLuminosityOpacity;
+        public double? AcrylicBackdropBackgroundTintLuminosityOpacity
         {
-            get { return _acrylicBackdropBackgroundLuminosityOpacity; }
+            get { return _acrylicBackdropBackgroundTintLuminosityOpacity; }
             set
             {
-                SetProperty(ref _acrylicBackdropBackgroundLuminosityOpacity, value);
+                SetProperty(ref _acrylicBackdropBackgroundTintLuminosityOpacity, value);
             }
         }
 
@@ -175,23 +175,23 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
-        private double _acrylicHostBackdropBackgroundOpacity;
-        public double AcrylicHostBackdropBackgroundOpacity
+        private double _acrylicHostBackdropBackgroundTintOpacity;
+        public double AcrylicHostBackdropBackgroundTintOpacity
         {
-            get { return _acrylicHostBackdropBackgroundOpacity; }
+            get { return _acrylicHostBackdropBackgroundTintOpacity; }
             set
             {
-                SetProperty(ref _acrylicHostBackdropBackgroundOpacity, value);
+                SetProperty(ref _acrylicHostBackdropBackgroundTintOpacity, value);
             }
         }
 
-        private double? _acrylicHostBackdropBackgroundLuminosityOpacity;
-        public double? AcrylicHostBackdropBackgroundLuminosityOpacity
+        private double? _acrylicHostBackdropBackgroundTintLuminosityOpacity;
+        public double? AcrylicHostBackdropBackgroundTintLuminosityOpacity
         {
-            get { return _acrylicHostBackdropBackgroundLuminosityOpacity; }
+            get { return _acrylicHostBackdropBackgroundTintLuminosityOpacity; }
             set
             {
-                SetProperty(ref _acrylicHostBackdropBackgroundLuminosityOpacity, value);
+                SetProperty(ref _acrylicHostBackdropBackgroundTintLuminosityOpacity, value);
             }
         }
 

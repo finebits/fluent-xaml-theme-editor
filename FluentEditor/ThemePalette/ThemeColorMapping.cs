@@ -426,8 +426,8 @@ namespace FluentEditor.ThemePalette
                     {
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
-                            _extraPalette.AcrylicBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
-                            _extraPalette.AcrylicBackdropBackgroundLuminosityOpacity = acrylicBrushEntry.LuminosityOpacity;
+                            _extraPalette.AcrylicBackdropBackgroundTintOpacity = acrylicBrushEntry.TintOpacity;
+                            _extraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
 
                         _extraPalette.AcrylicBackdropBackgroundColor = _source.ActiveColor;
@@ -438,8 +438,8 @@ namespace FluentEditor.ThemePalette
                     {
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
-                            _extraPalette.AcrylicHostBackdropBackgroundOpacity = acrylicBrushEntry.Opacity;
-                            _extraPalette.AcrylicHostBackdropBackgroundLuminosityOpacity = acrylicBrushEntry.LuminosityOpacity;
+                            _extraPalette.AcrylicHostBackdropBackgroundTintOpacity = acrylicBrushEntry.TintOpacity;
+                            _extraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
 
                         _extraPalette.AcrylicHostBackdropBackgroundColor = _source.ActiveColor;

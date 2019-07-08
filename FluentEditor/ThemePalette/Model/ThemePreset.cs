@@ -51,16 +51,16 @@ namespace FluentEditor.ThemePalette.Model
                         var node = v.GetObject();
 
                         int idx = node["Index"].GetInt();
-                        double opacity = node["Opacity"].GetNumber();
+                        double tintOpacity = node["TintOpacity"].GetNumber();
 
-                        string luminosityOpacityString = node["LuminosityOpacity"].GetString();
-                        double? luminosityOpacity = null;
-                        if (double.TryParse(luminosityOpacityString, out double value))
+                        string tintLuminosityOpacityString = node["TintLuminosityOpacity"].GetString();
+                        double? tintLuminosityOpacity = null;
+                        if (double.TryParse(tintLuminosityOpacityString, out double value))
                         {
-                            luminosityOpacity = value;
+                            tintLuminosityOpacity = value;
                         }
 
-                        acrylicOverrides.Add(idx, (opacity, luminosityOpacity));
+                        acrylicOverrides.Add(idx, (tintOpacity, tintLuminosityOpacity));
                     }
                 }
 
@@ -131,14 +131,14 @@ namespace FluentEditor.ThemePalette.Model
                 if (acrylicOverrides != null && !string.IsNullOrEmpty(acrylicOverridesNodeName))
                 {
                     var acrylicOverridesNode = new JsonArray();
-                    foreach ((int index, (double opacity, double? luminosityOpacity)) in acrylicOverrides)
+                    foreach ((int index, (double tintOpacity, double? tintLuminosityOpacity)) in acrylicOverrides)
                     {
                         JsonObject node = new JsonObject();
                         node["Index"] = JsonValue.CreateNumberValue(index);
-                        node["Opacity"] = JsonValue.CreateNumberValue(opacity);
+                        node["TintOpacity"] = JsonValue.CreateNumberValue(tintOpacity);
 
-                        var luminosityOpacityString = (luminosityOpacity == null) ? "null": luminosityOpacity.ToString();
-                        node["LuminosityOpacity"] = JsonValue.CreateStringValue(luminosityOpacityString);
+                        var tintLuminosityOpacityString = (tintLuminosityOpacity == null) ? "null": tintLuminosityOpacity.ToString();
+                        node["TintLuminosityOpacity"] = JsonValue.CreateStringValue(tintLuminosityOpacityString);
 
                         acrylicOverridesNode.Add(node);
                     }
@@ -225,9 +225,9 @@ namespace FluentEditor.ThemePalette.Model
                 var overrides = new Dictionary<int, (double, double?)>();
                 for (int i = 0; i < source.Palette.Count; i++)
                 {
-                    if (source.Palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && (acrylicPalette.IsCustomOpacity || acrylicPalette.IsCustomLuminosityOpacity))
+                    if (source.Palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && (acrylicPalette.IsCustomTintOpacity || acrylicPalette.IsCustomTintLuminosityOpacity))
                     {
-                        overrides.Add(i, (acrylicPalette.Opacity, acrylicPalette.LuminosityOpacity));
+                        overrides.Add(i, (acrylicPalette.TintOpacity, acrylicPalette.TintLuminosityOpacity));
                     }
                 }
 
@@ -446,9 +446,9 @@ namespace FluentEditor.ThemePalette.Model
 
             for (int i = 0; i < palette.Count; i++)
             {
-                if (palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && (acrylicPalette.IsCustomOpacity || acrylicPalette.IsCustomLuminosityOpacity))
+                if (palette[i] is ThemeEditableAcrylicPaletteEntry acrylicPalette && (acrylicPalette.IsCustomTintOpacity || acrylicPalette.IsCustomTintLuminosityOpacity))
                 {
-                    if (!presetDictionary.ContainsKey(i) || presetDictionary[i].Item1 != acrylicPalette.Opacity || presetDictionary[i].Item2 != acrylicPalette.LuminosityOpacity)
+                    if (!presetDictionary.ContainsKey(i) || presetDictionary[i].Item1 != acrylicPalette.TintOpacity || presetDictionary[i].Item2 != acrylicPalette.TintLuminosityOpacity)
                     {
                         return false;
                     }
@@ -464,7 +464,7 @@ namespace FluentEditor.ThemePalette.Model
                 }
                 if (palette[index] is ThemeEditableAcrylicPaletteEntry acrylicPalette)
                 {
-                    if (!acrylicPalette.IsCustomOpacity || acrylicPalette.Opacity != presetDictionary[index].Item1 || acrylicPalette.LuminosityOpacity != presetDictionary[index].Item2)
+                    if (!(acrylicPalette.IsCustomTintOpacity || acrylicPalette.IsCustomTintLuminosityOpacity) || acrylicPalette.TintOpacity != presetDictionary[index].Item1 || acrylicPalette.TintLuminosityOpacity != presetDictionary[index].Item2)
                     {
                         return false;
                     }

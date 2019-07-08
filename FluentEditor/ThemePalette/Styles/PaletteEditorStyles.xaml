@@ -386,23 +386,23 @@
                                                                     StepFrequency="0.05"
                                                                     TickFrequency="0.05"
                                                                     TickPlacement="Outside"
-                                                                    Value="{Binding Opacity, Mode=TwoWay}" />
+                                                                    Value="{Binding TintOpacity, Mode=TwoWay}" />
                                                                 <ToggleSwitch
                                                                     x:Uid="AcrylicTintLuminosityOpacitySwitch"
                                                                     Margin="8,8,8,0"
-                                                                    IsOn="{Binding IsLuminosityOpacityOn, Mode=TwoWay}" />
+                                                                    IsOn="{Binding IsTintLuminosityOpacityOn, Mode=TwoWay}" />
                                                                 <Slider
                                                                     Margin="8,0,8,8"
                                                                     HorizontalAlignment="Stretch"
                                                                     VerticalAlignment="Stretch"
-                                                                    IsEnabled="{Binding IsLuminosityOpacityOn, Mode=OneWay}"
+                                                                    IsEnabled="{Binding IsTintLuminosityOpacityOn, Mode=OneWay}"
                                                                     Maximum="1"
                                                                     Minimum="0"
                                                                     Orientation="Horizontal"
                                                                     StepFrequency="0.05"
                                                                     TickFrequency="0.05"
                                                                     TickPlacement="Outside"
-                                                                    Value="{Binding LuminosityOpacity, Mode=TwoWay}" />
+                                                                    Value="{Binding TintLuminosityOpacity, Mode=TwoWay}" />
                                                             </StackPanel>
                                                         </Flyout>
                                                     </Button.Flyout>

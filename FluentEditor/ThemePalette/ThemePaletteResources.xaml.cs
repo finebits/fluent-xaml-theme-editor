@@ -24,13 +24,13 @@ namespace FluentEditor.ThemePalette
             {
                 switch(e.PropertyName)
                 {
-                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundLuminosityOpacity):
-                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundOpacity):
-                        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundOpacity, palette.AcrylicBackdropBackgroundLuminosityOpacity);
+                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity):
+                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintOpacity):
+                        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundTintOpacity, palette.AcrylicBackdropBackgroundTintLuminosityOpacity);
                         break;
-                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundLuminosityOpacity):
-                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundOpacity):
-                        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundOpacity, palette.AcrylicHostBackdropBackgroundLuminosityOpacity);
+                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity):
+                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintOpacity):
+                        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundTintOpacity, palette.AcrylicHostBackdropBackgroundTintLuminosityOpacity);
                         break;
                 }
             }

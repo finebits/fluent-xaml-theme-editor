@@ -34,60 +34,60 @@ namespace FluentEditor.ThemePalette.Data
                 activeColorStringFormat = data["ActiveColorStringFormat"].GetEnum<FluentEditorShared.Utils.ColorStringFormat>();
             }
 
-            if (data.ContainsKey(nameof(Opacity)) && data.ContainsKey(nameof(LuminosityOpacity)))
+            if (data.ContainsKey(nameof(TintOpacity)) && data.ContainsKey(nameof(TintLuminosityOpacity)))
             {
-                var opacity = data[nameof(Opacity)].GetNumber();
-                double? luminosityOpacity = null;
-                var luminosityOpacityString = data[nameof(LuminosityOpacity)].GetString();
+                var tintOpacity = data[nameof(TintOpacity)].GetNumber();
+                double? tintLuminosityOpacity = null;
+                var tintLuminosityOpacityString = data[nameof(TintLuminosityOpacity)].GetString();
 
-                if (double.TryParse(luminosityOpacityString, out var value))
+                if (double.TryParse(tintLuminosityOpacityString, out var value))
                 {
-                    luminosityOpacity = value;
+                    tintLuminosityOpacity = value;
                 }
 
-                return new ThemeEditableAcrylicPaletteEntry(opacity, luminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
+                return new ThemeEditableAcrylicPaletteEntry(tintOpacity, tintLuminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
             }
 
             return new EditableColorPaletteEntry(sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
         }
 
-        public ThemeEditableAcrylicPaletteEntry(double sourceOpacity, double? sourceLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
+        public ThemeEditableAcrylicPaletteEntry(double sourceTintOpacity, double? sourceTintLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
             : base(sourceColor, customColor, useCustomColor, title, description, activeColorStringFormat, contrastColors)
         {
-            SourceOpacity = sourceOpacity;
-            Opacity = SourceOpacity;
+            SourceTintOpacity = sourceTintOpacity;
+            TintOpacity = SourceTintOpacity;
 
-            SourceLuminosityOpacity = sourceLuminosityOpacity;
-            LuminosityOpacity = SourceLuminosityOpacity;
+            SourceTintLuminosityOpacity = sourceTintLuminosityOpacity;
+            TintLuminosityOpacity = SourceTintLuminosityOpacity;
         }
 
-        private double _sourceOpacity = 0;
-        private double SourceOpacity
+        private double _sourceTintOpacity = 0;
+        private double SourceTintOpacity
         {
-            get { return _sourceOpacity; }
+            get { return _sourceTintOpacity; }
             set
             {
-                SetOpacity(ref _sourceOpacity, value);
+                SetDoubleValue(ref _sourceTintOpacity, value);
             }
         }
 
-        private double? _sourceLuminosityOpacity = null;
-        private double? SourceLuminosityOpacity
+        private double? _sourceTintLuminosityOpacity = null;
+        private double? SourceTintLuminosityOpacity
         {
-            get { return _sourceLuminosityOpacity; }
+            get { return _sourceTintLuminosityOpacity; }
             set
             {
-                SetOpacity(ref _sourceLuminosityOpacity, value);
+                SetDoubleValue(ref _sourceTintLuminosityOpacity, value);
             }
         }
 
-        private double _opacity = 0;
-        public double Opacity
+        private double _tintOpacity = 0;
+        public double TintOpacity
         {
-            get { return _opacity; }
+            get { return _tintOpacity; }
             set
             {
-                if (SetOpacity(ref _opacity, value))
+                if (SetDoubleValue(ref _tintOpacity, value))
                 {
                     RaiseActiveColorChanged();
                     RaisePropertyChangedFromSource();
@@ -95,86 +95,86 @@ namespace FluentEditor.ThemePalette.Data
             }
         }
 
-        public bool IsCustomOpacity
+        public bool IsCustomTintOpacity
         {
             get
             {
-                return Math.Abs(_sourceOpacity - _opacity) > double.Epsilon;
+                return Math.Abs(_sourceTintOpacity - _tintOpacity) > double.Epsilon;
             }
         }
 
-        private double _lastLuminosityOpacityValue = 0;
-        public bool IsLuminosityOpacityOn
+        private double _lastTintLuminosityOpacityValue = 0;
+        public bool IsTintLuminosityOpacityOn
         {
             get
             {
-                return LuminosityOpacity != null;
+                return TintLuminosityOpacity != null;
             }
 
             set
             {
-                if(IsLuminosityOpacityOn == value)
+                if(IsTintLuminosityOpacityOn == value)
                 {
                     return;
                 }
 
                 if(value == true)
                 {
-                    LuminosityOpacity = _lastLuminosityOpacityValue;
+                    TintLuminosityOpacity = _lastTintLuminosityOpacityValue;
                 }
                 else
                 {
-                    _lastLuminosityOpacityValue = LuminosityOpacity ?? 0;
-                    LuminosityOpacity = null;
+                    _lastTintLuminosityOpacityValue = TintLuminosityOpacity ?? 0;
+                    TintLuminosityOpacity = null;
                 }
 
                 RaisePropertyChangedFromSource();
             }
         }
 
-        private double? _luminosityOpacity = null;
-        public double? LuminosityOpacity
+        private double? _tintLuminosityOpacity = null;
+        public double? TintLuminosityOpacity
         {
-            get { return _luminosityOpacity; }
+            get { return _tintLuminosityOpacity; }
             set
             {
-                if (SetOpacity(ref _luminosityOpacity, value))
+                if (SetDoubleValue(ref _tintLuminosityOpacity, value))
                 {
                     RaiseActiveColorChanged();
                     RaisePropertyChangedFromSource();
-                    RaisePropertyChanged(nameof(IsLuminosityOpacityOn));
+                    RaisePropertyChanged(nameof(IsTintLuminosityOpacityOn));
                 }
             }
         }
 
-        public bool IsCustomLuminosityOpacity
+        public bool IsCustomTintLuminosityOpacity
         {
             get
             {
-                if(_sourceLuminosityOpacity == null || _luminosityOpacity == null)
+                if(_sourceTintLuminosityOpacity == null || _tintLuminosityOpacity == null)
                 {
-                     return _sourceLuminosityOpacity != _luminosityOpacity;
+                     return _sourceTintLuminosityOpacity != _tintLuminosityOpacity;
                 }
 
-                return Math.Abs((_sourceLuminosityOpacity ?? 0) - (_luminosityOpacity ?? 0)) > double.Epsilon;
+                return Math.Abs((_sourceTintLuminosityOpacity ?? 0) - (_tintLuminosityOpacity ?? 0)) > double.Epsilon;
             }
         }
 
         public void ResetOpacity()
         {
-            Opacity = SourceOpacity;
-            LuminosityOpacity = SourceLuminosityOpacity;
+            TintOpacity = SourceTintOpacity;
+            TintLuminosityOpacity = SourceTintLuminosityOpacity;
         }
 
-        private bool SetOpacity(ref double opacity, double value)
+        private bool SetDoubleValue(ref double property, double value)
         {
-            if (opacity != value)
+            if (property != value)
             {
                 var val = Math.Round(Math.Clamp(value, 0, 1), 2);
 
-                if (opacity != val)
+                if (property != val)
                 {
-                    opacity = val;
+                    property = val;
                     return true;
                 }
             }
@@ -182,21 +182,21 @@ namespace FluentEditor.ThemePalette.Data
             return false;
         }
 
-        private bool SetOpacity(ref double? opacity, double? value)
+        private bool SetDoubleValue(ref double? property, double? value)
         {
-            if (opacity != value)
+            if (property != value)
             {
                 if(value == null)
                 {
-                    opacity = null;
+                    property = null;
                     return true;
                 }
 
                 var val = Math.Round(Math.Clamp(value ?? 0, 0, 1), 2);
 
-                if (opacity != val)
+                if (property != val)
                 {
-                    opacity = val;
+                    property = val;
                     return true;
                 }
             }

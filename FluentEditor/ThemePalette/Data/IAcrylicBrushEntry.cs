@@ -3,11 +3,11 @@ namespace FluentEditor.ThemePalette.Data
 {
     interface IAcrylicBrushEntry
     {
-        double Opacity { get; set; }
-        bool IsCustomOpacity { get; }
+        double TintOpacity { get; set; }
+        bool IsCustomTintOpacity { get; }
 
-        double? LuminosityOpacity { get; set; }
-        bool IsCustomLuminosityOpacity { get; }
+        double? TintLuminosityOpacity { get; set; }
+        bool IsCustomTintLuminosityOpacity { get; }
 
         void ResetOpacity();
     }
