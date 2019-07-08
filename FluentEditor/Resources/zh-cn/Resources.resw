@@ -121,7 +121,7 @@
     <value>一个用于演示流畅设计系统的灵活性及支持应用程序开发的工具，为通用 Windows 平台（UWP）应用程序中的 ResourceDictionary 框架生成 XAML 标记</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>流畅 XAML 主题编辑器</value>
+    <value>Theme Editor</value>
   </data>
   <data name="ColorFlyoutMappingDescription" xml:space="preserve">
     <value>映射至 {0}</value>

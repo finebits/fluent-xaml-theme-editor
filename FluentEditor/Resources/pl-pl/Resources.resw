@@ -121,7 +121,7 @@
     <value>Narzędzie pomagające zademonstrować elastyczność Fluent Design Systemu, a także wspierające rozwój aplikacji poprzez generowanie plików XAML dla naszego frameworka ResourceDictionary używanego w aplikacjach UWP</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Fluent XAML - Edytor motywów</value>
+    <value>Theme Editor</value>
   </data>
   <data name="ColorFlyoutMappingDescription" xml:space="preserve">
     <value>Mapuje do {0}</value>

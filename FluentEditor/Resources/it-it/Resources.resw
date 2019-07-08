@@ -121,7 +121,7 @@
     <value>Uno strumento che aiuta a dimostrare la flessibilità del Fluent Design System e supporta il processo di sviluppo delle app generando markup XAML per il nostro framework ResourceDictionary utilizzato nelle applicazioni della piattaforma Universal Windows Platform (UWP)</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Editor di temi Fluent XAML</value>
+    <value>Theme Editor</value>
   </data>
   <data name="ColorFlyoutMappingDescription" xml:space="preserve">
     <value>Assegnato a {0}</value>

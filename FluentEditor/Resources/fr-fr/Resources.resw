@@ -121,7 +121,7 @@
     <value>Un outil qui permet de démontrer la flexibilité du Fluent Design System aussi bien que le support du processus de développement de l'application en générant le XAML pour notre Frameworl ResourceDictionary utilisé dans les applications Universal Window Platform (UWP)</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Editeur de thème Fluent XAML</value>
+    <value>Theme Editor</value>
   </data>
   <data name="ColorFlyoutMappingDescription" xml:space="preserve">
     <value>Lié à {0}</value>
