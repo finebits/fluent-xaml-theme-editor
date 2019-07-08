@@ -37,14 +37,21 @@ namespace FluentEditor.ThemePalette.Data
             if (data.ContainsKey(nameof(Opacity)) && data.ContainsKey(nameof(LuminosityOpacity)))
             {
                 var opacity = data[nameof(Opacity)].GetNumber();
-                var luminosityOpacity = data[nameof(LuminosityOpacity)].GetNumber();
+                double? luminosityOpacity = null;
+                var luminosityOpacityString = data[nameof(LuminosityOpacity)].GetString();
+
+                if (double.TryParse(luminosityOpacityString, out var value))
+                {
+                    luminosityOpacity = value;
+                }
+
                 return new ThemeEditableAcrylicPaletteEntry(opacity, luminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
             }
 
             return new EditableColorPaletteEntry(sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
         }
 
-        public ThemeEditableAcrylicPaletteEntry(double sourceOpacity, double sourceLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
+        public ThemeEditableAcrylicPaletteEntry(double sourceOpacity, double? sourceLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
             : base(sourceColor, customColor, useCustomColor, title, description, activeColorStringFormat, contrastColors)
         {
             SourceOpacity = sourceOpacity;
@@ -64,8 +71,8 @@ namespace FluentEditor.ThemePalette.Data
             }
         }
 
-        private double _sourceLuminosityOpacity = 0;
-        private double SourceLuminosityOpacity
+        private double? _sourceLuminosityOpacity = null;
+        private double? SourceLuminosityOpacity
         {
             get { return _sourceLuminosityOpacity; }
             set
@@ -96,8 +103,37 @@ namespace FluentEditor.ThemePalette.Data
             }
         }
 
-        private double _luminosityOpacity = 0;
-        public double LuminosityOpacity
+        private double _lastLuminosityOpacityValue = 0;
+        public bool IsLuminosityOpacityOn
+        {
+            get
+            {
+                return LuminosityOpacity != null;
+            }
+
+            set
+            {
+                if(IsLuminosityOpacityOn == value)
+                {
+                    return;
+                }
+
+                if(value == true)
+                {
+                    LuminosityOpacity = _lastLuminosityOpacityValue;
+                }
+                else
+                {
+                    _lastLuminosityOpacityValue = LuminosityOpacity ?? 0;
+                    LuminosityOpacity = null;
+                }
+
+                RaisePropertyChangedFromSource();
+            }
+        }
+
+        private double? _luminosityOpacity = null;
+        public double? LuminosityOpacity
         {
             get { return _luminosityOpacity; }
             set
@@ -106,6 +142,7 @@ namespace FluentEditor.ThemePalette.Data
                 {
                     RaiseActiveColorChanged();
                     RaisePropertyChangedFromSource();
+                    RaisePropertyChanged(nameof(IsLuminosityOpacityOn));
                 }
             }
         }
@@ -114,7 +151,12 @@ namespace FluentEditor.ThemePalette.Data
         {
             get
             {
-                return Math.Abs(_sourceLuminosityOpacity - _luminosityOpacity) > double.Epsilon;
+                if(_sourceLuminosityOpacity == null || _luminosityOpacity == null)
+                {
+                     return _sourceLuminosityOpacity != _luminosityOpacity;
+                }
+
+                return Math.Abs((_sourceLuminosityOpacity ?? 0) - (_luminosityOpacity ?? 0)) > double.Epsilon;
             }
         }
 
@@ -140,6 +182,28 @@ namespace FluentEditor.ThemePalette.Data
             return false;
         }
 
+        private bool SetOpacity(ref double? opacity, double? value)
+        {
+            if (opacity != value)
+            {
+                if(value == null)
+                {
+                    opacity = null;
+                    return true;
+                }
+
+                var val = Math.Round(Math.Clamp(value ?? 0, 0, 1), 2);
+
+                if (opacity != val)
+                {
+                    opacity = val;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -151,7 +215,7 @@ namespace FluentEditor.ThemePalette.Data
 
         private void RaisePropertyChangedFromSource([CallerMemberName] string name = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            RaisePropertyChanged(name);
         }
 
         #endregion

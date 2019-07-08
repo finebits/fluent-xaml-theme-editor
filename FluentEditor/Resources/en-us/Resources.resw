@@ -357,11 +357,11 @@
   <data name="ThemePaletteHyperlinkBlock.Header" xml:space="preserve">
     <value>Hyperlink colors</value>
   </data>
-  <data name="AcrylicOpacitySlider.Header" xml:space="preserve">
-    <value>Acrylic Opacity</value>
+  <data name="AcrylicTintOpacitySlider.Header" xml:space="preserve">
+    <value>Tint Opacity</value>
   </data>
-  <data name="AcrylicLuminosityOpacitySlider.Header" xml:space="preserve">
-    <value>Acrylic Luminosity Opacity</value>
+  <data name="AcrylicTintLuminosityOpacitySwitch.Header" xml:space="preserve">
+    <value>Tint Luminosity Opacity</value>
   </data>
   <data name="ThemePalettePrimaryBlock.Header" xml:space="preserve">
     <value>Accent colors</value>

@@ -371,8 +371,12 @@
                                                                 Width="300"
                                                                 VerticalAlignment="Stretch"
                                                                 Orientation="Vertical">
+                                                                <TextBlock Margin="8,4"
+                                                                           FontSize="16"
+                                                                           FontWeight="SemiBold"
+                                                                           Text="{Binding Title}"/>
                                                                 <Slider
-                                                                    x:Uid="AcrylicOpacitySlider"
+                                                                    x:Uid="AcrylicTintOpacitySlider"
                                                                     Margin="8"
                                                                     HorizontalAlignment="Stretch"
                                                                     VerticalAlignment="Stretch"
@@ -383,11 +387,15 @@
                                                                     TickFrequency="0.05"
                                                                     TickPlacement="Outside"
                                                                     Value="{Binding Opacity, Mode=TwoWay}" />
+                                                                <ToggleSwitch
+                                                                    x:Uid="AcrylicTintLuminosityOpacitySwitch"
+                                                                    Margin="8,8,8,0"
+                                                                    IsOn="{Binding IsLuminosityOpacityOn, Mode=TwoWay}" />
                                                                 <Slider
-                                                                    x:Uid="AcrylicLuminosityOpacitySlider"
-                                                                    Margin="8"
+                                                                    Margin="8,0,8,8"
                                                                     HorizontalAlignment="Stretch"
                                                                     VerticalAlignment="Stretch"
+                                                                    IsEnabled="{Binding IsLuminosityOpacityOn, Mode=OneWay}"
                                                                     Maximum="1"
                                                                     Minimum="0"
                                                                     Orientation="Horizontal"

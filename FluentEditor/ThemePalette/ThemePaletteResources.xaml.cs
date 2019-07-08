@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using FluentEditor.ThemePalette.Model;
 using System.Collections.Generic;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -12,6 +13,42 @@ namespace FluentEditor.ThemePalette
         public ThemePaletteResources()
         {
             this.InitializeComponent();
+
+            DarkExtraPalette.PropertyChanged += ExtraPalettePropertyChanged;
+            LightExtraPalette.PropertyChanged += ExtraPalettePropertyChanged;
+        }
+
+        private void ExtraPalettePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(sender is ThemeExtraPalette palette)
+            {
+                switch(e.PropertyName)
+                {
+                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundLuminosityOpacity):
+                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundOpacity):
+                        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundOpacity, palette.AcrylicBackdropBackgroundLuminosityOpacity);
+                        break;
+                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundLuminosityOpacity):
+                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundOpacity):
+                        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundOpacity, palette.AcrylicHostBackdropBackgroundLuminosityOpacity);
+                        break;
+                }
+            }
+        }
+
+        private void UpdateAcrylicBrush(ThemeExtraPalette palette, string brushName, double tintOpacity, double? tintLuminosityOpacity)
+        {
+            ResourceDictionary resourceDictionary = LightResourceDictionary;
+            if (palette == DarkExtraPalette)
+            {
+                resourceDictionary = DarkResourceDictionary;
+            }
+
+            if (resourceDictionary[brushName] is Microsoft.UI.Xaml.Media.AcrylicBrush acrylicBrush)
+            {
+                acrylicBrush.TintOpacity = tintOpacity;
+                acrylicBrush.TintLuminosityOpacity = tintLuminosityOpacity;
+            }
         }
 
         private List<ThemeColorMappingInstance> _lightColorMappings;

@@ -338,7 +338,7 @@ namespace FluentEditor.ThemePalette.Model
             ApplyPresetOverrides(_darkHyperlink.Palette, preset.DarkHyperlinkOverrides);
         }
 
-        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides, Dictionary<int, (double,double)> acrylicOverrides = null)
+        private void ApplyPresetOverrides(IReadOnlyList<EditableColorPaletteEntry> palette, Dictionary<int, Color> overrides, Dictionary<int, (double,double?)> acrylicOverrides = null)
         {
             for (int i = 0; i < palette.Count; i++)
             {

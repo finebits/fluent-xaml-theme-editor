@@ -17,11 +17,11 @@
                     "Mask": "#FFFFFFFF"
                 },
                 {
-                    "Pattern": "#CC000000",
+                    "Pattern": "#99000000",
                     "Mask": "#FF000000"
                 },
                 {
-                    "Pattern": "#99000000",
+                    "Pattern": "#CC000000",
                     "Mask": "#FF000000"
                 }
             ]
@@ -37,22 +37,22 @@
                 "Title": "3rd background color"
             },
             {
-                "Title": "Acrylic Backdrop color"
+              "Title": "Acrylic HostBackdrop"
             },
             {
-                "Title": "Acrylic HostBackdrop color"
+                "Title": "Acrylic Backdrop"
             }
         ],
         "AcrylicData": [
             {
-                "SourceIndex": 3,
-                "Opacity": 0.8,
-                "LuminosityOpacity": 0.5
+              "SourceIndex": 3,
+              "Opacity": 0.8,
+              "LuminosityOpacity": "null"
             },
             {
                 "SourceIndex": 4,
                 "Opacity": 0.8,
-                "LuminosityOpacity": 0.5
+                "LuminosityOpacity": "null"
             }
         ],
         "BaseColor": {
@@ -79,11 +79,11 @@
                     "Mask": "#FFFFFFFF"
                 },
                 {
-                    "Pattern": "#33000000",
+                    "Pattern": "#99000000",
                     "Mask": "#FF000000"
                 },
                 {
-                    "Pattern": "#99000000",
+                    "Pattern": "#33000000",
                     "Mask": "#FF000000"
                 }
             ]
@@ -96,25 +96,25 @@
                 "Title": "2nd background color"
             },
             {
-                "Title": "3rd background color"
+              "Title": "3rd background color"
             },
             {
-                "Title": "Acrylic Backdrop color"
+              "Title": "Acrylic HostBackdrop"
             },
             {
-                "Title": "Acrylic HostBackdrop color"
+                "Title": "Acrylic Backdrop"
             }
         ],
         "AcrylicData": [
             {
-                "SourceIndex": 3,
-                "Opacity": 0.8,
-                "LuminosityOpacity": 0.5
+              "SourceIndex": 3,
+              "Opacity": 0.8,
+              "LuminosityOpacity": "null"
             },
             {
-                "SourceIndex": 4,
-                "Opacity": 0.8,
-                "LuminosityOpacity": 0.5
+              "SourceIndex": 4,
+              "Opacity": 0.8,
+              "LuminosityOpacity": "null"
             }
         ],
         "BaseColor": {
@@ -417,12 +417,12 @@
         },
 
         {
-            "Target": "AcrylicBackdropBackground",
+            "Target": "AcrylicHostBackdropBackground",
             "Source": "LightRegion",
             "SourceIndex": "3"
         },
         {
-            "Target": "AcrylicHostBackdropBackground",
+            "Target": "AcrylicBackdropBackground",
             "Source": "LightRegion",
             "SourceIndex": "4"
         },
@@ -542,12 +542,12 @@
         },
 
         {
-            "Target": "AcrylicBackdropBackground",
-            "Source": "DarkRegion",
-            "SourceIndex": "3"
+          "Target": "AcrylicHostBackdropBackground",
+          "Source": "DarkRegion",
+          "SourceIndex": "3"
         },
         {
-            "Target": "AcrylicHostBackdropBackground",
+            "Target": "AcrylicBackdropBackground",
             "Source": "DarkRegion",
             "SourceIndex": "4"
         },

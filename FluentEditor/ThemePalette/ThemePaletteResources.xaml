@@ -17,7 +17,7 @@
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
                 <ColorPaletteResources x:Name="DarkColorPaletteResources" />
-                <ResourceDictionary>
+                <ResourceDictionary x:Name="DarkResourceDictionary">
                     <!--  Other resources  -->
 
                     <!--#region Reveal Color-->
@@ -85,17 +85,13 @@
                         x:Key="AcrylicBackdropBackgroundBrush"
                         BackgroundSource="Backdrop"
                         FallbackColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
-                        TintOpacity="{Binding AcrylicBackdropBackgroundOpacity, Source={StaticResource DarkExtraPalette}}"
-                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}" 
-                        TintLuminosityOpacity="{Binding AcrylicBackdropBackgroundLuminosityOpacity, Source={StaticResource DarkExtraPalette}}"/>
+                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
 
                     <muxm:AcrylicBrush
                         x:Key="AcrylicHostBackdropBackgroundBrush"
                         BackgroundSource="HostBackdrop"
                         FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
-                        TintOpacity="{Binding AcrylicHostBackdropBackgroundOpacity, Source={StaticResource DarkExtraPalette}}"
-                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
-                        TintLuminosityOpacity="{Binding AcrylicHostBackdropBackgroundLuminosityOpacity, Source={StaticResource DarkExtraPalette}}"/>
+                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
 
                     <SolidColorBrush x:Key="RegionBorderBrush" Color="Transparent" />
 
@@ -184,7 +180,7 @@
         <ResourceDictionary x:Key="Light">
             <ResourceDictionary.MergedDictionaries>
                 <ColorPaletteResources x:Name="LightColorPaletteResources" />
-                <ResourceDictionary>
+                <ResourceDictionary x:Name="LightResourceDictionary">
                     <!--  Other resources  -->
 
                     <!--#region Reveal Color-->
@@ -251,17 +247,15 @@
                         x:Key="AcrylicBackdropBackgroundBrush"
                         BackgroundSource="Backdrop"
                         FallbackColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}"
-                        TintOpacity="{Binding AcrylicBackdropBackgroundOpacity, Source={StaticResource LightExtraPalette}}"
-                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" 
-                        TintLuminosityOpacity="{Binding AcrylicBackdropBackgroundLuminosityOpacity, Source={StaticResource LightExtraPalette}}"/>
+                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+
 
                     <muxm:AcrylicBrush
                         x:Key="AcrylicHostBackdropBackgroundBrush"
                         BackgroundSource="HostBackdrop"
                         FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}"
-                        TintOpacity="{Binding AcrylicHostBackdropBackgroundOpacity, Source={StaticResource LightExtraPalette}}"
-                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" 
-                        TintLuminosityOpacity="{Binding AcrylicHostBackdropBackgroundLuminosityOpacity, Source={StaticResource LightExtraPalette}}"/>
+                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+
 
                     <SolidColorBrush x:Key="RegionBorderBrush" Color="Transparent" />
 

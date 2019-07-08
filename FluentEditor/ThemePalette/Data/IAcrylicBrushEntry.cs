@@ -6,7 +6,7 @@ namespace FluentEditor.ThemePalette.Data
         double Opacity { get; set; }
         bool IsCustomOpacity { get; }
 
-        double LuminosityOpacity { get; set; }
+        double? LuminosityOpacity { get; set; }
         bool IsCustomLuminosityOpacity { get; }
 
         void ResetOpacity();
