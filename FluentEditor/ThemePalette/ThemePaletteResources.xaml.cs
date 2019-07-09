@@ -47,7 +47,8 @@ namespace FluentEditor.ThemePalette
             if (resourceDictionary[brushName] is Microsoft.UI.Xaml.Media.AcrylicBrush acrylicBrush)
             {
                 acrylicBrush.TintOpacity = tintOpacity;
-                acrylicBrush.TintLuminosityOpacity = tintLuminosityOpacity;
+                // Todo: Crash in release mode (https://github.com/microsoft/microsoft-ui-xaml/issues/1022)
+                //acrylicBrush.TintLuminosityOpacity = tintLuminosityOpacity;
             }
         }
 
