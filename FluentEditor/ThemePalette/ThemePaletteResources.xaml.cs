@@ -15,43 +15,6 @@ namespace FluentEditor.ThemePalette
         public ThemePaletteResources()
         {
             this.InitializeComponent();
-
-            DarkExtraPalette.PropertyChanged += ExtraPalettePropertyChanged;
-            LightExtraPalette.PropertyChanged += ExtraPalettePropertyChanged;
-        }
-
-        private void ExtraPalettePropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if(sender is ThemeExtraPalette palette)
-            {
-                //switch(e.PropertyName)
-                //{
-                //    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity):
-                //    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintOpacity):
-                //        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundTintOpacity, palette.AcrylicBackdropBackgroundTintLuminosityOpacity);
-                //        break;
-                //    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity):
-                //    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintOpacity):
-                //        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundTintOpacity, palette.AcrylicHostBackdropBackgroundTintLuminosityOpacity);
-                //        break;
-                //}
-            }
-        }
-
-        private void UpdateAcrylicBrush(ThemeExtraPalette palette, string brushName, double tintOpacity, double? tintLuminosityOpacity)
-        {
-            ResourceDictionary resourceDictionary = LightResourceDictionary;
-            if (palette == DarkExtraPalette)
-            {
-                resourceDictionary = DarkResourceDictionary;
-            }
-
-            if (resourceDictionary[brushName] is Microsoft.UI.Xaml.Media.AcrylicBrush acrylicBrush)
-            {
-                acrylicBrush.TintOpacity = tintOpacity;
-                // Todo: Crash in release mode (https://github.com/microsoft/microsoft-ui-xaml/issues/1022)
-                //acrylicBrush.TintLuminosityOpacity = tintLuminosityOpacity;
-            }
         }
 
         private List<ThemeColorMappingInstance> _lightColorMappings;
