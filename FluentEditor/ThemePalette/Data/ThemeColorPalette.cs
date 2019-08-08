@@ -15,12 +15,12 @@ namespace FluentEditor.ThemePalette.Data
         public class ThemePaletteEntryData : ColorPalette.PaletteEntryData
         {
             protected readonly IReadOnlyList<(string title, string description)> _paletteEntryCaptions;
-            protected readonly IReadOnlyList<(int index, double tintOpacity, double? tintLuminosityOpacity)> _paletteEntryAcrylics;
+            protected readonly IReadOnlyList<(int index, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity)> _paletteEntryAcrylics;
 
             public ThemePaletteEntryData(IColorPaletteEntry baseColor, 
                                         IReadOnlyList<ContrastColorWrapper> contrastColors, 
                                         IReadOnlyList<(string title, string description)> captions,
-                                        IReadOnlyList<(int index, double tintOpacity, double? tintLuminosityOpacity)> acrylics)
+                                        IReadOnlyList<(int index, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity)> acrylics)
                 : base(baseColor, contrastColors)
             {
                 _paletteEntryCaptions = captions;
@@ -62,7 +62,7 @@ namespace FluentEditor.ThemePalette.Data
 
             public override EditableColorPaletteEntry GetColorPaletteEntry(IColorPaletteEntry baseColor, int idx)
             {
-                (bool isAcrylic, double tintOpacity, double? tintLuminosityOpacity) IsAcrylic()
+                (bool isAcrylic, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity) IsAcrylic()
                 {
                     if(_paletteEntryAcrylics != null)
                     {
@@ -70,19 +70,19 @@ namespace FluentEditor.ThemePalette.Data
                         {
                             if (acrylic.index == idx)
                             {
-                                return (true, acrylic.tintOpacity, acrylic.tintLuminosityOpacity);
+                                return (true, acrylic.isHostBackdrop, acrylic.tintOpacity, acrylic.tintLuminosityOpacity);
                             }
                         }
                     }
 
-                    return (false, 0, 0);
+                    return (false, false, 0, 0);
                 }
 
-                (bool isAcrylic, double tintOpacity, double? tintLuminosityOpacity) = IsAcrylic();
+                (bool isAcrylic, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity) = IsAcrylic();
 
                 if (isAcrylic)
                 {
-                    return new ThemeEditableAcrylicPaletteEntry(tintOpacity, tintLuminosityOpacity, null, default, false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
+                    return new ThemeEditableAcrylicPaletteEntry(isHostBackdrop, tintOpacity, tintLuminosityOpacity, null, default, false, GetPaletteEntryTitle(idx), GetPaletteEntryDescription(idx), baseColor.ActiveColorStringFormat, GetPaletteEntryContrastColors(idx));
                 }
                 else
                 {
@@ -106,14 +106,15 @@ namespace FluentEditor.ThemePalette.Data
                 return result;
             }
 
-            public static IReadOnlyList<(int index, double tintOpacity, double? tintLuminosityOpacity)> ParseAcrylics(JsonArray data)
+            public static IReadOnlyList<(int index, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity)> ParseAcrylics(JsonArray data)
             {
-                var result = new List<(int index, double tintOpacity, double? tintLuminosityOpacity)>();
+                var result = new List<(int index, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity)>();
 
                 foreach (var item in data)
                 {
                     var acrylic = item.GetObject();
                     int index = acrylic.ContainsKey("SourceIndex") ? acrylic["SourceIndex"].GetInt() : -1;
+                    bool isHostBackdrop = acrylic.ContainsKey("IsHostBackdrop") ? acrylic["IsHostBackdrop"].GetBoolean() : false;
                     double tintOpacity = acrylic.ContainsKey("TintOpacity") ? acrylic["TintOpacity"].GetNumber() : 0.0;
                     double? tintLuminosityOpacity = null;
 
@@ -127,7 +128,7 @@ namespace FluentEditor.ThemePalette.Data
                         }
                     }
 
-                    result.Add((index, tintOpacity, tintLuminosityOpacity));
+                    result.Add((index, isHostBackdrop, tintOpacity, tintLuminosityOpacity));
                 }
 
                 return result;
@@ -150,7 +151,7 @@ namespace FluentEditor.ThemePalette.Data
 
             IPaletteEntryData paletteEntryData = new ColorPalette.PaletteEntryData(baseColor, contrastColors);
             IReadOnlyList<(string title, string description)> captions = null;
-            IReadOnlyList<(int index, double tintOpacity, double? tintLuminosityOpacity)> opacities = null;
+            IReadOnlyList<(int index, bool isHostBackdrop, double tintOpacity, double? tintLuminosityOpacity)> opacities = null;
 
             if (data.ContainsKey("PaletteEntryCaptions"))
             {

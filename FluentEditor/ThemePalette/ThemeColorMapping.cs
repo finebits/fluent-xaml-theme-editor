@@ -432,6 +432,7 @@ namespace FluentEditor.ThemePalette
 
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
+                            acrylicBackground.IsHostBackdrop = acrylicBrushEntry.IsHostBackdrop;
                             acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
                             acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
@@ -449,6 +450,7 @@ namespace FluentEditor.ThemePalette
 
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
+                            acrylicBackground.IsHostBackdrop = acrylicBrushEntry.IsHostBackdrop;
                             acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
                             acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
@@ -465,6 +467,7 @@ namespace FluentEditor.ThemePalette
 
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
+                            acrylicBackground.IsHostBackdrop = acrylicBrushEntry.IsHostBackdrop;
                             acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
                             acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }

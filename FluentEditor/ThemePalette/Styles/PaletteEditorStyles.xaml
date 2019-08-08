@@ -371,10 +371,17 @@
                                                                 Width="300"
                                                                 VerticalAlignment="Stretch"
                                                                 Orientation="Vertical">
-                                                                <TextBlock Margin="8,4"
-                                                                           FontSize="16"
-                                                                           FontWeight="SemiBold"
-                                                                           Text="{Binding Title}"/>
+                                                                <TextBlock
+                                                                    Margin="8,4"
+                                                                    FontSize="16"
+                                                                    FontWeight="SemiBold"
+                                                                    Text="{Binding Title}" />
+                                                                <ToggleSwitch
+                                                                    x:Uid="AcrylicBackdropSourceToggleSwitch"
+                                                                    Margin="8"
+                                                                    HorizontalAlignment="Stretch"
+                                                                    VerticalAlignment="Stretch"
+                                                                    IsOn="{Binding IsHostBackdrop, Mode=TwoWay}"/>
                                                                 <Slider
                                                                     x:Uid="AcrylicTintOpacitySlider"
                                                                     Margin="8"
@@ -387,7 +394,7 @@
                                                                     TickFrequency="0.05"
                                                                     TickPlacement="Outside"
                                                                     Value="{Binding TintOpacity, Mode=TwoWay}" />
-                                                                <!-- Todo: Crash in release mode (https://github.com/microsoft/microsoft-ui-xaml/issues/1022) -->
+                                                                <!--  Todo: Crash in release mode (https://github.com/microsoft/microsoft-ui-xaml/issues/1022)  -->
                                                                 <!--<ToggleSwitch
                                                                     x:Uid="AcrylicTintLuminosityOpacitySwitch"
                                                                     Margin="8,8,8,0"

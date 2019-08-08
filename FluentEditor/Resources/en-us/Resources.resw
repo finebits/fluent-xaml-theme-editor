@@ -399,4 +399,7 @@
   <data name="TestContentTextBlock.Text" xml:space="preserve">
     <value>Text block</value>
   </data>
+  <data name="AcrylicBackdropSourceToggleSwitch.Header" xml:space="preserve">
+    <value>Host backdrop source</value>
+  </data>
 </root>

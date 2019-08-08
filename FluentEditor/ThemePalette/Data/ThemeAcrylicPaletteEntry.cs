@@ -34,8 +34,9 @@ namespace FluentEditor.ThemePalette.Data
                 activeColorStringFormat = data["ActiveColorStringFormat"].GetEnum<FluentEditorShared.Utils.ColorStringFormat>();
             }
 
-            if (data.ContainsKey(nameof(TintOpacity)) && data.ContainsKey(nameof(TintLuminosityOpacity)))
+            if (data.ContainsKey(nameof(IsHostBackdrop)) && data.ContainsKey(nameof(TintOpacity)) && data.ContainsKey(nameof(TintLuminosityOpacity)))
             {
+                var isHostBackdrop = data[nameof(IsHostBackdrop)].GetBoolean();
                 var tintOpacity = data[nameof(TintOpacity)].GetNumber();
                 double? tintLuminosityOpacity = null;
                 var tintLuminosityOpacityString = data[nameof(TintLuminosityOpacity)].GetString();
@@ -45,20 +46,33 @@ namespace FluentEditor.ThemePalette.Data
                     tintLuminosityOpacity = value;
                 }
 
-                return new ThemeEditableAcrylicPaletteEntry(tintOpacity, tintLuminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
+                return new ThemeEditableAcrylicPaletteEntry(isHostBackdrop, tintOpacity, tintLuminosityOpacity, sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
             }
 
             return new EditableColorPaletteEntry(sourceColor, customColor, useCustomColor, data.GetOptionalString("Title"), data.GetOptionalString("Description"), activeColorStringFormat, contrastColors);
         }
 
-        public ThemeEditableAcrylicPaletteEntry(double sourceTintOpacity, double? sourceTintLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
+        public ThemeEditableAcrylicPaletteEntry(bool sourceHostBackdrop, double sourceTintOpacity, double? sourceTintLuminosityOpacity, IColorPaletteEntry sourceColor, Color customColor, bool useCustomColor, string title, string description, FluentEditorShared.Utils.ColorStringFormat activeColorStringFormat, IReadOnlyList<ContrastColorWrapper> contrastColors)
             : base(sourceColor, customColor, useCustomColor, title, description, activeColorStringFormat, contrastColors)
         {
+            SourceHostBackdrop = sourceHostBackdrop;
+            IsHostBackdrop = SourceHostBackdrop;
+
             SourceTintOpacity = sourceTintOpacity;
             TintOpacity = SourceTintOpacity;
 
             SourceTintLuminosityOpacity = sourceTintLuminosityOpacity;
             TintLuminosityOpacity = SourceTintLuminosityOpacity;
+        }
+
+        private bool _sourceHostBackdrop = false;
+        public bool SourceHostBackdrop
+        {
+            get { return _sourceHostBackdrop; }
+            set
+            {
+                _sourceHostBackdrop = value;
+            }
         }
 
         private double _sourceTintOpacity = 0;
@@ -80,6 +94,30 @@ namespace FluentEditor.ThemePalette.Data
                 SetDoubleValue(ref _sourceTintLuminosityOpacity, value);
             }
         }
+
+        private bool _isHostBackdrop = false;
+        public bool IsHostBackdrop
+        {
+            get { return _isHostBackdrop; }
+            set
+            {
+                if (_isHostBackdrop != value)
+                {
+                    _isHostBackdrop = value;
+                    RaiseActiveColorChanged();
+                    RaisePropertyChangedFromSource();
+                }
+            }
+        }
+
+        public bool IsCustomHostBackdrop
+        {
+            get
+            {
+                return _isHostBackdrop != _sourceHostBackdrop;
+            }
+        }
+
 
         private double _tintOpacity = 0;
         public double TintOpacity
