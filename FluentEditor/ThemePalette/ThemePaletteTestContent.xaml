@@ -59,8 +59,13 @@
             <DataTemplate x:Key="TextBlock">
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
                     <TextBlock
+                        Margin="0,16,0,16"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        Text="{Binding}" />
+                    <TextBlock
                         x:Uid="TestContentTextBlock"
-                        Margin="0,28,0,16"
+                        Margin="0,0,0,16"
                         Style="{StaticResource BaseTextBlockStyle}" />
                     <TextBlock
                         x:Uid="TestContentActiveTextBlock"
@@ -134,7 +139,7 @@
                     <TextBlock
                         Margin="4,12"
                         HorizontalAlignment="Center"
-                        Style="{StaticResource TextBlockStyle}"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="{Binding}"
                         TextTrimming="CharacterEllipsis" />
                     <StackPanel
@@ -375,6 +380,7 @@
                     BorderThickness="{ThemeResource RegionThickness}" />
 
                 <ContentControl
+                    x:Uid="BackgroundContent"
                     Grid.Row="3"
                     Grid.Column="0"
                     Padding="8,0"
@@ -395,6 +401,7 @@
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}" />
                 <ContentControl
+                    x:Uid="Background2ndContent"
                     Grid.Row="3"
                     Grid.Column="1"
                     Padding="8,0"
@@ -417,6 +424,7 @@
                     BorderThickness="{ThemeResource RegionThickness}" />
 
                 <ContentControl
+                    x:Uid="Background3rdContent"
                     Grid.Row="3"
                     Grid.Column="2"
                     Padding="8,0"
@@ -436,9 +444,9 @@
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl
+                        x:Uid="AcrylicBackgroundContent"
                         HorizontalAlignment="Center"
-                        ContentTemplate="{StaticResource AcrylicTextBlock}"
-                        DataContext="HostBackdrop" />
+                        ContentTemplate="{StaticResource AcrylicTextBlock}" />
                 </Border>
 
                 <Border
@@ -448,11 +456,11 @@
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl
+                        x:Uid="AcrylicBackground2ndContent"
                         HorizontalAlignment="Center"
-                        ContentTemplate="{StaticResource AcrylicTextBlock}"
-                        DataContext="Custom Backdrop Acrylic" />
+                        ContentTemplate="{StaticResource AcrylicTextBlock}" />
                 </Border>
-                
+
                 <Border
                     Grid.Row="2"
                     Grid.ColumnSpan="3"
@@ -460,9 +468,9 @@
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl
+                        x:Uid="AcrylicBackground3rdContent"
                         HorizontalAlignment="Center"
-                        ContentTemplate="{StaticResource AcrylicTextBlock}"
-                        DataContext="Custom Backdrop Acrylic" />
+                        ContentTemplate="{StaticResource AcrylicTextBlock}" />
                 </Border>
 
             </Grid>

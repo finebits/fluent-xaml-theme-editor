@@ -402,4 +402,22 @@
   <data name="AcrylicBackdropSourceToggleSwitch.Header" xml:space="preserve">
     <value>Host backdrop source</value>
   </data>
+  <data name="AcrylicBackground2ndContent.DataContext" xml:space="preserve">
+    <value>Acrylic 2nd background</value>
+  </data>
+  <data name="AcrylicBackground3rdContent.DataContext" xml:space="preserve">
+    <value>Acrylic 3rd background</value>
+  </data>
+  <data name="AcrylicBackgroundContent.DataContext" xml:space="preserve">
+    <value>Acrylic background</value>
+  </data>
+  <data name="Background2ndContent.DataContext" xml:space="preserve">
+    <value>2nd background</value>
+  </data>
+  <data name="Background3rdContent.DataContext" xml:space="preserve">
+    <value>3rd background</value>
+  </data>
+  <data name="BackgroundContent.DataContext" xml:space="preserve">
+    <value>Background</value>
+  </data>
 </root>
