@@ -13,6 +13,8 @@
     <model:ThemeExtraPalette x:Name="DarkExtraPalette" />
     <model:ThemeExtraPalette x:Name="LightExtraPalette" />
 
+    <local:AcrylicBackgroundConverter x:Key="AcrylicBackgroundConverter" />
+
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
             <ResourceDictionary.MergedDictionaries>
@@ -82,16 +84,25 @@
                     <SolidColorBrush x:Key="HighBackgroundBrush" Color="{Binding HighBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
 
                     <muxm:AcrylicBrush
-                        x:Key="AcrylicBackdropBackgroundBrush"
-                        BackgroundSource="Backdrop"
-                        FallbackColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
-                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
+                        x:Key="AcrylicBackgroundBrush"
+                        BackgroundSource="{Binding AcrylicBackground.IsHostBackdrop, Source={StaticResource DarkExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground.TintOpacity, Source={StaticResource DarkExtraPalette}}" />
 
                     <muxm:AcrylicBrush
-                        x:Key="AcrylicHostBackdropBackgroundBrush"
-                        BackgroundSource="HostBackdrop"
-                        FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}"
-                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource DarkExtraPalette}}" />
+                        x:Key="AcrylicBackground2ndBrush"
+                        BackgroundSource="{Binding AcrylicBackground2nd.IsHostBackdrop, Source={StaticResource DarkExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground2nd.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground2nd.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground2nd.TintOpacity, Source={StaticResource DarkExtraPalette}}" />
+
+                    <muxm:AcrylicBrush
+                        x:Key="AcrylicBackground3rdBrush"
+                        BackgroundSource="{Binding AcrylicBackground3rd.IsHostBackdrop, Source={StaticResource DarkExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground3rd.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground3rd.Color, Source={StaticResource DarkExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground3rd.TintOpacity, Source={StaticResource DarkExtraPalette}}" />
 
                     <SolidColorBrush x:Key="RegionBorderBrush" Color="Transparent" />
 
@@ -244,17 +255,25 @@
                     <SolidColorBrush x:Key="HighBackgroundBrush" Color="{Binding HighBackgroundColor, Source={StaticResource LightExtraPalette}}" />
 
                     <muxm:AcrylicBrush
-                        x:Key="AcrylicBackdropBackgroundBrush"
-                        BackgroundSource="Backdrop"
-                        FallbackColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}"
-                        TintColor="{Binding AcrylicBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" />
-
+                        x:Key="AcrylicBackgroundBrush"
+                        BackgroundSource="{Binding AcrylicBackground.IsHostBackdrop, Source={StaticResource LightExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground.Color, Source={StaticResource LightExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground.Color, Source={StaticResource LightExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground.TintOpacity, Source={StaticResource LightExtraPalette}}" />
 
                     <muxm:AcrylicBrush
-                        x:Key="AcrylicHostBackdropBackgroundBrush"
-                        BackgroundSource="HostBackdrop"
-                        FallbackColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}"
-                        TintColor="{Binding AcrylicHostBackdropBackgroundColor, Source={StaticResource LightExtraPalette}}" />
+                        x:Key="AcrylicBackground2ndBrush"
+                        BackgroundSource="{Binding AcrylicBackground2nd.IsHostBackdrop, Source={StaticResource LightExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground2nd.Color, Source={StaticResource LightExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground2nd.Color, Source={StaticResource LightExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground2nd.TintOpacity, Source={StaticResource LightExtraPalette}}" />
+
+                    <muxm:AcrylicBrush
+                        x:Key="AcrylicBackground3rdBrush"
+                        BackgroundSource="{Binding AcrylicBackground3rd.IsHostBackdrop, Source={StaticResource LightExtraPalette}, Converter={StaticResource AcrylicBackgroundConverter}}"
+                        FallbackColor="{Binding AcrylicBackground3rd.Color, Source={StaticResource LightExtraPalette}}"
+                        TintColor="{Binding AcrylicBackground3rd.Color, Source={StaticResource LightExtraPalette}}"
+                        TintOpacity="{Binding AcrylicBackground3rd.TintOpacity, Source={StaticResource LightExtraPalette}}" />
 
 
                     <SolidColorBrush x:Key="RegionBorderBrush" Color="Transparent" />
@@ -351,15 +370,18 @@
             <SolidColorBrush x:Key="HighBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
 
             <muxm:AcrylicBrush
-                x:Key="AcrylicBackdropBackgroundBrush"
+                x:Key="AcrylicBackgroundBrush"
                 AlwaysUseFallback="True"
-                BackgroundSource="Backdrop"
                 FallbackColor="{ThemeResource SystemColorWindowColor}" />
 
             <muxm:AcrylicBrush
-                x:Key="AcrylicHostBackdropBackgroundBrush"
+                x:Key="AcrylicBackground2ndBrush"
                 AlwaysUseFallback="True"
-                BackgroundSource="HostBackdrop"
+                FallbackColor="{ThemeResource SystemColorWindowColor}" />
+
+            <muxm:AcrylicBrush
+                x:Key="AcrylicBackground3rdBrush"
+                AlwaysUseFallback="True"
                 FallbackColor="{ThemeResource SystemColorWindowColor}" />
 
             <SolidColorBrush x:Key="RegionBorderBrush" Color="{ThemeResource SystemColorButtonTextColor}" />

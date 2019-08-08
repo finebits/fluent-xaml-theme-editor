@@ -135,69 +135,82 @@ namespace FluentEditor.ThemePalette.Model
             }
         }
 
-        private Color _acrylicBackdropBackgroundColor;
-        public Color AcrylicBackdropBackgroundColor
+        private AcrylicBrushInfo _acrylicBackground;
+        public AcrylicBrushInfo AcrylicBackground
         {
-            get { return _acrylicBackdropBackgroundColor; }
+            get { return _acrylicBackground; }
             set
             {
-                SetProperty(ref _acrylicBackdropBackgroundColor, value);
+                SetProperty(ref _acrylicBackground, value);
             }
         }
 
-        private double _acrylicBackdropBackgroundTintOpacity;
-        public double AcrylicBackdropBackgroundTintOpacity
+        private AcrylicBrushInfo _acrylicBackground2nd;
+        public AcrylicBrushInfo AcrylicBackground2nd
         {
-            get { return _acrylicBackdropBackgroundTintOpacity; }
+            get { return _acrylicBackground2nd; }
             set
             {
-                SetProperty(ref _acrylicBackdropBackgroundTintOpacity, value);
+                SetProperty(ref _acrylicBackground2nd, value);
             }
         }
 
-        private double? _acrylicBackdropBackgroundTintLuminosityOpacity;
-        public double? AcrylicBackdropBackgroundTintLuminosityOpacity
+        private AcrylicBrushInfo _acrylicBackground3rd;
+        public AcrylicBrushInfo AcrylicBackground3rd
         {
-            get { return _acrylicBackdropBackgroundTintLuminosityOpacity; }
+            get { return _acrylicBackground3rd; }
             set
             {
-                SetProperty(ref _acrylicBackdropBackgroundTintLuminosityOpacity, value);
-            }
-        }
-
-        private Color _acrylicHostBackdropBackgroundColor;
-        public Color AcrylicHostBackdropBackgroundColor
-        {
-            get { return _acrylicHostBackdropBackgroundColor; }
-            set
-            {
-                SetProperty(ref _acrylicHostBackdropBackgroundColor, value);
-            }
-        }
-
-        private double _acrylicHostBackdropBackgroundTintOpacity;
-        public double AcrylicHostBackdropBackgroundTintOpacity
-        {
-            get { return _acrylicHostBackdropBackgroundTintOpacity; }
-            set
-            {
-                SetProperty(ref _acrylicHostBackdropBackgroundTintOpacity, value);
-            }
-        }
-
-        private double? _acrylicHostBackdropBackgroundTintLuminosityOpacity;
-        public double? AcrylicHostBackdropBackgroundTintLuminosityOpacity
-        {
-            get { return _acrylicHostBackdropBackgroundTintLuminosityOpacity; }
-            set
-            {
-                SetProperty(ref _acrylicHostBackdropBackgroundTintLuminosityOpacity, value);
+                SetProperty(ref _acrylicBackground3rd, value);
             }
         }
 
         public static Color GetColor(Color? color)
         {
             return color ?? Colors.Transparent;
+        }
+    }
+
+    public class AcrylicBrushInfo : BindableBase
+    {
+        private bool _isHostBackdrop = false;
+        public bool IsHostBackdrop
+        {
+            get { return _isHostBackdrop; }
+            set
+            {
+                SetProperty(ref _isHostBackdrop, value);
+            }
+        }
+
+        private Color _color;
+        public Color Color
+        {
+            get { return _color; }
+            set
+            {
+                SetProperty(ref _color, value);
+            }
+        }
+
+        private double _tintOpacity;
+        public double TintOpacity
+        {
+            get { return _tintOpacity; }
+            set
+            {
+                SetProperty(ref _tintOpacity, value);
+            }
+        }
+
+        private double? _tintLuminosityOpacity;
+        public double? TintLuminosityOpacity
+        {
+            get { return _tintLuminosityOpacity; }
+            set
+            {
+                SetProperty(ref _tintLuminosityOpacity, value);
+            }
         }
     }
 }

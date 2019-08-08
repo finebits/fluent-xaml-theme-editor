@@ -1,698 +1,730 @@
 ﻿{
-    "LightRegion": {
-        "Steps": 5,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#33000000",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#66000000",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#CC000000",
-                    "Mask": "#FF000000"
-                }
-            ]
+  "LightRegion": {
+    "Steps": 6,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
+        {
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
         },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Background color"
-            },
-            {
-                "Title": "2nd background color"
-            },
-            {
-                "Title": "3rd background color"
-            },
-            {
-              "Title": "Acrylic HostBackdrop"
-            },
-            {
-                "Title": "Acrylic Backdrop"
-            }
-        ],
-        "AcrylicData": [
-            {
-              "SourceIndex": 3,
-              "TintOpacity": 0.8,
-              "TintLuminosityOpacity": "null"
-            },
-            {
-                "SourceIndex": 4,
-                "TintOpacity": 0.8,
-                "TintLuminosityOpacity": "null"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Light Background",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FFFFFFFF"
+        {
+          "Pattern": "#33000000",
+          "Mask": "#FFFFFFFF"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FFFFFFFF"
+        },
+        {
+          "Pattern": "#33000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
         }
+      ]
     },
-    "DarkRegion": {
-        "Steps": 5,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#33FFFFFF",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#66FFFFFF",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#33000000",
-                    "Mask": "#FF000000"
-                }
-            ]
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Background color"
-            },
-            {
-                "Title": "2nd background color"
-            },
-            {
-              "Title": "3rd background color"
-            },
-            {
-              "Title": "Acrylic HostBackdrop"
-            },
-            {
-                "Title": "Acrylic Backdrop"
-            }
-        ],
-        "AcrylicData": [
-            {
-              "SourceIndex": 3,
-              "TintOpacity": 0.8,
-              "TintLuminosityOpacity": "null"
-            },
-            {
-              "SourceIndex": 4,
-              "TintOpacity": 0.8,
-              "TintLuminosityOpacity": "null"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Dark Background",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF282828"
-        }
-    },
-    "LightBase": {
-        "Steps": 7,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FFFFFFFF",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#CC000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#66000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#33000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#00000000",
-                    "Mask": "#FF000000"
-                }
-            ]
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Accent contrast color"
-            },
-            {
-                "Title": "Active color"
-            },
-            {
-                "Title": "Text Color"
-            },
-            {
-                "Title": "Medium text color"
-            },
-            {
-                "Title": "Low text, disabled color"
-            },
-            {
-                "Title": "Button background color"
-            },
-            {
-                "Title": "Commandbar background color"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Light Text & Controls",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF000000"
-        }
-    },
-    "DarkBase": {
-        "Steps": 7,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FFFFFFFF",
-                    "Mask": "#FFFFFFFF"
-                },
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#CC000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#66000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#33000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#00000000",
-                    "Mask": "#FF000000"
-                }
-            ]
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Accent contrast color"
-            },
-            {
-                "Title": "Active color"
-            },
-            {
-                "Title": "Text Color"
-            },
-            {
-                "Title": "Medium text color"
-            },
-            {
-                "Title": "Low text, disabled color"
-            },
-            {
-                "Title": "Button background color"
-            },
-            {
-                "Title": "Commandbar background color"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Dark Text & Controls",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FFFFFFFF"
-        }
-    },
-    "LightPrimary": {
-        "Steps": 7,
-        "PaletteGenerator": {
-            "Mode": "RGB",
-            "ClipDark": 0.25,
-            "ClipLight": 0.25
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Accent Light3"
-            },
-            {
-                "Title": "Accent Light2"
-            },
-            {
-                "Title": "Accent Light1"
-            },
-            {
-                "Title": "Accent"
-            },
-            {
-                "Title": "Accent Dark1"
-            },
-            {
-                "Title": "Accent Dark2"
-            },
-            {
-                "Title": "Accent Dark3"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Light Accent",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF1686AE"
-        }
-    },
-    "DarkPrimary": {
-        "Steps": 7,
-        "PaletteGenerator": {
-            "Mode": "RGB",
-            "ClipDark": 0.25,
-            "ClipLight": 0.25
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Accent Light3"
-            },
-            {
-                "Title": "Accent Light2"
-            },
-            {
-                "Title": "Accent Light1"
-            },
-            {
-                "Title": "Accent"
-            },
-            {
-                "Title": "Accent Dark1"
-            },
-            {
-                "Title": "Accent Dark2"
-            },
-            {
-                "Title": "Accent Dark3"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Dark Accent",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF1686AE"
-        }
-    },
-
-    "LightHyperlink": {
-        "Steps": 3,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#66000000",
-                    "Mask": "#FFFFFFFF"
-                }
-            ]
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Hyperlink base color"
-            },
-            {
-                "Title": "Hyperlink active color"
-            },
-            {
-                "Title": "Hyperlink disabled Color"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Light Hyperlink",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF00FF00"
-        }
-    },
-    "DarkHyperlink": {
-        "Steps": 3,
-        "PaletteGenerator": {
-            "Mode": "Mix",
-            "MixColors": [
-                {
-                    "Pattern": "#FF000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#99000000",
-                    "Mask": "#FF000000"
-                },
-                {
-                    "Pattern": "#66FFFFFF",
-                    "Mask": "#FFFFFFFF"
-                }
-            ]
-        },
-        "PaletteEntryCaptions": [
-            {
-                "Title": "Hyperlink base color"
-            },
-            {
-                "Title": "Hyperlink active color"
-            },
-            {
-                "Title": "Hyperlink disabled Color"
-            }
-        ],
-        "BaseColor": {
-            "Title": "Dark Hyperlink",
-            "ActiveColorStringFormat": "ARGB",
-            "Color": "#FF00FF00"
-        }
-    },
-
-    "LightPaletteMapping": [
-        {
-            "Target": "RegionBackground",
-            "Source": "LightRegion",
-            "SourceIndex": "0"
-        },
-
-        {
-            "Target": "MediumBackground",
-            "Source": "LightRegion",
-            "SourceIndex": "1"
-        },
-
-        {
-            "Target": "HighBackground",
-            "Source": "LightRegion",
-            "SourceIndex": "2"
-        },
-
-        {
-            "Target": "AcrylicHostBackdropBackground",
-            "Source": "LightRegion",
-            "SourceIndex": "3"
-        },
-        {
-            "Target": "AcrylicBackdropBackground",
-            "Source": "LightRegion",
-            "SourceIndex": "4"
-        },
-
-
-        {
-            "Target": "LightAccent3",
-            "Source": "LightPrimary",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "LightAccent2",
-            "Source": "LightPrimary",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "LightAccent1",
-            "Source": "LightPrimary",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "Accent",
-            "Source": "LightPrimary",
-            "SourceIndex": "3"
-        },
-        {
-            "Target": "DarkAccent1",
-            "Source": "LightPrimary",
-            "SourceIndex": "4"
-        },
-        {
-            "Target": "DarkAccent2",
-            "Source": "LightPrimary",
-            "SourceIndex": "5"
-        },
-        {
-            "Target": "DarkAccent3",
-            "Source": "LightPrimary",
-            "SourceIndex": "6"
-        },
-
-
-        {
-            "Target": "ChromeWhite",
-            "Source": "LightBase",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "TextActive",
-            "Source": "LightBase",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "BaseHigh",
-            "Source": "LightBase",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "BaseMediumHigh",
-            "Source": "LightBase",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "BaseMedium",
-            "Source": "LightBase",
-            "SourceIndex": "3"
-        },
-        {
-            "Target": "BaseMediumLow",
-            "Source": "LightBase",
-            "SourceIndex": "4"
-        },
-        {
-            "Target": "BaseLow",
-            "Source": "LightBase",
-            "SourceIndex": "5"
-        },
-        {
-            "Target": "ChromeMedium",
-            "Source": "LightBase",
-            "SourceIndex": "6"
-        },
-
-        {
-            "Target": "Hyperlink",
-            "Source": "LightHyperlink",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "HyperlinkActive",
-            "Source": "LightHyperlink",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "HyperlinkDisabled",
-            "Source": "LightHyperlink",
-            "SourceIndex": "2"
-        }
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Background color"
+      },
+      {
+        "Title": "2nd background color"
+      },
+      {
+        "Title": "3rd background color"
+      },
+      {
+        "Title": "Acrylic background"
+      },
+      {
+        "Title": "Acrylic 2nd background"
+      },
+      {
+        "Title": "Acrylic 3rd background"
+      }
     ],
-    "DarkPaletteMapping": [
-        {
-            "Target": "RegionBackground",
-            "Source": "DarkRegion",
-            "SourceIndex": "0"
-        },
-
-        {
-            "Target": "MediumBackground",
-            "Source": "DarkRegion",
-            "SourceIndex": "1"
-        },
-
-        {
-            "Target": "HighBackground",
-            "Source": "DarkRegion",
-            "SourceIndex": "2"
-        },
-
-        {
-          "Target": "AcrylicHostBackdropBackground",
-          "Source": "DarkRegion",
-          "SourceIndex": "3"
-        },
-        {
-            "Target": "AcrylicBackdropBackground",
-            "Source": "DarkRegion",
-            "SourceIndex": "4"
-        },
-
-        {
-            "Target": "LightAccent3",
-            "Source": "DarkPrimary",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "LightAccent2",
-            "Source": "DarkPrimary",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "LightAccent1",
-            "Source": "DarkPrimary",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "Accent",
-            "Source": "DarkPrimary",
-            "SourceIndex": "3"
-        },
-        {
-            "Target": "DarkAccent1",
-            "Source": "DarkPrimary",
-            "SourceIndex": "4"
-        },
-        {
-            "Target": "DarkAccent2",
-            "Source": "DarkPrimary",
-            "SourceIndex": "5"
-        },
-        {
-            "Target": "DarkAccent3",
-            "Source": "DarkPrimary",
-            "SourceIndex": "6"
-        },
-
-        {
-            "Target": "ChromeWhite",
-            "Source": "DarkBase",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "TextActive",
-            "Source": "DarkBase",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "BaseHigh",
-            "Source": "DarkBase",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "BaseMediumHigh",
-            "Source": "DarkBase",
-            "SourceIndex": "2"
-        },
-        {
-            "Target": "BaseMedium",
-            "Source": "DarkBase",
-            "SourceIndex": "3"
-        },
-        {
-            "Target": "BaseMediumLow",
-            "Source": "DarkBase",
-            "SourceIndex": "4"
-        },
-        {
-            "Target": "BaseLow",
-            "Source": "DarkBase",
-            "SourceIndex": "5"
-        },
-        {
-            "Target": "ChromeMedium",
-            "Source": "DarkBase",
-            "SourceIndex": "6"
-        },
-
-        {
-            "Target": "Hyperlink",
-            "Source": "DarkHyperlink",
-            "SourceIndex": "0"
-        },
-        {
-            "Target": "HyperlinkActive",
-            "Source": "DarkHyperlink",
-            "SourceIndex": "1"
-        },
-        {
-            "Target": "HyperlinkDisabled",
-            "Source": "DarkHyperlink",
-            "SourceIndex": "2"
-        }
+    "AcrylicData": [
+      {
+        "SourceIndex": 3,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      },
+      {
+        "SourceIndex": 4,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      },
+      {
+        "SourceIndex": 5,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      }
     ],
-    "Presets": [
+    "BaseColor": {
+      "Title": "Light Background",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FFFFFFFF"
+    }
+  },
+  "DarkRegion": {
+    "Steps": 6,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
         {
-            "Id": "Default",
-            "Name": "Default",
-            "LightRegionColor": "#FFFFFFFF",
-            "DarkRegionColor": "#FF000000",
-            "LightBaseColor": "#FF000000",
-            "DarkBaseColor": "#FFFFFFFF",
-            "LightPrimaryColor": "#FF0073CF",
-            "DarkPrimaryColor": "#FF0073CF",
-            "LightHyperlinkColor": "#FF0073CF",
-            "DarkHyperlinkColor": "#FF0073CF"
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
         },
         {
-            "Id": "Lavender",
-            "Name": "Lavender",
-            "LightRegionColor": "#FFFEF6FF",
-            "DarkRegionColor": "#FF262738",
-            "LightBaseColor": "#FF37104D",
-            "DarkBaseColor": "#FFEECFFF",
-            "LightPrimaryColor": "#FF8961CC",
-            "DarkPrimaryColor": "#FF8961CC",
-            "LightHyperlinkColor": "#FF8961CC",
-            "DarkHyperlinkColor": "#FF8961CC"
+          "Pattern": "#33FFFFFF",
+          "Mask": "#FFFFFFFF"
         },
         {
-            "Id": "Forest",
-            "Name": "Forest",
-            "LightRegionColor": "#FFF7FFFF",
-            "DarkRegionColor": "#FF353819",
-            "LightBaseColor": "#FF444D23",
-            "DarkBaseColor": "#FFFF996E",
-            "LightPrimaryColor": "#FF34854D",
-            "DarkPrimaryColor": "#FF34854D",
-            "LightHyperlinkColor": "#FF34854D",
-            "DarkHyperlinkColor": "#FF34854D"
+          "Pattern": "#66FFFFFF",
+          "Mask": "#FFFFFFFF"
         },
         {
-            "Id": "Nighttime",
-            "Name": "Nighttime",
-            "LightRegionColor": "#FFCFEAFF",
-            "DarkRegionColor": "#FF0D2644",
-            "LightBaseColor": "#FF314C59",
-            "DarkBaseColor": "#FF45B5FF",
-            "LightPrimaryColor": "#FFCC4D11",
-            "DarkPrimaryColor": "#FFCC4D11",
-            "LightHyperlinkColor": "#FFCC4D11",
-            "DarkHyperlinkColor": "#FFCC4D11"
+          "Pattern": "#33000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
         }
-    ]
+      ]
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Background color"
+      },
+      {
+        "Title": "2nd background color"
+      },
+      {
+        "Title": "3rd background color"
+      },
+      {
+        "Title": "Acrylic background"
+      },
+      {
+        "Title": "Acrylic 2nd background"
+      },
+      {
+        "Title": "Acrylic 3rd background"
+      }
+    ],
+    "AcrylicData": [
+      {
+        "SourceIndex": 3,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      },
+      {
+        "SourceIndex": 4,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      },
+      {
+        "SourceIndex": 5,
+        "TintOpacity": 0.8,
+        "TintLuminosityOpacity": "null"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Dark Background",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF282828"
+    }
+  },
+  "LightBase": {
+    "Steps": 7,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
+        {
+          "Pattern": "#FFFFFFFF",
+          "Mask": "#FFFFFFFF"
+        },
+        {
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#CC000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#33000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#00000000",
+          "Mask": "#FF000000"
+        }
+      ]
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Accent contrast color"
+      },
+      {
+        "Title": "Active color"
+      },
+      {
+        "Title": "Text Color"
+      },
+      {
+        "Title": "Medium text color"
+      },
+      {
+        "Title": "Low text, disabled color"
+      },
+      {
+        "Title": "Button background color"
+      },
+      {
+        "Title": "Commandbar background color"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Light Text & Controls",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF000000"
+    }
+  },
+  "DarkBase": {
+    "Steps": 7,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
+        {
+          "Pattern": "#FFFFFFFF",
+          "Mask": "#FFFFFFFF"
+        },
+        {
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#CC000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#33000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#00000000",
+          "Mask": "#FF000000"
+        }
+      ]
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Accent contrast color"
+      },
+      {
+        "Title": "Active color"
+      },
+      {
+        "Title": "Text Color"
+      },
+      {
+        "Title": "Medium text color"
+      },
+      {
+        "Title": "Low text, disabled color"
+      },
+      {
+        "Title": "Button background color"
+      },
+      {
+        "Title": "Commandbar background color"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Dark Text & Controls",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FFFFFFFF"
+    }
+  },
+  "LightPrimary": {
+    "Steps": 7,
+    "PaletteGenerator": {
+      "Mode": "RGB",
+      "ClipDark": 0.25,
+      "ClipLight": 0.25
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Accent Light3"
+      },
+      {
+        "Title": "Accent Light2"
+      },
+      {
+        "Title": "Accent Light1"
+      },
+      {
+        "Title": "Accent"
+      },
+      {
+        "Title": "Accent Dark1"
+      },
+      {
+        "Title": "Accent Dark2"
+      },
+      {
+        "Title": "Accent Dark3"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Light Accent",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF1686AE"
+    }
+  },
+  "DarkPrimary": {
+    "Steps": 7,
+    "PaletteGenerator": {
+      "Mode": "RGB",
+      "ClipDark": 0.25,
+      "ClipLight": 0.25
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Accent Light3"
+      },
+      {
+        "Title": "Accent Light2"
+      },
+      {
+        "Title": "Accent Light1"
+      },
+      {
+        "Title": "Accent"
+      },
+      {
+        "Title": "Accent Dark1"
+      },
+      {
+        "Title": "Accent Dark2"
+      },
+      {
+        "Title": "Accent Dark3"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Dark Accent",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF1686AE"
+    }
+  },
+
+  "LightHyperlink": {
+    "Steps": 3,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
+        {
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66000000",
+          "Mask": "#FFFFFFFF"
+        }
+      ]
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Hyperlink base color"
+      },
+      {
+        "Title": "Hyperlink active color"
+      },
+      {
+        "Title": "Hyperlink disabled Color"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Light Hyperlink",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF00FF00"
+    }
+  },
+  "DarkHyperlink": {
+    "Steps": 3,
+    "PaletteGenerator": {
+      "Mode": "Mix",
+      "MixColors": [
+        {
+          "Pattern": "#FF000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#99000000",
+          "Mask": "#FF000000"
+        },
+        {
+          "Pattern": "#66FFFFFF",
+          "Mask": "#FFFFFFFF"
+        }
+      ]
+    },
+    "PaletteEntryCaptions": [
+      {
+        "Title": "Hyperlink base color"
+      },
+      {
+        "Title": "Hyperlink active color"
+      },
+      {
+        "Title": "Hyperlink disabled Color"
+      }
+    ],
+    "BaseColor": {
+      "Title": "Dark Hyperlink",
+      "ActiveColorStringFormat": "ARGB",
+      "Color": "#FF00FF00"
+    }
+  },
+
+  "LightPaletteMapping": [
+    {
+      "Target": "RegionBackground",
+      "Source": "LightRegion",
+      "SourceIndex": "0"
+    },
+
+    {
+      "Target": "MediumBackground",
+      "Source": "LightRegion",
+      "SourceIndex": "1"
+    },
+
+    {
+      "Target": "HighBackground",
+      "Source": "LightRegion",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "AcrylicBackground",
+      "Source": "LightRegion",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "AcrylicBackground2nd",
+      "Source": "LightRegion",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "AcrylicBackground3rd",
+      "Source": "LightRegion",
+      "SourceIndex": "5"
+    },
+
+
+    {
+      "Target": "LightAccent3",
+      "Source": "LightPrimary",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "LightAccent2",
+      "Source": "LightPrimary",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "LightAccent1",
+      "Source": "LightPrimary",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "Accent",
+      "Source": "LightPrimary",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "DarkAccent1",
+      "Source": "LightPrimary",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "DarkAccent2",
+      "Source": "LightPrimary",
+      "SourceIndex": "5"
+    },
+    {
+      "Target": "DarkAccent3",
+      "Source": "LightPrimary",
+      "SourceIndex": "6"
+    },
+
+
+    {
+      "Target": "ChromeWhite",
+      "Source": "LightBase",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "TextActive",
+      "Source": "LightBase",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "BaseHigh",
+      "Source": "LightBase",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "BaseMediumHigh",
+      "Source": "LightBase",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "BaseMedium",
+      "Source": "LightBase",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "BaseMediumLow",
+      "Source": "LightBase",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "BaseLow",
+      "Source": "LightBase",
+      "SourceIndex": "5"
+    },
+    {
+      "Target": "ChromeMedium",
+      "Source": "LightBase",
+      "SourceIndex": "6"
+    },
+
+    {
+      "Target": "Hyperlink",
+      "Source": "LightHyperlink",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "HyperlinkActive",
+      "Source": "LightHyperlink",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "HyperlinkDisabled",
+      "Source": "LightHyperlink",
+      "SourceIndex": "2"
+    }
+  ],
+  "DarkPaletteMapping": [
+    {
+      "Target": "RegionBackground",
+      "Source": "DarkRegion",
+      "SourceIndex": "0"
+    },
+
+    {
+      "Target": "MediumBackground",
+      "Source": "DarkRegion",
+      "SourceIndex": "1"
+    },
+
+    {
+      "Target": "HighBackground",
+      "Source": "DarkRegion",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "AcrylicBackground",
+      "Source": "DarkRegion",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "AcrylicBackground2nd",
+      "Source": "DarkRegion",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "AcrylicBackground3rd",
+      "Source": "DarkRegion",
+      "SourceIndex": "5"
+    },
+
+    {
+      "Target": "LightAccent3",
+      "Source": "DarkPrimary",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "LightAccent2",
+      "Source": "DarkPrimary",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "LightAccent1",
+      "Source": "DarkPrimary",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "Accent",
+      "Source": "DarkPrimary",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "DarkAccent1",
+      "Source": "DarkPrimary",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "DarkAccent2",
+      "Source": "DarkPrimary",
+      "SourceIndex": "5"
+    },
+    {
+      "Target": "DarkAccent3",
+      "Source": "DarkPrimary",
+      "SourceIndex": "6"
+    },
+
+    {
+      "Target": "ChromeWhite",
+      "Source": "DarkBase",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "TextActive",
+      "Source": "DarkBase",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "BaseHigh",
+      "Source": "DarkBase",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "BaseMediumHigh",
+      "Source": "DarkBase",
+      "SourceIndex": "2"
+    },
+    {
+      "Target": "BaseMedium",
+      "Source": "DarkBase",
+      "SourceIndex": "3"
+    },
+    {
+      "Target": "BaseMediumLow",
+      "Source": "DarkBase",
+      "SourceIndex": "4"
+    },
+    {
+      "Target": "BaseLow",
+      "Source": "DarkBase",
+      "SourceIndex": "5"
+    },
+    {
+      "Target": "ChromeMedium",
+      "Source": "DarkBase",
+      "SourceIndex": "6"
+    },
+
+    {
+      "Target": "Hyperlink",
+      "Source": "DarkHyperlink",
+      "SourceIndex": "0"
+    },
+    {
+      "Target": "HyperlinkActive",
+      "Source": "DarkHyperlink",
+      "SourceIndex": "1"
+    },
+    {
+      "Target": "HyperlinkDisabled",
+      "Source": "DarkHyperlink",
+      "SourceIndex": "2"
+    }
+  ],
+  "Presets": [
+    {
+      "Id": "Default",
+      "Name": "Default",
+      "LightRegionColor": "#FFFFFFFF",
+      "DarkRegionColor": "#FF000000",
+      "LightBaseColor": "#FF000000",
+      "DarkBaseColor": "#FFFFFFFF",
+      "LightPrimaryColor": "#FF0073CF",
+      "DarkPrimaryColor": "#FF0073CF",
+      "LightHyperlinkColor": "#FF0073CF",
+      "DarkHyperlinkColor": "#FF0073CF"
+    },
+    {
+      "Id": "Lavender",
+      "Name": "Lavender",
+      "LightRegionColor": "#FFFEF6FF",
+      "DarkRegionColor": "#FF262738",
+      "LightBaseColor": "#FF37104D",
+      "DarkBaseColor": "#FFEECFFF",
+      "LightPrimaryColor": "#FF8961CC",
+      "DarkPrimaryColor": "#FF8961CC",
+      "LightHyperlinkColor": "#FF8961CC",
+      "DarkHyperlinkColor": "#FF8961CC"
+    },
+    {
+      "Id": "Forest",
+      "Name": "Forest",
+      "LightRegionColor": "#FFF7FFFF",
+      "DarkRegionColor": "#FF353819",
+      "LightBaseColor": "#FF444D23",
+      "DarkBaseColor": "#FFFF996E",
+      "LightPrimaryColor": "#FF34854D",
+      "DarkPrimaryColor": "#FF34854D",
+      "LightHyperlinkColor": "#FF34854D",
+      "DarkHyperlinkColor": "#FF34854D"
+    },
+    {
+      "Id": "Nighttime",
+      "Name": "Nighttime",
+      "LightRegionColor": "#FFCFEAFF",
+      "DarkRegionColor": "#FF0D2644",
+      "LightBaseColor": "#FF314C59",
+      "DarkBaseColor": "#FF45B5FF",
+      "LightPrimaryColor": "#FFCC4D11",
+      "DarkPrimaryColor": "#FFCC4D11",
+      "LightHyperlinkColor": "#FFCC4D11",
+      "DarkHyperlinkColor": "#FFCC4D11"
+    }
+  ]
 }

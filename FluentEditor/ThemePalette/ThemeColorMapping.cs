@@ -57,8 +57,9 @@ namespace FluentEditor.ThemePalette
         RegionBackground,
         MediumBackground,
         HighBackground,
-        AcrylicBackdropBackground,
-        AcrylicHostBackdropBackground
+        AcrylicBackground,
+        AcrylicBackground2nd,
+        AcrylicBackground3rd,
     }
     public enum ThemeColorSource
     {
@@ -422,27 +423,53 @@ namespace FluentEditor.ThemePalette
                 case ThemeColorTarget.HighBackground:
                     _extraPalette.HighBackgroundColor = _source.ActiveColor;
                     break;
-                case ThemeColorTarget.AcrylicBackdropBackground:
+                case ThemeColorTarget.AcrylicBackground:
                     {
+                        var acrylicBackground = new AcrylicBrushInfo()
+                        {
+                            Color = _source.ActiveColor
+                        };
+
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
-                            _extraPalette.AcrylicBackdropBackgroundTintOpacity = acrylicBrushEntry.TintOpacity;
-                            _extraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
+                            acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
+                            acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
 
-                        _extraPalette.AcrylicBackdropBackgroundColor = _source.ActiveColor;
+                        _extraPalette.AcrylicBackground = acrylicBackground;
                         break;
                     }
 
-                case ThemeColorTarget.AcrylicHostBackdropBackground:
+                case ThemeColorTarget.AcrylicBackground2nd:
                     {
+                        var acrylicBackground = new AcrylicBrushInfo()
+                        {
+                            Color = _source.ActiveColor
+                        };
+
                         if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
                         {
-                            _extraPalette.AcrylicHostBackdropBackgroundTintOpacity = acrylicBrushEntry.TintOpacity;
-                            _extraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
+                            acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
+                            acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
                         }
 
-                        _extraPalette.AcrylicHostBackdropBackgroundColor = _source.ActiveColor;
+                        _extraPalette.AcrylicBackground2nd = acrylicBackground;
+                        break;
+                    }
+                case ThemeColorTarget.AcrylicBackground3rd:
+                    {
+                        var acrylicBackground = new AcrylicBrushInfo()
+                        {
+                            Color = _source.ActiveColor
+                        };
+
+                        if (_source is Data.IAcrylicBrushEntry acrylicBrushEntry)
+                        {
+                            acrylicBackground.TintOpacity = acrylicBrushEntry.TintOpacity;
+                            acrylicBackground.TintLuminosityOpacity = acrylicBrushEntry.TintLuminosityOpacity;
+                        }
+
+                        _extraPalette.AcrylicBackground3rd = acrylicBackground;
                         break;
                     }
             }

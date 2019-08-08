@@ -2,9 +2,11 @@
 // Licensed under the MIT License.
 
 using FluentEditor.ThemePalette.Model;
+using Microsoft.UI.Xaml.Media;
+using System;
 using System.Collections.Generic;
-using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
 
 namespace FluentEditor.ThemePalette
 {
@@ -22,17 +24,17 @@ namespace FluentEditor.ThemePalette
         {
             if(sender is ThemeExtraPalette palette)
             {
-                switch(e.PropertyName)
-                {
-                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity):
-                    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintOpacity):
-                        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundTintOpacity, palette.AcrylicBackdropBackgroundTintLuminosityOpacity);
-                        break;
-                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity):
-                    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintOpacity):
-                        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundTintOpacity, palette.AcrylicHostBackdropBackgroundTintLuminosityOpacity);
-                        break;
-                }
+                //switch(e.PropertyName)
+                //{
+                //    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintLuminosityOpacity):
+                //    case nameof(ThemeExtraPalette.AcrylicBackdropBackgroundTintOpacity):
+                //        UpdateAcrylicBrush(palette, "AcrylicBackdropBackgroundBrush", palette.AcrylicBackdropBackgroundTintOpacity, palette.AcrylicBackdropBackgroundTintLuminosityOpacity);
+                //        break;
+                //    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintLuminosityOpacity):
+                //    case nameof(ThemeExtraPalette.AcrylicHostBackdropBackgroundTintOpacity):
+                //        UpdateAcrylicBrush(palette, "AcrylicHostBackdropBackgroundBrush", palette.AcrylicHostBackdropBackgroundTintOpacity, palette.AcrylicHostBackdropBackgroundTintLuminosityOpacity);
+                //        break;
+                //}
             }
         }
 
@@ -182,5 +184,24 @@ namespace FluentEditor.ThemePalette
         }
 
         #endregion
+    }
+
+
+    public class AcrylicBackgroundConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if(value is bool isHostBackdrop)
+            {
+                return isHostBackdrop ? AcrylicBackgroundSource.HostBackdrop : AcrylicBackgroundSource.Backdrop;
+            }
+
+            return AcrylicBackgroundSource.Backdrop;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

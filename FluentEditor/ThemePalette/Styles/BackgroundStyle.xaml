@@ -15,16 +15,21 @@
                                      Color="{ThemeResource SystemBaseLowColor}" />
                     <SolidColorBrush x:Key="HighBackgroundBrush"
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
-                    <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
+                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
                                   BackgroundSource="Backdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
-                                  Opacity="0.8"/>
-                    <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
-                                  BackgroundSource="HostBackdrop"
+                                  TintOpacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicBackground2ndBrush"
+                                  BackgroundSource="Backdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
-                                  Opacity="0.8" />
+                                  TintOpacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicBackground3rdBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintColor="Transparent"
+                                  FallbackColor="Transparent"
+                                  TintOpacity="0.8" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -41,16 +46,21 @@
                                      Color="{ThemeResource SystemBaseLowColor}" />
                     <SolidColorBrush x:Key="HighBackgroundBrush"
                                      Color="{ThemeResource SystemBaseMediumLowColor}" />
-                    <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
+                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
                                   BackgroundSource="Backdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
-                                  Opacity="0.8" />
-                    <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
-                                  BackgroundSource="HostBackdrop"
+                                  TintOpacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicBackground2ndBrush"
+                                  BackgroundSource="Backdrop"
                                   TintColor="Transparent"
                                   FallbackColor="Transparent"
-                                  Opacity="0.8" />
+                                  TintOpacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicBackground3rdBrush"
+                                  BackgroundSource="Backdrop"
+                                  TintColor="Transparent"
+                                  FallbackColor="Transparent"
+                                  TintOpacity="0.8" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -66,16 +76,15 @@
                              Color="{ThemeResource SystemBaseLowColor}" />
             <SolidColorBrush x:Key="HighBackgroundBrush"
                              Color="{ThemeResource SystemBaseMediumLowColor}" />
-            <AcrylicBrush x:Key="AcrylicBackdropBackgroundBrush"
-                          BackgroundSource="Backdrop"
-                          TintColor="Transparent"
-                          FallbackColor="Transparent"
-                          Opacity="0.8" />
-            <AcrylicBrush x:Key="AcrylicHostBackdropBackgroundBrush"
-                          BackgroundSource="HostBackdrop"
-                          TintColor="Transparent"
-                          FallbackColor="Transparent"
-                          Opacity="0.8" />
+                    <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                                  AlwaysUseFallback="True"
+                                  FallbackColor="Transparent" />
+                    <AcrylicBrush x:Key="AcrylicBackground2ndBrush"
+                                  AlwaysUseFallback="True"
+                                  FallbackColor="Transparent" />
+                    <AcrylicBrush x:Key="AcrylicBackground3rdBrush"
+                                  AlwaysUseFallback="True"
+                                  FallbackColor="Transparent" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 

@@ -359,6 +359,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -367,40 +368,40 @@
                 </Grid.ColumnDefinitions>
 
                 <Border
-                    Grid.Row="1"
-                    Grid.RowSpan="3"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
                     Grid.Column="0"
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}" />
 
                 <ContentControl
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="0"
                     Padding="8,0"
                     HorizontalAlignment="Left"
                     ContentTemplate="{StaticResource TextBlock}" />
                 <ContentControl
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Grid.Column="0"
                     Padding="8,0"
                     HorizontalAlignment="Left"
                     ContentTemplate="{StaticResource ControlBlock}" />
 
                 <Border
-                    Grid.Row="1"
-                    Grid.RowSpan="3"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
                     Grid.Column="1"
                     Background="{ThemeResource MediumBackgroundBrush}"
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}" />
                 <ContentControl
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="1"
                     Padding="8,0"
                     HorizontalAlignment="Left"
                     ContentTemplate="{StaticResource TextBlock}" />
                 <ContentControl
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Grid.Column="1"
                     Padding="8,0"
                     HorizontalAlignment="Left"
@@ -408,21 +409,21 @@
 
 
                 <Border
-                    Grid.Row="1"
-                    Grid.RowSpan="3"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
                     Grid.Column="2"
                     Background="{ThemeResource HighBackgroundBrush}"
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}" />
 
                 <ContentControl
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="2"
                     Padding="8,0"
                     HorizontalAlignment="Left"
                     ContentTemplate="{StaticResource TextBlock}" />
                 <ContentControl
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Grid.Column="2"
                     Padding="8,0"
                     HorizontalAlignment="Left"
@@ -431,7 +432,7 @@
                 <Border
                     Grid.Row="0"
                     Grid.ColumnSpan="3"
-                    Background="{ThemeResource AcrylicHostBackdropBackgroundBrush}"
+                    Background="{ThemeResource AcrylicBackgroundBrush}"
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl
@@ -443,7 +444,19 @@
                 <Border
                     Grid.Row="1"
                     Grid.ColumnSpan="3"
-                    Background="{ThemeResource AcrylicBackdropBackgroundBrush}"
+                    Background="{ThemeResource AcrylicBackground2ndBrush}"
+                    BorderBrush="{ThemeResource RegionBorderBrush}"
+                    BorderThickness="{ThemeResource RegionThickness}">
+                    <ContentControl
+                        HorizontalAlignment="Center"
+                        ContentTemplate="{StaticResource AcrylicTextBlock}"
+                        DataContext="Custom Backdrop Acrylic" />
+                </Border>
+                
+                <Border
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3"
+                    Background="{ThemeResource AcrylicBackground3rdBrush}"
                     BorderBrush="{ThemeResource RegionBorderBrush}"
                     BorderThickness="{ThemeResource RegionThickness}">
                     <ContentControl
