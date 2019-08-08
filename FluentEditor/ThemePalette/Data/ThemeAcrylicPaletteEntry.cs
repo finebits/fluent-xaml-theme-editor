@@ -200,6 +200,7 @@ namespace FluentEditor.ThemePalette.Data
 
         public void ResetOpacity()
         {
+            IsHostBackdrop = SourceHostBackdrop;
             TintOpacity = SourceTintOpacity;
             TintLuminosityOpacity = SourceTintLuminosityOpacity;
         }
