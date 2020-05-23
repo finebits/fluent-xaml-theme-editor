@@ -50,7 +50,7 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [Release]
+        configuration: [Debug]
      #  configuration: [Debug, Release]
 
     runs-on: windows-latest  # For a list of available runner types, refer to 
