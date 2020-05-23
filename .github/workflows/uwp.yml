@@ -58,7 +58,7 @@ jobs:
 
     env:
       Solution_Name: FluentEditor.sln   # Replace with your solution name, i.e. MyWpfApp.sln.
-      Project_Directory: FluentEditor\
+      Project_Directory: FluentEditor
       
     steps:
     - name: Checkout
